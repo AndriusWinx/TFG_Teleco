@@ -1,0 +1,52 @@
+import sys
+sys.path.append('../')
+from pycore.tikzeng import *
+
+arch = [
+    to_head( '.' ),
+    to_cor(),
+    to_begin(),
+
+    # 0. The Input Data Tensor (Dark Red)
+    "\\def\\ConvColor{rgb:red,3;black,1}",
+    to_Conv("input", s_filer="", n_filer="1", offset="(0,0,0)", to="(0,0,0)", 
+            height=20, depth=20, width=1, caption="Input"),
+    "\\node[anchor=north, text=black, font=\\large] at ([xshift=12pt, yshift=-2pt]input-south) {7x7};",
+	
+    # 1. The TimeDistributed Conv2D Layer (Bright Green)
+    "\\def\\ConvColor{rgb:green,4;white,1}",
+    to_Conv("cnn", s_filer="", n_filer="20", offset="(2.5,0,0)", to="(input-east)", 
+            height=20, depth=20, width=4, caption="TimeDistributed Conv2D"),
+    "\\node[anchor=north, text=black, font=\\large] at ([xshift=18pt, yshift=-2pt]cnn-south) {7x7};",
+    to_connection("input", "cnn"),
+
+    # 2. The TimeDistributed Flatten Layer (Brown)
+    "\\def\\ConvColor{rgb:brown,1}",
+    to_Conv("flatten", s_filer="", n_filer="1", offset="(2.5,0,0)", to="(cnn-east)", 
+            height=35, depth=1, width=1.5, caption="Flatten"),
+    "\\node[anchor=west, text=black, font=\\large] at ([xshift=10pt, yshift=10pt]flatten-west) {980};",
+    to_connection("cnn", "flatten"),
+
+    # 3. The Stateful LSTM Layer (Light Blue)
+    "\\def\\ConvColor{rgb:blue,2;white,5}",
+    to_Conv("lstm", s_filer="", n_filer="1", offset="(2.5,0,0)", to="(flatten-east)",
+            height=10, depth=1, width=1.5, caption="Stateful LSTM"),
+    "\\node[anchor=west, text=black, font=\\large] at ([xshift=10pt, yshift=10pt]lstm-west) {24};",
+    to_connection("flatten", "lstm"),
+
+    # 4. The Dense Output Layer (Cream White)
+    "\\def\\ConvColor{rgb:white,10;yellow,1}",
+    to_Conv("dense", s_filer="", n_filer="1", offset="(2.5,0,0)", to="(lstm-east)",
+            height=18, depth=1, width=1.5, caption="Dense"),
+    "\\node[anchor=west, text=black, font=\\large] at ([xshift=10pt, yshift=10pt]dense-west) {49};",
+    to_connection("lstm", "dense"),
+
+    to_end()
+]
+
+def main():
+    namefile = str(sys.argv[0]).split('.')[0]
+    to_generate(arch, namefile + '.tex')
+
+if __name__ == '__main__':
+    main()

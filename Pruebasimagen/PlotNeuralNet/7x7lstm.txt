@@ -1,0 +1,38 @@
+import sys
+sys.path.append('../')
+from pycore.tikzeng import *
+
+arch = [
+    to_head( '.' ),
+    to_cor(),
+    to_begin(),
+
+    # 0. The Input Data Tensor (Dark Red)
+    "\\def\\SoftmaxColor{rgb:red,3;black,1}",
+    to_SoftMax("input", s_filer="", offset="(2.5,0,0)", to="(0,0,0)", 
+               height=20, depth=1, width=1.5, caption="Input"),
+    "\\node[anchor=west, text=black, font=\\large] at ([xshift=10pt, yshift=10pt]input-west) {49};",
+
+    # 4. The Stateful LSTM Layer (Light Blue)
+    "\\def\\SoftmaxColor{rgb:blue,2;white,5}",
+    to_SoftMax("lstm", s_filer="", offset="(2.5,0,0)", to="(input-east)", 
+               height=10, depth=1, width=1.5, caption="Stateful LSTM"),
+    "\\node[anchor=west, text=black, font=\\large] at ([xshift=10pt, yshift=10pt]lstm-west) {24};",
+    to_connection("input", "lstm"),
+
+    # 5. The Dense Output Layer (Cream White)
+    "\\def\\SoftmaxColor{rgb:white,10;yellow,1}",
+    to_SoftMax("dense", s_filer="", offset="(2.5,0,0)", to="(lstm-east)", 
+               height=18, depth=1, width=1.5, caption="Dense"),
+    "\\node[anchor=west, text=black, font=\\large] at ([xshift=10pt, yshift=10pt]dense-west) {49};",
+    to_connection("lstm", "dense"),
+
+    to_end()
+]
+
+def main():
+    namefile = str(sys.argv[0]).split('.')[0]
+    to_generate(arch, namefile + '.tex')
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,167 @@
+\section{Estado del arte}
+\subsection{Predicción de series temporales}
+Una serie temporal puede ser representada como un vector unidimensional en cuyas posiciones se encuentran muestras secuenciales y equiespaciadas en el tiempo de una misma variable. Existen multitud de métodos de predicción de series de datos basados en la extrapolación. Sin embargo, no son específicos de series temporales sino que se aplican a conjuntos de datos genéricos.
+
+El estudio clásico de las series temporales considera que su comportamiento es fruto de la tendencia, las variaciones cíclicas y estacionales y un componente aleatorio. La tendencia es la componente que refleja la evolución lineal a largo plazo de la serie temporal de forma lineal, exponencial... La componente cíclica recoge las oscilaciones periódicas de amplitud superior a un año. Por último, la componente estacional recoge las oscilaciones periódicas de amplitud inferiores a un año como las oscilaciones mensuales, semanales, diarias... Estas tendencias pueden generar una combinación aditiva si son independientes entre sí o multiplicativa si están correlacionadas entre sí \cite{seriestemporales2}.
+
+\subsubsection{Modelos autorregresivos de medias móviles}
+Como su propio nombre indica, los modelos autorregresivos de medias móviles para la predicción de series temporales están basados en los modelos de medias móviles y autorregresivos. Las medias móviles son una manera simple de obtener una predicción cuando no hay una tencencia marcada ni tampoco estacionalidad. Se utiliza el término medias móviles puesto que confirme se va disponiendo de nuevas observaciones se pueden calcular nuevas medias mediante la inclusión de las nuevas muestras y el desprendimiento de las más antiguas \cite{seriestemporales}. De esta forma se eliminan las oscilaciones de mayor frecuencia, actuando como un filtro paso bajo.
+
+Las medias móviles unilaterales permiten estimar el valor futuro de la serie temporal $\hat{Y}_t$ como la media de las $m$ muestras inmediatamente anteriores $Y_t$:
+
+\begin{equation*}
+	\centering
+	\hat{Y}_{t} = \frac{1}{m} * \sum_{i=1}^{m} Y_{t-i}
+\end{equation*}
+
+Asímismo, la media móvil puede combinarse con una ponderación $k_i$. La ponderación más habitual es la exponencial asumiendo que las muestras más recientes contribuyen más a la correcta predicción que las muestras más antiguas:
+
+\begin{equation*}
+	\centering
+	\hat{Y}_{t} = \frac{1}{m} * \sum_{i=1}^{m} Y_{t-i} * k_{t-i}
+\end{equation*}
+
+El modelo ARMA (\textit{AutoRegressive Moving Average}) es el modelo más sencillo que combina las medias móviles t la autorregresión. Utiliza tanto las muestras reales de la serie temporal $Y_t$  como los errores cometidos en predicciones pasadas $\epsilon_t$. Concretamente, la cantidad de muestras y errores cometidos está estipulada por los parámetros $p$ y $q$ respectivamente. Siendo $\alpha_t$ y $\theta_t$ la ponderación aplicada a cada muestra y error \cite{machinelearningbook,arma, arma3}:
+
+\begin{align*}
+	\hat{Y_t} &= \sum_{i=1}^{p} \alpha_i * Y_{t-i}  +  \sum_{i=1}^{q} \theta_i * \epsilon_{t-i}\\
+	\epsilon_t &= Y_t - \hat{Y_t}\\
+\end{align*}
+
+El primer sumatorio es la parte autorregresiva, realiza una regresión basada en datos pasados. El segundo sumatoro es la media móvil de los errores cometidos en predicciones pasadas.
+
+ARMA fue desarrollada inicialmente para la predicción de datos financieros \cite{arma1} pero ha dado grandes resultados en sus adaptaciones a la predicción de tráfico en red a corto plazo \cite{arma2,arima1}. Sin embargo, el modelo ARMA presupone que la serie temporal es estacionaria, es decir, que sus propiedades estadísticas son constantes en el tiempo, sin tendencias ni comportamientos periódicos \cite{machinelearningbook}.
+
+El modelo ARIMA (AutoRegressive Integrated Moving Average) introduce restas como instrumento para eliminar las tendencias presentes en la serie temporal. Al restar el valor de una muestra al valor de la siguiente se eliminan las tendencias lineales. Aplicar una segunda resta elimina las tendencias cuadráticas, etc. De esta forma, la serie temporal resultante es estacionaria.
+
+Tomando una serie temporal de ejemplo $[1, 4, 9, 16, 25, 36]$ con una tendencia cuadrática, tras una etapa de resta se obtiene la serie $[3, 5, 7, 9, 11]$ con una tendencia lineal. Tras una segunda ronda de resta aplicada sobre la serie lineal se obtiene la serie estacionaria $[2, 2, 2, 2]$. La cantidad de rondas de restas viene especificada en el parámetro $d$ \cite{machinelearningbook,arima1}.
+
+\begin{align*}
+	d=0 -->& [1, 4, 9, 16, 25, 36]\\
+	d=1 -->& [4-1, 9-4, 16-9, 25-16, 36-25] = [3, 5, 7, 9, 11]\\
+	d=2 -->& [5-3, 7-5, 9-7, 11-9] = [2, 2, 2, 2]\\
+\end{align*}
+
+El modelo ARIMA sólo tiene en cuenta tendencias pero no comportamientos cíclicos o estacionales. El modelo SARIMA (\textit{seasonal ARIMA}) utiliza el mismo mecanismo que ARIMA pero modelando la componente estacional para una determinada frecuencia $1/s$. Además de realizar la resta con respecto a la muestra anterior, resta también la muestra en $t-s$. De esta forma, SARIMA utiliza los parámetros $p$, $d$ y $q$ para modelar la tendencia y los parámetros $P$, $D$, $Q$ y $s$ para modelar la componente estacional/cíclica \cite{machinelearningbook, sarima1}.
+
+
+
+\subsection{Aprendizaje automático}
+Existen varias definiciones para el aprendizaje automático. Un programa aprende de la experiencia $E$ con respecto a una tarea $T$ y una métrica de rendimiento $R$ si su rendimiento en la tarea, medido por $R$, mejora con más experiencia $E$ \cite{mitchell1997}. El aprendizaje automático tiene como objetivo crear sistemas capaces de aprender por ellos mismos a partir de un conjunto de datos sin ser programados de forma explícita \cite{samuel1959}.
+
+Para resolver un problema de aprendizaje automático es necesario que haya datos con los que conformar la experiencia $E$, que exista un patrón en dichos datos y, lo más importante, que no exista un modelo matemático que resuelva el problema directamente. Mediante diferentes algoritmos de aprendizaje como la regresión, los árboles de decisión o \textit{k-means clustering}, el programa puede aprender el patrón subyacente en los datos.
+
+Dentro del aprendizaje automático se encuentran dos grandes grupos: el aprendizaje no supervisado y el aprendizaje supervisado. El aprendizaje no supervisado utiliza datos no etiquetados en los que no hay una relación entre los datos de entrada y la salida esperada para realizar tareas como \textit{clustering} o detección de anomalías. Por el contrario, el aprendizaje supervisado utiliza la relación existente y conocida entre los datos de entrada y la salida esperada para resolver problemas de clasificación y regresión.
+
+Las series temporales son datos etiquetados por su propia naturaleza. Una muestra utilizada como dato de entrada tiene a la siguiente muestra como salida esperada. La predicción de series temporales es en sí un problema de regresión. Por lo tanto, entra dentro del aprendizaje automático supervisado para problemas de regresión \cite{validationsource}.
+
+\subsubsection{Procedimiento de selección de modelos}
+El aprendizaje automático funciona encontrando el conjunto de valores de las variables utilizadas por el modelo que producen los resultados más precisos. No siempre se consideran todas las variables en la búsqueda del mejor conjunto de valores. Las variables que sí son consideradas se denominan hiperparámetros.
+
+Existen diferentes estrategias en la búsqueda de los mejores hiperparámetros. Entre las estrategias más comunes se encuentran el \textit{grid search} y el \textit{random search}. La primera itera sobre un conjunto de valores concretos establecidos mientras la segunda utiliza conjuntos de valores obtenidos de forma aleatoria dentro de un rango. \textit{Grid search} ofrece un gran control sobre los valores utilizados en la búsqueda mientras \textit{random search} ofrece la posibilidad de encontrar buenos conjuntos de valores en un rango de búsqueda más amplio. Ninguna estrategia es infalible, siempre cabe la posibilidad de que el modelo para el que se realiza la búsqueda no sea un buen modelo \cite{randomsearch}.
+
+Según cómo se diseñe el programa o modelo de aprendizaje automático y el valor de sus hiperparámetros, su rendimiento a la hora de obtener el patrón subyacente a unos datos puede variar mucho. A mayores, no existe \textit{a priori} un modelo mejor que otro \cite{nofreelunch}. Por ello, se ha diseñado un protocolo de creación de modelos de aprendizaje automático.
+
+El aprendizaje automático se divide en tres fases que contienen 3 sets de datos diferentes: entrenamiento, validación y test. El entrenamiento refiere a la primera fase, donde el programa o modelo aprende en la medida que le es posible el patrón subyacente presente en los datos de entrenamiento. Como se verá más adelante, esta fase involucra algoritmos como \textit{backpropagation} o \textit{gradient descent}. El grado de aprendizaje correcto del patrón de los datos de entrenamiento se denomina error de entrenamiento o $E_{in}$, siendo 0 el mejor valor posible.
+
+El modelo, una vez pasada la fase de entrenamiento, dejará de aprender para convertirse en un modelo en producción que se dedicará a aplicar el patrón aprendido en el entrenamiento a nuevas muestras. Sin embargo, aunque el modelo tenga un $E_{in}$ bajo, puede no dar las respuestas correctas a las nuevas muestras. El error cometido en las muestras en producción se denomina como $E_{out}$ y el error de generalización se calcula como $E_{out}-E_{in}$. Para evitar que esto ocurra y se lance un modelo a producción que no funcione bien, provocando en la mayoría de casos pérdidas económicas y oportunidades de negocio, se introducen las fases de validación y test.
+
+No se pueden comparar modelos entre sí directamente usando $E_{in}$ puesto que esto sólo conllevaría a la elección del modelo con menor $E_{in}$ y, en consecuencia, con mayor $E_{out}$. Esta situación es conocida como \textit{overfitting}. La fase de validación se encarga de comparar los diferentes modelos propuestos haciéndoles procesar un set de datos de validación como si estuvieran en producción. El desempeño de los modelos en esta fase o $E_{val}$ sí que puede utilizarse para comparar modelos.
+
+Sin embargo la fase de validación tiene el mismo problema de antes. Cabe la posibilidad de que el modelo escogido haya realizado \textit{overfitting} en los datos de validación y, aunque tenga un valor pequeño de $E_{val}$, tenga un gran error $E_{out}$. Por ello, la fase de test reentrena el modelo utilizando los datos de entrenamiento y validación y mide el nuevo rendimiento con un set de datos de test. El error obtenido $E_{test}$ es entonces una buena estimación de $E_{out}$.
+
+Es importante recalcar que los datos de test sólo deben ser utilizados en la fase de test. Utilizarlos en otras fases como la de entrenamiento o en el reentreno del modelo tras la validación provocará una distorsión en la medida $E_{test}$ llamada \textit{data leakage}. Tampoco ha de usarse para comparar modelos como si fuera un test de validación \cite{machinelearningbook, validationsource, paramtuning}.
+
+
+\subsubsection{Métricas de rendimiento}
+
+RNMSE
+Spearman
+
+
+\subsection{\textit{Deep learning}}
+\textit{Deep learning} es considerado un subconjunto dentro del aprendizaje automático. Mientras el aprendizaje automático o \textit{machine learning} utiliza algoritmos de aprendizaje diseñados por humanos, \textit{deep learning} utiliza estructuras neuronales para extraer el patrón subyacente en los datos de forma directa sin necesidad de algoritmos concretos como árboles de decisión o \textit{clustering}.
+
+Con el objetivo de crear un programa que imitara la inteligencia humana nacieron las neuronas artificiales que imitan el funcionamiento de las neuronas biológicas del cerebro humano. Las neuronas artificiales imitan la sinapsis biológica de tal forma que evalúan la cantidad de entradas binarias activas en un momento dado para determinar si su salida, también binaria, debe activarse o no. Con un modelo tan simple es posible construir una red neuronal artificial\footnote{En todo este trabajo se hace referencia a las redes neuronales artificiales como redes neuronales y a las neuronas artificiales como neuronas.} capaz de procesar cualquier problema lógico \cite{mcculloch1943}.
+
+\subsection{El \textit{Perceptron}}
+El \textit{perceptron} es un modelo de red neuronal que utiliza neuronas conocidas como TLU (\textit{Threshold Logic Unit}). Las neuronas TLU funcionan de forma muy similar a las neuronas artificiales binarias salvo que procesan entradas no binarias $x_n$ para dar una salida no binaria $y_{W,b}(X)=f(z)$. Dentro de la neurona se calcula una función lineal $z=\sum_{1}^{N}x_n*w_n + b$ donde cada entrada $x_n$ es asignada un peso $w_n$ además de utilizar un término de \textit{offset} $b$. Existen diferentes funciones que transforman la combinación lineal de entradas $z$ en la salida $y_{W,b}$ como por ejemplo: la función binaria $Heaviside(x)$, la función sigmoide $\sigma(z)$, la función tangente hiperbólica $tanh(z)$ o la función lineal rectificada $ReLU(z)$ \cite{rosenblatt1957, rumelhart1985,machinelearningbook}.
+
+Por sí mismas, ninguna neurona es capaz de aprender. Necesitan un método de ajuste para poder adaptarse al patrón subyacente de los datos. El aprendizaje de las neuronas viene dado por el error cometido en su salida $y_{W,b}(X)=\hat{y}$ con respecto a la salida esperada $y$. De esta forma, una red neuronal con $J$ neuronas actualiza sus pesos $w_{i,j}$ mediante un proceso llamado entrenamiento de la forma:
+
+\begin{equation*}
+w_{i,j}^{1} = w_{i,j}^0 + \eta *(y_j^0 - \hat{y}_j^0)*x_{i,j}^0
+\end{equation*}
+
+Donde $x_{i,j}^0$ es la muestra actual de la entrada $i$ de la neurona $j$, $(y_j^0 - \hat{y}_j^0)$ es el error cometido por la neurona $j$ en su salida respecto a la muestra actual $x^0$ (nótese que las neuronas sólo tienen una salida pero $I$ entradas), $\eta$ es la tasa de aprendizaje o \textit{learning rate}, $w_{i,j}^0$ es el peso no actualizado asignado a la entrada $i$ de la neurona $j$ en el momento de procesar la muestra $x_{i,j}^0$ y $w_{i,j}^{1}$ es el peso actualizado que se utilizará en la siguiente muestra de la entrada $i$ de la neurona $j$ \cite{machinelearningbook}.
+
+\subsection{Entrenamiento de redes neuronales}
+
+Un \textit{perceptron} formado por una sola neurona puede realizar tareas simples de clasificación binaria al encontrar, tras varias muestras de entrenamiento, los pesos óptimos que minimicen el error cometido en la clasificación. De esta forma, la neurona imitaría el patrón subyacente en los datos. Un \textit{perceptron} formado por $J$ neuronas puede realizar una clasificación binaria en $J+1$ clases al tener $J$ salidas. Lo más interesante es la posibilidad de conectar las salidas de un \textit{perceptron} a las entradas de otro \textit{perceptron} para crear un \textit{perceptron} multicapa.
+
+La primera capa es llamada capa de entrada o \textit{input layer} mientras la última capa es la capa de salida o \textit{output layer}. El resto de capas intermedias son las \textit{hidden layers}. Las primeras capas son capaces de reconocer las formas más básicas del patrón subyacente a los datos. Las últimas capas utilizan los patrones básicos reconocidos por las primeras para construir patrones más complejos.
+
+Un \textit{perceptron} multicapa forma parte de las redes neuronales profundas o \textit{Deep Neural Networks}. El método de ajuste de pesos de una red neuronal profunda, llamado retropropagación o \textit{backpropagation}, difiere del explicado anteriormente que involucra el uso del algoritmo conocido como descenso de gradiente o \textit{gradient descent}.
+
+El algoritmo \textit{gradient descent} consiste en minimizar una función de coste cambiando iterativamente el valor de los parámetros que influyen en la salida evaluada por dicha función de coste. Cuando la red neuronal ha dado al menos dos predicciones, hay al menos dos errores medidos por la función de coste. De esta forma, se puede calcular la pendiente de la recta que une ambos errores, llamada gradiente. El algoritmo \textit{gradient descent} utiliza el valor y signo de dicha pendiente para actualizar los pesos de las redes neuronales en el sentido descendente. De esta forma, a medida que el error se va reduciendo, se reduce también la fuerza de la actualización de pesos hasta llegar al mínimo de la función de coste donde el gradiente es nulo.
+
+\textit{Backpropagation} funciona en dos fases: el pase hacia delante o \textit{forward pass} y el pase hacia atrás \textit{backward pass}. Durante el \textit{forward pass}, la red neuronal procesa una entrada y guarda el valor de su salida $\hat{y}$ final junto al valor de salida de todas las neuronas que forman parte de la red. En el \textit{backward pass} se mide el error cometido en la salida final respecto a la salida esperada y se calcula, utilizando las salidas de las neuronas de las capas intermedias, la contribución de cada peso $w_{i,j}$ de las neuronas de las capas anteriores hasta llegar a la primera capa. Finalmente, los pesos son modificados siguiendo los principios del algoritmo \textit{gradient descent}.
+
+Es muy importante que los pesos $w_{i,j}$ de cada capa $l$ sean inicializados de forma aleatoria. Si todos los pesos fueran iguales, serían actualizados en la misma cuantía por el algoritmo \textit{gradient descent}. De esta forma la red neuronal actuaría como si cada capa sólo tuviera una neurona \cite{machinelearningbook, rumelhart1985, backpropsource}.
+
+\subsubsection{Unstable Gradients}
+
+
+
+\subsection{Redes neuronales convolucionales}
+Las redes neuronales convolucionales o CNNs (\textit{Convolutional Neural Networks}), al igual que los \textit{perceptrons}, imitan la estructura biológica de las neuronas. Sin embargo, las CNNs imitan la arquitectura del córtex visual. Una neurona $j$ de la capa $l$ no está conectada a todas las neuronas de la capa $l-1$ sino que se conecta a un set pequeño de neuronas circundantes de la capa $l-1$. De esta forma, juntando y solapando los campos visuales de diferentes neuronas, se llega a cubrir el campo visual entero, como si se realizara la convolución de un filtro a lo largo de una imagen. Así, las redes neuronales convolucionales son ideales para el procesado de datos en dos dimensiones como las imágenes.
+
+Las capas de una red CNN disponen sus neuronas en un plano bidimensional $ixj$ para imitar la estructura biológica. El campo visual de una neurona está definido por su altura $f_h$ y anchura $f_w$. De esta forma, la neurona $i,j,l$, siendo está conectada a las neuronas comprendidas en el campo visual $i\pm floor(f_h/2),j\pm floor(f_w/2),l-1$. Esto supone que las capas superiores son cada vez más pequeñas puesto que el campo visual de las neuronas cercanas a los bordes de la capa $l$ se saldría de las dimensiones de la capa $l-1$. Para evitarlo, es posible rodear todos los datos con ceros (\textit{zero padding}) para que el campo visual de las capas superiores no se salga de las capas inferiores.
+
+Aun así, para reducir la complejidad de la red neuronal, es posible conectar una capa convolucional con otra más pequeñas sin tener que estar relacionadas por los parámetros $f_h$ y $f_w$ al usar un salto mayor o \textit{stride}, tanto en vertical $s_h$ como en horizontal $s_w$ \cite{machinelearningbook, cnn, cnn1}.
+
+\subsubsection{Mapas de filtros}
+Durante el estudio del córtex visual biológico se descubrió que algunas neuronas sólo reconocían patrones verticales mientras otras reconocían sólo patrones en otras direcciones. Esto condujo a la creación de filtros o \textit{kernels} en las neuronas artificiales convolucionales. Un filtro es una combinación de pesos determinada que permite a la neurona reconocer patrones en una dirección concreta. Una capa de neuronas que comparten un mismo \textit{kernel} pertenecen a un mismo mapa de filtros. Cada neurona del mapa $k$ de la capa $l$ procesa todos los mapas de filtros de la capa $l-1$ pertenecientes a su campo visual \cite{machinelearningbook}.
+
+\subsubsection{Capas de agregación}
+Las redes neuronales convolucionales presentan un gran problema en cuanto a los recursos consumidos, especialmente durante el entrenamiento. Para orquestar el algoritmo de retropropagación se necesita obtener las salidas intermedias de todas las capas de neuronas, contando con todos sus mapas de filtros. La carga computacional no es tan grande como si se tratara de una red de \textit{perceptrons} completamente conectados. Aun así, la carga es muy grande.
+
+Para ello se desarrollaron las capas de agregación. Su cometido es el submuestreo de los datos para reducir la carga computacional perdiendo la menor cantidad de información posible. Son capas cuyas neuronas, también dispuestas en un plano bidimensional y conectadas sólo a las neuronas dentro de su campo visual, sin pesos para sus entradas. Las neuronas de las capas de agregación combinan las entradas con funciones como máximo o promedio. Así, se reduce el tamaño de los datos a procesar eliminando la información menos importante, lo que ayuda también a que las CNNs mejoren su generalización \cite{machinelearningbook}.
+
+\subsection{Redes neuronales recurrentes}
+Las redes neuronales recurrentes o RNNs (\textit{Recurrent Neural Networks}), a diferencia de las anteriores, no están basadas en ninguna estructura biológica. Son capas de neuronas capaces de retener información de muestras procesadas con anterioridad. Las neuronas neuronas recurrentes más simples, además de procesar las entradas $x_t$, procesan su propia salida de la muestra anterior $\hat{Y}_{t-1}$, con su propio peso $w_{\hat{y}}$ para generar la salida actual $\hat{Y}_t$. Esto hace a las RNN ideales para el procesado de secuencias de datos como, por ejemplo, series temporales.
+
+Otras neuronas recurrentes fueron desarrolladas para aumentar la capacidad de memoria de las neuronas más simples. La mayor parte de ellas comienza por memorizar una combinación de las entradas con la salida anterior en vez de sólamente la salida anterior. Esta combinación se denomina estado o \textit{hidden state} $h_t=f(x_t,\hat{y}_{y-1})$. La salida de estas neuronas es también una función de las entradas y el estado anterior $\hat{y}_t=g(x_t,h_{t-1})$ \cite{machinelearningbook,rnn,rnn1,rnn2}.
+
+\subsubsection{Neuronas LSTM}
+
+Aun así, con el paso de muchas entradas, la información almacenada en el estado $h$ es desechada en favor de nueva información. Las neuronas LSTM (\textit{Long-Short Term Memory}) fueron diseñadas para escoger si la información obtenida de las muestras procesadas más recientes es merecedora de ser almacenada en el estado de la neurona. En realidad no son en sí una neurona sino una célula compuesta de una capa de neuronas completamente conectadas y operadores de adición y multiplicación\footnote{Durante todo este trabajo se hará referencia a las células LSTM como neuronas LSTM.}.
+
+Las neuronas LSTM dividen el estado en dos vectores: el vector de largo alcance $c$ y el vector de corto alcance $c$, siendo éste último equivalente a la salida de la neurona $\hat{y}$. Dentro de la neurona LSTM, el vector de largo alcance sufre una pérdida de información antigua, controlada por la puerta de olvido o \textit{forget gate}, y la adición de información nueva controlada por la puerta de entrada o \textit{input gate}.
+
+La puerta de olvido y la puerta de entrada son controladas mediante el procesado del vector de corto alcance anterior $h_{t-1}$ y las muestras de entrada actuales $x_t$ por una capa de neuronas completamente conectadas por cada puerta. Dichas capas completamente conectadas tienen la función de activación logística, que arroja valores entre 0 y 1 en su salida. Así, controlan el porcentaje de olvido aplicado al vector $c_{t-1}$ y el porcentaje de la combinación $g_t=g(x_t,h_{t-1})$ que se añadirá al vector $c_{t-1}$ para formar el nuevo vector de largo alcance $c_{t-1}$. La combinación $g_t$ es la salida ofrecida por una neurona recurrente básica que combina la entrada actual $x_t$ con su estado anterior $h_{t-1}$.
+
+La última parte de las neuronas LSTM es la puerta de salida o \textit{output gate}. Ésta es controlada de la misma forma que las puertas descritas anteriormente e indica qué porción del nuevo vector de largo alcance $c_t$ es considerado como salida $\hat{y}_t$ y nuevo vector de corto alcance $h_t$.
+
+De esta forma, las neuronas LSTM pueden reconocer una muestra de entrada relevante para construir el patrón subyacente de los datos y almacenarla a la misma vez que ignora muestras de entrada irrelevantes. Esto además permite a las neuronas LSTM encontrar patrones de largo plazo en los datos \cite{SKIMAcasaseca,lstm,machinelearningbook,rnn,rnn1,rnn2}.
+
+
+\subsection{ConvLSTM}
+El presente trabajo analizará varios modelos con el objetivo de encontrar el patrón subyacente en varias series temporales. Dichas series representan el tráfico de red cursado en múltiples nodos situados geográficamente próximos entre sí. Aprovechando las capacidades de las redes convolucionales y recurrentes, se analizarán modelos que combinan redes CNN con RNN para encontrar el patrón espacio temporal presente en los datos esperando que ello mejore las capacidades de predicción de tráfico en red.
+
+
+
+\subsection{\textit{Online learning}}
+Uno de los mayores problemas de los modelos de aprendizaje automático o \textit{deep learning} es la evolución de los datos. Los modelos en producción suelen ser estáticos, es decir, no actualizan sus parámetros ni pesos. Esto les aporta una gran solidez pero genera una decadencia en su rendimiento a medida que los datos que procesan modifican su patrón subyacente con el paso del tiempo, alejándose del patrón aprendido por el modelo. Este problema, comúnmente denominado como \textit{concept drift}, no siempre tiene la misma apariencia, dependiendo de los datos procesados el cambio de patrón puede ser más o menos brusco o incluso ser cíclico.
+
+Para solucionar este problema se debe entrenar de nuevo el modelo. Esto conlleva una gran tarea por detrás. Además de tener que generar nuevos sets de entrenamiento, validación y test que representen no sólo el nuevo patrón cambiado sino también el antiguo, la inversión en tiempo y recursos de computación puede ser muy alta. Esto supone una gran inversión financiera que puede no llegar a ser rentable si la frecuencia de cambio del patrón de los datos es demasiado alta.
+
+Como solución alternativa se propuso el entrenamiento incremental o \textit{online learning}. El modelo procesa se forma secuencial los datos en pequeños grupos o \textit{mini-batches} de los que aprende de forma rápida y barata. De esta forma, a medida que procesa nuevos paquetes de datos se ajusta al patrón de los nuevos datos. No todo es ventajas puesto que el modelo debe ser capaz de distinguir las irregularidades en el patrón debidas al ruido presente en los datos de las irregularidades causadas por un cambio real en el patrón \cite{conceptdrift,conceptdrift1}.
+
+
+%%%%%%%IMAGEN Figura 2 de https://dl.acm.org/doi/epdf/10.1145/2523813  %%%%%%%%%%%%
+
+Los modelos basados en \textit{online learning} son especialmente útiles para la predicción de series temporales como el tráfico en red. Debido a la naturaleza de estas series, no necesitan la intervención ni humana ni de otros modelos para generar datos de entrenamiento. Cuando el modelo de \textit{online learning} procesa una secuencia de datos $x_t$ y predice la siguiente muestra $\hat{Y}_{t+1}$, no conoce el error que ha cometido en la predicción puesto que el valor real $y_{t+1}$ es todavía desconocido. Sin embargo, llegado el momento $t+1$ sólo es necesario medir la variable real para conocer $y_{t+1}$. Así se puede medir el error cometido $\epsilon_{t+1}=y_{t+1}-\hat{Y}_{t+1}$ de forma sencilla y, a pesar de la necesidad de un elemento externo para medir la variable real, autónoma.
+
+
+

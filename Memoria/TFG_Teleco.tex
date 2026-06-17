@@ -1,0 +1,65 @@
+\documentclass[12pt, spanish]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{placeins}
+\usepackage{subcaption}
+\usepackage{geometry}
+\usepackage[spanish, es-tabla]{babel}
+\selectlanguage{spanish}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{physics}
+\usepackage{gensymb}
+\usepackage{subcaption}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{url}
+\usepackage{cite}
+
+\geometry{a4paper, top=2.4cm,bottom=2.5cm,left=3cm,right=3cm}
+\sisetup{
+	round-mode=places,
+	round-precision=2,
+}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\begin{document}
+
+	\begin{titlepage}
+		\centering
+		{\includegraphics[width=0.9\textwidth]{Figuras/Universidad-de-Valladolid.png}}\par
+		{\bfseries\Large Escuela Técnica Superior de Ingenieros de Telecomunicación\par}
+		\vspace{0.5cm}
+		{\bfseries\itshape\Large Desarrollo de Aplicaciones Telemáticas Distribuidas \par}
+		\vspace{0.5cm}
+		{\scshape Máster Universitario en Ingeniería de Telecomunicación \par}
+		\vspace{0.5cm}
+		{\bfseries\scshape\Large Modelo de recursos \par}
+		\vspace{1.5cm}
+		{ Autores: \\}
+		{ Andrés García Treviño\par
+		}
+		\vspace{0.25cm}
+		\vspace{0.5cm} {Valladolid, marzo 2025 \par}
+	\end{titlepage}
+
+	\pagenumbering{arabic}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{Introduccion}
+\include{EstadoDelArte}
+\include{EntornoExperimental}
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+\end{document}

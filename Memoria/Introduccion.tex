@@ -1,0 +1,17 @@
+\section{Introducción}
+Las redes de telecomunicaciones tienen como finalidad el intercambio de información entre un nodo transmisor y un nodo receptor. Es un concepto sencillo afecado por un problema de números. Siguendo la ley de Bell, el número de dispositivos ha aumentado exponencialmente desde 1 ordenador básico en un departamento de una empresa a múltiples dispositivos por persona (teléfonos móviles, relojes inteligentes...)\cite{bell2008}. Casi con la misma tendencia ha evolucionado la tecnología de las telecomunicaciones, impidiendo que el crecimiento de los dispositivos saturase las capacidades de la red. De esta forma, en la actualidad existe una infinidad de nodos transmisores y receptores.
+
+Los flujos de información intercambiada entre los nodos transmisores y receptores forma el tráfico de red. Dicho tráfico puede ser representados y medidos. Las medidas o muestras realizadas en diferentes instantes de tiempo pueden aunarse en una serie temporal. Como todas las series, cabe la posibilidad de que sigan un patrón que pueda utilizarse para predecir medidas futuras a partir del histórico de medidas pasadas \cite{azzouni2017}. Con la inmensa cantidad de flujos de información existentes a día de hoy, resulta imposible analizarlos mediante la intervención humana. Sin embargo, la situación planteada representa el caso de uso de la inteligencia artificial y \textit{Deep Learning}: averiguar el patrón subyacente de un conjunto de datos \cite{AML12}.
+
+La predicción del tráfico de red tiene numerosísimas aplicaciones como, por ejemplo, la correcta planificación y organización de los recursos de las redes de telecomunicaciones. Esto se traduce en un menor desperdicio de recursos, que a su vez se traduce en una inversión económica más eficiente, sin menoscabar la calidad del servicio proporcionado por la red de telecomunicaciones \cite{bui2017}. También es posible aplicar la predicción de tráfico de red a tareas como la detección de anomalías o intrusos, monitorización o mantenimiento \cite{guo2016robust}.
+
+Sin embargo, en la actualidad existen multitud de aplicaciones que generan flujos de datos a demanda. Algunos ejemplos son el \textit{media streaming} o los modelos de negocio \textit{as a Service} (XaaS) \cite{duan2015xaas}. Los modelos de predicción estáticos convencionales no son capaces de adaptarse al dinamismo y la falta de estacionariedad de dichos flujos de datos.
+
+Para solucionar dicho problema se han desarrollado modelos capaces de adaptarse a los cambios en las tendencias o patrones subyacentes en los flujos de tráfico. Estos modelos se basan en \textit{online active deep learning}. De esta forma se permite reentrenar los modelos a medida que se incorporan nuevas muestras \cite{tfgalicia}. Este trabajo se basa en la investigación realizada en \cite{SKIMAcasaseca} acerca de modelos LSTM que implementan actualizaciones incrementales donde las muestras sobre las que los modelos tuvieron un mayor error toman mayor importancia. De esta forma, los modelos se adaptan a las nuevas muestras en un proceso llamado \textit{concept drift} \cite{conceptdrift}.
+
+
+\subsection{Objetivos}
+
+
+
+

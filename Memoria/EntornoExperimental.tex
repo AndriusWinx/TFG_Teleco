@@ -1,0 +1,26 @@
+\section{Entorno experimental}
+\subsection{Introducción}
+\subsection{Descripción de los datos}
+Los datos utilizados en este trabajo provienen del dataset Milán \cite{milandataset}. Este dataset fue creado con la intención original de descubrir la relación, si existiese, entre los eventos meteorológicos y el tráfico de red en la ciudad de Milán, Italia. El dataset contiene datos agregados tanto climatológicos como de SMS, llamadas telefónicas y tráfico perteneciente a navegación web. Los datos están organizados en mediciones realizadas cada hora que corresponden a una celda cuadrada de $1 m^2$ dentro de un área de $300m^2$ de la ciudad de Milán. El dataset contiene mediciones correspondientes a los meses de noviembre y diciembre de 2013.
+
+%%JUSTIFICACIÓN PORQUÉ SE USAN LAS CELDAS 7X7
+
+%%BREVE REPRESENTACIÓN DE LOS DATOS
+
+\subsection{Arquitecturas empleadas}
+Para este trabajo se han utilizado 5 arquitecturas de redes neuronales. En primer lugar se ha utilizado una arquitectura formada por una única capa de 24 neuronas LSTM en medio de una capa de entrada y una capa completamente conectada de 3 salidas. Con esta arquitectura se ha obtenido el rendimiento base de la propuesta realizada por el Dr. Juan Pablo Casaseca de la Higuera \cite{SKIMAcasaseca},a mejorar en este trabajo. Los datos procesados por esta arquitectura pertenecen a las celdas 4259, 4456 y 5060 del dataset Milán.
+
+Para alcanzar el objetivo de evaluar el rendimiento en un conjunto de 49 celdas contiguas se ha utilizado también una arquitectura formada por una capa de entrada, una capa de neuronas LSTM y una capa completamente conectada de 49 salidas. De esta forma se ha obtenido el rendimiento de la arquitectura exclusivamente LSTM con las celdas contiguas.
+
+Para intentar extraer la correlación espacial entre las 49 celdas, se han propuesto otras 3 arquitecturas compuestas por una capa de entrada, 1, 2 y 3 capas de neuronas CNN respectivamente, una capa \texttt{Flatten}, una capa de neuronas LSTM y una capa completamente conectada de 49 salidas.
+
+\begin{figure}
+	\centering
+%	\includegraphics[width=0.4\linewidth]{Figuras/7x7CNNLSTM_sketch.svg}
+\end{figure}
+
+%%HIPERPARÁMETROS CONSIDERADOS
+
+%%INFRAESTRUCTURA Y GPUS UTILIZADAS (KAGGLE)
+
+%%MÉTRICAS DE RENDIMIENTO UTILIZADAS

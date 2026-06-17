@@ -1,0 +1,72 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: TFG_Teleco.aux
+Reallocating 'name_of_file' (item size: 1) to 17 items.
+A level-1 auxiliary file: Introduccion.aux
+Reallocating 'name_of_file' (item size: 1) to 18 items.
+A level-1 auxiliary file: EstadoDelArte.aux
+Reallocating 'name_of_file' (item size: 1) to 24 items.
+A level-1 auxiliary file: EntornoExperimental.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: IEEEtran.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Database file #1: references.bib
+Repeated entry---line 793 of file references.bib
+ : @article{conceptdrift
+ :                      ,
+I'm skipping whatever remains of this entry
+Warning--entry type for "milandataset" isn't style-file defined
+--line 879 of file references.bib
+Warning--I didn't find a database entry for "AML12"
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+You've used 35 entries,
+            4087 wiz_defined-function locations,
+            1069 strings with 14663 characters,
+and the built_in function-call counts, 25534 in all, are:
+= -- 2089
+> -- 574
+< -- 195
++ -- 313
+- -- 100
+* -- 1272
+:= -- 3992
+add.period$ -- 74
+call.type$ -- 35
+change.case$ -- 32
+chr.to.int$ -- 450
+cite$ -- 35
+duplicate$ -- 1816
+empty$ -- 2080
+format.name$ -- 124
+if$ -- 5898
+int.to.chr$ -- 0
+int.to.str$ -- 35
+missing$ -- 330
+newline$ -- 168
+num.names$ -- 35
+pop$ -- 733
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 1953
+stack$ -- 0
+substring$ -- 1070
+swap$ -- 1492
+text.length$ -- 45
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 35
+warning$ -- 0
+while$ -- 106
+width$ -- 37
+write$ -- 408
+(There was 1 error message)

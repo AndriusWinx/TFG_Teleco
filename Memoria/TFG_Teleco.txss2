@@ -1,0 +1,56 @@
+{
+    "InternalPDFViewer": {
+        "Embedded": true,
+        "File": "TFG_Teleco.pdf"
+    },
+    "Session": {
+        "Bookmarks": [
+        ],
+        "CurrentFile": "EntornoExperimental.tex",
+        "FileVersion": 1,
+        "Files": [
+            {
+                "Col": 15,
+                "EditorGroup": 0,
+                "FileName": "TFG_Teleco.tex",
+                "FirstLine": 39,
+                "FoldedLines": "",
+                "Line": 49
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Introduccion.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "EstadoDelArte.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 239,
+                "EditorGroup": 0,
+                "FileName": "EntornoExperimental.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 3
+            },
+            {
+                "Col": 18,
+                "EditorGroup": 0,
+                "FileName": "references.bib",
+                "FirstLine": 425,
+                "FoldedLines": "",
+                "Line": 439
+            }
+        ],
+        "MasterFile": "",
+        "VerticalSplit": false
+    }
+}

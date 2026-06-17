@@ -1,0 +1,124 @@
+\relax 
+\@writefile{toc}{\contentsline {section}{\numberline {1}Revisión del código original}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Capas de la red neuronal}{1}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}Capa \texttt  {Input} en la red CNN+LSTM}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}\textit  {Data leakage} por normalización}{1}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}\textit  {Data leakage} original}{1}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}Escalado del dataset sin data leakage}{2}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Resultados de la simulación 3 celdas LSTM con \textit  {data leakage}}}{2}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Resultados de la simulación 3 celdas LSTM sin \textit  {data leakage}}}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}\textit  {Data leakage} por falta de validación}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Reproducibilidad}{3}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4}Código para la reproducibilidad}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.5}Optimización del código}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.5.1}Cálculo dinámico del tamaño de los datasets}{3}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5}Adquisición dinámica de datos}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.5.2}Visualización de resultados}{4}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {6}Nuevo método de visualización de resultados}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Simulaciones}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Bucle Grid Search}{5}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {7}Hiperparámetros con \texttt  {itertools}}{5}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {8}Bucle Grid Search}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}LSTM 3 celdas}{6}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces RNMSE de entrenamiento 3 celdas}}{7}{}\protected@file@percent }
+\newlabel{fig1:train3x1}{{1}{7}{}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces RNMSE de test estático 3 celdas}}{8}{}\protected@file@percent }
+\newlabel{fig1:static3x1}{{2}{8}{}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces RNMSE de entrenamiento incremental 3 celdas}}{8}{}\protected@file@percent }
+\newlabel{fig1:incremental3x1}{{3}{8}{}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}7x7 LSTM}{8}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {9}Capas de la red 7x7LSTM}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}Resultados}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}7x7 CNN-LSTM}{9}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {10}Añadido enable\_op\_determinism()}{9}{}\protected@file@percent }
+\gdef \LT@i {\LT@entry 
+    {1}{27.09715pt}\LT@entry 
+    {1}{26.56938pt}\LT@entry 
+    {1}{37.40265pt}\LT@entry 
+    {4}{29.77785pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.4.1}Resultados}{10}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Simulaciones con reproducibilidad}{10}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Resultados 7x7 LSTM}{10}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {11}Grid Search LSTM reproducible}{10}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{Resultados de la simulación nº1 7x7 LSTM (LB=\textit  {lookback} BS=\textit  {batchsize} NEU=\textit  {n\_epoch\_updates} TH=\textit  {threshold})}}{10}{}\protected@file@percent }
+\newlabel{tab:LSTMrepro1}{{3}{10}{}{table.3}{}}
+\gdef \LT@ii {\LT@entry 
+    {1}{27.09715pt}\LT@entry 
+    {1}{26.56938pt}\LT@entry 
+    {1}{37.40265pt}\LT@entry 
+    {4}{29.77785pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{Resultados de la simulación nº2 7x7 LSTM (LB=\textit  {lookback} BS=\textit  {batchsize} NEU=\textit  {n\_epoch\_updates} TH=\textit  {threshold})}}{11}{}\protected@file@percent }
+\newlabel{tab:LSTMrepro2}{{4}{11}{}{table.4}{}}
+\gdef \LT@iii {\LT@entry 
+    {1}{27.09715pt}\LT@entry 
+    {1}{26.56938pt}\LT@entry 
+    {1}{37.40265pt}\LT@entry 
+    {1}{28.99992pt}\LT@entry 
+    {1}{28.23604pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Resultados CNN+LSTM}{12}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {12}Grid Search CNN+LSTM reproducible}{12}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{Resultados de la simulación nº1 7x7 CNN+LSTM (LB=\textit  {lookback} BS=\textit  {batchsize} NEU=\textit  {n\_epoch\_updates} TH=\textit  {threshold} NF=\textit  {número filtros})}}{12}{}\protected@file@percent }
+\newlabel{tab:CNNLSTMrepro1}{{5}{12}{}{table.5}{}}
+\gdef \LT@iv {\LT@entry 
+    {1}{27.09715pt}\LT@entry 
+    {1}{26.56938pt}\LT@entry 
+    {1}{37.40265pt}\LT@entry 
+    {1}{28.99992pt}\LT@entry 
+    {1}{28.23604pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{Resultados de la simulación nº2 7x7 CNN+LSTM (LB=\textit  {lookback} BS=\textit  {batchsize} NEU=\textit  {n\_epoch\_updates} TH=\textit  {threshold} NF=\textit  {número filtros})}}{13}{}\protected@file@percent }
+\newlabel{tab:CNNLSTMrepro2}{{6}{13}{}{table.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Grid Search extendido con aumento de velocidad}{14}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{Resultados de la simulación con Grid Search extendido 7x7 CNN+LSTM y mejoras de velocidad (LB=\textit  {lookback} BS=\textit  {batchsize} NEU=\textit  {n\_epoch\_updates} TH=\textit  {threshold} NF=\textit  {número filtros})}}{14}{}\protected@file@percent }
+\newlabel{tab:CNNLSTMextended}{{7}{14}{}{table.7}{}}
+\gdef \LT@v {\LT@entry 
+    {1}{27.09715pt}\LT@entry 
+    {1}{26.56938pt}\LT@entry 
+    {1}{37.40265pt}\LT@entry 
+    {1}{28.99992pt}\LT@entry 
+    {1}{28.23604pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Mejoras de velocidad}{18}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {13}\texttt  {Callback} para la función \texttt  {.fit()}}{18}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {14}Uso de \texttt  {AutoGraph}, \texttt  {XLA} y \texttt  {Kernel Fusion} mediante \texttt  {@tf.function}}{18}{}\protected@file@percent }
+\gdef \LT@vi {\LT@entry 
+    {1}{27.09715pt}\LT@entry 
+    {1}{26.56938pt}\LT@entry 
+    {1}{37.40265pt}\LT@entry 
+    {1}{28.99992pt}\LT@entry 
+    {1}{28.23604pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}\LT@entry 
+    {4}{64.77795pt}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{Resultados de la prueba de reproducibilidad con Grid Search extendido 7x7 CNN+LSTM con mejoras de velocidad (LB=\textit  {lookback} BS=\textit  {batchsize} NEU=\textit  {n\_epoch\_updates} TH=\textit  {threshold} NF=\textit  {número filtros})}}{19}{}\protected@file@percent }
+\newlabel{tab:CNNLSTMextendedrepro}{{8}{19}{}{table.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Resultados CNN+CNN+LSTM}{21}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {15}Grid Search CNN+CNN+LSTM reproducible}{21}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Mejor combinación para la red CNN+CNN+LSTM}}{21}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Análisis de resultados}{21}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Coeficientes de Correlación de Spearman para CNN+CNN+LSTM}}{22}{}\protected@file@percent }
+\newlabel{tab:spearman_corr}{{10}{22}{}{table.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Resultados CNN+CNN+CNN+LSTM}{23}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {16}Grid Search CNN+CNN+CNN+LSTM}{23}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Mejor combinación para la red CNN+CNN+LSTM}}{23}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Acciones futuras}{23}{}\protected@file@percent }
+\gdef \@abspage@last{23}

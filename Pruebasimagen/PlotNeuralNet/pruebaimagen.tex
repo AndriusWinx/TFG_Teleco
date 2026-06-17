@@ -1,0 +1,98 @@
+
+\documentclass[border=8pt, multi, tikz]{standalone}
+\usepackage{import}
+\subimport{./layers/}{init}
+\usetikzlibrary{positioning}
+\usetikzlibrary{3d} %for including external image
+
+\def\ConvColor{rgb:yellow,5;red,2.5;white,5}
+\def\ConvReluColor{rgb:yellow,5;red,5;white,5}
+\def\PoolColor{rgb:red,1;black,0.3}
+\def\UnpoolColor{rgb:blue,2;green,1;black,0.3}
+\def\FcColor{rgb:blue,5;red,2.5;white,5}
+\def\FcReluColor{rgb:blue,5;red,5;white,4}
+\def\SoftmaxColor{rgb:magenta,5;black,7}
+\def\SumColor{rgb:blue,5;green,15}
+
+\newcommand{\copymidarrow}{\tikz \draw[-Stealth,line width=0.8mm,draw={rgb:blue,4;red,1;green,1;black,3}] (-0.3,0) -- ++(0.3,0);}
+
+\begin{document}
+\begin{tikzpicture}
+\tikzstyle{connection}=[ultra thick,every node/.style={sloped,allow upside down},draw=\edgecolor,opacity=0.7]
+\tikzstyle{copyconnection}=[ultra thick,every node/.style={sloped,allow upside down},draw={rgb:blue,4;red,1;green,1;black,3},opacity=0.7]
+\def\ConvColor{rgb:red,3;black,1}
+\pic[shift={(0,0,0)}] at (0,0,0)
+    {Box={
+        name=input,
+        caption=Input,
+        xlabel={{1, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=20,
+        width=1,
+        depth=20
+        }
+    };
+\node[anchor=north, text=black, font=\large] at ([xshift=12pt, yshift=-2pt]input-south) {7x7};\def\ConvColor{rgb:green,4;white,1}
+\pic[shift={(2.5,0,0)}] at (input-east)
+    {Box={
+        name=cnn,
+        caption=TimeDistributed Conv2D,
+        xlabel={{20, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=20,
+        width=4,
+        depth=20
+        }
+    };
+\node[anchor=north, text=black, font=\large] at ([xshift=18pt, yshift=-2pt]cnn-south) {7x7};
+\draw [connection]  (input-east)    -- node {\midarrow} (cnn-west);
+\def\ConvColor{rgb:brown,1}
+\pic[shift={(2.5,0,0)}] at (cnn-east)
+    {Box={
+        name=flatten,
+        caption=Flatten,
+        xlabel={{1, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=35,
+        width=1.5,
+        depth=1
+        }
+    };
+\node[anchor=west, text=black, font=\large] at ([xshift=10pt, yshift=10pt]flatten-west) {980};
+\draw [connection]  (cnn-east)    -- node {\midarrow} (flatten-west);
+\def\ConvColor{rgb:blue,2;white,5}
+\pic[shift={(2.5,0,0)}] at (flatten-east)
+    {Box={
+        name=lstm,
+        caption=Stateful LSTM,
+        xlabel={{1, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=10,
+        width=1.5,
+        depth=1
+        }
+    };
+\node[anchor=west, text=black, font=\large] at ([xshift=10pt, yshift=10pt]lstm-west) {24};
+\draw [connection]  (flatten-east)    -- node {\midarrow} (lstm-west);
+\def\ConvColor{rgb:white,10;yellow,1}
+\pic[shift={(2.5,0,0)}] at (lstm-east)
+    {Box={
+        name=dense,
+        caption=Dense,
+        xlabel={{1, }},
+        zlabel=,
+        fill=\ConvColor,
+        height=18,
+        width=1.5,
+        depth=1
+        }
+    };
+\node[anchor=west, text=black, font=\large] at ([xshift=10pt, yshift=10pt]dense-west) {49};
+\draw [connection]  (lstm-east)    -- node {\midarrow} (dense-west);
+
+\end{tikzpicture}
+\end{document}

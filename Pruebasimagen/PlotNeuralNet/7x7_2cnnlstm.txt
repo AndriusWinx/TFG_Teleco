@@ -1,0 +1,61 @@
+import sys
+sys.path.append('../')
+from pycore.tikzeng import *
+
+arch = [
+    to_head( '.' ),
+    to_cor(),
+    to_begin(),
+
+    # 0. The Input Data Tensor (Dark Red)
+    "\\def\\ConvColor{rgb:red,3;black,1}",
+    to_Conv("input", s_filer="", n_filer="1", offset="(0,0,0)", to="(0,0,0)", 
+            height=20, depth=20, width=1, caption="Input Data"),
+    "\\node[anchor=north, text=black, font=\\large] at ([xshift=12pt, yshift=-2pt]input-south) {7x7};",
+
+    # 1. The FIRST TimeDistributed Conv2D Layer (Bright Green, 20 Filters)
+    "\\def\\ConvColor{rgb:green,4;white,1}",
+    to_Conv("cnn1", s_filer="", n_filer="20", offset="(2.5,0,0)", to="(input-east)", 
+            height=20, depth=20, width=4, caption="Conv2D 1"),
+    "\\node[anchor=north, text=black, font=\\large] at ([xshift=18pt, yshift=-2pt]cnn1-south) {7x7};",
+    to_connection("input", "cnn1"),
+
+    # 2. The SECOND TimeDistributed Conv2D Layer (Bright Green, 40 Filters)
+    # Width is increased to 8 to visually represent deeper feature extraction
+    "\\def\\ConvColor{rgb:green,4;white,1}",
+    to_Conv("cnn2", s_filer="", n_filer="40", offset="(2.5,0,0)", to="(cnn1-east)", 
+            height=20, depth=20, width=8, caption="Conv2D 2"),
+    "\\node[anchor=north, text=black, font=\\large] at ([xshift=28pt, yshift=-2pt]cnn2-south) {7x7};",
+    to_connection("cnn1", "cnn2"),
+
+    # 3. The TimeDistributed Flatten Layer (Brown)
+    # Flattening 7x7x40 yields 1960 features
+    "\\def\\PoolColor{rgb:brown,1;white,0}",
+    to_Pool("flatten", offset="(2.5,0,0)", to="(cnn2-east)", 
+            height=35, depth=1, width=1.5, opacity=0.5, caption="Flatten"),
+    "\\node[anchor=west, text=black, font=\\large] at ([xshift=10pt, yshift=10pt]flatten-west) {980};",
+    to_connection("cnn2", "flatten"),
+
+    # 4. The Stateful LSTM Layer (Light Blue)
+    "\\def\\SoftmaxColor{rgb:blue,2;white,5}",
+    to_SoftMax("lstm", s_filer="", offset="(2.5,0,0)", to="(flatten-east)", 
+               height=10, depth=1, width=1.5, caption="Stateful LSTM"),
+    "\\node[anchor=west, text=black, font=\\large] at ([xshift=10pt, yshift=10pt]lstm-west) {24};",
+    to_connection("flatten", "lstm"),
+
+    # 5. The Dense Output Layer (Cream White)
+    "\\def\\SoftmaxColor{rgb:white,10;yellow,1}",
+    to_SoftMax("dense", s_filer="", offset="(2.5,0,0)", to="(lstm-east)", 
+               height=18, depth=1, width=1.5, caption="Dense Output"),
+    "\\node[anchor=west, text=black, font=\\large] at ([xshift=10pt, yshift=10pt]dense-west) {49};",
+    to_connection("lstm", "dense"),
+
+    to_end()
+]
+
+def main():
+    namefile = str(sys.argv[0]).split('.')[0]
+    to_generate(arch, namefile + '.tex')
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,4 @@
+activate TFG_Teleco
+cd /d "D:\OneDrive - UVa\UVa\06 Sexto\TFG Teleco\InformeLSTM"
+python 7x7LSTM
+python 7x7LSTM_2
