@@ -1,0 +1,36 @@
+import pandas as pd
+import glob
+import os
+
+# 1. Define paths and dataset structure
+input_pattern = 'Originalfiles/*.txt'
+output_folder = 'Filtered_files'
+columns = ['square_id', 'timestamp_ms', 'country_code', 'sms_in', 'sms_out', 'call_in', 'call_out', 'internet']
+
+# Create the output directory if it doesn't already exist
+os.makedirs(output_folder, exist_ok=True)
+
+# 2. Mathematically generate the exact 225 valid IDs for the 15x15 square
+valid_ids = []
+for r in range(15):
+    for c in range(15):
+        valid_ids.append(4757 + (r * 100) + c)
+
+# 3. Iterate through all files in the target folder
+for file_path in glob.glob(input_pattern):
+    print(f"Stripping {file_path}...")
+    
+    # Read the original file
+    df = pd.read_csv(file_path, sep='\t', header=None, names=columns)
+    
+    # 4. Filter the rows to keep ONLY the IDs strictly inside our 225-item list
+    stripped_df = df[df['square_id'].isin(valid_ids)]
+    
+    # 5. Save the stripped data to the new folder
+    base_filename = os.path.basename(file_path)
+    output_path = os.path.join(output_folder, base_filename)
+    
+    # Export exactly as the original: tab-separated, no column names, no row numbers
+    stripped_df.to_csv(output_path, sep='\t', index=False, header=False)
+
+print("All files stripped successfully and correctly restricted to the 225-cell grid!")

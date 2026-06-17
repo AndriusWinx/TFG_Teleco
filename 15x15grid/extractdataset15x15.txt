@@ -1,0 +1,71 @@
+import pandas as pd
+import glob
+import os
+
+def process_telecom_data_pivoted_corrected(file_pattern, output_csv):
+    """
+    Extracts strictly the 225 valid IDs for the 15x15 grid, aggregates
+    total traffic by hour, and pivots the output to a wide format CSV.
+    """
+    columns = [
+        'square_id', 'timestamp_ms', 'country_code',
+        'sms_in', 'sms_out', 'call_in', 'call_out', 'internet'
+    ]
+    
+    # Mathematically generate the exact 225 valid IDs for the 15x15 square
+    valid_ids = []
+    for r in range(15):
+        for c in range(15):
+            valid_ids.append(4757 + (r * 100) + c)
+            
+    all_files = glob.glob(file_pattern)
+    
+    if not all_files:
+        print("No files found matching the pattern.")
+        return
+
+    dataframes = []
+    
+    for file in all_files:
+        print(f"Processing {file}...")
+        df = pd.read_csv(file, sep='\t', header=None, names=columns)
+        
+        # Filter the rows to keep ONLY the IDs strictly inside our 225-item list
+        grid_df = df[df['square_id'].isin(valid_ids)].copy()
+        grid_df.fillna(0.0, inplace=True)
+        
+        # Convert timestamp to standard hour
+        grid_df['startTime'] = pd.to_datetime(grid_df['timestamp_ms'], unit='ms').dt.floor('h')
+        
+        # Sum all 5 activity metrics into a single total traffic value
+        metrics = ['sms_in', 'sms_out', 'call_in', 'call_out', 'internet']
+        grid_df['total_traffic'] = grid_df[metrics].sum(axis=1)
+        
+        dataframes.append(grid_df[['startTime', 'square_id', 'total_traffic']])
+
+    if not dataframes:
+        print("No matching data found in the provided files.")
+        return
+
+    # Combine all files
+    master_df = pd.concat(dataframes, ignore_index=True)
+    
+    # Group by Hour and Square ID to get the hourly sum per cell
+    hourly_grouped = master_df.groupby(['startTime', 'square_id'])['total_traffic'].sum().reset_index()
+    
+    # Pivot the table so Square IDs become the columns
+    pivoted_df = hourly_grouped.pivot(index='startTime', columns='square_id', values='total_traffic')
+    
+    # Replace any missing hourly data for specific cells with 0
+    pivoted_df.fillna(0.0, inplace=True)
+    
+    # Flatten the column headers and reset the index so 'startTime' is a standard column
+    pivoted_df.columns.name = None
+    pivoted_df.reset_index(inplace=True)
+    
+    # Export to CSV
+    pivoted_df.to_csv(output_csv, index=False)
+    print(f"\nSuccess! Exported pivoted data for 225 cells to '{output_csv}'.")
+
+# Execute the script
+process_telecom_data_pivoted_corrected(file_pattern='Filtered_files/*.txt', output_csv='Traffic_15x15.csv')

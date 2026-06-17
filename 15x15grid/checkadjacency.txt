@@ -1,0 +1,102 @@
+import json
+import math
+
+def check_milan_grid_contiguity(filepath, start_id, grid_size=15):
+    """
+    Checks if a square grid of cells is completely present and geometrically contiguous.
+    """
+    # 1. Define the Expected Matrix
+    # Create a dictionary mapping the expected cell IDs to their (row, col) positions
+    expected_ids = {}
+    for r in range(grid_size):
+        for c in range(grid_size):
+            cell_id = start_id + (r * 100) + c
+            expected_ids[cell_id] = (r, c)
+            
+    print(f"Targeting a {grid_size}x{grid_size} grid starting at ID {start_id}.")
+    print(f"Total expected cells: {len(expected_ids)}\n")
+
+    # 2. Parse the GeoJSON
+    try:
+        with open(filepath, 'r') as file:
+            grid_data = json.load(file)
+    except FileNotFoundError:
+        print(f"Error: The file '{filepath}' was not found.")
+        return
+    except json.JSONDecodeError:
+        print(f"Error: The file '{filepath}' is not valid JSON.")
+        return
+
+    # Extract geometries for our target cells
+    extracted_cells = {}
+    for feature in grid_data.get('features', []):
+        cid = feature['properties'].get('cellId')
+        
+        if cid in expected_ids:
+            # The geometry coordinates array is triple-nested in standard GeoJSON polygons
+            coords = feature['geometry']['coordinates'][0]
+            
+            # Extract all X (longitude) and Y (latitude) values to find the bounding box
+            lons = [point[0] for point in coords]
+            lats = [point[1] for point in coords]
+            
+            matrix_pos = expected_ids[cid]
+            extracted_cells[matrix_pos] = {
+                'id': cid,
+                'min_lon': min(lons),
+                'max_lon': max(lons),
+                'min_lat': min(lats),
+                'max_lat': max(lats)
+            }
+
+# 3. Verify Logical Contiguity (Are any IDs missing?)
+    missing_cells = []
+    
+    # CORRECTED: 'cid' is the dictionary key, 'pos' is the (row, col) value
+    for cid, pos in expected_ids.items(): 
+        if pos not in extracted_cells:
+            missing_cells.append(cid)
+
+    if missing_cells:
+        print(f"LOGICAL ERROR: Missing {len(missing_cells)} cells in the file.")
+        print(f"Missing IDs: {missing_cells}")
+        return
+    else:
+        print("LOGICAL CHECK PASSED: All expected cell IDs are present.")
+
+    # 4. Verify Geometric Contiguity (Do the polygon edges touch?)
+    geometric_errors = []
+    tolerance = 1e-5  # Float comparison tolerance (roughly 1 meter accuracy)
+
+    for r in range(grid_size):
+        for c in range(grid_size):
+            current = extracted_cells[(r, c)]
+            
+            # Check the cell immediately to the right (if not in the last column)
+            if c < grid_size - 1:
+                right_neighbor = extracted_cells[(r, c + 1)]
+                # The right edge (max_lon) of the current cell must equal the left edge (min_lon) of the right neighbor
+                if not math.isclose(current['max_lon'], right_neighbor['min_lon'], abs_tol=tolerance):
+                    geometric_errors.append(
+                        f"Gap found: ID {current['id']} right edge does not match ID {right_neighbor['id']} left edge."
+                    )
+            
+            # Check the cell immediately above (if not in the top row)
+            if r < grid_size - 1:
+                top_neighbor = extracted_cells[(r + 1, c)]
+                # The top edge (max_lat) of the current cell must equal the bottom edge (min_lat) of the top neighbor
+                if not math.isclose(current['max_lat'], top_neighbor['min_lat'], abs_tol=tolerance):
+                    geometric_errors.append(
+                        f"Gap found: ID {current['id']} top edge does not match ID {top_neighbor['id']} bottom edge."
+                    )
+
+    if geometric_errors:
+        print(f"\nGEOMETRIC ERROR: Detected {len(geometric_errors)} boundary alignment issues.")
+        for err in geometric_errors[:10]:  # Print first 10 errors
+            print(" -", err)
+    else:
+        print("GEOMETRIC CHECK PASSED: All polygons physically snap to their neighbors with no gaps.")
+
+
+# Execute the script
+check_milan_grid_contiguity('milano-grid.geojson', start_id=4757, grid_size=15)
