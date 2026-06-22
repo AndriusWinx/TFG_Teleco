@@ -37,6 +37,10 @@ A.~Azzouni and G.~Pujolle, ``A long short-term memory recurrent neural network
   \url{http://arxiv.org/abs/1705.05690}
 \BIBentrySTDinterwordspacing
 
+\bibitem{AML12}
+Y.~S. Abu-Mostafa, M.~Magdon-Ismail, and H.~T. Lin, \emph{Learning from Data: A
+  Short Course}.\hskip 1em plus 0.5em minus 0.4em\relax Amlbook.com, 2012.
+
 \bibitem{bui2017}
 N.~Bui, M.~Cesana, S.~A. Hosseini, Q.~Liao, I.~Malanchini, and J.~Widmer, ``A
   survey of anticipatory mobile networking: context-based classification,
@@ -54,21 +58,16 @@ Y.~Duan, G.~Fu, and N.~Zhou, ``Everything as a service(xaas) on the cloud:
   Conference on Cloud Computing}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE
   Computer Society, 2015, pp. 621--628.
 
-\bibitem{tfgalicia}
-A.~Román~Antolín, ``Predicción de tráfico de red usando arquitecturas
-  neuronales avanzadas,'' Trabajo Fin de Grado, Universidad de Valladolid, Sep
-  2025.
+\bibitem{conceptdrift}
+J.~Lu, A.~Liu, F.~Dong, F.~Gu, J.~Gama, and G.~Zhang, ``Learning under concept
+  drift: A review,'' \emph{IEEE Transactions on Knowledge and Data
+  Engineering}, 2018, arXiv:2004.05785.
 
 \bibitem{SKIMAcasaseca}
 P.~Casaseca-de-la Higuera, J.~M. Aguiar, P.~Amado-Caballero, A.~J. Morgado,
   J.~d.~S. Moreira, C.~Luo, and X.~Wang, ``Online active learning for
   lstm-based network traffic prediction,'' in \emph{IEEE (Unpublished Draft /
   Preprint)}, 20XX.
-
-\bibitem{conceptdrift}
-J.~Lu, A.~Liu, F.~Dong, F.~Gu, J.~Gama, and G.~Zhang, ``Learning under concept
-  drift: A review,'' \emph{IEEE Transactions on Knowledge and Data
-  Engineering}, 2018, arXiv:2004.05785.
 
 \bibitem{seriestemporales2}
 M.~González and I.~M. del Puerto, \emph{Series Temporales}, ser. Colección
@@ -257,11 +256,41 @@ J.~Gama, I.~{\v{Z}}liobait{\.e}, A.~Bifet, M.~Pechenizkiy, and A.~Bouchachia,
 
 \bibitem{milandataset}
 \BIBentryALTinterwordspacing
-G.~Barlacchi, M.~De~Nadai, R.~Larcher, A.~Casella, C.~Chitic, G.~Torrisi,
-  F.~Antonelli, A.~Vespignani, A.~Pentland, and B.~Lepri, ``A multi-source
-  dataset of urban life in the city of milan and the province of trentino,''
-  2015, [dataset]. [Online]. Available:
-  \url{https://doi.org/10.7910/DVN/EGZHFV}
+T.~Italia, ``{Telecommunications - SMS, Call, Internet - MI},'' 2015. [Online].
+  Available: \url{https://doi.org/10.7910/DVN/EGZHFV}
+\BIBentrySTDinterwordspacing
+
+\bibitem{milanogrid}
+\BIBentryALTinterwordspacing
+------, ``{Milano Grid},'' 2015. [Online]. Available:
+  \url{https://doi.org/10.7910/DVN/QJWLFU}
+\BIBentrySTDinterwordspacing
+
+\bibitem{lstmactivation}
+\BIBentryALTinterwordspacing
+{Keras Team}. (2024) {LSTM} layer: Keras recurrent layers {API}. [Accessed:
+  Jun. 20, 2026]. [Online]. Available:
+  \url{https://keras.io/api/layers/recurrent_layers/lstm/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{gpup100}
+\BIBentryALTinterwordspacing
+{Kaggle}. (2026) Kaggle notebooks documentation. [Accessed: Jun. 19, 2026].
+  [Online]. Available: \url{https://www.kaggle.com/docs/notebooks}
+\BIBentrySTDinterwordspacing
+
+\bibitem{tfdeterministic}
+\BIBentryALTinterwordspacing
+{TensorFlow Developers}. (2022, May) What's new in {TensorFlow} 2.9. [Accessed:
+  Jun. 19, 2026]. [Online]. Available:
+  \url{https://blog.tensorflow.org/2022/05/whats-new-in-tensorflow-29.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{nvidiacudnn}
+\BIBentryALTinterwordspacing
+{NVIDIA Corporation}. (2026) cudnn backend {API} developer guide:
+  Miscellaneous. [Accessed: Jun. 19, 2026]. [Online]. Available:
+  \url{https://docs.nvidia.com/deeplearning/cudnn/backend/latest/developer/misc.html}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}

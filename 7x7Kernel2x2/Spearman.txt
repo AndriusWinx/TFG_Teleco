@@ -1,0 +1,53 @@
+import pandas as pd
+
+def calculate_spearman_correlations(file_path):
+    """
+    Reads a Grid Search CSV dataset and calculates the Spearman Rank 
+    Correlation between hyperparameters and target performance metrics.
+    """
+    # 1. Load the dataset into a pandas DataFrame
+    df = pd.read_csv(file_path)
+    
+    # 2. Define the exact columns for inputs (hyperparameters) and outputs (metrics)
+    # Note: 'updates' corresponds to 'nepochsupdate' in your base code
+    hyperparams = ['lookback', 'batchsize', 'updates', 'threshold', 'numfilters1','numfilters2','numfilters3']
+    metrics = ['AvgTrainRNMSE', 'AvgTestRNMSE', 'AvgTestIncRNMSE', 'AvgTestIncTime']
+    
+    # 3. Calculate the Spearman correlation matrix
+    # The .corr(method='spearman') function automatically converts raw values 
+    # to ranks and applies the formula: 1 - (6 * sum(d^2)) / (n * (n^2 - 1))
+    full_corr_matrix = df[hyperparams + metrics].corr(method='spearman')
+    
+    # 4. Slice the matrix to show only Hyperparameters (rows) vs Metrics (columns)
+    target_corr = full_corr_matrix.loc[hyperparams, metrics]
+    
+    return target_corr
+
+if __name__ == "__main__":
+    # Define the file path (ensure the CSV is in the same folder as this script)
+    csv_file = "7x7_3CNNLSTM_kernel2x2_1"
+    output_file = f"SpearmanCorrels_{csv_file}.txt"
+    csv_file = f"{csv_file}.csv"
+	
+    try:
+        # Execute the calculation
+        results = calculate_spearman_correlations(csv_file)
+        
+        # Display the results formatted nicely to 6 decimal places
+        print("Spearman Rank Correlation Coefficients:\n")
+        print("-" * 75)
+        print(results.round(6).to_string())
+        print("-" * 75)
+        
+        # Save the results to a text file
+        with open(output_file, "w") as f:
+            f.write("Spearman Rank Correlation Coefficients:\n\n")
+            f.write("-" * 75 + "\n")
+            f.write(results.round(6).to_string() + "\n")
+            f.write("-" * 75 + "\n")
+            
+        print(f"\nResults have been successfully saved to '{output_file}'.")
+        
+    except FileNotFoundError:
+        print(f"Error: The file '{csv_file}' was not found.")
+        print("Please ensure the CSV file is downloaded and placed in the same directory as this script.")

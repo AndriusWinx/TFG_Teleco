@@ -1,0 +1,53 @@
+import pandas as pd
+
+def calculate_all_spearman_correlations(file_path):
+    """
+    Reads a dataset, handles missing values (NaNs), and calculates 
+    the Spearman Rank Correlation across all numeric columns.
+    """
+    # 1. Load the dataset
+    df = pd.read_csv(file_path)
+    
+    # 2. Clean up structural issues
+    # Drop any completely empty columns (e.g., caused by trailing commas like ',,')
+    df = df.dropna(axis=1, how='all')
+    
+    # 3. Select only numeric columns for correlation
+    # This automatically grabs Metros2, CapasCNN, numfilters, RNMSE metrics, etc.
+    numeric_df = df.select_dtypes(include=['number'])
+    
+    # 4. Calculate Spearman correlation matrix
+    # Pandas automatically uses "pairwise deletion" for missing values (NaNs).
+    # For example, rows where CapasCNN=0 (and numfilters is NaN) will be 
+    # cleanly ignored ONLY when calculating intersections involving numfilters.
+    full_corr_matrix = numeric_df.corr(method='spearman')
+    
+    return full_corr_matrix
+
+if __name__ == "__main__":
+    # Pointing to the newly provided dataset
+    csv_file = "Allresults.csv"
+    output_file = "SpearmanCorrels_All.txt"
+    
+    try:
+        # Execute the calculation
+        results = calculate_all_spearman_correlations(csv_file)
+        
+        # Display the results formatted nicely
+        print("Spearman Rank Correlation Matrix (All Variables):\n")
+        print("-" * 80)
+        print(results.round(4).to_string())
+        print("-" * 80)
+        
+        # Save the full matrix to a text file
+        with open(output_file, "w") as f:
+            f.write("Spearman Rank Correlation Matrix (All Variables):\n\n")
+            f.write("-" * 80 + "\n")
+            f.write(results.round(4).to_string() + "\n")
+            f.write("-" * 80 + "\n")
+            
+        print(f"\nResults have been successfully saved to '{output_file}'.")
+        
+    except FileNotFoundError:
+        print(f"Error: The file '{csv_file}' was not found.")
+        print("Please ensure the CSV file is downloaded and placed in the same directory as this script.")

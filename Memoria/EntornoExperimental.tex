@@ -1,26 +1,99 @@
 \section{Entorno experimental}
-\subsection{Introducción}
+\label{cap3:entorno}
 \subsection{Descripción de los datos}
-Los datos utilizados en este trabajo provienen del dataset Milán \cite{milandataset}. Este dataset fue creado con la intención original de descubrir la relación, si existiese, entre los eventos meteorológicos y el tráfico de red en la ciudad de Milán, Italia. El dataset contiene datos agregados tanto climatológicos como de SMS, llamadas telefónicas y tráfico perteneciente a navegación web. Los datos están organizados en mediciones realizadas cada hora que corresponden a una celda cuadrada de $1 m^2$ dentro de un área de $300m^2$ de la ciudad de Milán. El dataset contiene mediciones correspondientes a los meses de noviembre y diciembre de 2013.
+Los datos utilizados en este trabajo provienen del dataset Milán \cite{milandataset}. Este dataset fue creado con la intención original de descubrir la relación, si existiese, entre los eventos meteorológicos y el tráfico de red en la ciudad de Milán, Italia. El dataset contiene datos tanto climatológicos como de SMS, llamadas telefónicas y tráfico perteneciente a navegación web. Los datos están organizados en mediciones realizadas cada hora que corresponden a una celda cuadrada de $235 m$ de lado dentro de un área de $553.66km^2$ de la ciudad de Milán \cite{milanogrid}. El dataset contiene mediciones correspondientes a los meses de noviembre y diciembre de 2013. Para este trabajo se han aislado y agregado agregado los datos relativos a SMS, llamadas telefónicas y tráfico web en muestras equiespaciadas una hora en el tiempo, desechando la información relativa a los eventos meteorológicos.
 
-%%JUSTIFICACIÓN PORQUÉ SE USAN LAS CELDAS 7X7
+Las celdas utilizadas en este trabajo corresponden a una cuadrícula de 7x7 celdas centrada en la celda 5060. Para averiguar el alcance de las redes neuronales convolucionales, también se han realizado pruebas con una cuadrícula de 15x15 celdas centradas en la celda 5464. Esta última cuadrícula engloba completamente a la cuadrícula 7x7.
 
+Aproximadamente, todas las series temporales de las celdas son bastante similares entre sí. Todas presentan un patrón subyacente claro y cíclico con un periodo de más o menos 24 horas. Además, todas ellas también presentan un patrón cíclico con un periodo de una semana, en el que los primeros 5 ciclos de 24 horas tienen bastante más amplitud que los últimos 2. Esto coincide con los 5 días laborables de la semana y los 2 días del fin de semana.
+
+Respecto a las similitudes entre celdas, es difícil afirmar que una celda tenga una serie similar a otra celda contigua a lo largo de toda la cuadrícula. Por ejemplo, la celda 5357 es contigua a las celdas 5257, 5258 y 5358 pero su serie temporal, aunque presenta las dos componentes cíclicas comunes a toda la cuadrícula, no es similar. Por otro lado, la celda 4962 es bastante similar a todas sus celdas contiguas (4861, 4862, 4863, 4961, 4963, 5061, 5062, 5063) presentando todas ellas las dos componentes cíclicas comunes de forma muy marcada.
 %%BREVE REPRESENTACIÓN DE LOS DATOS
 
 \subsection{Arquitecturas empleadas}
 Para este trabajo se han utilizado 5 arquitecturas de redes neuronales. En primer lugar se ha utilizado una arquitectura formada por una única capa de 24 neuronas LSTM en medio de una capa de entrada y una capa completamente conectada de 3 salidas. Con esta arquitectura se ha obtenido el rendimiento base de la propuesta realizada por el Dr. Juan Pablo Casaseca de la Higuera \cite{SKIMAcasaseca},a mejorar en este trabajo. Los datos procesados por esta arquitectura pertenecen a las celdas 4259, 4456 y 5060 del dataset Milán.
 
-Para alcanzar el objetivo de evaluar el rendimiento en un conjunto de 49 celdas contiguas se ha utilizado también una arquitectura formada por una capa de entrada, una capa de neuronas LSTM y una capa completamente conectada de 49 salidas. De esta forma se ha obtenido el rendimiento de la arquitectura exclusivamente LSTM con las celdas contiguas.
+Para alcanzar el objetivo de evaluar el rendimiento en dos conjuntos de 49 y 225 celdas contiguas se han utilizado también dos arquitecturas formadas por una capa de entrada, una capa de neuronas LSTM y una capa completamente conectada de 49 y 225 salidas respectivamente. De esta forma se ha obtenido el rendimiento de la arquitectura exclusivamente LSTM con las celdas contiguas.
 
-Para intentar extraer la correlación espacial entre las 49 celdas, se han propuesto otras 3 arquitecturas compuestas por una capa de entrada, 1, 2 y 3 capas de neuronas CNN respectivamente, una capa \texttt{Flatten}, una capa de neuronas LSTM y una capa completamente conectada de 49 salidas.
+Para intentar extraer la correlación espacial entre las celdas, se han propuesto otras 6 arquitecturas compuestas por una capa de entrada, 1, 2 y 3 capas de neuronas CNN respectivamente, una capa \texttt{Flatten}, una capa de neuronas LSTM y una capa completamente conectada de 49 y 225 salidas respectivamente.
+
+Para aprovechar al máximo las librerías cuDNN se ha utilizado la función de activación \texttt{sigmoide} para las puertas de entrada, salida y olvido y la función \texttt{tanh} para la combinación de entradas y estado de las neuronas LSTM \cite{lstmactivation}. Otras funciones de activación no son compatibles con los \textit{kernel} optimizados cuDNN por lo que el tiempo de ejecución aumenta exponencialmente. Aunque cabe la posibilidad de que otras funciones de activación consigan mejores resultados, un tiempo de ejecución excesivamente alto inutiliza la red neuronal.
+
 
 \begin{figure}
 	\centering
 %	\includegraphics[width=0.4\linewidth]{Figuras/7x7CNNLSTM_sketch.svg}
 \end{figure}
 
-%%HIPERPARÁMETROS CONSIDERADOS
 
-%%INFRAESTRUCTURA Y GPUS UTILIZADAS (KAGGLE)
+\subsection{Procedimiento de entrenamiento}
+Para la evaluación y comparación de los modelos, se ha ideado un procedimiento similar a la validación de modelos de aprendizaje automático descrita en el apartado CAPÍTULO 2. Se ha entrenado los modelos con las 400 primeras muestras del dataset y se han realizado dos validaciones distintas en cada modelo. Una de las validaciones se ha realizado con las otras 1000 muestras del dataset sin utilizar entrenamiento incremental. La otra validación se ha realizado con las mismas 1000 muestras pero implementando entrenamiento incremental con ajuste de gradientes por norma euclídea del error normalizado \cite{SKIMAcasaseca} definida por la ecuación:
 
-%%MÉTRICAS DE RENDIMIENTO UTILIZADAS
+\begin{equation}
+	\norm{\frac{y_t-\hat{y}_t}{y_t}}^2
+	\label{eq:euclideannorm}
+\end{equation}
+
+Y el error cuadrático como función de coste:
+
+\begin{equation}
+	E_t(W_{t-1})=(y_t-\hat{y}_t)^2
+\end{equation}
+
+De esta forma, las ecuaciones \ref{eq:gradientdescent} y \ref{eq:euclideannorm} se combinan en:
+
+\begin{equation}
+	W_t=W_{t-1}-\beta*\norm{\frac{y_{t-1}-\hat{y}_{t-1}}{y_{t-1}}}^2*\nabla(y_{t-1}-\hat{y}_{t-1})^2
+\end{equation}
+
+De esta forma se da una mayor importancia a las predicciones que han generado errores mayores. Estos errores dan más información y permiten realizar una actualización de pesos más agresiva para aumentar la velocidad de convergencia hacia el mínimo de la función de coste.
+
+\subsection{Hiperparámetros considerados}
+Hay una selección variada de parámetros configurables a la hora de entrenar las redes neuronales propuestas. No todos los parámetros han sido considerados como configurables como, por ejemplo, el tamaño de los sets de entrenamiento, test estático y test incremental. El criterio de selección se basa en el impacto de los hiperparámetros en el rendimiento de las redes neuronales en el apartado de \textit{online learning}. Por esta razón se ha seleccionado los siguientes parámetros:
+
+\begin{itemize}
+	\item \textbf{Tamaño de ventana deslizante:} también denominado \texttt{look\_back}, además de ser el número de neuronas presentes en la capa LSTM, establece cuántas muestras de tráfico de red de cada celda son procesadas al mismo tiempo. Dichas muestras son tomadas como una misma secuencia de longitud \texttt{look\_back}. Tiene un gran impacto en todas las fases de entrenamiento y test.
+	\item \textbf{Tamaño de \textit{batch}:} también denominado \texttt{batch\_size}, indica cuántas secuencias de longitud \texttt{look\_back} son procesadas por la red neuronal en un mismo momento. Tiene un gran impacto en todas las fases de entrenamiento y test.
+	\item \textbf{\texttt{n\_epoch\_updates}:} indica la cantidad de veces que la red neuronal procesa un mismo \textit{batch}. Cada vez que lo procesa, ajusta sus pesos si el error supera el umbral de entrenamiento incremental.
+	\item \textbf{Umbral para el entrenamiento incremental:} también denominado \texttt{threshold}, indica el error mínimo que la red neuronal ha de cometer durante el entrenamiento incremental para ajustar sus pesos. Un mayor \texttt{threshold} elimina el ruido en los datos para evitar ajustes de pesos innecesarios aunque puede provocar que la red neuronal ignore cambios pequeños en el patrón subyacente de los datos.
+	\item \textbf{Número de filtros de las capas CNN:} también llamado \texttt{num\_filter1}, \texttt{num\_filter2} o \texttt{num\_filter3}, indica cuántas formas de patrones son utilizadas por las capas convolucionales para intentar componer el patrón subyacente de los datos. Tiene un gran impacto en todas las fases de entrenamiento y test.
+	\item \textbf{Tamaño del \textit{kernel}:} indica el tamaño del campo de visión de las neuronas convolucionales. Está estrechamente relacionado con la cantidad de celdas utilizadas en el dataset. Tiene un gran impacto en todas las fases de entrenamiento y test.
+\end{itemize}
+
+Para la búsqueda de los parámetros óptimos se ha preferido la estrategia \textit{grid search} frente a \textit{random search}. Los hiperparámetros considerados tienen un gran impacto en el tiempo de procesado de las redes neuronales, que se intenta reducir en la medida de lo posible. Esto establece un límite en el número de filtros, \texttt{n\_epoch\_updates} y el tamaño de la ventana deslizante y los \textit{batchs}. Además, un umbral \texttt{threshold} demasiado alto inutiliza el entrenamiento incremental. De esta forma, aunque \textit{random search} tenga posibilidades de probar combinaciones con valores fuera de lo normal, es casi seguro que éstos desemboquen en combinaciones que impongan una carga computacional excesiva.
+
+Como métrica de rendimiento se ha utilizado la raíz del error cuadrático medio normalizado o NRMSE (\textit{Root Normalized Mean Squared Error}). Sin embargo, como cada celda tiene su propio patrón temporal subyacente, cada celda tiene un NRMSE distinto. Teniendo 49 o 225 celdas es imposible comparar todos sus NRMSE con los NRMSE de otras celdas con otra combinación de hiperparámetros. Para dicha comparación, como todas las celdas son igual de importantes, se ha usado la media aritmética del NRMSE de todas las celdas.
+
+
+\subsection{Métricas de rendimiento}
+Como métrica de rendimiento se ha utilizado la raíz normalizada del error cuadrático medio o NRMSE (\textit{Root Normalized Mean Squared Error}). Sin embargo, como cada celda tiene su propio patrón temporal subyacente, cada celda tiene un NRMSE distinto. Teniendo 49 o 225 celdas es imposible comparar todos sus NRMSE con los NRMSE de otras celdas con otra combinación de hiperparámetros. Para dicha comparación, como todas las celdas son igual de importantes, se ha usado la media aritmética del NRMSE de todas las celdas.
+
+El NRMSE eleva al cuadrado las diferencias entre el valor real $y_i$ y el valor predicho por la red neuronal $\hat{y}_i$ y las promedia. Finalmente calcula la raíz cuadrada del promedio y normaliza, en este trabajo, por la desviación típica de los valores reales. El NRMSE queda por tanto definido como:
+
+\begin{equation*}
+	NRMSE=\frac{\sqrt{\frac{1}{n}*\sum_{i=1}^{n}(y_i-\hat{y}_i)^2}}{\sigma(y)}
+\end{equation*}
+
+donde $n$ es el número de muestras del conjunto medido.
+
+El NRMSE es una métrica adimensional independiente de la magnitud de los datos que representa la distancia entre dos puntos. Es ideal para este trabajo puesto que los datos utilizados presentan grandes fluctuaciones que distorsionarían el error cuadrático medio y su raíz. Un valor de 0 de NRMSE sería perfecto, sin errores cometidos en todo el set. Sin embargo, es irracional buscar un NRMSE=0. Teniendo en cuenta los resultados obtenidos por el Dr. Juan Pablo Casaseca de la Higuera \cite{SKIMAcasaseca}, el NRMSE buscado es aquel NRMSE<0.1778 en el set de entrenamiento incremental.
+
+
+\subsection{Análisis de Spearman}
+Para estimar el impacto de cada hiperparámetro en el desempeño de la red neuronal, se ha decidido optar por el análisis de Spearman. Es un método no paramétrico para la estimación de la dependencia estadística entre dos variables. A diferencia del análisis de Pearson, que busca relaciones estrictamente lineales, Spearman
+busca cualquier tipo de relación.
+
+Al ser un algoritmo no paramétrico, no es necesario conocer la distribución de los datos analizados y es posible comparar variables con rangos de valores muy dispares y con muchas anomalías sin distorsionar el resultado.
+
+
+\subsection{Entorno de ejecución}
+Para el desarrollo de las redes neuronales utilizadas en este trabajo se ha utilizado una plataforma virtualizada llamada Kaggle. Ésta permite al usuario de forma gratuita el acceso a GPUs (\textit{Graphics Processing Units}) durante 30h por semana. Las GPUs en cuestión son del modelo NVIDIA TESLA P100, ideales para el entrenamiento de redes neuronales gracias a sus 4 cores y 29 GB de RAM \cite{gpup100}. Además, Kaggle ofrece un entorno de edición gráfico bastante intuitivo.
+
+El lenguaje de programación utilizado en este trabajo es Python. Es un lenguaje orientado a objetos, interpretado e interactivo. Su gran popularidad está basada en su versatilidad. La alta compatibilidad de sus módulos ha hecho que existan numerosas librerías y paquetes especializados y eficientes en multitud de tareas entre las cuales se encuentra el desarrollo de redes neuronales como Tensorflow o SKLearn.
+
+En \textit{frameworks} de computación en paralelo como CUDA (\textit{Compute Unified Device Architecture}), los cálculos realizados por las redes neuronales se reparten entre diferentes hilos. Cada hilo procesa los datos en momentos de tiempo diferentes según el estado del organizador de eventos del sistema operativo. Por lo tanto, en cada entrenamiento se consiguen resultados distintos puesto que el estado del sistema operativo cambia y las pequeñas diferencias en el tiempo de ejecución de los hilos se acumulan a lo largo de todo el entrenamiento o test. Además, el lenguaje de programación en el que se basa este trabajo, Python, y las librerías Tensorflow y cuDNN inicializan sus algoritmos de forma aleatoria.
+
+Para conseguir la reproducibilidad de los resultados se ha de introducir varias restricciones para eliminar la aleatoriedad. Se han fijado todas las semillas de generación de números pseudoaleatorios de Python, Tensorflow y NumPy y se ha forzado a las librerías Tensorflow y cuDNN a acceder a los recursos hardware de forma determinista a través de las variables de entorno del sistema operativo \cite{tfdeterministic,nvidiacudnn}.
+
+
+

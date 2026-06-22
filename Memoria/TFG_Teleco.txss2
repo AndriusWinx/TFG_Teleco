@@ -6,48 +6,64 @@
     "Session": {
         "Bookmarks": [
         ],
-        "CurrentFile": "EntornoExperimental.tex",
+        "CurrentFile": "TFG_Teleco.tex",
         "FileVersion": 1,
         "Files": [
             {
-                "Col": 15,
+                "Col": 1,
                 "EditorGroup": 0,
                 "FileName": "TFG_Teleco.tex",
-                "FirstLine": 39,
-                "FoldedLines": "",
-                "Line": 49
-            },
-            {
-                "Col": 0,
-                "EditorGroup": 0,
-                "FileName": "Introduccion.tex",
                 "FirstLine": 0,
                 "FoldedLines": "",
-                "Line": 0
+                "Line": 25
             },
             {
-                "Col": 0,
+                "Col": 48,
+                "EditorGroup": 0,
+                "FileName": "Introduccion.tex",
+                "FirstLine": 2,
+                "FoldedLines": "",
+                "Line": 29
+            },
+            {
+                "Col": 16,
                 "EditorGroup": 0,
                 "FileName": "EstadoDelArte.tex",
                 "FirstLine": 0,
                 "FoldedLines": "",
-                "Line": 0
+                "Line": 1
             },
             {
-                "Col": 239,
+                "Col": 19,
                 "EditorGroup": 0,
                 "FileName": "EntornoExperimental.tex",
                 "FirstLine": 0,
                 "FoldedLines": "",
-                "Line": 3
+                "Line": 1
             },
             {
-                "Col": 18,
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Resultados.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "Conclusiones.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 32,
                 "EditorGroup": 0,
                 "FileName": "references.bib",
-                "FirstLine": 425,
+                "FirstLine": 0,
                 "FoldedLines": "",
-                "Line": 439
+                "Line": 9
             }
         ],
         "MasterFile": "",

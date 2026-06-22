@@ -1,0 +1,12 @@
+Spearman Rank Correlation Coefficients:
+
+---------------------------------------------------------------------------
+             AvgTrainRNMSE  AvgTestRNMSE  AvgTestIncRNMSE  AvgTestIncTime
+lookback         -0.650791     -0.488094        -0.067666        0.866131
+batchsize         0.325396     -0.732140        -0.025375        0.202999
+updates           0.000000      0.000000        -0.292658        0.433066
+threshold         0.000000      0.000000        -0.025375       -0.027067
+numfilters1       0.081349     -0.054233         0.055825        0.037217
+numfilters2       0.135582      0.000000         0.111650        0.077816
+numfilters3            NaN           NaN              NaN             NaN
+---------------------------------------------------------------------------

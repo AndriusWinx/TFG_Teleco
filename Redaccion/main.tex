@@ -811,13 +811,16 @@ No creo que añadir una cuarta capa sea beneficioso para un \textit{grid} de 7x7
 Tampoco creo que añadir capas de \textit{pooling} sea algo beneficioso. Después de todo, un \textit{grid} de 7x7 es relativamente pequeño y una capa de \textit{pooling} puede dejar a la red neuronal sin datos. Además, añadir capas de CNN tiene la intención de proporcionar a la red datos acerca de las relaciones espaciales entre las celdas. Si añado una capa de \textit{pooling} estoy destruyendo esa información.
 
 
-\section{Acciones futuras}
-Terminar el \textit{Grid Search} de 3CNN + LSTM. Además, realizar el análisis de Spearman.
 
-Realizar una pequeña prueba añadiendo una \textit{pooling layer} en la red 2CNN+LSTM.
+\section{Grid 15x15 y kernel 2x2}
+He creado el dataset para 15x15 celdas a partir del dataset Milán y probado con kernels tanto de 2x2 como de 3x3. He realizado también un análisis de Spearman en todo el conjunto de experimentos para intentar vislumbrar la relación entre los hiperparámetros y los resultados. El análisis indica que el hiperparámetro más influyente es la cantidad de veces que la red neuronal ajusta sus valores en cada vuelta al bucle de entrenamiento incremental (\texttt{n\_epochs\_update}). Al aumentar \texttt{n\_epochs\_update} disminuye el error en el entrenamiento incremental pero aumenta mucho el tiempo de ejecución. También, aunque en menor medida, influyen de la misma forma \texttt{look\_back} y \texttt{batch\_size}. Viendo esto he realizado algunas pruebas con valores altos de estas variables.
 
-Empezar a redactar la memoria del TFG.
+\subsection{Resultados}
+En general un kernel 2x2 ha mejorado los resultados obtenidos hasta el momento para un grid de 7x7. Aun así, los resultados siguen sin ser satisfactorios puesto que el error de entrenamiento incremental sigue por encima del 20\%.
 
+Los resultados con el grid 15x15 han sido fatídicos tanto con un kernel 2x2 como un kernel 3x3. El mejor resultado ha sido 22.617\% en AvgTestIncRNMSE.
+
+Las pruebas con valores altos de \texttt{n\_epoch\_updates} han dado los mejores resultados hasta el momento (20.4\%) en entrenamiento incremental pero aumentan mucho el tiempo de ejecución. Aun así, siguen siendo malos resultados al no bajar del 20\%.
 \end{document}
 
 

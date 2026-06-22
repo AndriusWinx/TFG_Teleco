@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.2)  16 JUN 2026 21:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.2)  21 JUN 2026 14:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -434,43 +434,166 @@ LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
-(TFG_Teleco.aux
-LaTeX Info: Redefining \. on input line 8.
-LaTeX Info: Redefining \% on input line 8.
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/svg\svg.sty
+Package: svg 2020/11/26 v2.02k (include SVG pictures)
+
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrbase.sty
+Package: scrbase 2026/02/02 v3.49.2 KOMA-Script package (KOMA-Script-independen
+t basics and keyval usage)
+
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrlfile.st
+y
+Package: scrlfile 2026/02/02 v3.49.2 KOMA-Script package (file load hooks)
+
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrlfile-ho
+ok.sty
+Package: scrlfile-hook 2026/02/02 v3.49.2 KOMA-Script package (using LaTeX hook
+s)
+
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrlogo.sty
+Package: scrlogo 2026/02/02 v3.49.2 KOMA-Script package (logo)
+)))
+Applying: [2021/05/01] Usage of raw or classic option list on input line 254.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line
+ 370.
+)
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\trimspaces.s
+ty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+) (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+)
+\c@svg@param@lastpage=\count340
+\svg@box=\box74
+\c@svg@param@currpage=\count341
+)
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/transparent\transparent
+.sty
+Package: transparent 2025-06-23 v1.6 Transparency with color stacks
+
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/transparent\transparent
+-nometadata.sty
+Package: transparent-nometadata 2025-06-23 v1.6 Transparency via pdfTeX's color
+ stack (HO)
+
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)))
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.
+sty
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.st
+y
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-common.tex
+\pgfutil@everybye=\toks32
+\pgfutil@tempdima=\dimen260
+\pgfutil@tempdimb=\dimen261
+)
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-latex.def
+\pgfutil@abb=\box75
+)
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.
+code.tex
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
+))
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s.code.tex
+Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex
+\pgfkeys@pathtoks=\toks33
+\pgfkeys@temptoks=\toks34
+
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+libraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks35
+))
+\pgf@x=\dimen262
+\pgf@y=\dimen263
+\pgf@xa=\dimen264
+\pgf@ya=\dimen265
+\pgf@xb=\dimen266
+\pgf@yb=\dimen267
+\pgf@xc=\dimen268
+\pgf@yc=\dimen269
+\pgf@xd=\dimen270
+\pgf@yd=\dimen271
+\w@pgf@writea=\write3
+\r@pgf@reada=\read3
+\c@pgf@counta=\count342
+\c@pgf@countb=\count343
+\c@pgf@countc=\count344
+\c@pgf@countd=\count345
+\t@pgf@toka=\toks36
+\t@pgf@tokb=\toks37
+\t@pgf@tokc=\toks38
+\pgf@sys@id@count=\count346
+
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
+fg
+File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-pdftex.def
+File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-common-pdf.def
+File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+ssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfsyssoftpath@smallbuffer@items=\count347
+\pgfsyssoftpath@bigbuffer@items=\count348
+)
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+sprotocol.code.tex
+File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)) (TFG_Teleco.aux
 LaTeX Info: Redefining \. on input line 9.
 LaTeX Info: Redefining \% on input line 9.
- (Introduccion.aux) (EstadoDelArte.aux) (EntornoExperimental.aux))
+LaTeX Info: Redefining \. on input line 10.
+LaTeX Info: Redefining \% on input line 10.
+ (Introduccion.aux) (EstadoDelArte.aux)
+(EntornoExperimental.aux) (Resultados.aux) (Conclusiones.aux))
 \openout1 = `TFG_Teleco.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
 
 (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count340
-\scratchdimen=\dimen260
-\scratchbox=\box74
-\nofMPsegments=\count341
-\nofMParguments=\count342
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count343
-\MPscratchDim=\dimen261
-\MPnumerator=\count344
-\makeMPintoPDFobject=\count345
-\everyMPtoPDFconversion=\toks33
+\scratchcounter=\count349
+\scratchdimen=\dimen272
+\scratchbox=\box76
+\nofMPsegments=\count350
+\nofMParguments=\count351
+\everyMPshowfont=\toks39
+\MPscratchCnt=\count352
+\MPscratchDim=\dimen273
+\MPnumerator=\count353
+\makeMPintoPDFobject=\count354
+\everyMPtoPDFconversion=\toks40
 )
 (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -526,8 +649,8 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \. on input line 33.
-LaTeX Info: Redefining \% on input line 33.
+LaTeX Info: Redefining \. on input line 35.
+LaTeX Info: Redefining \% on input line 35.
 
 Package siunitx Warning: Detected the "physics" package:
 (siunitx)                omitting definition of \qty.
@@ -546,25 +669,25 @@ File: translations-basic-dictionary-spanish.trsl (spanish translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `spanish'. on input line 33.
-LaTeX Info: Redefining \celsius on input line 33.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 33.
+or `spanish'. on input line 35.
+LaTeX Info: Redefining \celsius on input line 35.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 35.
 
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 33.
-Package gensymb Info: Using \Omega for \ohm on input line 33.
+LaTeX Info: Redefining \ohm on input line 35.
+Package gensymb Info: Using \Omega for \ohm on input line 35.
 
 Package gensymb Warning: Not defining \micro.
 
-\c@lstlisting=\count346
-<Figuras/Universidad-de-Valladolid.png, id=1, 277.9986pt x 180.9159pt>
+\c@lstlisting=\count355
+<Figuras/Universidad-de-Valladolid.png, id=4, 277.9986pt x 180.9159pt>
 File: Figuras/Universidad-de-Valladolid.png Graphic file (type png)
 <use Figuras/Universidad-de-Valladolid.png>
 Package pdftex.def Info: Figuras/Universidad-de-Valladolid.png  used on input l
-ine 37.
+ine 39.
 (pdftex.def)             Requested size: 384.1096pt x 249.99544pt.
 [1
 
@@ -572,62 +695,90 @@ ine 37.
 iversidad-de-Valladolid.png>]
 \openout2 = `Introduccion.aux'.
 
- (Introduccion.tex
-
-LaTeX Warning: Citation `AML12' on page 1 undefined on input line 4.
-
-) [1
+ (Introduccion.tex [1
 
 ]
+
+LaTeX Warning: Reference `cap4:resultados' on page 2 undefined on input line 36
+.
+
+
+LaTeX Warning: Reference `cap5:conclusiones' on page 2 undefined on input line 
+38.
+
+) [2]
 \openout2 = `EstadoDelArte.aux'.
 
  (EstadoDelArte.tex
-LaTeX Font Info:    Trying to load font information for U+msa on input line 10.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 13.
 
 
 (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
 
 
 (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-[2
+[3
 
 
 
-] [3] [4] [5] [6] [7] [8] [9] [10]) [11]
+] [4] [5] [6] [7] [8] [9] [10] [11] [12]) [13]
 \openout2 = `EntornoExperimental.aux'.
 
- (EntornoExperimental.tex) [12
+ (EntornoExperimental.tex
+[14
+
+
+
+] [15]
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 57.
+
+Overfull \hbox (22.57346pt too wide) in paragraph at lines 58--59
+[]\T1/cmr/bx/n/12 Umbral pa-ra el en-tre-na-mien-to in-cre-men-tal: \T1/cmr/m/n
+/12 tam-bién de-no-mi-na-do \T1/cmtt/m/n/12 threshold\T1/cmr/m/n/12 ,
+ []
+
+[16] [17]) [18]
+\openout2 = `Resultados.aux'.
+
+ (Resultados.tex) [19
 
 
 
 ]
-(TFG_Teleco.bbl
+\openout2 = `Conclusiones.aux'.
+
+ (Conclusiones.tex) [20
+
+
+
+] (TFG_Teleco.bbl
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `spa'. Using the pattern for
 ** the default language instead.
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
-[13
+[21
 
 
-] [14])
+] [22] [23])
 
 Package caption Warning: Unused \captionsetup[sub] on input line 15.
 See the caption package documentation for explanation.
 
-[15] (TFG_Teleco.aux
-LaTeX Info: Redefining \. on input line 8.
-LaTeX Info: Redefining \% on input line 8.
+[24] (TFG_Teleco.aux
 LaTeX Info: Redefining \. on input line 9.
 LaTeX Info: Redefining \% on input line 9.
+LaTeX Info: Redefining \. on input line 10.
+LaTeX Info: Redefining \% on input line 10.
  (Introduccion.aux) (EstadoDelArte.aux)
-(EntornoExperimental.aux))
+(EntornoExperimental.aux) (Resultados.aux) (Conclusiones.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
@@ -638,26 +789,26 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 13969 strings out of 469439
- 283979 string characters out of 5459938
- 671419 words of memory out of 5000000
- 42686 multiletter control sequences out of 15000+600000
- 646140 words of font info for 83 fonts, out of 8000000 for 9000
+ 16092 strings out of 469439
+ 334514 string characters out of 5459938
+ 742744 words of memory out of 5000000
+ 44714 multiletter control sequences out of 15000+600000
+ 645440 words of font info for 82 fonts, out of 8000000 for 9000
  42 hyphenation exceptions out of 8191
- 73i,9n,80p,920b,544s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\andre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt
+ 94i,9n,93p,988b,544s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\andre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi
 1200.pk> <C:\Users\andre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecrm1000.pk> <C:\Users\andre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecrm0700.pk> <C:\Users\andre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecrm0800.pk> <C:\Users\andre\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecbi1440.pk> <C:\Users\andre\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\andre\AppData\Local\MiKTeX\fon
+0\ectt1200.pk> <C:\Users\andre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecrm1000.pk> <C:\Users\andre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecrm0700.pk> <C:\Users\andre\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\andre\AppData\Local\MiKTeX\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecbi1440.pk> <C:\Users\andre\AppData\Local\MiKTeX\fon
 ts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\andre\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\andre\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\andre\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecxc1728.pk> <C:\Users\andre\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1200.pk> <C:\Users\
-andre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1728.pk> <C:\
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\andre\AppData\Loca
+l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\andre\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\andre\
+AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecxc1728.pk> <C:\Users\
+andre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1200.pk> <C:\
 Users\andre\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk
 ><C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mex10.pfb><C:/Users/andre/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
@@ -667,9 +818,9 @@ type1/public/amsfonts/cm/cmr12.pfb><C:/Users/andre/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/andre/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/andre/AppData/Loca
 l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on TFG_Teleco.pdf (16 pages, 519645 bytes).
+Output written on TFG_Teleco.pdf (25 pages, 554480 bytes).
 PDF statistics:
- 511 PDF objects out of 1000 (max. 8388607)
+ 571 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
