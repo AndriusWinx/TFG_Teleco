@@ -189,6 +189,12 @@ Como solución alternativa se propuso el entrenamiento incremental o \textit{onl
 
 %%%%%%%IMAGEN Figura 2 de https://dl.acm.org/doi/epdf/10.1145/2523813  %%%%%%%%%%%%
 
+\begin{figure}[h]
+	\centering
+	\includesvg[width=\linewidth]{Figuras/conceptdrift-traced}
+\end{figure}
+\FloatBarrier
+
 Los modelos basados en \textit{online learning} son especialmente útiles para la predicción de series temporales como el tráfico en red. Debido a la naturaleza de estas series, no necesitan la intervención ni humana ni de otros modelos para generar datos de entrenamiento. Cuando el modelo de \textit{online learning} procesa una secuencia de datos $x_t$ y predice la siguiente muestra $\hat{Y}_{t+1}$, no conoce el error que ha cometido en la predicción puesto que el valor real $y_{t+1}$ es todavía desconocido. Sin embargo, llegado el momento $t+1$ sólo es necesario medir la variable real para conocer $y_{t+1}$. Así se puede medir el error cometido $\epsilon_{t+1}=y_{t+1}-\hat{Y}_{t+1}$ de forma sencilla y, a pesar de la necesidad de un elemento externo para medir la variable real, autónoma.
 
 

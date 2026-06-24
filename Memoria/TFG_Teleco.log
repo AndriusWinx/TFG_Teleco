@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.2)  21 JUN 2026 14:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.5.2)  22 JUN 2026 22:59
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **./TFG_Teleco.tex
 (TFG_Teleco.tex
@@ -462,8 +462,21 @@ ty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ) (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.sty
 Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
-Package shellesc Info: Restricted shell escape enabled on input line 77.
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
 )
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/latex/ifplatform\ifplatform.s
+ty
+Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
+
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/generic/catchfile\catchfile.s
+ty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+
+(C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)) (C:\Users\andre\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+))
 \c@svg@param@lastpage=\count340
 \svg@box=\box74
 \c@svg@param@currpage=\count341
@@ -697,16 +710,7 @@ iversidad-de-Valladolid.png>]
 
  (Introduccion.tex [1
 
-]
-
-LaTeX Warning: Reference `cap4:resultados' on page 2 undefined on input line 36
-.
-
-
-LaTeX Warning: Reference `cap5:conclusiones' on page 2 undefined on input line 
-38.
-
-) [2]
+]) [2]
 \openout2 = `EstadoDelArte.aux'.
 
  (EstadoDelArte.tex
@@ -726,11 +730,27 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 
-] [4] [5] [6] [7] [8] [9] [10] [11] [12]) [13]
+] [4] [5] [6] [7] [8] [9] [10] [11]
+Package svg Info: Last page of `./svg-inkscape/conceptdrift-traced_svg-tex.pdf'
+ is 1 on input line 194.
+
+(svg-inkscape/conceptdrift-traced_svg-tex.pdf_tex
+<./svg-inkscape/conceptdrift-traced_svg-tex.pdf, id=64, page=1, 949.79599pt x 1
+43.53386pt>
+File: ./svg-inkscape/conceptdrift-traced_svg-tex.pdf Graphic file (type pdf)
+<use ./svg-inkscape/conceptdrift-traced_svg-tex.pdf, page 1>
+Package pdftex.def Info: ./svg-inkscape/conceptdrift-traced_svg-tex.pdf , page1
+ used on input line 56.
+(pdftex.def)             Requested size: 426.79135pt x 64.49765pt.
+)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12]) [13 <./svg-inkscape/conceptdrift-traced_svg-tex.pdf>]
 \openout2 = `EntornoExperimental.aux'.
 
- (EntornoExperimental.tex
-[14
+
+(EntornoExperimental.tex [14
 
 
 
@@ -783,16 +803,12 @@ LaTeX Info: Redefining \% on input line 10.
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 16092 strings out of 469439
- 334514 string characters out of 5459938
- 742744 words of memory out of 5000000
- 44714 multiletter control sequences out of 15000+600000
+ 16247 strings out of 469439
+ 338676 string characters out of 5459938
+ 744254 words of memory out of 5000000
+ 44849 multiletter control sequences out of 15000+600000
  645440 words of font info for 82 fonts, out of 8000000 for 9000
  42 hyphenation exceptions out of 8191
  94i,9n,93p,988b,544s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -818,9 +834,9 @@ type1/public/amsfonts/cm/cmr12.pfb><C:/Users/andre/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/andre/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/andre/AppData/Loca
 l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on TFG_Teleco.pdf (25 pages, 554480 bytes).
+Output written on TFG_Teleco.pdf (25 pages, 614939 bytes).
 PDF statistics:
- 571 PDF objects out of 1000 (max. 8388607)
+ 574 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 28 words of extra memory for PDF output out of 10000 (max. 10000000)
 
