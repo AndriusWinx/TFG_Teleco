@@ -1,0 +1,21 @@
+\section*{Resumen}
+El crecimiento exponencial del número de dispositivos capaces de generar tráfico de red ha aumentado significativamente la necesidad de organizar los recursos disponibles para asegurar un nivel estable de calidad de servicio. La predicción del tráfico de red se ha convertido en la mayor aliada para evitar congestiones y pérdidas de servicio. Sin embargo, los modelos predictivos tradicionales tienen muchas dificultades para seguir el ritmo de cambio del tráfico de red actual. Como el tráfico de red puede ser modelado como una secuencia temporal, en este trabajo se estudian y comparan varios modelos de redes neuronales de aprendizaje profundo aplicadas a la predicción de series temporales con capacidad de adaptarse a las variaciones y anomalías mediante entrenamiento incremental. Se han estudiado varias arquitecturas que combinan redes convolucionales con redes recurrentes LSTM sobre el dataset Milan, que recoge el tráfico de red de la ciudad de Milán, Italia, entre noviembre y diciembre de 2013.
+
+Los resultados de los modelos, analizados a través de diferentes métricas estadísticas, demuestran que los modelos que integran capas convolucionales y \textit{online learning} son ampliamente superiores a los modelos tradicionales, incluso en situaciones de cambios bruscos en el patrón de los datos. El modelo ideal, presentando una capa CNN y una capa LSTM llega a reducir el error (NRMSE) cometido en las predicciones desde un 0.1778 conseguido con un modelo neuronal LSTM sencillo hasta un 0.142. Por último, los modelos analizados en este trabajo han sido optimizados al máximo para conseguir el mayor rendimiento posible en cuanto a carga computacional y tiempo de ejecución.
+
+\section*{Palabras clave}
+\textit{Online learning}, predicción, redes neuronales, redes convolucionales, tráfico de red.
+
+\section*{Abstract}
+The exponential growth of telecommunication devices has raised the need of correctly allocating the network resources to ensure a reliable Quality of Service level. Network traffic prediction has become the greatest ally in the battle against network congestion and loss of service. Nonetheless the traditional prediction models are burdened with great difficulties to follow the changes in network traffic. As it can be seen as a temporal sequence, this work puts several \textit{online deep learning} models under the microscope to elucidate whether they are able to adapt dynamically to changes in the temporal series. Various distinct architectures featuring convolutional and LSTM layers have been tested against the Milan dataset, which holds information about the traffic load in the city of Milan, Italy, between November and December 2013.
+
+The models' outputs have been analysed via different statistical methods, demonstrating the vast superiority of the models combining convolutional and recurrent layers over the more traditional models, even when the pattern abruptly changes. The best model so far, characterized by a single CNN layer connected to an LSTM layer has been able to boost precision, measured as NRMSE, from 0.1778 to 0.142. Last but not least, all the models scrutinized by this work have been successfully optimized to achieve the greatest possible computation speeds.
+
+\section*{Keywords}
+Convolutional networks, network traffic, neural networks, online learning, prediction.
+
+
+
+\newpage
+\section*{Agradecimientos}
+A mi familia, a mis amigos, a mis profesores y, sobre todo, al Dr. D. Juan Pablo Casaseca de la Higuera. A todos ellos les agradezco su infinita paciencia.

@@ -1,0 +1,19 @@
+\section{Fragmentos de código}
+Se muestran en este apéndice los diferentes \textit{scripts} de Python utilizados para la construcción de los modelos analizados en este trabajo así como para la implementación de \textit{online learning} y la estrategia \textit{grid search}.
+\subsection{Código Python del modelo original}
+\lstinputlisting{Codigo/modelo_original.py}
+
+\newpage
+\subsection{Código Python del modelo LSTM adaptado para el entorno Kaggle}
+\label{cap6.2:LSTMcode}
+El código Python mostrado a continuación ha sido modificado para preservar la privacidad de las cuentas Kaggle utilizadas. Para que el modelo funcione correctamente se debe modificar el \textit{path} especificado en la línea 72 cambiando \texttt{username} por un nombre de usuario real identificado en la plataforma Kaggle.
+\lstinputlisting{Codigo/modelo_LSTM.txt}
+
+\newpage
+\subsection{Código Python de los modelos XCNN+LSTM adaptados para el entorno Kaggle}
+Por simplicidad y gracias a la gran similitud existente entre los \textit{scripts} de las variantes de los modelos CNN+LSTM, 2CNN+LSTM y 3CNN+LSTM, se presenta únicamente el código para la arquitectura 3CNN+LSTM con kernel 3x3 y cuadrícula 7x7. También se han realizado las modificaciones análogas a las mencionadas en el apéndice \ref{cap6.2:LSTMcode}.
+
+A partir de este código, para obtener el modelo 2CNN+LSTM se ha de comentar las líneas: 86, 120, 161 y 270. Para obtener el modelo CNN+LSTM se ha comentar, además de las comentadas para obtener el modelo 2CNN+LSTM, las líneas: 85, 119, 160 y 269. Para obtener las versiones con kernel 2x2 simplemente se ha de cambiar el parámetro \texttt{kernel\_size=(3,3)} por \texttt{kernel\_size=(2,2)} en las líneas 159, 160 y 161.
+
+Así mismo, para poder procesar una cuadrícula 15x15 se ha de sustituir todas las ocurrencias del número 7 por el número 15 y cambiar el \textit{path} indicado en la línea 72 al \textit{path} del fichero que contenga el \textit{dataset} para la cuadrícula 15x15.
+\lstinputlisting{Codigo/modelo_XCNNLSTM.txt}

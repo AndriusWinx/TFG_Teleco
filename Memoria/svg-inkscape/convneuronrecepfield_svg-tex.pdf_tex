@@ -1,0 +1,88 @@
+%% Creator: Inkscape 1.4.4 (dcaf3e7, 2026-05-05), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'convneuronrecepfield_svg-tex.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{519.49699402bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,1.01212415)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{convneuronrecepfield_svg-tex.pdf}}%
+    \put(0.41816535,0.31712343){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Z\textsubscript{1}\textsubscript{,4,k',1}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{convneuronrecepfield_svg-tex.pdf}}%
+    \put(0.47745856,0.3474243){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Z\textsubscript{1}\textsubscript{,5,k',1}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{convneuronrecepfield_svg-tex.pdf}}%
+    \put(0.7601207,0.39753378){\color[rgb]{0.17254902,0.24313725,0.31372549}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Capa Convolucional l=1\end{tabular}}}}%
+    \put(0.7617777,0.37211637){\color[rgb]{0.16078431,0.50196078,0.7254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Campo de visión A\end{tabular}}}}%
+    \put(0.76034246,0.34754811){\color[rgb]{0.82745098,0.32941176,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Campo de visión B\end{tabular}}}}%
+    \put(0.77023249,0.95637452){\color[rgb]{0.17254902,0.24313725,0.31372549}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Capa Convolucional l=2\\\end{tabular}}}}%
+    \put(0.77325984,0.934148){\color[rgb]{0.16078431,0.50196078,0.7254902}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Neurona A\end{tabular}}}}%
+    \put(0.77182451,0.91388548){\color[rgb]{0.82745098,0.32941176,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Neurona B\end{tabular}}}}%
+    \put(0.47540081,0.93714518){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textsubscript{Z}\textsubscript{1,3,2,2}\end{tabular}}}}%
+    \put(0.53920855,0.90465869){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Z\textsubscript{2,3,2,}\textsubscript{2}\end{tabular}}}}%
+    \put(0.53702188,0.20253047){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Z\textsubscript{4,3,k',1}\end{tabular}}}}%
+    \put(0.59201773,0.22871973){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Z\textsubscript{4,4,k',1}\end{tabular}}}}%
+    \put(0.47533327,0.22952749){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Z\textsubscript{3,3,k',1}\end{tabular}}}}%
+    \put(0.41691581,0.25620923){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Z\textsubscript{2}\textsubscript{,3,k',1}\end{tabular}}}}%
+    \put(0.35783373,0.2866199){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Z\textsubscript{1}\textsubscript{,3,k',1}\end{tabular}}}}%
+    \put(0.13859329,0.22601816){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Z\textsubscript{0,0,k',1}\end{tabular}}}}%
+    \put(0.25576129,0.86072449){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Z\textsubscript{0,0,2,2}\end{tabular}}}}%
+    \put(0.47443602,0.28658615){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Z\textsubscript{2}\textsubscript{,4,k',1}\end{tabular}}}}%
+    \put(0.53649001,0.31243774){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Z\textsubscript{2}\textsubscript{,5,k',1}\end{tabular}}}}%
+    \put(0.52744783,0.25777956){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Z\textsubscript{3,4,k',1}\end{tabular}}}}%
+    \put(0.64274157,0.25798219){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Z\textsubscript{4,5,k',1}\end{tabular}}}}%
+    \put(0.11515019,0.82806531){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}K=0\end{tabular}}}}%
+    \put(-0.00154146,0.19492191){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}K'=0\end{tabular}}}}%
+    \put(-0.00089137,0.21534525){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}K'=1\end{tabular}}}}%
+    \put(0.0014557,0.23879064){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}K'=2\end{tabular}}}}%
+    \put(0.14072973,0.85460858){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}K=1\end{tabular}}}}%
+    \put(0.17378296,0.87738701){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}K=2\end{tabular}}}}%
+    \put(0.58908812,0.28558987){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Z\textsubscript{3,5,k',1}\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

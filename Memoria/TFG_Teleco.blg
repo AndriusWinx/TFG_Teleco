@@ -1,6 +1,8 @@
 This is BibTeX, Version 0.99e
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: TFG_Teleco.aux
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: Abstract.aux
 Reallocating 'name_of_file' (item size: 1) to 17 items.
 A level-1 auxiliary file: Introduccion.aux
 Reallocating 'name_of_file' (item size: 1) to 18 items.
@@ -14,64 +16,77 @@ A level-1 auxiliary file: Conclusiones.aux
 Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: IEEEtran.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
+Reallocating 'name_of_file' (item size: 1) to 14 items.
+A level-1 auxiliary file: AppendixA.aux
+Reallocating 'name_of_file' (item size: 1) to 14 items.
+A level-1 auxiliary file: AppendixB.aux
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: references.bib
-Repeated entry---line 803 of file references.bib
- : @article{conceptdrift
- :                      ,
+I was expecting a `,' or a `}'---line 11 of file references.bib
+ :  
+ :  doi  ={10.1109/ICDM.2016.156}
+(Error may have been on previous line)
 I'm skipping whatever remains of this entry
+Warning--entry type for "duan2015xaas" isn't style-file defined
+--line 149 of file references.bib
+Warning--I'm ignoring lstm's extra "pages" field
+--line 679 of file references.bib
 Warning--entry type for "milandataset" isn't style-file defined
---line 889 of file references.bib
+--line 877 of file references.bib
 Warning--entry type for "milanogrid" isn't style-file defined
---line 909 of file references.bib
+--line 897 of file references.bib
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty booktitle in SKIMAcasaseca
+Warning--empty booktitle in arima1
+Warning--empty journal in rnn1
+Warning--edition ordinal word "Third Edition" may be too high (or improper) for conversion in spearmansource
 
 Done.
-You've used 40 entries,
+You've used 44 entries,
             4087 wiz_defined-function locations,
-            1087 strings with 14904 characters,
-and the built_in function-call counts, 27167 in all, are:
-= -- 2231
-> -- 566
-< -- 195
-+ -- 309
-- -- 98
-* -- 1310
-:= -- 4319
-add.period$ -- 88
-call.type$ -- 40
-change.case$ -- 39
-chr.to.int$ -- 450
-cite$ -- 40
-duplicate$ -- 1948
-empty$ -- 2259
-format.name$ -- 122
-if$ -- 6259
+            1127 strings with 15865 characters,
+and the built_in function-call counts, 30842 in all, are:
+= -- 2538
+> -- 636
+< -- 241
++ -- 357
+- -- 107
+* -- 1472
+:= -- 4811
+add.period$ -- 94
+call.type$ -- 44
+change.case$ -- 50
+chr.to.int$ -- 552
+cite$ -- 48
+duplicate$ -- 2208
+empty$ -- 2517
+format.name$ -- 131
+if$ -- 7163
 int.to.chr$ -- 0
-int.to.str$ -- 40
-missing$ -- 359
-newline$ -- 193
-num.names$ -- 40
-pop$ -- 825
+int.to.str$ -- 44
+missing$ -- 391
+newline$ -- 203
+num.names$ -- 46
+pop$ -- 903
 preamble$ -- 1
 purify$ -- 0
-quote$ -- 2
-skip$ -- 2093
+quote$ -- 4
+skip$ -- 2396
 stack$ -- 0
-substring$ -- 1076
-swap$ -- 1563
-text.length$ -- 45
+substring$ -- 1314
+swap$ -- 1794
+text.length$ -- 57
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 40
-warning$ -- 0
-while$ -- 111
-width$ -- 42
-write$ -- 459
+type$ -- 44
+warning$ -- 4
+while$ -- 126
+width$ -- 46
+write$ -- 495
 (There was 1 error message)

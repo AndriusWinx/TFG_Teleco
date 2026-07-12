@@ -10,52 +10,60 @@
         "FileVersion": 1,
         "Files": [
             {
-                "Col": 1,
+                "Col": 0,
                 "EditorGroup": 0,
                 "FileName": "TFG_Teleco.tex",
-                "FirstLine": 0,
+                "FirstLine": 37,
                 "FoldedLines": "",
-                "Line": 25
+                "Line": 75
             },
             {
-                "Col": 48,
+                "Col": 264,
+                "EditorGroup": 0,
+                "FileName": "Abstract.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 1
+            },
+            {
+                "Col": 47,
                 "EditorGroup": 0,
                 "FileName": "Introduccion.tex",
                 "FirstLine": 2,
                 "FoldedLines": "",
-                "Line": 29
+                "Line": 22
             },
             {
-                "Col": 16,
+                "Col": 0,
                 "EditorGroup": 0,
                 "FileName": "EstadoDelArte.tex",
-                "FirstLine": 0,
+                "FirstLine": 201,
                 "FoldedLines": "",
-                "Line": 1
+                "Line": 213
             },
             {
-                "Col": 19,
+                "Col": 72,
                 "EditorGroup": 0,
                 "FileName": "EntornoExperimental.tex",
-                "FirstLine": 0,
+                "FirstLine": 7,
                 "FoldedLines": "",
-                "Line": 1
+                "Line": 14
             },
             {
                 "Col": 0,
                 "EditorGroup": 0,
                 "FileName": "Resultados.tex",
-                "FirstLine": 0,
+                "FirstLine": 126,
                 "FoldedLines": "",
-                "Line": 0
+                "Line": 158
             },
             {
-                "Col": 0,
+                "Col": 8,
                 "EditorGroup": 0,
                 "FileName": "Conclusiones.tex",
                 "FirstLine": 0,
                 "FoldedLines": "",
-                "Line": 0
+                "Line": 12
             },
             {
                 "Col": 32,
@@ -64,9 +72,25 @@
                 "FirstLine": 0,
                 "FoldedLines": "",
                 "Line": 9
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "AppendixA.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "AppendixB.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
             }
         ],
         "MasterFile": "",
-        "VerticalSplit": false
+        "VerticalSplit": true
     }
 }

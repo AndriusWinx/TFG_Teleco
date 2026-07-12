@@ -1,10 +1,224 @@
 \section{Resultados y discusión}
 \label{cap4:resultados}
 \subsection{Desempeño general}
+El objetivo de este trabajo es la evaluación del rendimiento de los modelos con \textit{online learning} respecto a los mismos modelos con entrenamiento estático u \textit{offline learning}. En todas las combinaciones de hiperparámetros y en todas las arquitecturas los modelos con \textit{online learning} han mostrado un rendimiento superior. Por lo tanto, en este capítulo se analizarán principalmente los resultados obtenidos en los modelos con \textit{online learning}.
+
+%%%%ARGUMENTAR CON EL SPEARMAN DE AVGTESTRNMSE VS AVGTESTINCNRMSE%%%%%%%%%%%%%%%%%%%
+
+El \textit{grid search} realizado en este trabajo no es uniforme. Para ahorrar tiempo se ha comenzado con un \textit{grid search} reducido que se ha ido expandiendo según la correlación entre los hiperparámetros y sus resultados. Por ello, es difícil aislar la influencia de cada hiperparámetro en los resultados aunque analizando todos en conjunto es posible obtener conclusiones coherentes.
+
+Como se ha mencionado anteriormente, la comparación entre los diferentes modelos en el proceso de validación se realiza con la media aritmética del NRMSE obtenido en cada celda. Como en toda media aritmética, la cantidad de valores de la variable a medir influye en gran medida en el resultado final. Como es de esperar, las medias del NRMSE de los modelos con una cuadrícula de 15x15 celdas tienen una desviación menor que las medias del NRMSE de los modelos con una cuadrícula de 7x7 celdas, como se observa en la Figura \ref{fig:dist_nrmse_metros2}. Esto es debido a que la variación en el NRMSE de una celda es amortiguada por las otras 224 celdas, mientras que 48 celdas tienen un poder amortiguador menor.
+
+\begin{figure}[h!]
+	\centering
+	\includesvg[inkscapelatex=false,scale=0.5]{svg-inkscape/distr_nrmse_metros2.svg}
+	\caption{Distribución de las medias de NRMSE de los modelos con \textit{online learning} según el tamaño de la cuadrícula. Elaboración propia.}
+	\label{fig:dist_nrmse_metros2}
+\end{figure}
+\FloatBarrier
+
+
+Según la arquitectura, es decir, el número de capas convolucionales utilizadas, la distribución de las medias de NRMSE es más o menos constante. Como se observa en los diagramas de violín de la Figura \ref{fig:dist_nrmse_layers}, al aumentar el número de capas convolucionales, el rendimiento de los modelos se concentra más en torno a 0.27 de media de NRMSE aunque tienen más \textit{outliers}.
+
+\begin{figure}[h!]
+	\centering
+	\includesvg[inkscapelatex=false,scale=0.6]{svg-inkscape/distr_nrmse_layers.svg}
+	\caption{Distribución de las medias de NRMSE de los modelos con \textit{online learning} según la arquitectura del modelo. Elaboración propia.}
+	\label{fig:dist_nrmse_layers}
+\end{figure}
+\FloatBarrier
+
+Aun así, aunque las arquitecturas con más capas y, por ende, más capacidad de procesamiento sean menos susceptibles a cambios en los hiperparámetros, la aquitectura con una única capa convolucional (CNN+LSTM) es la que ha conseguido el mejor modelo.
 %%%%%%Cómo han sido los resultados según la arquitectura%%%%%%%%%
 
 \subsection{Análisis de Spearman}
+Tras un vistazo rápido a los resultados según el tamaño del dataset y de la arquitectura utilizada, el análisis de Spearman puede arrojar más luz acerca de la contribución de los hiperparámetros a los resultados obtenidos por los modelos con \textit{online learning}. La Tabla \ref{tab:Spearmancorrels} muestra el coeficiente de Spearman ($r_s$) para todos los hiperparámetros y métricas de rendimiento.
+
+%%%%%%%%%%%%%%%%TABLA SPEARMAN%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[htbp]
+	\centering
+	\begin{adjustbox}{width=\textwidth, center}
+		\begin{tabular}{l *{4}{c}}
+			\toprule
+			& NRMSE train & NRMSE test \textit{offline}  & NRMSE test \textit{online} & Tiempo (s) \textit{online} \\
+			\midrule
+			Tamaño cuadrícula         & 0,4715  & 0,6598  & 0,1613  & 0,3127  \\
+			Capas CNN        & -0,3044 & 0,2384  & -0,0980 & 0,5366  \\
+			Tamaño \texttt{kernel}          & -0,2282 & -0,3540 & -0,0271 & -0,1942 \\
+			\texttt{look\_back}        & -0,2321 & 0,3183  & -0,2465 & 0,5053  \\
+			\texttt{batch\_size}       & -0,0055 & -0,0087 & -0,1993 & 0,1711  \\
+			\texttt{updates}         & -0,1094 & 0,0101  & -0,3473 & 0,5482  \\
+			\texttt{threshold}       & 0,0343  & -0,2324 & 0,0362  & -0,2177 \\
+			Filtros capa 1     & 0,0068  & -0,0815 & 0,0574  & -0,2144 \\
+			Filtros capa 2     & 0,0121  & 0,0238  & 0,1108  & -0,1523 \\
+			Filtros capa 3     & -0,0286 & 0,0479  & 0,0659  & -0,1166 \\
+%%			\midrule
+%%%			AvgTrainRNMSE   & 1.0000  & 0.2768  & 0.1709  & -0.0778 \\
+%%			AvgTestRNMSE    & 0.2768  & 1.0000  & 0.0511  & 0.4327  \\
+%%			AvgTestIncRNMSE & 0.1709  & 0.0511  & 1.0000  & -0.2443 \\
+%%			AvgTestIncTime  & -0.0778 & 0.4327  & -0.2443 & 1.0000  \\
+			\bottomrule
+		\end{tabular}
+	\end{adjustbox}
+	\caption{Coeficientes de Spearman ($r_s$) entre los hiperparámetros y las métricas de rendimiento como media del NRMSE y media del tiempo de ejecución en \textit{online learning}. Elaboración propia.}
+	\label{tab:Spearmancorrels}
+\end{table}
+\FloatBarrier
+
+\subsubsection{Número de celdas, capas CNN y tamaño del \textit{kernel}}
+El primer hiperparámetro es el tamaño de la cuadrícula, que está muy relacionado de forma directa con el error cometido en el entrenamiento estático ($r_s=0.6598$). A medida que se procesan más celdas al mismo tiempo, la red tiene mayores dificultades para generalizar. Sin embargo, el tamaño de la cuadrícula afecta mucho menos al rendimiento de la red cuando se implementa \textit{online learning} ($r_s=0.1613$). Es un gran indicador de la capacidad de los modelos de adaptarse de forma dinámica a los cambios en los patrones de los datos independientemente de la cantidad de datos procesados.
+
+Algo similar ocurre con el número de capas convolucionales de la red neuronal. A medida que se añaden más capas los modelos \textit{online} mejoran, aunque no demasiado ($r_s=-0.098$). Al contrario de lo que pudiera pensarse, aumentar la capacidad de procesamiento de la red mediante la adición de capas CNN no es beneficioso. Una mayor capacidad de la red provoca \textit{overfitting}, tal y como indica el coeficiente de Spearman entre el número de capas convolucionales y el error cometido por los modelos estáticos ($r_s=0.2384$).
+
+
+
+%%%%%%%%%%%%%%%NO OLVIDAR MENCIONAR EL r_s de capasCNNN y avgtestNRMSE
+
+El siguiente hiperparámetro es el tamaño del \textit{kernel}, es decir, el tamaño del campo de visión de las neuronas convolucionales y está estrechamente relacionado con el tamaño de la cuadrícula. La arquitectura formada únicamente por una capa de neuronas recurrentes LSTM no se ve afectada por este hiperparámetro. Un campo de visión grande en una cuadrícula pequeña suele ser contraproducente puesto que no permite realizar muchas convoluciones. A su vez, un \textit{kernel} pequeño en una cuadrícula grande puede no ser capaz de captar patrones extendidos sobre áreas más extensas.
+
+Para este trabajo se ha incluido en el \textit{grid search} los datasets de 49 y 225 celdas y \textit{kernels} de tamaño 2x2 y 3x3, enfocando la mayor parte del \textit{grid} en el dataset de 49 celdas con un \textit{kernel} 3x3. Un \textit{kernel} mayor de 4x4 sería demasiado grande y no permitiría a las capas convolucionales obtener detalles del patrón de los datos. Obviamente, un \textit{kernel} de 1x1 carece de sentido.
+
+En la Figura \ref{fig:kernel_metros2} se puede observar la influencia tanto del tamaño de la cuadrícula como del campo de visión de las neuronas convolucionales. La influencia del tamaño del \textit{kernel} no es tan grande como la del tamaño de la cuadrícula pero en todos los escenarios un \textit{kernel} menor es ligeramente más eficiente aunque no es una mejora suficientemente grande como para ser tenida en cuenta. Además, su coeficiente de Spearman en entrenamiento estático ($r_s=-0.354$) es menor al del número de celdas y en \textit{online learning} es completamente despreciable ($r_s=-0.0271$).
+
+\begin{figure}[h!]
+	\centering
+	\includesvg[inkscapelatex=false,scale=0.5]{svg-inkscape/kernel_metros2.svg}
+	\caption{Densidad de las medias de NRMSE en entrenamiento estático (línea discontinua) y \textit{online learning} (línea continua) según el tamaño de la cuadrícula y del kernel. Elaboración propia.}
+	\label{fig:kernel_metros2}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{\texttt{look\_back} y \texttt{batch\_size}}
+Los hiperparámetros \texttt{look\_back} y \texttt{batch\_size} son los que mayor correlación tienen con la media de NRMSE de los modelos con \textit{online learning} junto al hiperparámetro \texttt{updates}. Ambos hiperparámetros afecta a los modelos en todas sus fases de entrenamiento y validación. El parámetro \texttt{look\_back} indica la longitud en horas de las secuencias temporales que la red neuronal procesa y \texttt{batch\_size} indica la cantidad de esas secuencias que se procesan al mismo tiempo.
+
+Los datos utilizados presentan una componente periódica marcada de forma diaria y semanal. Por lo tanto, es razonable ajustar el parámetro \texttt{look\_back} a dicha frecuencia. En el presente trabajo se ha probado con valores entre 12 y 32 horas con la intención de permitir que la red aprenda la componente diaria. La componente semanal queda fuera de consideración puesto que un valor grande del hiperparámetro \texttt{look\_back} impondría una carga computacional excesiva, pudiendo aumentar demasiado el tiempo de procesado de los datos.
+
+La tendencia de la media de NRMSE en los modelos con \textit{online learning} respecto al valor de \texttt{look\_back}, tal y como indica su coeficiente de Spearman ($r_s=-0.2465$), es inversa. Aun así, su coeficiente de Spearman es muy alto con respecto al tiempo de ejecución ($r_s=0.5053$). Como se observa en la Figura \ref{fig:lookback_nmrse_time}, aunque aumentar la longitud de las series temporales analizadas lleve a una mayor precisión, el tiempo de ejecución aumenta demasiado. Los mejores valores para el hiperparámetro \texttt{look\_back} están entre 18 y 24 horas de longitud.
+
+\begin{figure}[h!]
+	\centering
+	\includesvg[inkscapelatex=false,scale=0.6]{svg-inkscape/lookback_nrmse_time.svg}
+	\caption{Influencia del hiperparámetro \texttt{look\_back} en la media del NRMSE y en el tiempo de ejecución medio en modelos con \textit{online learning}. Elaboración propia.}
+	\label{fig:lookback_nmrse_time}
+\end{figure}
+\FloatBarrier
+
+Si nos fijamos en el impacto de \texttt{look\_back} en la media del NRMSE en modelos con entrenamiento estático es completamente al revés que en modelos con \textit{online learning}. Su coeficiente de Spearman positivo ($r_s=0.3183$) indica el potencial de \textit{overfitting} latente en el hiperparámetro. Cuando la red neuronal procesa secuencias demasiado largas aprende demasiado bien los datos de entrenamiento, como así lo indica su coeficiente de Spearman ($r_s=-0.2321$) y no generaliza correctamente.
+%%%%%%%%%%BATCH SIZE
+
+
+Encontrar valores para incluir en el \textit{grid search} del hiperparámetro \texttt{batch\_size} no es tarea sencilla. Continuando con el trabajo del Dr. D. Juan Pablo Casaseca de la Higuera \cite{SKIMAcasaseca}, en este trabajo se han probado valores en torno a \textit{batches} de 25 secuencias temporales. Al igual que con el hiperparámetro \texttt{look\_back}, su coeficiente de Spearman respecto al tiempo de ejecución es positivo ($r_s=0.1711$) por lo que \textit{batches} de muchas secuencias temporales no son viables.
+
+%%%%%%%% Train es con shuffle=True per test y test inc es con shuffle=False %%%%%%%%%%%
+
+Cada \textit{batch} contiene una cantidad limitada de secuencias temporales dispuestas de una forma peculiar. Cada secuencia está ordenada de tal forma que crean una ventana deslizante en los datos, por ello en el Capítulo \ref{cap3:entorno} se ha denominado al hiperparámetro \texttt{look\_back} como tal. De esta forma, al escoger valores en torno a 25 para \texttt{batch\_size}, la red neuronal procesa en cada \textit{batch} varias series temporales parcialmente superpuestas que abarcan aproximadamente 48 horas desde la primera muestra de la primera secuencia hasta la última muestra de la última secuencia. Esto permite a la red neuronal analizar el patrón subyacente de dos días naturales.
+
+Esto es especialmente importante en los modelos con \textit{online learning} puesto que, tras el entrenamiento, \texttt{batch\_size} dicta la cantidad de información a la que la red neuronal tiene acceso para ajustar sus pesos. Cuanta más información tiene la red, más precisos son sus ajustes ($r_s=-0.1993$). Sin embargo, en el entrenamiento ($r_s=-0.0055$) y test sin \textit{online learning} ($r_s=-0.0087$) el impacto es despreciable puesto que la red neuronal tiene acceso a todo el dataset de entrenamiento.
+
+\subsubsection{\texttt{updates} y \texttt{threshold}}
+Los hiperparámetros \texttt{updates} y \texttt{threshold} sólo tienen efecto en los modelos con \textit{online learning}. Por ello, aunque algunos de sus coeficientes de Spearman con las métricas de modelos \textit{offline} sean altos, es una coincidencia llamada relación espuria.
+
+\texttt{Updates} indica cuántas veces se procesa el mismo \textit{batch} en \textit{online learning}. Cada vez que se procesa un \textit{batch} se realiza el proceso de \textit{backpropagation} una vez. Por lo tanto, cuantas más veces se realice, mayor precisión tendrá el ajuste de pesos y mayor será la carga computacional y el tiempo de ejecución.
+
+Los coeficientes de Spearman de \texttt{updates} respecto a la media de RNMSE con \textit{online learning} ($r_s=-0.3473$) y al tiempo de ejecución ($r_s=0.5482$) indican que es uno de los hiperparámetros más importantes aunque también uno de los más peligrosos. Al igual que \texttt{look\_back}, cuantas más veces se ajuste la red neuronal al \textit{batch} actual, mayor será su precisión pero mayor será su coste computacional. Además, el coste computacional también está agravado por la arquitectura de la red neuronal, a mayor cantidad de capas se necesitan más cálculos para realizar \textit{backpropagation}.
+
+Como se observa en la Figura \ref{fig:updates_nrmse_time}, los mejores resultados se encuentran a mayor número de \texttt{updates} pero la carga computacional es mayor. Además, se ha de tener en cuenta otros factores que agravan este problema como el tamaño de la cuadrícula, teniendo también un coeficiente de Spearman respecto al tiempo de ejecución bastante alto ($r_s=0.3127$). Esto no suele ser un problema en modelos desplegados en entornos reales puesto que los procesadores suelen tener más capacidad de procesamiento y no tienen las restricciones impuestas en el Capítulo \ref{cap3:entorno} para la reproducibilidad de los resultados.
+
+\begin{figure}[h!]
+	\centering
+	\includesvg[inkscapelatex=false,scale=0.6]{svg-inkscape/updates_nrmse_time.svg}
+	\caption{Influencia del hiperparámetro \texttt{updates} en la media del NRMSE y en el tiempo de ejecución medio en modelos con \textit{online learning}. Elaboración propia.}
+	\label{fig:updates_nrmse_time}
+\end{figure}
+
+
+En cuanto al hiperparámetro \texttt{threshold}, indica si el \textit{batch} actual ha de seguir siendo procesado. No es un hiperparámetro que haya generado un gran impacto puesto que su coeficiente de Spearman es despreciable ($r_s=0.0362$). Como las actualizaciones de los pesos se han realizado siguiendo el modelo propuesto por el Dr. D. Juan Pablo Casaseca de la Higuera \cite{SKIMAcasaseca}, las actualizaciones de pesos provocadas por errores pequeños son menos potentes que las realizadas por los errores mayores. Por lo tanto, aunque el hiperparámetro \texttt{threshold} elimine las actualizaciones provocadas por errores pequeños, no son actualizaciones influyentes. Sin embargo, al eliminarlas se libera una gran cantidad de carga computacional, como se puede comprobar a través de su coeficiente de Spearman correspondiente ($r_s=-0.2177$).
+
+
+\subsubsection{Número de filtros de las capas convolucionales}
+El número de filtros indica la capacidad de las capas convolucionales para analizar patrones geográficos en la cuadrícula analizada. Sin embargo, un gran número de filtros puede provocar \textit{overfitting}. Cuando hay demasiados filtros la red comienza a identificar el ruido presente en los datos como un patrón legítimo.
+
+En cuanto al tiempo de ejecución, el resultado es contraintuitivo ($r_s<0$). La respuesta está en la librería \texttt{Tensorflow} y la forma en que realiza los ajustes en los modelos con \textit{online learning}. En cada modelo, la primera iteración de \textit{online learning} es extremadamente lenta puesto que \texttt{Tensorflow} realiza un mapa de la red neuronal y lo convierte en una serie de funciones altamente optimizadas con el algoritmo \textit{Tracing Graph}. En las siguientes iteraciones ya tiene el mapa hecho y lo ejecuta velozmente. Como se ha argumentado antes, las redes con más filtros son más propensas al \textit{overfitting}, lo que aumenta el error NRMSE en las predicciones. Errores mayores tienen más probabilidad de superar el valor del hiperparámetro \texttt{threshold}, lo que genera más iteraciones de \textit{online learning}. Todas esas iteraciones adicionales son extremadamente rápidas en comparación con la primera iteración, lo que reduce la media del tiempo de ejecución \cite{machinelearningbook1,tffunction}.
+
 %%%%%%%%%%Análisis de Spearman%%%%%%%%%%
 
-\subsection{Mejores modelos}
-%%%%%%%%%Descripción del mejor modelo y visualización de resultados%%%%
+
+
+
+
+\subsection{Mejor modelo}
+\label{cap4.3:bestmodel}
+El grueso de las medias de NRMSE se encuentra entre 0.20 y 0.50. En sí no son valores satisfactorios puesto que el objetivo se encuentra en un NRMSE<0.1778. Sin embargo, aunque en media no se alcance el objetivo, es probable que, escogiendo los modelos con mejor media de NRMSE, algunas celdas superen el objetivo.
+
+
+Los modelos sin capas convolucionales se quedan atrás en su rendimiento medio respecto a los modelos con capas convolucionales como se observa en la Figura \ref{fig:dist_nrmse_layers}. La cuadrícula de 49 celdas también es la que resulta más sencilla de procesar para las redes neuronales (\textit{véase Figura \ref{fig:dist_nrmse_metros2}}).
+
+El modelo con menor media de NRMSE en \textit{online learning} a lo largo de todas sus celdas es un modelo con una capa convolucional y otra capa de neuronas LSTM con la siguiente configuración:
+
+%%%%%%%%%%%%%%TABLA DE HIPERPARÁMETROS DEL MEJOR MODELO%%%%%%%%%%%%%%
+\begin{table}[htbp]
+	\centering
+
+	\label{tab:best_model_hyperparams}
+	\begin{tabular}{lc}
+		\toprule
+		\textbf{Hiperparámetro} & \textbf{Valor} \\
+		\midrule
+		Tamaño cuadrícula     & 49 \\
+		Capas CNN    & 1 \\
+		Tamaño \texttt{kernel}      & 2 \\
+		\texttt{look\_back}    & 24 \\
+		\texttt{batch\_size}   & 25 \\
+		\texttt{updates}     & 12 \\
+		\texttt{threshold}   & 0.1 \\
+		Filtros capa 1 & 16 \\
+		Filtros capa 2 & -- \\
+		Filtros capa 3 & -- \\
+		\midrule
+		\multicolumn{2}{c}{\textbf{Métricas de Rendimiento}} \\
+		\midrule
+		NRMSE entrenamiento   & 0.1221 \\
+		NRMSE test \textit{offline}    & 0.3487 \\
+		NRMSE test \textit{online} & 0.2048 \\
+		Tiempo de ejecución medio (s)  & 0.0768 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Características del mejor modelo en \textit{online learning} y sus métricas de rendimiento como media del NRMS de sus celdas. Elaboración propia.}
+\end{table}
+
+Podemos observar en la Figura \ref{fig:heatmap_bestmodel} cómo se reparte la media NRMSE=$0.2048$ entre las 49 celdas. Cada celda tiene un dos números, el superior indicando el identificador de la celda en el dataset Milán y el inferior indicando el NRMSE. No hay nada que indique una distribución concreta ni una relación clara entre la posición de las celdas y su NRMSE. Destacan como celdas con menor NRMSE las celdas 5263, 5163 y 4962 y las celdas 5357, 5058 y 4959 como celdas con peor NRMSE.
+
+\begin{figure}[h!]
+	\centering
+	\includesvg[inkscapelatex=false,scale=0.6]{svg-inkscape/heatmap_bestmodel.svg}
+	\caption{NRMSE por celda del mejor modelo con \textit{online learning}. Elaboración propia.}
+	\label{fig:heatmap_bestmodel}
+\end{figure}
+\FloatBarrier
+
+
+Al comparar el diagrama de calor de la Figura \ref{fig:heatmap_bestmodel} con los diagramas de calor obtenidos en los mejores modelos de \textit{online learning} de otras arquitecturas, se aprecia que todas las arquitecturas tienen más o menos la misma distribución de errores. Las mejores celdas siempre son las celdas 5263, 5163 y 4962 y las peores celdas siempre son las celdas 5357, 5058 y 4959, como se observa en la Figura \ref{fig:heatmap_combined}.
+
+
+\begin{figure}[h!]
+	\centering
+	\includesvg[inkscapelatex=false,scale=0.25]{svg-inkscape/heatmap_combined.svg}
+	\caption{NRMSE por celda de los mejores modelos con \textit{online learning} de cada arquitectura (LSTM, 2CNN+LSTM y 3CNN+LSTM). Elaboración propia.}
+	\label{fig:heatmap_combined}
+\end{figure}
+\FloatBarrier
+
+Para obtener más detalles es necesario observar las predicciones realizadas en cada celda. No es necesario ni eficiente analizar todas las celdas por lo que sólo se escrutarán las 3 mejores y las 3 peores. Como el modelo tiene una arquitectura con una capa convolucional con un kernel 3x3 y una capa recurrente LSTM, es interesant comparar las celdas analizadas con las celdas contiguas para intentar estimar qué datos han tenido en cuenta las neuronas convolucionales.
+
+%%%%%%%%%%%%%%%PLOTS DE LAS CELDAS INDIVIDUALES%%%%%%%%%%%%%%%%%%%%%
+
+Respecto a las mejores celdas, las celdas 5263 y 5163 se influyen mutuamente al ser contiguas. Observando los datos de test, ambas tienen un marcado patrón periódico diario y semanal, en el que los primeros cinco días tienen más tráfico que los dos días siguientes. Mirando las celdas contiguas a las mismas, las celdas 5063, 5062 y 5363 presentan el mismo patrón. Las celdas 5162 y 5262 presentan un patrón en el que los siete días de la semana son prácticamente idénticos con mínimos más bajos que las otras celdas. Observando las predicciones sin \textit{online learning}, parece que éstas últimas han influido en las predicciones de las celdas 5263 y 5163 y la red neuronal ha infravalorado el tráfico de red futuro.
+
+%%%%%%%%%%%%%%DESEMPEÑO CON ONLINE LEARNING&%%%%%%%%%%
+
+Respecto a las peores celdas, las celdas 4959 y 5357 no son fáciles de predecir por ninguna red neuronal. Los datos de test de la celda 4959 contiene mucho ruido y cambios bruscos y rápidos alrededor de los mínimos de tráfico y la celda 5057 presenta un cambio radical en el patrón subyacente de los datos. Los modelos sin \textit{online learning} no son capaces de soportar un cambio tan grande. Aun así, parece que aunque la celda 5357 tiene un patrón más o menos uniforme antes del cambio, la influencia del patrón en forma de 5 y 2 días de las celdas adyacentes se puede ver en las predicciones sin \textit{online learning}.
+
+En general, la mayor contribución al NRMSE es provocado por anomalías en los patrones, como por ejemplo los máximos abruptos de la celda 5058. Sin embargo, es visible en todas las celdas cómo los modelos con \textit{online learning} son muy superiores a aquellos sin \textit{online learning}. Esto se observa muy bien en las celdas con menor precisión, por ejemplo, el modelo con \textit{online learning} ha podido adaptarse rápidamente los cambios radicales de las celdas 5357 y 5362 en cuestión de 2 o 3 días. Por otra parte, el modelo sin \textit{online learning} son completamente incapaces de adaptarse.
+
+
+

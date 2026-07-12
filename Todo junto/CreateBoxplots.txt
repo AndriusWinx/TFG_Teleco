@@ -1,0 +1,43 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+
+# 1. Force Matplotlib to save text as vector paths (compatible with TeXstudio)
+plt.rcParams['svg.fonttype'] = 'path'
+
+# 2. Load the data
+# Parse the 'startTime' column as datetime objects and set it as the index
+df = pd.read_csv('../7x7LSTM/Traffic_7x7_1.csv', parse_dates=['startTime'], index_col='startTime')
+
+# 3. Iterate through each column (the 49 cell IDs)
+for cell_id in df.columns:
+    
+    # Initialize a new figure for each cell
+    fig, ax = plt.subplots(figsize=(10, 6))
+    
+    # Plot the time series data for the current cell
+    ax.plot(df.index, df[cell_id], color='blue', linewidth=1.5)
+    
+    # Customize the layout
+    ax.set_title(f'Tráfico a lo largo del tiempo - Celda {cell_id}', fontsize=14, pad=15)
+    ax.set_xlabel('Tiempo')
+    ax.set_ylabel('Volumen de Tráfico')
+    ax.grid(axis='both', linestyle='--', alpha=0.5)
+    
+    # Format the X-axis dates so they are readable and don't overlap
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))
+    plt.xticks(rotation=45)
+    
+    # Adjust layout to ensure the rotated labels fit inside the image bounds
+    plt.tight_layout()
+    
+    # Save the plot as an individual SVG file
+    filename = f'trafico_celda_{cell_id}.svg'
+    plt.savefig(filename, format='svg', bbox_inches='tight')
+    
+    # CRITICAL: Close the figure to free up RAM before the next loop iteration
+    plt.close(fig)
+    
+    print(f"Generado: {filename}")
+
+print("Las 49 gráficas se han guardado correctamente.")

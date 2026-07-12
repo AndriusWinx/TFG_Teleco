@@ -1,0 +1,47 @@
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{7}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Objetivos}{8}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Estructura del documento}{8}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Antecedentes y estado del arte}{9}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Predicción de series temporales}{9}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Modelos autorregresivos de medias móviles}{9}{subsubsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.2}Aprendizaje automático}{11}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Procedimiento de selección de modelos}{11}{subsubsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.3}\textit {Deep learning}}{13}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}El \textit {Perceptron}}{13}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Entrenamiento de redes neuronales}{14}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Redes neuronales convolucionales}{15}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Mapas de filtros}{15}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}Capas de agregación}{16}{subsubsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.7}Redes neuronales recurrentes}{17}{subsection.2.7}%
+\contentsline {subsubsection}{\numberline {2.7.1}Neuronas LSTM}{17}{subsubsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.8}CNN+LSTM}{19}{subsection.2.8}%
+\contentsline {subsubsection}{\numberline {2.8.1}TimeDistributed}{19}{subsubsection.2.8.1}%
+\contentsline {subsubsection}{\numberline {2.8.2}Flatten}{20}{subsubsection.2.8.2}%
+\contentsline {subsection}{\numberline {2.9}\textit {Online learning}}{20}{subsection.2.9}%
+\contentsline {section}{\numberline {3}Entorno experimental}{22}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Descripción de los datos}{22}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Arquitecturas empleadas}{23}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Procedimiento de entrenamiento}{23}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Hiperparámetros considerados}{24}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Métricas de rendimiento}{25}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Análisis de Spearman}{26}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Entorno de ejecución}{27}{subsection.3.7}%
+\contentsline {section}{\numberline {4}Resultados y discusión}{28}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Desempeño general}{28}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Análisis de Spearman}{29}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Número de celdas, capas CNN y tamaño del \textit {kernel}}{30}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}\texttt {look\_back} y \texttt {batch\_size}}{31}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}\texttt {updates} y \texttt {threshold}}{33}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Número de filtros de las capas convolucionales}{34}{subsubsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.3}Mejor modelo}{34}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Conclusiones y líneas futuras}{38}{section.5}%
+\contentsline {section}{Referencias}{39}{section.5}%
+\contentsline {section}{\numberline {A}Fragmentos de código}{43}{section.A}%
+\contentsline {subsection}{\numberline {A.1}Código Python del modelo original}{43}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Código Python del modelo LSTM adaptado para el entorno Kaggle}{49}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Código Python de los modelos XCNN+LSTM adaptados para el entorno Kaggle}{55}{subsection.A.3}%
+\contentsline {section}{\numberline {B}Representación de los datos}{62}{section.B}%
+\contentsline {subsection}{\numberline {B.1}\textit {Dataset} Milán}{62}{subsection.B.1}%
+\contentsline {subsection}{\numberline {B.2}Predicciones del mejor modelo}{73}{subsection.B.2}%

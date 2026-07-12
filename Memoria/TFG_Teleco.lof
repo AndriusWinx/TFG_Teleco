@@ -1,0 +1,48 @@
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Campos de visión de dos neuronas convolucionales situadas en el mapa de filtros k=2 de la capa convolucional l=2 con \textit {stride}=1. Elaboración propia.}}{16}{figure.caption.9}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Representación de las puertas de una neurona LSTM \cite {tfgalicia}.}}{18}{figure.caption.10}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Representación de las distintas formas de \textit {concept drift}. \cite {conceptdrift,conceptdrift1,conceptdrift2}}}{20}{figure.caption.11}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Distribución de las medias de NRMSE de los modelos con \textit {online learning} según el tamaño de la cuadrícula. Elaboración propia.}}{28}{figure.caption.13}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Distribución de las medias de NRMSE de los modelos con \textit {online learning} según la arquitectura del modelo. Elaboración propia.}}{29}{figure.caption.14}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Densidad de las medias de NRMSE en entrenamiento estático (línea discontinua) y \textit {online learning} (línea continua) según el tamaño de la cuadrícula y del kernel. Elaboración propia.}}{31}{figure.caption.16}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Influencia del hiperparámetro \texttt {look\_back} en la media del NRMSE y en el tiempo de ejecución medio en modelos con \textit {online learning}. Elaboración propia.}}{32}{figure.caption.17}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Influencia del hiperparámetro \texttt {updates} en la media del NRMSE y en el tiempo de ejecución medio en modelos con \textit {online learning}. Elaboración propia.}}{34}{figure.caption.18}%
+\contentsline {figure}{\numberline {9}{\ignorespaces NRMSE por celda del mejor modelo con \textit {online learning}. Elaboración propia.}}{36}{figure.caption.20}%
+\contentsline {figure}{\numberline {10}{\ignorespaces NRMSE por celda de los mejores modelos con \textit {online learning} de cada arquitectura (LSTM, 2CNN+LSTM y 3CNN+LSTM). Elaboración propia.}}{36}{figure.caption.21}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 4861 \cite {milandataset}.}}{62}{figure.caption.23}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 4862 \cite {milandataset}.}}{63}{figure.caption.24}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 4863 \cite {milandataset}.}}{63}{figure.caption.25}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 4959 \cite {milandataset}.}}{64}{figure.caption.26}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 4961 \cite {milandataset}.}}{64}{figure.caption.27}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 4962 \cite {milandataset}.}}{65}{figure.caption.28}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 4963 \cite {milandataset}.}}{65}{figure.caption.29}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 5057 \cite {milandataset}.}}{66}{figure.caption.30}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 5058 \cite {milandataset}.}}{66}{figure.caption.31}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 5060 \cite {milandataset}.}}{67}{figure.caption.32}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 5061 \cite {milandataset}.}}{67}{figure.caption.33}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 5062 \cite {milandataset}.}}{68}{figure.caption.34}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 5063 \cite {milandataset}.}}{68}{figure.caption.35}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 5162 \cite {milandataset}.}}{69}{figure.caption.36}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 5163 \cite {milandataset}.}}{69}{figure.caption.37}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 5257 \cite {milandataset}.}}{70}{figure.caption.38}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 5258 \cite {milandataset}.}}{70}{figure.caption.39}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 5262 \cite {milandataset}.}}{71}{figure.caption.40}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 5263 \cite {milandataset}.}}{71}{figure.caption.41}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 5357 \cite {milandataset}.}}{72}{figure.caption.42}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 5358 \cite {milandataset}.}}{72}{figure.caption.43}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 5362 \cite {milandataset}.}}{73}{figure.caption.44}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para la celda 5363 \cite {milandataset}.}}{73}{figure.caption.45}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Predicciones del mejor modelo para la celda 4959. Elaboración propia.}}{74}{figure.caption.46}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Predicciones del mejor modelo para la celda 4962. Elaboración propia.}}{74}{figure.caption.47}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Predicciones del mejor modelo para la celda 5057. Elaboración propia.}}{74}{figure.caption.48}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Predicciones del mejor modelo para la celda 5058. Elaboración propia.}}{75}{figure.caption.49}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Predicciones del mejor modelo para la celda 5062. Elaboración propia.}}{75}{figure.caption.50}%
+\contentsline {figure}{\numberline {39}{\ignorespaces Predicciones del mejor modelo para la celda 5063. Elaboración propia.}}{75}{figure.caption.51}%
+\contentsline {figure}{\numberline {40}{\ignorespaces Predicciones del mejor modelo para la celda 5162. Elaboración propia.}}{76}{figure.caption.52}%
+\contentsline {figure}{\numberline {41}{\ignorespaces Predicciones del mejor modelo para la celda 5163. Elaboración propia.}}{76}{figure.caption.53}%
+\contentsline {figure}{\numberline {42}{\ignorespaces Predicciones del mejor modelo para la celda 5262. Elaboración propia.}}{76}{figure.caption.54}%
+\contentsline {figure}{\numberline {43}{\ignorespaces Predicciones del mejor modelo para la celda 5263. Elaboración propia.}}{77}{figure.caption.55}%
+\contentsline {figure}{\numberline {44}{\ignorespaces Predicciones del mejor modelo para la celda 5357. Elaboración propia.}}{77}{figure.caption.56}%
+\contentsline {figure}{\numberline {45}{\ignorespaces Predicciones del mejor modelo para la celda 5362. Elaboración propia.}}{77}{figure.caption.57}%
+\contentsline {figure}{\numberline {46}{\ignorespaces Predicciones del mejor modelo para la celda 5363. Elaboración propia.}}{78}{figure.caption.58}%
