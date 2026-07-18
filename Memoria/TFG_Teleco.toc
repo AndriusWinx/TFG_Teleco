@@ -38,10 +38,10 @@
 \contentsline {subsection}{\numberline {4.3}Mejor modelo}{34}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Conclusiones y líneas futuras}{38}{section.5}%
 \contentsline {section}{Referencias}{39}{section.5}%
-\contentsline {section}{\numberline {A}Fragmentos de código}{43}{section.A}%
-\contentsline {subsection}{\numberline {A.1}Código Python del modelo original}{43}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Código Python del modelo LSTM adaptado para el entorno Kaggle}{49}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Código Python de los modelos XCNN+LSTM adaptados para el entorno Kaggle}{55}{subsection.A.3}%
-\contentsline {section}{\numberline {B}Representación de los datos}{62}{section.B}%
-\contentsline {subsection}{\numberline {B.1}\textit {Dataset} Milán}{62}{subsection.B.1}%
-\contentsline {subsection}{\numberline {B.2}Predicciones del mejor modelo}{73}{subsection.B.2}%
+\contentsline {section}{\numberline {A}Fragmentos de código}{43}{appendix.Alph1}%
+\contentsline {subsection}{\numberline {A.1}Código Python del modelo original}{43}{subsection.Alph1.1}%
+\contentsline {subsection}{\numberline {A.2}Código Python del modelo LSTM adaptado para el entorno Kaggle}{49}{subsection.Alph1.2}%
+\contentsline {subsection}{\numberline {A.3}Código Python de los modelos XCNN+LSTM adaptados para el entorno Kaggle}{55}{subsection.Alph1.3}%
+\contentsline {section}{\numberline {B}Representación de los datos}{62}{appendix.Alph2}%
+\contentsline {subsection}{\numberline {B.1}\textit {Dataset} Milán}{62}{subsection.Alph2.1}%
+\contentsline {subsection}{\numberline {B.2}Predicciones del mejor modelo}{73}{subsection.Alph2.2}%
