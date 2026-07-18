@@ -1,0 +1,125 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Standard arrowhead -->
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto">
+            <path d="M 0 0 L 8 4 L 0 8 Z" fill="#333333" />
+        </marker>
+        <!-- Larger arrowhead for the time axis -->
+        <marker id="big-arrow" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 Z" fill="#333333" />
+        </marker>
+        
+        <!-- Reusable box styling -->
+        <style>
+            .cell {
+                fill: #ead8a6;
+                stroke: #333333;
+                stroke-width: 2px;
+            }
+            .line {
+                stroke: #333333;
+                stroke-width: 2px;
+                fill: none;
+            }
+            .axis {
+                stroke: #333333;
+                stroke-width: 3px;
+                fill: none;
+            }
+            .label {
+                font-family: sans-serif;
+                font-size: 18px;
+                font-style: italic;
+                fill: #333333;
+            }
+            .subscript {
+                font-size: 12px;
+            }
+            .axis-label {
+                font-family: sans-serif;
+                font-size: 22px;
+                font-weight: bold;
+                fill: #333333;
+            }
+        </style>
+    </defs>
+
+    <!-- ========================================== -->
+    <!-- TOP DIAGRAM: FOLDED RNN CELL               -->
+    <!-- ========================================== -->
+    
+    <!-- Recurrent Hidden State Loop (h) -->
+    <path class="line" d="M 440, 125 C 500, 125 500, 230 400, 230 C 300, 230 300, 125 355, 125" marker-end="url(#arrow)" />
+    <text x="400" y="250" class="label" text-anchor="middle">h</text>
+
+    <!-- Single Cell -->
+    <rect class="cell" x="360" y="100" width="80" height="50" rx="8" ry="8" />
+
+    <!-- Input (x) -->
+    <line class="line" x1="400" y1="190" x2="400" y2="155" marker-end="url(#arrow)" />
+    <text x="380" y="180" class="label">x</text>
+
+    <!-- Output (y_hat) -->
+    <line class="line" x1="400" y1="100" x2="400" y2="50" marker-end="url(#arrow)" />
+    <text x="415" y="75" class="label">ŷ</text>
+
+
+    <!-- ========================================== -->
+    <!-- BOTTOM DIAGRAM: UNROLLED RNN THROUGH TIME  -->
+    <!-- ========================================== -->
+
+    <!-- Time Step 0 -->
+    <rect class="cell" x="160" y="350" width="80" height="50" rx="8" ry="8" />
+    
+    <!-- x_0 -->
+    <line class="line" x1="200" y1="460" x2="200" y2="405" marker-end="url(#arrow)" />
+    <text x="160" y="440" class="label">x<tspan dy="5" class="subscript">(0)</tspan></text>
+    
+    <!-- y_hat_0 -->
+    <line class="line" x1="200" y1="350" x2="200" y2="280" marker-end="url(#arrow)" />
+    <text x="220" y="310" class="label">ŷ<tspan dy="5" class="subscript">(0)</tspan></text>
+    
+    <!-- h_0 -->
+    <line class="line" x1="240" y1="375" x2="355" y2="375" marker-end="url(#arrow)" />
+    <text x="285" y="365" class="label">h<tspan dy="5" class="subscript">(0)</tspan></text>
+
+
+    <!-- Time Step 1 -->
+    <rect class="cell" x="360" y="350" width="80" height="50" rx="8" ry="8" />
+    
+    <!-- x_1 -->
+    <line class="line" x1="400" y1="460" x2="400" y2="405" marker-end="url(#arrow)" />
+    <text x="360" y="440" class="label">x<tspan dy="5" class="subscript">(1)</tspan></text>
+    
+    <!-- y_hat_1 -->
+    <line class="line" x1="400" y1="350" x2="400" y2="280" marker-end="url(#arrow)" />
+    <text x="420" y="310" class="label">ŷ<tspan dy="5" class="subscript">(1)</tspan></text>
+    
+    <!-- h_1 -->
+    <line class="line" x1="440" y1="375" x2="555" y2="375" marker-end="url(#arrow)" />
+    <text x="485" y="365" class="label">h<tspan dy="5" class="subscript">(1)</tspan></text>
+
+
+    <!-- Time Step 2 -->
+    <rect class="cell" x="560" y="350" width="80" height="50" rx="8" ry="8" />
+    
+    <!-- x_2 -->
+    <line class="line" x1="600" y1="460" x2="600" y2="405" marker-end="url(#arrow)" />
+    <text x="560" y="440" class="label">x<tspan dy="5" class="subscript">(2)</tspan></text>
+    
+    <!-- y_hat_2 -->
+    <line class="line" x1="600" y1="350" x2="600" y2="280" marker-end="url(#arrow)" />
+    <text x="620" y="310" class="label">ŷ<tspan dy="5" class="subscript">(2)</tspan></text>
+    
+    <!-- Continuation dots -->
+    <line class="line" x1="640" y1="375" x2="680" y2="375" marker-end="url(#arrow)" />
+    <text x="695" y="380" font-family="sans-serif" font-size="24" font-weight="bold" fill="#333333">...</text>
+
+
+    <!-- ========================================== -->
+    <!-- AXIS                                       -->
+    <!-- ========================================== -->
+    <line class="axis" x1="120" y1="520" x2="680" y2="520" marker-end="url(#big-arrow)" />
+    <text x="680" y="550" class="axis-label" text-anchor="end">Tiempo</text>
+
+</svg>

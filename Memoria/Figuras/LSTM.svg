@@ -1,0 +1,210 @@
+<svg width="1050" height="650" viewBox="0 0 1050 650" xmlns="http://www.w3.org/2000/svg" style="background-color: #ffffff;">
+    <defs>
+        <!-- Arrowhead Marker -->
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#222222" />
+        </marker>
+        
+        <style>
+            .line { fill: none; stroke: #222222; stroke-width: 2.5px; }
+            .line-dashed { fill: none; stroke: #666666; stroke-width: 2px; stroke-dasharray: 6,6; }
+            .math { font-family: 'Times New Roman', serif; font-style: italic; font-size: 22px; fill: #111; }
+            .math-sub { font-size: 14px; }
+            .label { font-family: Arial, sans-serif; font-size: 14px; fill: #333; }
+            .title { font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; fill: #222; }
+            .gate-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #444; }
+            .op-circle { fill: #ffffff; stroke: #222222; stroke-width: 2.5px; }
+            .fc-box { stroke: #222222; stroke-width: 2px; }
+            .dot { fill: #222222; }
+        </style>
+    </defs>
+
+    <!-- ==================== MAIN CELL BACKGROUND ==================== -->
+    <rect x="150" y="80" width="750" height="420" rx="15" fill="#f8f4e6" stroke="#222222" stroke-width="2.5" />
+    <text x="525" y="115" class="title" text-anchor="middle">Célula LSTM</text>
+
+    <!-- ==================== TENSOR FLOW LINES ==================== -->
+    
+    <!-- Top Horizontal C line (Cell State) -->
+    <path d="M 50 160 L 275 160" class="line" marker-end="url(#arrow)" />
+    <path d="M 325 160 L 475 160" class="line" marker-end="url(#arrow)" />
+    <path d="M 525 160 L 980 160" class="line" marker-end="url(#arrow)" />
+
+    <!-- Branch from C line down to Tanh -->
+    <path d="M 620 160 L 620 230" class="line" marker-end="url(#arrow)" />
+    <circle cx="620" cy="160" r="4.5" class="dot" />
+
+    <!-- Tanh block to Output Gate -->
+    <path d="M 650 260 L 675 260" class="line" marker-end="url(#arrow)" />
+
+    <!-- Bottom Inputs (h and x merging into bus) -->
+    <path d="M 50 450 L 190 450" class="line" />
+    <path d="M 200 560 L 200 450" class="line" />
+    <!-- Main horizontal distribution bus -->
+    <path d="M 200 450 L 720 450" class="line" />
+    <circle cx="200" cy="450" r="4.5" class="dot" />
+
+    <!-- Connections from distribution bus to FC blocks -->
+    <path d="M 300 450 L 300 395" class="line" marker-end="url(#arrow)" />
+    <path d="M 450 450 L 450 395" class="line" marker-end="url(#arrow)" />
+    <path d="M 570 450 L 570 395" class="line" marker-end="url(#arrow)" />
+    <path d="M 720 450 L 720 395" class="line" marker-end="url(#arrow)" />
+    
+    <circle cx="300" cy="450" r="4.5" class="dot" />
+    <circle cx="450" cy="450" r="4.5" class="dot" />
+    <circle cx="570" cy="450" r="4.5" class="dot" />
+
+    <!-- FC Outputs to Gates -->
+    <!-- FC1 to Forget Gate -->
+    <path d="M 300 330 L 300 190" class="line" marker-end="url(#arrow)" />
+    
+    <!-- FC2 (Input i) to Input Gate multiplication -->
+    <path d="M 450 330 L 450 260 L 480 260" class="line" marker-end="url(#arrow)" />
+    
+    <!-- FC3 (Input g) to Input Gate multiplication -->
+    <path d="M 570 330 L 570 260 L 525 260" class="line" marker-end="url(#arrow)" />
+
+    <!-- Input Gate internal flow to C line -->
+    <path d="M 500 240 L 500 190" class="line" marker-end="url(#arrow)" />
+
+    <!-- FC4 to Output Gate multiplication -->
+    <path d="M 720 330 L 720 285" class="line" marker-end="url(#arrow)" />
+
+    <!-- Final Output (h_t) from Output Gate -->
+    <path d="M 740 260 L 980 260" class="line" marker-end="url(#arrow)" />
+    
+    <!-- Branch for y_t -->
+    <path d="M 900 260 L 900 210 L 980 210" class="line" marker-end="url(#arrow)" />
+    <circle cx="900" cy="260" r="4.5" class="dot" />
+
+
+    <!-- ==================== FULLY CONNECTED ZONE ==================== -->
+    <rect x="240" y="315" width="530" height="150" rx="10" class="line-dashed" />
+    <text x="505" y="490" class="gate-title" text-anchor="middle" font-size="16">Capa Totalmente Conectada</text>
+
+    <!-- ==================== INNER BLOCKS & GATES ==================== -->
+    
+    <!-- Tanh Activation Block on C line -->
+    <rect x="590" y="240" width="60" height="40" rx="4" fill="#5c92c7" class="fc-box" />
+    <text x="620" y="265" font-family="Arial, sans-serif" font-size="14" fill="#fff" font-weight="bold" text-anchor="middle">Tanh</text>
+
+    <!-- FC1: Forget Gate (Logistic) -->
+    <g transform="translate(270, 330)">
+        <rect x="0" y="0" width="60" height="40" fill="#e27a7a" class="fc-box" />
+        <rect x="0" y="0" width="60" height="25" fill="#cccccc" class="fc-box" />
+        <text x="30" y="17" class="label" font-weight="bold" text-anchor="middle">FC</text>
+        <text x="30" y="36" class="math" font-size="16" fill="#fff" font-style="normal" font-weight="bold" text-anchor="middle">σ</text>
+    </g>
+
+    <!-- FC2: Input Gate i (Logistic) -->
+    <g transform="translate(420, 330)">
+        <rect x="0" y="0" width="60" height="40" fill="#e27a7a" class="fc-box" />
+        <rect x="0" y="0" width="60" height="25" fill="#cccccc" class="fc-box" />
+        <text x="30" y="17" class="label" font-weight="bold" text-anchor="middle">FC</text>
+        <text x="30" y="36" class="math" font-size="16" fill="#fff" font-style="normal" font-weight="bold" text-anchor="middle">σ</text>
+    </g>
+
+    <!-- FC3: Input Gate g (Tanh) -->
+    <g transform="translate(540, 330)">
+        <rect x="0" y="0" width="60" height="40" fill="#5c92c7" class="fc-box" />
+        <rect x="0" y="0" width="60" height="25" fill="#cccccc" class="fc-box" />
+        <text x="30" y="17" class="label" font-weight="bold" text-anchor="middle">FC</text>
+        <text x="30" y="36" class="label" fill="#fff" font-weight="bold" text-anchor="middle">tanh</text>
+    </g>
+
+    <!-- FC4: Output Gate o (Logistic) -->
+    <g transform="translate(690, 330)">
+        <rect x="0" y="0" width="60" height="40" fill="#e27a7a" class="fc-box" />
+        <rect x="0" y="0" width="60" height="25" fill="#cccccc" class="fc-box" />
+        <text x="30" y="17" class="label" font-weight="bold" text-anchor="middle">FC</text>
+        <text x="30" y="36" class="math" font-size="16" fill="#fff" font-style="normal" font-weight="bold" text-anchor="middle">σ</text>
+    </g>
+
+
+    <!-- ==================== TENSOR OPERATIONS ==================== -->
+
+    <!-- Forget Gate (Multiplication) -->
+    <g transform="translate(300, 160)">
+        <circle cx="0" cy="0" r="18" class="op-circle" />
+        <path d="M -9 -9 L 9 9 M -9 9 L 9 -9" stroke="#222" stroke-width="2.5" />
+        <text x="0" y="-30" class="gate-title" text-anchor="middle">Puerta de olvido</text>
+    </g>
+
+    <!-- Addition Gate (Cell state update) -->
+    <g transform="translate(500, 160)">
+        <circle cx="0" cy="0" r="18" class="op-circle" />
+        <path d="M -11 0 L 11 0 M 0 -11 L 0 11" stroke="#222" stroke-width="2.5" />
+    </g>
+
+    <!-- Input Gate (Multiplication) -->
+    <g transform="translate(500, 260)">
+        <circle cx="0" cy="0" r="18" class="op-circle" />
+        <path d="M -9 -9 L 9 9 M -9 9 L 9 -9" stroke="#222" stroke-width="2.5" />
+        <text x="0" y="35" class="gate-title" text-anchor="middle">Puerta de entrada</text>
+    </g>
+
+    <!-- Output Gate (Multiplication) -->
+    <g transform="translate(720, 260)">
+        <circle cx="0" cy="0" r="18" class="op-circle" />
+        <path d="M -9 -9 L 9 9 M -9 9 L 9 -9" stroke="#222" stroke-width="2.5" />
+        <text x="0" y="35" class="gate-title" text-anchor="middle">Puerta de salida</text>
+    </g>
+
+
+    <!-- ==================== EXTERNAL TEXT LABELS ==================== -->
+    
+    <!-- Vectors Left -->
+    <text x="40" y="155" class="math" text-anchor="end">c<tspan class="math-sub" baseline-shift="sub">(t-1)</tspan></text>
+    <text x="40" y="175" class="label" text-anchor="end">(Estado de célula anterior)</text>
+    
+    <text x="40" y="445" class="math" text-anchor="end">h<tspan class="math-sub" baseline-shift="sub">(t-1)</tspan></text>
+    <text x="40" y="465" class="label" text-anchor="end">(Estado oculto anterior)</text>
+
+    <!-- Vectors Bottom -->
+    <text x="195" y="585" class="math" text-anchor="end">x<tspan class="math-sub" baseline-shift="sub">(t)</tspan></text>
+    <text x="195" y="605" class="label" text-anchor="end">(Vector de entrada actual)</text>
+
+    <!-- Vectors Right -->
+    <text x="990" y="155" class="math" text-anchor="start">c<tspan class="math-sub" baseline-shift="sub">(t)</tspan></text>
+    <text x="990" y="175" class="label" text-anchor="start">(Estado de célula actual)</text>
+
+    <text x="990" y="205" class="math" text-anchor="start">y<tspan class="math-sub" baseline-shift="sub">(t)</tspan></text>
+    <text x="990" y="225" class="label" text-anchor="start">(Vector de salida)</text>
+
+    <text x="990" y="255" class="math" text-anchor="start">h<tspan class="math-sub" baseline-shift="sub">(t)</tspan></text>
+    <text x="990" y="275" class="label" text-anchor="start">(Estado oculto actual)</text>
+
+
+    <!-- ==================== INTERNAL SIGNAL LABELS ==================== -->
+    <text x="315" y="270" class="math">f<tspan class="math-sub" baseline-shift="sub">(t)</tspan></text>
+    <text x="425" y="285" class="math">i<tspan class="math-sub" baseline-shift="sub">(t)</tspan></text>
+    <text x="580" y="285" class="math">g<tspan class="math-sub" baseline-shift="sub">(t)</tspan></text>
+    <text x="735" y="315" class="math">o<tspan class="math-sub" baseline-shift="sub">(t)</tspan></text>
+
+
+    <!-- ==================== LEGEND (MOVED TO BOTTOM RIGHT) ==================== -->
+    <rect x="800" y="530" width="220" height="90" fill="#ffffff" stroke="#222222" stroke-width="2" stroke-dasharray="4,4" rx="6"/>
+    
+    <!-- Mult -->
+    <g transform="translate(825, 555)">
+        <circle cx="0" cy="0" r="10" class="op-circle" />
+        <path d="M -5 -5 L 5 5 M -5 5 L 5 -5" stroke="#222" stroke-width="2" />
+    </g>
+    <text x="845" y="553" class="label" font-size="12">Multiplicación</text>
+    <text x="845" y="567" class="label" font-size="12">elemento a elemento</text>
+
+    <!-- Add -->
+    <g transform="translate(825, 595)">
+        <circle cx="0" cy="0" r="10" class="op-circle" />
+        <path d="M -6 0 L 6 0 M 0 -6 L 0 6" stroke="#222" stroke-width="2" />
+    </g>
+    <text x="845" y="600" class="label" font-size="12">Suma</text>
+
+    <!-- Activations -->
+    <rect x="940" y="545" width="16" height="16" fill="#e27a7a" class="fc-box" />
+    <text x="965" y="558" class="label" font-size="12">Logística</text>
+
+    <rect x="940" y="585" width="16" height="16" fill="#5c92c7" class="fc-box" />
+    <text x="965" y="598" class="label" font-size="12">Tanh</text>
+
+</svg>
