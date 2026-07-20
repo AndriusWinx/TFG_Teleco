@@ -88,6 +88,11 @@ P.~Casaseca-de-la Higuera, J.~M. Aguiar, P.~Amado-Caballero, A.~J. Morgado,
   {LSTM}-based network traffic prediction,'' 2023, iEEE (Unpublished Draft /
   Preprint).
 
+\bibitem{tfgalicia}
+A.~Román~Antolín, ``Predicción de tráfico de red usando arquitecturas
+  neuronales avanzadas,'' Trabajo Fin de Grado, Universidad de Valladolid,
+  Valladolid, España, Sep 2025.
+
 \bibitem{seriestemporales2}
 M.~González and I.~M. del Puerto, \emph{Series Temporales}, ser. Colección
   manuales uex.\hskip 1em plus 0.5em minus 0.4em\relax Cáceres, España:
@@ -232,11 +237,6 @@ N.~Ramakrishnan and T.~Soni, ``Network traffic prediction using recurrent
   0.4em\relax Orlando, FL, USA: IEEE, Dec 2018, pp. 187--193. [Online].
   Available: \url{https://ieeexplore.ieee.org/document/8614060/}
 \BIBentrySTDinterwordspacing
-
-\bibitem{tfgalicia}
-A.~Román~Antolín, ``Predicción de tráfico de red usando arquitecturas
-  neuronales avanzadas,'' Trabajo Fin de Grado, Universidad de Valladolid,
-  Valladolid, España, Sep 2025.
 
 \bibitem{lstm}
 \BIBentryALTinterwordspacing

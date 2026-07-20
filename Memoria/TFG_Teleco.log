@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.7.15)  15 JUL 2026 17:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.7.15)  18 JUL 2026 23:48
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -974,7 +974,7 @@ r/m/n/12 ,
 Package svg Info: Last page of `./svg-inkscape/conceptdrift-traced_svg-tex.pdf'
  is 1 on input line 234.
 (./svg-inkscape/conceptdrift-traced_svg-tex.pdf_tex
-<./svg-inkscape/conceptdrift-traced_svg-tex.pdf, id=630, page=1, 949.79599pt x 
+<./svg-inkscape/conceptdrift-traced_svg-tex.pdf, id=629, page=1, 949.79599pt x 
 143.53386pt>
 File: ./svg-inkscape/conceptdrift-traced_svg-tex.pdf Graphic file (type pdf)
 <use ./svg-inkscape/conceptdrift-traced_svg-tex.pdf, page 1>
@@ -1001,7 +1001,7 @@ Overfull \hbox (1.03702pt too wide) in paragraph at lines 74--75
 \openout2 = `Resultados.aux'.
 
  (./Resultados.tex
-<./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf, id=704, 425.71733pt x 505.7639
+<./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf, id=703, 425.71733pt x 505.7639
 2pt>
 File: ./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf>
@@ -1013,7 +1013,7 @@ n input line 14.
 
 
  <./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf>]
-<./svg-inkscape/distr_nrmse_layers_svg-raw.pdf, id=8326, 501.19559pt x 394.4699
+<./svg-inkscape/distr_nrmse_layers_svg-raw.pdf, id=8325, 501.19559pt x 394.4699
 9pt>
 File: ./svg-inkscape/distr_nrmse_layers_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/distr_nrmse_layers_svg-raw.pdf>
@@ -1021,14 +1021,14 @@ Package pdftex.def Info: ./svg-inkscape/distr_nrmse_layers_svg-raw.pdf  used on
  input line 25.
 (pdftex.def)             Requested size: 300.71967pt x 236.6838pt.
  [29 <./svg-inkscape/distr_nrmse_layers_svg-raw.pdf>] [30]
-<./svg-inkscape/kernel_metros2_svg-raw.pdf, id=8411, 725.7074pt x 463.7024pt>
+<./svg-inkscape/kernel_metros2_svg-raw.pdf, id=8410, 725.7074pt x 463.7024pt>
 File: ./svg-inkscape/kernel_metros2_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/kernel_metros2_svg-raw.pdf>
 Package pdftex.def Info: ./svg-inkscape/kernel_metros2_svg-raw.pdf  used on inp
 ut line 85.
 (pdftex.def)             Requested size: 362.85281pt x 231.85062pt.
  [31 <./svg-inkscape/kernel_metros2_svg-raw.pdf>]
-<./svg-inkscape/lookback_nrmse_time_svg-raw.pdf, id=8465, 661.2015pt x 394.8934
+<./svg-inkscape/lookback_nrmse_time_svg-raw.pdf, id=8464, 661.2015pt x 394.8934
 3pt>
 File: ./svg-inkscape/lookback_nrmse_time_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/lookback_nrmse_time_svg-raw.pdf>
@@ -1036,7 +1036,7 @@ Package pdftex.def Info: ./svg-inkscape/lookback_nrmse_time_svg-raw.pdf  used o
 n input line 100.
 (pdftex.def)             Requested size: 396.72397pt x 236.93788pt.
  [32 <./svg-inkscape/lookback_nrmse_time_svg-raw.pdf>]
-<./svg-inkscape/updates_nrmse_time_svg-raw.pdf, id=8527, 667.56592pt x 394.4919
+<./svg-inkscape/updates_nrmse_time_svg-raw.pdf, id=8526, 667.56592pt x 394.4919
 4pt>
 File: ./svg-inkscape/updates_nrmse_time_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/updates_nrmse_time_svg-raw.pdf>
@@ -1048,7 +1048,7 @@ Package pdftex.def Info: ./svg-inkscape/updates_nrmse_time_svg-raw.pdf  used on
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [33] [34 <./svg-inkscape/updates_nrmse_time_svg-raw.pdf>]
-<./svg-inkscape/heatmap_bestmodel_svg-raw.pdf, id=8607, 663.08543pt x 598.19487
+<./svg-inkscape/heatmap_bestmodel_svg-raw.pdf, id=8606, 663.08543pt x 598.19487
 pt>
 File: ./svg-inkscape/heatmap_bestmodel_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/heatmap_bestmodel_svg-raw.pdf>
@@ -1060,7 +1060,7 @@ input line 193.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [35]
-<./svg-inkscape/heatmap_combined_svg-raw.pdf, id=8614, 1703.40173pt x 592.50945
+<./svg-inkscape/heatmap_combined_svg-raw.pdf, id=8613, 1703.40173pt x 592.50945
 pt>
 File: ./svg-inkscape/heatmap_combined_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/heatmap_combined_svg-raw.pdf>
@@ -1083,13 +1083,13 @@ pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/heatmap_combined_svg-raw
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `spa'. Using the pattern for
 ** the default language instead.
-** WARNING: IEEEtran.bst: No hyphenation pattern has been
-** loaded for the language `eng'. Using the pattern for
-** the default language instead.
 [39
 
 
 ]
+** WARNING: IEEEtran.bst: No hyphenation pattern has been
+** loaded for the language `eng'. Using the pattern for
+** the default language instead.
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
@@ -1111,7 +1111,7 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
 
 
 (./AppendixB.tex
-<./svg-inkscape/trafico_celda_4861_svg-raw.pdf, id=10151, 712.68578pt x 425.333
+<./svg-inkscape/trafico_celda_4861_svg-raw.pdf, id=10150, 712.68578pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_4861_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_4861_svg-raw.pdf>
@@ -1123,7 +1123,7 @@ Overfull \hbox (0.82341pt too wide) in paragraph at lines 9--10
  [][] 
  []
 
-<./svg-inkscape/trafico_celda_4862_svg-raw.pdf, id=10154, 712.71335pt x 425.333
+<./svg-inkscape/trafico_celda_4862_svg-raw.pdf, id=10153, 712.71335pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_4862_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_4862_svg-raw.pdf>
@@ -1143,7 +1143,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
  <./svg-inkscape/trafico_celda_4861_svg-raw.pdf>]
-<./svg-inkscape/trafico_celda_4863_svg-raw.pdf, id=10209, 712.71335pt x 425.333
+<./svg-inkscape/trafico_celda_4863_svg-raw.pdf, id=10208, 712.71335pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_4863_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_4863_svg-raw.pdf>
@@ -1155,7 +1155,7 @@ Overfull \hbox (0.83995pt too wide) in paragraph at lines 26--27
  [][] 
  []
 
-<./svg-inkscape/trafico_celda_4959_svg-raw.pdf, id=10212, 712.68578pt x 425.333
+<./svg-inkscape/trafico_celda_4959_svg-raw.pdf, id=10211, 712.68578pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_4959_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_4959_svg-raw.pdf>
@@ -1177,7 +1177,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/trafico_celda_4863_svg-r
 aw.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
 >]
-<./svg-inkscape/trafico_celda_4961_svg-raw.pdf, id=10331, 712.68578pt x 425.333
+<./svg-inkscape/trafico_celda_4961_svg-raw.pdf, id=10330, 712.68578pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_4961_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_4961_svg-raw.pdf>
@@ -1189,7 +1189,7 @@ Overfull \hbox (0.82341pt too wide) in paragraph at lines 44--45
  [][] 
  []
 
-<./svg-inkscape/trafico_celda_4962_svg-raw.pdf, id=10334, 712.68578pt x 425.333
+<./svg-inkscape/trafico_celda_4962_svg-raw.pdf, id=10333, 712.68578pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_4962_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_4962_svg-raw.pdf>
@@ -1211,7 +1211,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/trafico_celda_4961_svg-r
 aw.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
 >]
-<./svg-inkscape/trafico_celda_4963_svg-raw.pdf, id=10447, 712.68578pt x 425.333
+<./svg-inkscape/trafico_celda_4963_svg-raw.pdf, id=10446, 712.68578pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_4963_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_4963_svg-raw.pdf>
@@ -1223,7 +1223,7 @@ Overfull \hbox (0.82341pt too wide) in paragraph at lines 61--62
  [][] 
  []
 
-<./svg-inkscape/trafico_celda_5057_svg-raw.pdf, id=10450, 712.71335pt x 425.333
+<./svg-inkscape/trafico_celda_5057_svg-raw.pdf, id=10449, 712.71335pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_5057_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5057_svg-raw.pdf>
@@ -1245,7 +1245,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/trafico_celda_4963_svg-r
 aw.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
 >]
-<./svg-inkscape/trafico_celda_5058_svg-raw.pdf, id=10554, 712.68578pt x 425.333
+<./svg-inkscape/trafico_celda_5058_svg-raw.pdf, id=10553, 712.68578pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_5058_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5058_svg-raw.pdf>
@@ -1257,7 +1257,7 @@ Overfull \hbox (0.82341pt too wide) in paragraph at lines 78--79
  [][] 
  []
 
-<./svg-inkscape/trafico_celda_5060_svg-raw.pdf, id=10557, 712.68578pt x 425.333
+<./svg-inkscape/trafico_celda_5060_svg-raw.pdf, id=10556, 712.68578pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_5060_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5060_svg-raw.pdf>
@@ -1279,7 +1279,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/trafico_celda_5058_svg-r
 aw.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
 >]
-<./svg-inkscape/trafico_celda_5061_svg-raw.pdf, id=10664, 712.68578pt x 425.333
+<./svg-inkscape/trafico_celda_5061_svg-raw.pdf, id=10663, 712.68578pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_5061_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5061_svg-raw.pdf>
@@ -1291,7 +1291,7 @@ Overfull \hbox (0.82341pt too wide) in paragraph at lines 94--95
  [][] 
  []
 
-<./svg-inkscape/trafico_celda_5062_svg-raw.pdf, id=10667, 712.68578pt x 425.333
+<./svg-inkscape/trafico_celda_5062_svg-raw.pdf, id=10666, 712.68578pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_5062_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5062_svg-raw.pdf>
@@ -1313,7 +1313,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/trafico_celda_5061_svg-r
 aw.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
 >]
-<./svg-inkscape/trafico_celda_5063_svg-raw.pdf, id=10776, 712.68578pt x 425.333
+<./svg-inkscape/trafico_celda_5063_svg-raw.pdf, id=10775, 712.68578pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_5063_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5063_svg-raw.pdf>
@@ -1325,7 +1325,7 @@ Overfull \hbox (0.82341pt too wide) in paragraph at lines 110--111
  [][] 
  []
 
-<./svg-inkscape/trafico_celda_5162_svg-raw.pdf, id=10779, 712.68578pt x 425.333
+<./svg-inkscape/trafico_celda_5162_svg-raw.pdf, id=10778, 712.68578pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_5162_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5162_svg-raw.pdf>
@@ -1347,7 +1347,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/trafico_celda_5063_svg-r
 aw.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
 >]
-<./svg-inkscape/trafico_celda_5163_svg-raw.pdf, id=10889, 712.68578pt x 425.333
+<./svg-inkscape/trafico_celda_5163_svg-raw.pdf, id=10888, 712.68578pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_5163_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5163_svg-raw.pdf>
@@ -1359,7 +1359,7 @@ Overfull \hbox (0.82341pt too wide) in paragraph at lines 126--127
  [][] 
  []
 
-<./svg-inkscape/trafico_celda_5257_svg-raw.pdf, id=10892, 712.68578pt x 425.333
+<./svg-inkscape/trafico_celda_5257_svg-raw.pdf, id=10891, 712.68578pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_5257_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5257_svg-raw.pdf>
@@ -1381,7 +1381,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/trafico_celda_5163_svg-r
 aw.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
 >]
-<./svg-inkscape/trafico_celda_5258_svg-raw.pdf, id=11009, 712.68578pt x 425.333
+<./svg-inkscape/trafico_celda_5258_svg-raw.pdf, id=11008, 712.68578pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_5258_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5258_svg-raw.pdf>
@@ -1393,7 +1393,7 @@ Overfull \hbox (0.82341pt too wide) in paragraph at lines 142--143
  [][] 
  []
 
-<./svg-inkscape/trafico_celda_5262_svg-raw.pdf, id=11012, 712.68578pt x 425.333
+<./svg-inkscape/trafico_celda_5262_svg-raw.pdf, id=11011, 712.68578pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_5262_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5262_svg-raw.pdf>
@@ -1415,7 +1415,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/trafico_celda_5258_svg-r
 aw.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
 >]
-<./svg-inkscape/trafico_celda_5263_svg-raw.pdf, id=11128, 712.68578pt x 425.333
+<./svg-inkscape/trafico_celda_5263_svg-raw.pdf, id=11127, 712.68578pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_5263_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5263_svg-raw.pdf>
@@ -1427,7 +1427,7 @@ Overfull \hbox (0.82341pt too wide) in paragraph at lines 158--159
  [][] 
  []
 
-<./svg-inkscape/trafico_celda_5357_svg-raw.pdf, id=11131, 712.71335pt x 425.333
+<./svg-inkscape/trafico_celda_5357_svg-raw.pdf, id=11130, 712.71335pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_5357_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5357_svg-raw.pdf>
@@ -1449,7 +1449,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/trafico_celda_5263_svg-r
 aw.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
 >]
-<./svg-inkscape/trafico_celda_5358_svg-raw.pdf, id=11247, 712.71335pt x 425.333
+<./svg-inkscape/trafico_celda_5358_svg-raw.pdf, id=11246, 712.71335pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_5358_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5358_svg-raw.pdf>
@@ -1461,7 +1461,7 @@ Overfull \hbox (0.83995pt too wide) in paragraph at lines 174--175
  [][] 
  []
 
-<./svg-inkscape/trafico_celda_5362_svg-raw.pdf, id=11250, 712.71335pt x 425.333
+<./svg-inkscape/trafico_celda_5362_svg-raw.pdf, id=11249, 712.71335pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_5362_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5362_svg-raw.pdf>
@@ -1483,7 +1483,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/trafico_celda_5358_svg-r
 aw.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
 >]
-<./svg-inkscape/trafico_celda_5363_svg-raw.pdf, id=11353, 712.71335pt x 425.333
+<./svg-inkscape/trafico_celda_5363_svg-raw.pdf, id=11352, 712.71335pt x 425.333
 08pt>
 File: ./svg-inkscape/trafico_celda_5363_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5363_svg-raw.pdf>
@@ -1495,7 +1495,7 @@ Overfull \hbox (0.83995pt too wide) in paragraph at lines 190--191
  [][] 
  []
 
-<./svg-inkscape/cell_plot_4959_svg-raw.pdf, id=11357, 859.83293pt x 280.20122pt
+<./svg-inkscape/cell_plot_4959_svg-raw.pdf, id=11356, 859.83293pt x 280.20122pt
 >
 File: ./svg-inkscape/cell_plot_4959_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cell_plot_4959_svg-raw.pdf>
@@ -1517,7 +1517,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/trafico_celda_5363_svg-r
 aw.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
 >]
-<./svg-inkscape/cell_plot_4962_svg-raw.pdf, id=11465, 859.83293pt x 280.20122pt
+<./svg-inkscape/cell_plot_4962_svg-raw.pdf, id=11464, 859.83293pt x 280.20122pt
 >
 File: ./svg-inkscape/cell_plot_4962_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cell_plot_4962_svg-raw.pdf>
@@ -1529,7 +1529,7 @@ Overfull \hbox (3.12405pt too wide) in paragraph at lines 210--211
  [][] 
  []
 
-<./svg-inkscape/cell_plot_5057_svg-raw.pdf, id=11466, 859.7702pt x 280.20122pt>
+<./svg-inkscape/cell_plot_5057_svg-raw.pdf, id=11465, 859.7702pt x 280.20122pt>
 
 File: ./svg-inkscape/cell_plot_5057_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cell_plot_5057_svg-raw.pdf>
@@ -1541,7 +1541,7 @@ Overfull \hbox (3.0927pt too wide) in paragraph at lines 218--219
  [][] 
  []
 
-<./svg-inkscape/cell_plot_5058_svg-raw.pdf, id=11467, 859.83293pt x 280.20122pt
+<./svg-inkscape/cell_plot_5058_svg-raw.pdf, id=11466, 859.83293pt x 280.20122pt
 >
 File: ./svg-inkscape/cell_plot_5058_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cell_plot_5058_svg-raw.pdf>
@@ -1566,7 +1566,7 @@ df): PDF inclusion: multiple pdfs with page group included in a single page
 pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/cell_plot_5057_svg-raw.p
 df): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<./svg-inkscape/cell_plot_5062_svg-raw.pdf, id=11512, 859.83293pt x 280.20122pt
+<./svg-inkscape/cell_plot_5062_svg-raw.pdf, id=11511, 859.83293pt x 280.20122pt
 >
 File: ./svg-inkscape/cell_plot_5062_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cell_plot_5062_svg-raw.pdf>
@@ -1578,7 +1578,7 @@ Overfull \hbox (3.12405pt too wide) in paragraph at lines 234--235
  [][] 
  []
 
-<./svg-inkscape/cell_plot_5063_svg-raw.pdf, id=11513, 859.83293pt x 280.20122pt
+<./svg-inkscape/cell_plot_5063_svg-raw.pdf, id=11512, 859.83293pt x 280.20122pt
 >
 File: ./svg-inkscape/cell_plot_5063_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cell_plot_5063_svg-raw.pdf>
@@ -1590,7 +1590,7 @@ Overfull \hbox (3.12405pt too wide) in paragraph at lines 242--243
  [][] 
  []
 
-<./svg-inkscape/cell_plot_5162_svg-raw.pdf, id=11514, 859.74263pt x 280.20122pt
+<./svg-inkscape/cell_plot_5162_svg-raw.pdf, id=11513, 859.74263pt x 280.20122pt
 >
 File: ./svg-inkscape/cell_plot_5162_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cell_plot_5162_svg-raw.pdf>
@@ -1615,7 +1615,7 @@ df): PDF inclusion: multiple pdfs with page group included in a single page
 pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/cell_plot_5063_svg-raw.p
 df): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<./svg-inkscape/cell_plot_5163_svg-raw.pdf, id=11561, 859.83293pt x 280.20122pt
+<./svg-inkscape/cell_plot_5163_svg-raw.pdf, id=11560, 859.83293pt x 280.20122pt
 >
 File: ./svg-inkscape/cell_plot_5163_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cell_plot_5163_svg-raw.pdf>
@@ -1627,7 +1627,7 @@ Overfull \hbox (3.12405pt too wide) in paragraph at lines 258--259
  [][] 
  []
 
-<./svg-inkscape/cell_plot_5262_svg-raw.pdf, id=11562, 859.83293pt x 280.20122pt
+<./svg-inkscape/cell_plot_5262_svg-raw.pdf, id=11561, 859.83293pt x 280.20122pt
 >
 File: ./svg-inkscape/cell_plot_5262_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cell_plot_5262_svg-raw.pdf>
@@ -1639,7 +1639,7 @@ Overfull \hbox (3.12405pt too wide) in paragraph at lines 266--267
  [][] 
  []
 
-<./svg-inkscape/cell_plot_5263_svg-raw.pdf, id=11563, 859.83293pt x 280.20122pt
+<./svg-inkscape/cell_plot_5263_svg-raw.pdf, id=11562, 859.83293pt x 280.20122pt
 >
 File: ./svg-inkscape/cell_plot_5263_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cell_plot_5263_svg-raw.pdf>
@@ -1664,7 +1664,7 @@ df): PDF inclusion: multiple pdfs with page group included in a single page
 pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/cell_plot_5262_svg-raw.p
 df): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<./svg-inkscape/cell_plot_5363_svg-raw.pdf, id=11608, 859.7702pt x 280.20122pt>
+<./svg-inkscape/cell_plot_5363_svg-raw.pdf, id=11607, 859.7702pt x 280.20122pt>
 
 File: ./svg-inkscape/cell_plot_5363_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cell_plot_5363_svg-raw.pdf>
@@ -1676,7 +1676,7 @@ Overfull \hbox (3.0927pt too wide) in paragraph at lines 282--283
  [][] 
  []
 
-<./svg-inkscape/cell_plot_5362_svg-raw.pdf, id=11609, 859.7702pt x 280.20122pt>
+<./svg-inkscape/cell_plot_5362_svg-raw.pdf, id=11608, 859.7702pt x 280.20122pt>
 
 File: ./svg-inkscape/cell_plot_5362_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cell_plot_5362_svg-raw.pdf>
@@ -1759,10 +1759,10 @@ per/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1000.pfb></u
 sr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf/fonts
 /type1/public/cm-super/sftt1200.pfb></usr/share/texmf/fonts/type1/public/cm-sup
 er/sfxc1728.pfb>
-Output written on TFG_Teleco.pdf (82 pages, 5411011 bytes).
+Output written on TFG_Teleco.pdf (82 pages, 5410817 bytes).
 PDF statistics:
- 11974 PDF objects out of 12825 (max. 8388607)
- 8444 compressed objects within 85 object streams
+ 11973 PDF objects out of 12825 (max. 8388607)
+ 8443 compressed objects within 85 object streams
  1008 named destinations out of 1200 (max. 500000)
  608 words of extra memory for PDF output out of 10000 (max. 10000000)
 
