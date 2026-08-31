@@ -172,4 +172,11 @@ G.~E.~P. Box and G.~M. Jenkins, \emph{Time Series Analysis: Forecasting and
   \url{https://onlinelibrary.wiley.com/doi/book/10.1002/9781118619193}
 \BIBentrySTDinterwordspacing
 
+\bibitem{tffunction}
+\BIBentryALTinterwordspacing
+{TensorFlow Developers}, ``Better performance with tf.function,'' 8 2024,
+  [Accedido: May. 20, 2025]. [Online]. Available:
+  \url{https://www.tensorflow.org/guide/function}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}

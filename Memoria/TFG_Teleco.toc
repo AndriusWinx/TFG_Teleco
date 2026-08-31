@@ -31,4 +31,13 @@
 \contentsline {subsubsection}{\numberline {5.1.1}Filtros, convoluciones, neuronas, ecuaciones...}{22}{subsubsection.5.1.1}%
 \contentsline {subsection}{\numberline {5.2}CNN+LSTM}{22}{subsection.5.2}%
 \contentsline {subsubsection}{\numberline {5.2.1}Neuronas, conexiones, ecuaciones, flujo de datos...}{22}{subsubsection.5.2.1}%
-\contentsline {section}{Referencias}{23}{subsubsection.5.2.1}%
+\contentsline {section}{\numberline {6}Resultados y discusión}{23}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Desempeño general}{23}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Análisis de Spearman}{24}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Número de celdas, capas CNN y tamaño del \textit {kernel}}{25}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}\texttt {look\_back} y \texttt {batch\_size}}{26}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}\texttt {updates} y \texttt {threshold}}{28}{subsubsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.4}Número de filtros de las capas convolucionales}{29}{subsubsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.3}Mejor modelo}{29}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Conclusiones y líneas futuras}{33}{section.7}%
+\contentsline {section}{Referencias}{34}{section.7}%
