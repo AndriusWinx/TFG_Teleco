@@ -86,7 +86,7 @@ Aunque las neuronas binarias pueden combinarse para formar redes capaces de proc
 Las TLUs reciben como entradas una serie de valores $x_j$ donde $J$ es la cantidad de entradas recibidas. Las TLUs calculan la combinación lineal $z$ de las entradas con una serie de pesos $w_j$ asociados a cada entrada y un término independiente $b$. Seguidamente, se aplica una función de activación $\phi(z)$ que acota la salida $y$ de la TLUs en un rango de valores típicamente comprendido entre -1 y 1 o entre 0 y 1. De esta forma se evita que la salida de las TLUs crezca hasta infinito si se encadenan varias TLUs.
 
 \begin{align}
-	\label{eq1} z=b+\sum_{j=1}^{J}w_j*&x_j = \textbf{w}^T\textbf{x} + b\\
+	\label{eq1} z=b+\sum_{j=1}^{J}w_j\cdot&x_j = \textbf{w}^T\textbf{x} + b\\
 	\label{eq2} y=\phi&(z)
 \end{align}
 
@@ -209,6 +209,73 @@ La fase de validación tiene el mismo problema que la fase de entrenamiento. Cab
 Es importante recalcar que los datos de test sólo deben ser utilizados en la fase de test. Utilizarlos en otras fases como la de entrenamiento o en el reentreno del modelo tras la validación provocará una distorsión en la medida $E_{test}$ llamada \textit{data leakage}. Tampoco ha de usarse para comparar modelos como si fuera un test de validación \cite{machinelearningbook, validationsource, paramtuning}.
 
 
+
+\subsection{Técnicas de regularización} %(dropout, gradient clipping, l1, l2, overfitting, vanishing gradients...)}
+%%REGULARIZACIÓN, DATA LEAKAGE....
+Los problemas derivados del \textit{overfitting} tienen un gran impacto en el modelo escogido puesto que éste debe tener un buen rendimiento al procesar datos ajenos a los datos de entrenamiento, validación y test. Un modelo con \textit{overfitting} sólo es capaz de estimar el patrón subyacente en los datos de entrenamiento. Por ello, además de la estrategia de validación en la selección de modelos, existe la regularización.
+
+Un modelo con una gran cantidad de parámetros o de neuronas con respecto a la complejidad de los datos procesados es capaz de aprender de las muestras de entrenamiento pero también del ruido presente en los mismos. Esto implica que el modelo estima un patrón subyacente que presenta fluctuaciones aleatorias propias del ruido, siendo mucho menos eficaz. La regularización es un conjunto de técnicas cuyo objetivo es aplicar una penalización a la complejidad del modelo para evitar el \textit{overfitting}.
+
+Para evitar que una bajada en $E_{in}$ provoque una subida inaceptable de $E_{out}$ y, en consecuencia, del error de generalización, existen varias técnicas de regularización:
+
+\subsubsection{$L_2$ o \textit{Weight Decay}}
+Previene que el algoritmo \textit{gradient descent} o \textit{backpropagation} resulten en valores desmedidos de los pesos $\textbf{W}$. Los pesos grandes permiten que cualquier fluctuación aleatoria o pasajera en el patrón de los datos sea amplificada en la red neuronal. 
+
+La función de coste $LF(W^{t-1})$ presente en la ecuación \ref{eq7} introduce un término de penalización en forma de norma euclídea al cuadrado de la magnitud de los pesos y un término $\lambda$ para controlar el impacto de la regularización.
+
+\begin{equation}
+	LF(\textbf{W}^{t-1})_{L_2} = LF(\textbf{W}^{t-1}) + \frac{\lambda}{2} \norm{\textbf{W}^{t-1}}^2_2 = LF(\textbf{W}^{t-1}) + \frac{\lambda}{2} \sum_{l=1}^{L}\sum_{i=1}^{I_l}\sum_{j=1}^{J_l}w_{i,j,l}^2
+\end{equation}
+
+siendo $L$ la cantidad total de capas de neuronas, $I_l$ la cantidad total de entradas de la capa $l$ y $J_l$ la cantidad total de neuronas de la capa $l$.
+
+La ecuación \ref{eq7} queda de la siguiente forma:
+
+
+\begin{align}
+	\textbf{W}^t=\textbf{W}^{t-1}-\eta \nabla_\textbf{W}LF&(\textbf{W}^{t-1})_{L_2} = \textbf{W}^{t-1} - \eta \nabla_\textbf{W}LF(\textbf{W}^{t-1}) - \eta\lambda \textbf{W}^{t-1} \\
+	\textbf{W}^t &= (1-\eta\lambda) \textbf{W}^{t-1} - \eta \nabla_\textbf{W}LF(\textbf{W}^{t-1}) 
+\end{align}
+
+El término $(1-\eta\lambda) \textbf{W}^{t-1}$ contrae continuamente los pesos en cada iteración del algoritmo \textit{backpropagation} logrando reducir el impacto del \textit{overfitting}. El término $\lambda$ permite aumentar o reducir el efecto de la regularización para evitar que el modelo pase al escenario contrario o \textit{underfitting}.
+
+
+
+
+
+\subsubsection{$L_1$ o \textit{Lasso}}
+Es otra técnica de regularización que actúa sobre la función de coste $LF(\textbf{W}^{t-1})$  de una forma muy parecida a $L_2$. Sin embargo, su objetivo es la eliminación de las conexiones o neuronas redundantes o con poco impacto en la salida.
+
+Utilizando el valor absoluto de los pesos como mecanismo de penalización se consigue reducir la magnitud de los mismos en una cantidad constante. También se añade un término $\lambda$ para controlar el impacto de la regularización.
+
+\begin{equation}
+	LF(\textbf{W}^{t-1})_{L_1} = LF(\textbf{W}^{t-1}) + \lambda \norm{\textbf{W}^{t-1}}_1 = LF(\textbf{W}^{t-1}) + \lambda \sum_{l=1}^{L}\sum_{i=1}^{I_l}\sum_{j=1}^{J_l}\abs{w_{i,j,l}}
+\end{equation}
+
+El operador $\nabla$ transforma la norma de los pesos en la función signo, modificando la ecuación \ref{eq7} de la forma:
+
+\begin{equation}
+	\textbf{W}^t=\textbf{W}^{t-1}-\eta \nabla_\textbf{W}LF(\textbf{W}^{t-1})_{L_1} = \textbf{W}^{t-1} - \eta \nabla_\textbf{W}LF(\textbf{W}^{t-1}) - \eta\lambda sgn( \textbf{W}^{t-1})
+\end{equation}
+
+El operador $- \eta\lambda sgn( \textbf{W}^{t-1})$ empuja los pesos hacia cero, anulando aquellos demasiado pequeños como para ser considerados útiles.
+
+
+\subsubsection{\textit{Dropout}}
+Propuesta por Geoffrey Hinton en 2012, es una de las técnicas más populares de regularización. El objetivo reside en forzar a las neuronas a tener en cuenta todas las conexiones, no sólo una porción de ellas. Como se ha comentado anteriormente, la red neuronal puede tomar cualquier atajo para minimizar la función de coste, incluyendo la coadaptación de neuronas. 
+
+La coadaptación de neuronas es un fenómeno en el que ciertas neuronas se ajustan para corregir los errores que otras generaron en el set de entrenamiento. Esto genera dependencias entre neuronas que sólo son útiles durante el entrenamiento, reduciendo $E_{in}$ y aumentando $E_{out}$.
+
+\textit{Dropout} es un algoritmo simple que consiste en apagar neuronas, es decir, truncar su salida a cero, con una probabilidad $p$ en cada \textit{mini-batch} de entrenamiento. Apagar aleatoriamente algunas neuronas fuerza a la red a romper las coadaptaciones y reforzar conexiones que de otra manera serían ignoradas. Las neuronas son forzadas a ser independientes a la vez que cooperativas.
+
+\subsubsection{\textit{Early stopping}}
+Durante el proceso de entrenamiento los modelos aprenden gradualmente a estimar el patrón subyacente presente en los datos de entrenamiento guiándose por la función de coste. Sin embargo, anular completamente la función de coste reduciría tanto $E_{in}$ que el error de generalización sería demasiado alto.
+
+Por ello, un mecanismo muy simple de regularización consiste en detener el proceso de entrenamiento cuando nuevos datos de entrenamiento reduzcan $E_{in}$ pero no reduzcan $E_{val}$ en una cuantía predeterminada. Esta técnica se denomina \textit{early stopping}.
+
+
+
+
 \subsection{Preprocesado de los datos de entrada}
 Aunque la elección de un buen modelo con los hiperparámetros correctos es muy importante, también lo es la disponibilidad de datos veraces. Los datos utilizados tanto para el entrenamiento como la validación o el test han de ser: suficientemente numerosos como para permitir al algoritmo \textit{backpropagation} llegar al mínimo de la función de coste y representativos del patrón subyacente que se desea estimar.
 
@@ -217,14 +284,10 @@ Las características de los datos de entrada son altamente influyentes en el ren
 La normalización es especialmente útil para evitar que los modelos ignoren los datos más pequeños en favor de los datos más grandes. Sin embargo, la normalización se aplica respecto a los datos incluidos únicamente en el set de entrenamiento. El resto de los datos, tanto del set de validación como de test, son transformados utilizando los valores mínimo $min_{train}$ y máximo $max_{train}$ del set de entrenamiento:
 
 \begin{equation}
-	x_{norm} = \frac{x-min_{train}}{max_{train}}
+	x_{norm} = \frac{x-min_{train}}{max_{train}-min_{train}}
 \end{equation}
 
 De cualquier otra forma, el modelo tendría acceso a los datos del conjunto de validación o test en la fase de entrenamiento. El modelo se adaptaría erróneamente a unos datos no representativos en un proceso llamado \textit{data leakage}.
-
-
-\subsection{Técnicas de regularización (dropout, gradient clipping, l1, l2, overfitting, vanishing gradients...)}
-%%REGULARIZACIÓN, DATA LEAKAGE....
 
 
 %%%%%%%EXPLICAR EL PERCEPTRON, LAS FUNCIONES DE ACTIVACIÓN, LA REGULARIZACION, BACKPROPAGATION, GRADIENT DESCENT Y GRADIENT VANISHING, LA INICIALIZACIÓN DE PESOS, LOS OPTIMIZADORES, TASA DE APRENDIZAJE, GENERALIZACIÓN, OVERFITTING UNDERFITTING, FUNCIONES DE COSTE (EXPLICAR SKIMA)....
@@ -249,7 +312,7 @@ Las medias móviles unilaterales permiten estimar el valor futuro de la serie te
 
 \begin{equation*}
 	\centering
-	\hat{y}_{t} = \frac{1}{m} * \sum_{i=1}^{m} y_{t-i}
+	\hat{y}_{t} = \frac{1}{m} \cdot \sum_{i=1}^{m} y_{t-i}
 	\label{eq:ma}
 \end{equation*}
 
@@ -257,13 +320,13 @@ Asímismo, la media móvil puede combinarse con una ponderación $k_i$. La ponde
 
 \begin{equation*}
 	\centering
-	\hat{y}_{t} = \frac{1}{m} * \sum_{i=1}^{m} y_{t-i} * k_{t-i}
+	\hat{y}_{t} = \frac{1}{m} \cdot \sum_{i=1}^{m} y_{t-i} \cdot k_{t-i}
 \end{equation*}
 
 El modelo ARMA (\textit{AutoRegressive Moving Average}) es el modelo más sencillo que combina las medias móviles y la autorregresión. Utiliza tanto las muestras reales de la serie temporal $Y_t$  como los errores cometidos en predicciones pasadas $\epsilon_t$. Concretamente, la cantidad de muestras y errores cometidos que son tomados en cuenta está estipulada por los parámetros $p$ y $q$ respectivamente. Siendo $\alpha_t$ y $\theta_t$ la ponderación aplicada a cada muestra y error \cite{machinelearningbook,arma, arma3}:
 
 \begin{align*}
-	\hat{y_t} &= \sum_{i=1}^{p} \alpha_i * y_{t-i}  +  \sum_{i=1}^{q} \theta_i * \epsilon_{t-i}\\
+	\hat{y_t} &= \sum_{i=1}^{p} \alpha_i \cdot y_{t-i}  +  \sum_{i=1}^{q} \theta_i \cdot \epsilon_{t-i}\\
 	\epsilon_t &= y_t - \hat{y_t}\\
 \end{align*}
 
@@ -286,7 +349,7 @@ Las RNNs son utilizadas en todo tipo de secuencias temporales de cualquier natur
 Las redes neuronales recurrentes o RNNs (\textit{Recurrent Neural Networks}), a diferencia de las TLUs, no están basadas en ninguna estructura biológica en concreto. Son capas de neuronas capaces de retener información de muestras procesadas con anterioridad. En cada momento $t$, las neuronas recurrentes más simples, además de procesar las entradas $\textbf{x}_t$ actuales, procesan su propia salida anterior $\hat{y}_{t-1}$ con su propio peso $w_{\hat{y}}$ para generar la salida actual $\hat{y}_t$. Esto hace a las RNN ideales para el procesado de secuencias de datos como, por ejemplo, el histórico de tráfico de telecomunicaciones de una ciudad concreta.
 
 \begin{equation}
-	\hat{y_t} = \phi(\textbf{W}_x^T \textbf{x}_t + b + w_{\hat{y}}*\hat{y}_{t-1})
+	\hat{y_t} = \phi(\textbf{W}_x^T \textbf{x}_t + b + w_{\hat{y}}\cdot\hat{y}_{t-1})
 	\label{eq11}
 \end{equation}
 
