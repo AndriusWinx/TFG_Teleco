@@ -30,13 +30,13 @@ El modelo ARMA (\textit{AutoRegressive Moving Average}) es el modelo más sencil
 	\epsilon_t &= Y_t - \hat{Y_t}\\
 \end{align*}
 
-El primer sumatorio es la parte autorregresiva, realiza una regresión basada en datos pasados. El segundo sumatoro es la media móvil de los errores cometidos en predicciones pasadas.
+El primer sumatorio es la parte autorregresiva, realiza una regresión basada en datos pasados. El segundo sumatorio es la media móvil de los errores cometidos en predicciones pasadas.
 
 ARMA fue desarrollada inicialmente para la predicción de datos financieros \cite{arma1} pero ha dado grandes resultados en sus adaptaciones a la predicción de tráfico en red a corto plazo \cite{arma2,arima1}. Sin embargo, el modelo ARMA presupone que la serie temporal es estacionaria, es decir, que sus propiedades estadísticas son constantes en el tiempo, sin tendencias ni comportamientos periódicos \cite{machinelearningbook}.
 
 El modelo ARIMA (AutoRegressive Integrated Moving Average) introduce restas como instrumento para eliminar las tendencias presentes en la serie temporal. Al restar el valor de una muestra al valor de la siguiente se reduce un orden de la tendencia. Aplicar una segunda resta se reduce otro orden más, etc. De esta forma, la serie temporal resultante es estacionaria.
 
-Tomando una serie temporal de ejemplo $\{1, 4, 9, 16, 25, 36\}$ con una tendencia cuadrática, tras una etapa de resta se obtiene la serie $\{3, 5, 7, 9, 11\}$ con una tendencia lineal. Tras una segunda ronda de resta aplicada sobre la serie lineal se obtiene la serie estacionaria $\{2, 2, 2, 2\}$. La cantidad de rondas de restas viene especificada en el parámetro $d$ \cite{machinelearningbook,arima1}.
+%%Tomando una serie temporal de ejemplo $\{1, 4, 9, 16, 25, 36\}$ con una tendencia cuadrática, tras una etapa de resta se obtiene la serie $\{3, 5, 7, 9, 11\}$ con una tendencia lineal. Tras una segunda ronda de resta aplicada sobre la serie lineal se obtiene la serie estacionaria $\{2, 2, 2, 2\}$. La cantidad de rondas de restas viene especificada en el parámetro $d$ \cite{machinelearningbook,arima1}.
 
 \begin{align*}
 	d=0 -->& [1, 4, 9, 16, 25, 36]\\

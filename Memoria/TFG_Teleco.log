@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.7.15)  18 AUG 2026 19:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.7.15)  30 AUG 2026 00:19
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -716,7 +716,7 @@ LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
- (./Abstract.aux) (./new3.aux))
+ (./Abstract.aux) (./Introduccion.aux) (./new3.aux))
 \openout1 = `TFG_Teleco.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
@@ -844,7 +844,7 @@ Package hyperref Info: Link coloring ON on input line 74.
 \@outlinefile=\write4
 \openout4 = `TFG_Teleco.out'.
 
-<Figuras/Universidad-de-Valladolid.png, id=59, 277.9986pt x 180.9159pt>
+<Figuras/Universidad-de-Valladolid.png, id=134, 277.9986pt x 180.9159pt>
 File: Figuras/Universidad-de-Valladolid.png Graphic file (type png)
 <use Figuras/Universidad-de-Valladolid.png>
 Package pdftex.def Info: Figuras/Universidad-de-Valladolid.png  used on input l
@@ -878,20 +878,26 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
-\tf@toc=\write5
-\openout5 = `TFG_Teleco.toc'.
-
-
+)
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
+l.27 ...onas recurrentes}{22}{subsubsection.4.2.3}
+                                                  % [1
+
+
+])
+\tf@toc=\write5
+\openout5 = `TFG_Teleco.toc'.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
 l.106 \newpage
-               [1
-
-
-] (./TFG_Teleco.lof
+               [2] (./TFG_Teleco.lof
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 2.
@@ -901,12 +907,12 @@ LaTeX Info: Redefining \% on input line 2.
 \openout6 = `TFG_Teleco.lof'.
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.108 \newpage
-               [2] (./TFG_Teleco.lot
+               [3] (./TFG_Teleco.lot
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 2.
@@ -915,13 +921,27 @@ LaTeX Info: Redefining \% on input line 2.
 \tf@lot=\write7
 \openout7 = `TFG_Teleco.lot'.
 
+ [4]
+\openout2 = `Introduccion.aux'.
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.116 \include{new3}
-                     [3]
+ (./Introduccion.tex [5
+
+]
+
+LaTeX Warning: Reference `cap2:arte' on page 6 undefined on input line 33.
+
+
+LaTeX Warning: Reference `cap3:entorno' on page 6 undefined on input line 35.
+
+
+LaTeX Warning: Reference `cap4:resultados' on page 6 undefined on input line 37
+.
+
+
+LaTeX Warning: Reference `cap5:conclusiones' on page 6 undefined on input line 
+39.
+
+) [6]
 \openout2 = `new3.aux'.
 
  (./new3.tex
@@ -930,7 +950,9 @@ Overfull \hbox (13.62576pt too wide) in paragraph at lines 1--1
 1/cmr/bx/n/17.28 y \T1/cmr/bx/it/17.28 Deep lear-
  []
 
-[4
+[7
+
+
 
 ]
 Overfull \hbox (6.79166pt too wide) in paragraph at lines 37--38
@@ -938,29 +960,44 @@ Overfull \hbox (6.79166pt too wide) in paragraph at lines 37--38
 er-zo son SAR-SA, Q-Learning... 
  []
 
-[5] [6] [7]
+[8] [9] [10] [11]
 
-LaTeX Warning: Reference `label' on page 8 undefined on input line 89.
-
-
-LaTeX Warning: Reference `label' on page 8 undefined on input line 97.
-
-[8] [9]
-
-LaTeX Warning: Citation `SKIMAcasaseca' on page 10 undefined on input line 146.
+LaTeX Warning: Reference `label' on page 12 undefined on input line 98.
 
 
-[10] [11]) [12]
+LaTeX Warning: Reference `label' on page 12 undefined on input line 106.
+
+[12] [13] [14] [15] [16]
+Overfull \hbox (4.87668pt too wide) in paragraph at lines 205--206
+[]\T1/cmr/m/n/12 Aunque exis-ten múl-ti-ples es-tra-te-gias de va-li-da-ción co
+-mo \T1/cmr/m/it/12 Grid Search\T1/cmr/m/n/12 , \T1/cmr/m/it/12 Ran-dom Search\
+T1/cmr/m/n/12 ,
+ []
+
+[17] [18] [19] [20] [21]) [22] (./TFG_Teleco.bbl [23
+
+
+]
+** WARNING: IEEEtran.bst: No hyphenation pattern has been
+** loaded for the language `eng'. Using the pattern for
+** the default language instead.
+** WARNING: IEEEtran.bst: No hyphenation pattern has been
+** loaded for the language `eng'. Using the pattern for
+** the default language instead.
+** WARNING: IEEEtran.bst: No hyphenation pattern has been
+** loaded for the language `spa'. Using the pattern for
+** the default language instead.
+)
 
 Package caption Warning: Unused \captionsetup[sub] on input line 15.
 See the caption package documentation for explanation.
 
-(./TFG_Teleco.aux
+[24] (./TFG_Teleco.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
- (./Abstract.aux) (./new3.aux))
+ (./Abstract.aux) (./Introduccion.aux) (./new3.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -970,16 +1007,16 @@ L3 programming layer <2026-01-19>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `TFG_Teleco.out' has not changed.
-(rerunfilecheck)             Checksum: 025E9FAB8A4959EFDAFA1F228148F765;2370.
+(rerunfilecheck)             Checksum: DE8FC610D2062B4C596531C0F1631373;6938.
  ) 
 Here is how much of TeX's memory you used:
- 23431 strings out of 467533
- 443033 string characters out of 5422138
- 1040373 words of memory out of 5000000
- 51916 multiletter control sequences out of 15000+600000
+ 23619 strings out of 467533
+ 446178 string characters out of 5422138
+ 1041373 words of memory out of 5000000
+ 52036 multiletter control sequences out of 15000+600000
  644920 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,10n,93p,1075b,1088s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,10n,93p,1075b,1389s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
@@ -995,10 +1032,10 @@ hare/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/typ
 e1/public/cm-super/sfcc1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
 frm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/sh
 are/texmf/fonts/type1/public/cm-super/sfxc1728.pfb>
-Output written on TFG_Teleco.pdf (16 pages, 548726 bytes).
+Output written on TFG_Teleco.pdf (28 pages, 608332 bytes).
 PDF statistics:
- 270 PDF objects out of 1000 (max. 8388607)
- 211 compressed objects within 3 object streams
- 43 named destinations out of 1000 (max. 500000)
- 122 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 496 PDF objects out of 1000 (max. 8388607)
+ 423 compressed objects within 5 object streams
+ 101 named destinations out of 1000 (max. 500000)
+ 274 words of extra memory for PDF output out of 10000 (max. 10000000)
 

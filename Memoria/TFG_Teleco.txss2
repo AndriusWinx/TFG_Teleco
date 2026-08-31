@@ -6,14 +6,14 @@
     "Session": {
         "Bookmarks": [
         ],
-        "CurrentFile": "TFG_Teleco.tex",
+        "CurrentFile": "EstadoDelArte.tex",
         "FileVersion": 1,
         "Files": [
             {
                 "Col": 0,
                 "EditorGroup": 0,
                 "FileName": "TFG_Teleco.tex",
-                "FirstLine": 37,
+                "FirstLine": 92,
                 "FoldedLines": "",
                 "Line": 75
             },
@@ -32,14 +32,6 @@
                 "FirstLine": 2,
                 "FoldedLines": "",
                 "Line": 22
-            },
-            {
-                "Col": 0,
-                "EditorGroup": 0,
-                "FileName": "EstadoDelArte.tex",
-                "FirstLine": 201,
-                "FoldedLines": "",
-                "Line": 213
             },
             {
                 "Col": 72,
@@ -66,7 +58,15 @@
                 "Line": 12
             },
             {
-                "Col": 32,
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "EstadoDelArte.tex",
+                "FirstLine": 115,
+                "FoldedLines": "",
+                "Line": 213
+            },
+            {
+                "Col": 0,
                 "EditorGroup": 0,
                 "FileName": "references.bib",
                 "FirstLine": 0,
@@ -85,6 +85,14 @@
                 "Col": 0,
                 "EditorGroup": 0,
                 "FileName": "AppendixB.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "new3.tex",
                 "FirstLine": 0,
                 "FoldedLines": "",
                 "Line": 0
