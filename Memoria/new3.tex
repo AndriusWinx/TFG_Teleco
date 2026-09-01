@@ -86,7 +86,7 @@ Aunque las neuronas binarias pueden combinarse para formar redes capaces de proc
 Las TLUs reciben como entradas una serie de valores $x_j$ donde $J$ es la cantidad de entradas recibidas. Las TLUs calculan la combinación lineal $z$ de las entradas con una serie de pesos $w_j$ asociados a cada entrada y un término independiente $b$. Seguidamente, se aplica una función de activación $\phi(z)$ que acota la salida $y$ de la TLUs en un rango de valores típicamente comprendido entre -1 y 1 o entre 0 y 1. De esta forma se evita que la salida de las TLUs crezca hasta infinito si se encadenan varias TLUs.
 
 \begin{align}
-	\label{eq1} z=b+\sum_{j=1}^{J}w_j\cdot&x_j = \textbf{w}^T\textbf{x} + b\\
+	\label{eq1} z=b+\sum_{j=1}^{J}w_j\cdot&x_j = \textbf{w}^\top\textbf{x} + b\\
 	\label{eq2} y=\phi&(z)
 \end{align}
 
@@ -99,7 +99,7 @@ Cada TLU está conectada a todas las entradas en una disposición llamada capa c
 
 \begin{align}
 	\label{eq3}
-	&\textbf{z}=\textbf{W}^T\textbf{x}+\textbf{b}\\
+	&\textbf{z}=\textbf{W}^\top\textbf{x}+\textbf{b}\\
 	\label{eq4}    &\textbf{y}=\phi(\textbf{z})
 \end{align}
 
@@ -111,7 +111,7 @@ Los \textit{Perceptrons} son en sí arquitecturas muy simples con capacidades li
 Denotando como $\textbf{h}_l$ la salida de la capa $l$ en un MLP con $L$ capas y a los pesos de las neuronas de la misma capa como $\textbf{W}_l$ y $\textbf{b}_l$, se modifican las ecuaciones \ref{eq3} y \ref{eq4} de la forma:
 
 \begin{align}
-	\label{eq5} \textbf{h}_l=\phi(\textbf{W}^T&\textbf{h}_{l-1}+\textbf{b}_l)\\
+	\label{eq5} \textbf{h}_l=\phi(\textbf{W}^\top&\textbf{h}_{l-1}+\textbf{b}_l)\\
 	\label{eq6} \textbf{y}=&\textbf{h}_L
 \end{align}
 
@@ -187,6 +187,9 @@ La función de activación utilizada en este trabajo y en la gran mayoría de re
 La elección de ReLU como función de activación no sólo recae en su capacidad para generar gradientes no nulos para $z>0$. Los componentes electrónicos sobre los que se realizan las operaciones típicas de las redes neuronales tienen limitaciones. Funciones de activación muy complejas requieren grandes inversiones en capacidad de cómputo. Además, a nivel de \textit{software} y librerías de programación, la función ReLU está altamente optimizada para obtener el máximo rendimiento de la electrónica.
 
 Las redes neuronales basadas en \textit{online learning} ejecutan el algoritmo \textit{backpropagation} en cada entrenamiento incremental. La precisión de las salidas es evaluada constantemente y los pesos de las capas de neuronas son modificados consecuentemente para minimizar la función de coste.
+
+
+
 
 
 \subsection{Selección de modelos} %%%TRAIN+VAL+TEST
@@ -290,6 +293,24 @@ La normalización es especialmente útil para evitar que los modelos ignoren los
 De cualquier otra forma, el modelo tendría acceso a los datos del conjunto de validación o test en la fase de entrenamiento. El modelo se adaptaría erróneamente a unos datos no representativos en un proceso llamado \textit{data leakage}.
 
 
+
+\subsubsection{Entrenamiento en \textit{mini-batch}}
+Uno de los grandes problemas de los modelos de aprendizaje profundo es la necesidad de grandes volúmenes de datos para formar sets de entrenamiento, validación y test. Por ello, la práctica estándar implementa entrenamiento por \textit{mini-batch}. En vez de procesar todos los datos del conjunto de entrenamiento para realizar \textit{backpropagation}, se procesa un conjunto reducido distinto de dichas muestras cada vez. Por ejemplo, un modelo de \textit{deep learning} enfocado a la identificación de ciertos objetos en una imagen procesaría una cantidad reducida de imágenes de entrenamiento, estimaría las salidas correspondientes, las compararía con la realidad y ajustaría sus pesos con \textit{backpropagation}. Este proceso se repetiría con distintos sets de imágenes de entrenamiento hasta procesar el set entero.
+
+
+Este TFG tiene como objetivo procesar los datos relativos al tráfico de red presente en la ciudad de Milán. Dichos datos forman una serie temporal continua cuya longitud es excesivamente grande. Procesar toda la serie cada vez que se realiza \textit{backpropagation} requeriría una elevada inversión en tiempo de procesamiento y en \textit{hardware} capaz de procesar tantos datos al mismo tiempo. Además, en la fase de \textit{online learning} se debe alimentar a los modelos neuronales con distintas secuencias de datos para obtener una cantidad suficiente de predicciones que permitan evaluar los modelos. Por ello es imperativo segmentar la serie temporal en secuencias más cortas.
+
+Para la segmentación de series temporales se implementa una técnica de ventana deslizante que crea múltiples secuencias más cortas a partir de la serie original. Aunque este TFG trabaje con múltiples series temporales al mismo tiempo, una por cada celda geográfica de la ciudad, se puede modelar como una única serie temporal multivariable. Dadas $D$ series que representan el tráfico de red a lo largo de $T$ instantes cronológicos $\textbf{X} \in \real ^{T\times D}$, se crean $T-LB$ secuencias de $LB$ muestras formuladas como:
+
+\begin{align}
+	\textbf{X}_k &= [\textbf{x}_k,\textbf{x}_{k+1},\textbf{x}_{k+2},\dots, \textbf{x}_{k+LB-1}]^\top \label{eq16}\\
+	\textbf{Y}_k &= \textbf{x}_{k+LB} \label{eq17}
+\end{align}
+
+Como se observa en las ecuaciones \ref{eq16} y \ref{eq17}, las series temporales son fácilmente divisibles para las tareas de predicción ya que tras realizar la segmentación, la salida esperada para cada secuencia $\textbf{X}_k$ es la muestra $\textbf{x}_{k+LB}$.
+
+Los modelos de \textit{deep learning} se benefician enormemente de esta estrategia al no tener que procesar cantidades desmesuradas de datos para ajustar sus pesos $\textbf{W}$ sino un conjunto de $B$ secuencias cortas ${X_k,\dots,X_k+B}$ que conforman un \textit{mini-batch}.
+
 %%%%%%%EXPLICAR EL PERCEPTRON, LAS FUNCIONES DE ACTIVACIÓN, LA REGULARIZACION, BACKPROPAGATION, GRADIENT DESCENT Y GRADIENT VANISHING, LA INICIALIZACIÓN DE PESOS, LOS OPTIMIZADORES, TASA DE APRENDIZAJE, GENERALIZACIÓN, OVERFITTING UNDERFITTING, FUNCIONES DE COSTE (EXPLICAR SKIMA)....
 
 %%SELECCIÓN DE MODELOS (TRAIN+VAL+TEST), ACTIVE LEARNING, ONLINE LEARNING VS BATCH LEARNING, CONCEPT DRIFT, CATASTROPHIC FORGETTING...
@@ -305,30 +326,32 @@ El estudio clásico de las series temporales considera que su comportamiento es 
 En la actualidad es mucho más común recurrir a modelos de aprendizaje automático para las tareas de predicción. La mayoría de estos modelos se basan en arquitecturas neuronales recurrentes, capaces de memorizar los aspectos temporales más importantes de la serie analizada.
 
 
+
+
 \subsection{Modelos autorregresivos de medias móviles}
 Como su propio nombre indica, los modelos autorregresivos de medias móviles para la predicción de series temporales están basados en los modelos de medias móviles y autorregresivos. Las medias móviles son una manera simple de obtener una predicción cuando no hay una tendencia marcada ni tampoco estacionalidad. Se utiliza el término medias móviles puesto que conforme se va disponiendo de nuevas observaciones se pueden calcular nuevas medias mediante la inclusión de las nuevas muestras y el desprendimiento de las más antiguas \cite{seriestemporales}. De esta forma se eliminan las oscilaciones de mayor frecuencia, actuando como un filtro paso bajo.
 
 Las medias móviles unilaterales permiten estimar el valor futuro de la serie temporal $\hat{y}_t$ como la media de las $m$ muestras inmediatamente anteriores:
 
-\begin{equation*}
+\begin{equation}
 	\centering
 	\hat{y}_{t} = \frac{1}{m} \cdot \sum_{i=1}^{m} y_{t-i}
 	\label{eq:ma}
-\end{equation*}
+\end{equation}
 
 Asímismo, la media móvil puede combinarse con una ponderación $k_i$. La ponderación más habitual es la exponencial asumiendo que las muestras más recientes contribuyen más a la correcta predicción que las muestras más antiguas:
 
-\begin{equation*}
+\begin{equation}
 	\centering
 	\hat{y}_{t} = \frac{1}{m} \cdot \sum_{i=1}^{m} y_{t-i} \cdot k_{t-i}
-\end{equation*}
+\end{equation}
 
 El modelo ARMA (\textit{AutoRegressive Moving Average}) es el modelo más sencillo que combina las medias móviles y la autorregresión. Utiliza tanto las muestras reales de la serie temporal $Y_t$  como los errores cometidos en predicciones pasadas $\epsilon_t$. Concretamente, la cantidad de muestras y errores cometidos que son tomados en cuenta está estipulada por los parámetros $p$ y $q$ respectivamente. Siendo $\alpha_t$ y $\theta_t$ la ponderación aplicada a cada muestra y error \cite{machinelearningbook,arma, arma3}:
 
-\begin{align*}
+\begin{align}
 	\hat{y_t} &= \sum_{i=1}^{p} \alpha_i \cdot y_{t-i}  +  \sum_{i=1}^{q} \theta_i \cdot \epsilon_{t-i}\\
-	\epsilon_t &= y_t - \hat{y_t}\\
-\end{align*}
+	\epsilon_t &= y_t - \hat{y_t}
+\end{align}
 
 El primer sumatorio es la parte autorregresiva, realiza una regresión basada en datos pasados. El segundo sumatorio es la media móvil de los errores cometidos en predicciones pasadas. Este modelo se denomina ARMA (p,q).
 
@@ -345,18 +368,19 @@ Las redes neuronales han evolucionado desde su creación para mejorar su rendimi
 
 Las RNNs son utilizadas en todo tipo de secuencias temporales de cualquier naturaleza como muestras de audio, registros históricos numéricos e incluso documentos escritos. Para realizar sus predicciones, al igual que los modelos clásicos autorregresivos, las RNNs y todos los modelos de aprendizaje automático asumen en sus predicciones que el patrón subyacente presente en los datos de entrenamiento se perpetúa en los datos futuros.
 
+
 \subsubsection{Redes neuronales recurrentes}
 Las redes neuronales recurrentes o RNNs (\textit{Recurrent Neural Networks}), a diferencia de las TLUs, no están basadas en ninguna estructura biológica en concreto. Son capas de neuronas capaces de retener información de muestras procesadas con anterioridad. En cada momento $t$, las neuronas recurrentes más simples, además de procesar las entradas $\textbf{x}_t$ actuales, procesan su propia salida anterior $\hat{y}_{t-1}$ con su propio peso $w_{\hat{y}}$ para generar la salida actual $\hat{y}_t$. Esto hace a las RNN ideales para el procesado de secuencias de datos como, por ejemplo, el histórico de tráfico de telecomunicaciones de una ciudad concreta.
 
 \begin{equation}
-	\hat{y_t} = \phi(\textbf{W}_x^T \textbf{x}_t + b + w_{\hat{y}}\cdot\hat{y}_{t-1})
+	\hat{y_t} = \phi(\textbf{W}_x^\top \textbf{x}_t + b + w_{\hat{y}}\cdot\hat{y}_{t-1})
 	\label{eq11}
 \end{equation}
 
 Al igual que las TLUs, las neuronas recurrentes pueden agruparse para formar capas. Modificando la ecuación \ref{eq11} con la forma matricial de los pesos $\textbf{W}_x, \textbf{W}_{\hat{y}}$ y la forma vectorial de las salidas $\hat{\textbf{y}}_t$, la salida de una capa de neuronas recurrentes se describe como:
 
 \begin{equation}
-	\hat{\textbf{y}}_t = \phi(\textbf{W}_x^T \textbf{x}_t + \textbf{W}_{\hat{y}}^T \hat{\textbf{y}}_{t-1} + \textbf{b})
+	\hat{\textbf{y}}_t = \phi(\textbf{W}_x^\top \textbf{x}_t + \textbf{W}_{\hat{y}}^\top \hat{\textbf{y}}_{t-1} + \textbf{b})
 \end{equation}
 
 donde $\phi$ sigue siendo la función de activación presente en la neurona. Gracias al algoritmo \textit{gradient descent}, las capas de neuronas recurrentes son capaces de adaptarse al patrón subyacente de las series temporales sin necesidad de intervención humana.
@@ -367,7 +391,9 @@ La similitud con las TLUs y los \textit{Perceptrons} continúa al poder agrupar 
 
 La retroalimentación de la salida $\hat{y}$ en una neurona recurrente es el mecanismo que otorga la capacidad de memoria, así como lo hacía la autorregresión en los modelos clásicos. Las RNNs procesan secuencias de datos mientras mantienen la información de las muestras pasadas en el llamado estado oculto $h_t$. Este estado puede ser directamente la salida pasada $h_t=\hat{y}_{t-1}$ o una transformación más compleja de la misma.
 
-\subsubsection{Minibatch con las series temporales}
+
+
+
 
 \subsubsection{Inconvenientes de las neuronas recurrentes}
 Al igual que las TLUs, las neuronas recurrentes son estructuras muy simples por lo que su rendimiento está acotado por el ámbito en el que se utilizan. Concretamente, las RNNs sufren varios problemas al enfrentar secuencias de larga duración.
@@ -378,10 +404,65 @@ Algunos mecanismos para evitar la inestabilidad incluyen funciones de activació
 
 El segundo problema reside en, debido a la simpleza de las neuronas recurrentes, su limitada capacidad de memoria. A medida que la red neuronal procesa secuencias $\textbf{x}_t$, los pesos $\textbf{W}_{\hat{y}}$ modifican el estado $h_t$ eliminando la información más antigua en favor de la información más reciente.
 
-Esto supone un gran problema puesto que la información más reciente no siempre es útil para estimar el patrón subyacente de la serie temporal. Sin un mecanismo de decisión, el estado oculto $h_t$ es extremadamente vulnerable a cualquier anomalía o dato irrelevante presente en la secuencia procesada. Para resolver este problema se introdujo la neurona LSTM en 1997.
+Esto supone un gran problema puesto que la información más reciente no siempre es útil para estimar el patrón subyacente de la serie temporal. Sin un mecanismo de decisión, el estado oculto $h_t$ es extremadamente vulnerable a cualquier anomalía o dato irrelevante presente en la secuencia procesada.
 
 
 \subsubsection{LSTM}
+Para resolver las limitaciones descritas anteriormente se propuso la neurona LSTM (\textit{Long-Short Term Memory}) en 1997. La primera diferencia radica en la duplicación del estado $\textbf{h}_t$ en dos vectores de estado $\textbf{c}_t$ y $\textbf{h}_t$. Uno de los vectores, $\textbf{c}_t$, contiene la información que la neurona LSTM considera digna de ser recordada a largo plazo y el otro, $\textbf{h}_t$ es el encargado de la salida de la neurona.
+
+Las neuronas LSTM no son una neurona simple sino una estructura modular que contiene varias puertas y operaciones lógicas para controlar el flujo interno de información. Cada puerta es en realidad un \textit{Perceptron} con pesos entrenables cuya función de activación es la sigmoide $\sigma(\textbf{z})$. Todas las puertas combinan las entradas $\textbf{x}_t$ con el vector de corto alcance $\textbf{h}_ {t-1}$ para orquestar el circuito de información.
+
+Las puertas controlan la información existente en los vectores de estado. El vector de largo plazo $\textbf{c}_t$ sólo es visto por la neurona LSTM. Crea un bucle de retroalimentación que actúa como la memoria de la neurona. El vector de corto plazo $\textbf{h}_t$ pasa por las puertas y, aun siendo retroalimentado también conforma la salida de la neurona hacia la siguiente capa.
+
+\begin{itemize}	
+	\item \textbf{Puerta de olvido $\textbf{f}_t$:} También llamada \textit{forget gate}, combina las entradas $x_t$ y el vector a corto plazo $\textbf{h}_{t-1}$ para decidir qué parte del vector $\textbf{c}_{t-1}$ ya no es útil a la vista de la nueva entrada.
+	
+	\begin{equation}
+		\textbf{f}_t = \sigma(\textbf{W}_{xf}^\top \textbf{x}_t + \textbf{W}_{hf}^\top \textbf{h}_{t-1} + \textbf{b}_f) 
+		\label{eq24}
+	\end{equation}
+	
+	siendo $\textbf{W}_{xf}$ los pesos de la puerta de olvido aplicados a la entrada, $\textbf{W}_{hf}$ los pesos aplicados al vector de corto plazo y $\textbf{b}_f$ el término independiente.
+	
+	Al utilizar la función sigmoide se acota la salida $\textbf{f}_t$ entre 0 y 1. Este valor indica la porción del vector $\textbf{c}_{t-1}$ que permanecerá intacto. Esto ocurre gracias a una operación de multiplicación elemento a elemento:
+	
+	\begin{equation}
+		\textbf{f}_t \odot \textbf{c}_{t-1}
+	\end{equation}
+	
+	
+	\item \textbf{Capa de entrada $\textbf{g}_t$:} Aunque no es estrictamente una puerta de control, es la capa principal que combina las entradas y el vector de corto alcance. Contiene el mecanismo de una neurona recurrente simple:
+	
+	\begin{equation}
+		\textbf{g}_t = tanh(\textbf{W}_{xg}^\top \textbf{x}_t + \textbf{W}_{hg}^\top \textbf{h}_{t-1} + \textbf{b}_g)
+	\end{equation}
+	
+	siendo sus elementos análogos a los de la ecuación \ref{eq24}. El término $\textbf{g}_t$ es el candidato a estado de largo alcance basado en la nueva muestra $\textbf{x}_t$.
+	
+	\item \textbf{Puerta de entrada $\textbf{i}_t$:} También llamada \textit{input gate}, controla la porción del estado candidato $\textbf{g}_t$ que será añadido al estado de largo alcance tras aplicar la puerta de olvido. De forma análoga a la puerta de olvido:
+	
+	\begin{equation}
+		\textbf{i}_t = \sigma(\textbf{W}_{xi}^\top \textbf{x}_t + \textbf{W}_{hi}^\top \textbf{h}_{t-1} + \textbf{b}_i) 
+	\end{equation}
+	
+	Junto a la puerta de olvido, la puerta de entrada controla las actualizaciones del vector de largo alcance de la forma:
+	
+	\begin{equation}
+		\textbf{c}_t = \textbf{f}_t \odot \textbf{c}_{t-1} + \textbf{g}_t \odot \textbf{i}_t
+	\end{equation}
+	
+	\item \textbf{Puerta de salida $o_t$:} También llamada \textit{output gate}, decide qué porción del vector de largo alcance actualizado $\textbf{c}_t$ será utilizada tanto como salida hacia la siguiente capa de neuronas $\textbf{y}_t$ como hacia la retroalimentación $\textbf{h}_t$. De forma análoga a la puerta de olvido:
+	
+	\begin{align}
+		\textbf{o}_t &= \sigma(\textbf{W}_{xo}^\top \textbf{x}_t + \textbf{W}_{ho}^\top \textbf{h}_{t-1} + \textbf{b}_o) \\
+		\hat{\textbf{y}}_t &= \textbf{h}_t = \textbf{o}_t \odot tanh(\textbf{c}_t)
+	\end{align}
+
+\end{itemize}
+
+Cada puerta tiene su set de pesos independiente del resto de puertas, lo que permite entrenarlos para la tarea, ya sea olvido, entrada o salida, a la que son aplicados. Ésto consigue realizar una selección automática de la información útil para ser memorizada y utilizada a lo largo de la serie temporal. 
+
+Las neuronas LSTM no tienen un método especial de entrenamiento, utilizan \textit{backpropagation} como el resto de neuronas. Por lo tanto, también pueden generar \textit{overfitting} si la capacidad de procesamiento de la red neuronal es superior a la complejidad de la serie temporal. En ese caso el vector de largo alcance incluiría las fluctuaciones aleatorias propias del ruido de los datos de entrada.
 
 \section{Estructuras avanzadas de \textit{Deep Learning} para la predicción de series temporales}
 

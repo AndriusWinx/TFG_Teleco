@@ -1,9 +1,9 @@
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Distribución de las medias de NRMSE de los modelos con \textit {online learning} según el tamaño de la cuadrícula. Elaboración propia.}}{25}{figure.caption.9}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Distribución de las medias de NRMSE de los modelos con \textit {online learning} según la arquitectura del modelo. Elaboración propia.}}{26}{figure.caption.10}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Densidad de las medias de NRMSE en entrenamiento estático (línea discontinua) y \textit {online learning} (línea continua) según el tamaño de la cuadrícula y del kernel. Elaboración propia.}}{28}{figure.caption.12}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Influencia del hiperparámetro \texttt {look\_back} en la media del NRMSE y en el tiempo de ejecución medio en modelos con \textit {online learning}. Elaboración propia.}}{29}{figure.caption.13}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Influencia del hiperparámetro \texttt {updates} en la media del NRMSE y en el tiempo de ejecución medio en modelos con \textit {online learning}. Elaboración propia.}}{31}{figure.caption.14}%
-\contentsline {figure}{\numberline {6}{\ignorespaces NRMSE por celda del mejor modelo con \textit {online learning}. Elaboración propia.}}{33}{figure.caption.16}%
-\contentsline {figure}{\numberline {7}{\ignorespaces NRMSE por celda de los mejores modelos con \textit {online learning} de cada arquitectura (LSTM, 2CNN+LSTM y 3CNN+LSTM). Elaboración propia.}}{33}{figure.caption.17}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Distribución de las medias de NRMSE de los modelos con \textit {online learning} según el tamaño de la cuadrícula. Elaboración propia.}}{28}{figure.caption.9}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Distribución de las medias de NRMSE de los modelos con \textit {online learning} según la arquitectura del modelo. Elaboración propia.}}{29}{figure.caption.10}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Densidad de las medias de NRMSE en entrenamiento estático (línea discontinua) y \textit {online learning} (línea continua) según el tamaño de la cuadrícula y del kernel. Elaboración propia.}}{31}{figure.caption.12}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Influencia del hiperparámetro \texttt {look\_back} en la media del NRMSE y en el tiempo de ejecución medio en modelos con \textit {online learning}. Elaboración propia.}}{32}{figure.caption.13}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Influencia del hiperparámetro \texttt {updates} en la media del NRMSE y en el tiempo de ejecución medio en modelos con \textit {online learning}. Elaboración propia.}}{34}{figure.caption.14}%
+\contentsline {figure}{\numberline {6}{\ignorespaces NRMSE por celda del mejor modelo con \textit {online learning}. Elaboración propia.}}{36}{figure.caption.16}%
+\contentsline {figure}{\numberline {7}{\ignorespaces NRMSE por celda de los mejores modelos con \textit {online learning} de cada arquitectura (LSTM, 2CNN+LSTM y 3CNN+LSTM). Elaboración propia.}}{36}{figure.caption.17}%

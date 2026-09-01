@@ -23,25 +23,25 @@
 \contentsline {subsubsection}{\numberline {3.5.3}\textit {Dropout}}{19}{subsubsection.3.5.3}%
 \contentsline {subsubsection}{\numberline {3.5.4}\textit {Early stopping}}{19}{subsubsection.3.5.4}%
 \contentsline {subsection}{\numberline {3.6}Preprocesado de los datos de entrada}{20}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Predicción de series temporales}{20}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Modelos autorregresivos de medias móviles}{21}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Modelos de aprendizaje profundo aplicados a la predicción de series temporales}{22}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Redes neuronales recurrentes}{23}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Minibatch con las series temporales}{24}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Inconvenientes de las neuronas recurrentes}{24}{subsubsection.4.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.4}LSTM}{24}{subsubsection.4.2.4}%
-\contentsline {section}{\numberline {5}Estructuras avanzadas de \textit {Deep Learning} para la predicción de series temporales}{24}{section.5}%
-\contentsline {subsection}{\numberline {5.1}CNNs}{24}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Filtros, convoluciones, neuronas, ecuaciones...}{24}{subsubsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.2}CNN+LSTM}{24}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Neuronas, conexiones, ecuaciones, flujo de datos...}{24}{subsubsection.5.2.1}%
-\contentsline {section}{\numberline {6}Resultados y discusión}{25}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Desempeño general}{25}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Análisis de Spearman}{26}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}Número de celdas, capas CNN y tamaño del \textit {kernel}}{27}{subsubsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.2}\texttt {look\_back} y \texttt {batch\_size}}{28}{subsubsection.6.2.2}%
-\contentsline {subsubsection}{\numberline {6.2.3}\texttt {updates} y \texttt {threshold}}{30}{subsubsection.6.2.3}%
-\contentsline {subsubsection}{\numberline {6.2.4}Número de filtros de las capas convolucionales}{31}{subsubsection.6.2.4}%
-\contentsline {subsection}{\numberline {6.3}Mejor modelo}{31}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Conclusiones y líneas futuras}{35}{section.7}%
-\contentsline {section}{Referencias}{36}{section.7}%
+\contentsline {subsubsection}{\numberline {3.6.1}Entrenamiento en \textit {mini-batch}}{20}{subsubsection.3.6.1}%
+\contentsline {section}{\numberline {4}Predicción de series temporales}{21}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Modelos autorregresivos de medias móviles}{22}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Modelos de aprendizaje profundo aplicados a la predicción de series temporales}{23}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Redes neuronales recurrentes}{24}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Inconvenientes de las neuronas recurrentes}{24}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}LSTM}{25}{subsubsection.4.2.3}%
+\contentsline {section}{\numberline {5}Estructuras avanzadas de \textit {Deep Learning} para la predicción de series temporales}{27}{section.5}%
+\contentsline {subsection}{\numberline {5.1}CNNs}{27}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Filtros, convoluciones, neuronas, ecuaciones...}{27}{subsubsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.2}CNN+LSTM}{27}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Neuronas, conexiones, ecuaciones, flujo de datos...}{27}{subsubsection.5.2.1}%
+\contentsline {section}{\numberline {6}Resultados y discusión}{28}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Desempeño general}{28}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Análisis de Spearman}{29}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Número de celdas, capas CNN y tamaño del \textit {kernel}}{30}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}\texttt {look\_back} y \texttt {batch\_size}}{31}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}\texttt {updates} y \texttt {threshold}}{33}{subsubsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.4}Número de filtros de las capas convolucionales}{34}{subsubsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.3}Mejor modelo}{34}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Conclusiones y líneas futuras}{38}{section.7}%
+\contentsline {section}{Referencias}{39}{section.7}%
