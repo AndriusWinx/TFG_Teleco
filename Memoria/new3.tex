@@ -465,8 +465,50 @@ Cada puerta tiene su set de pesos independiente del resto de puertas, lo que per
 Las neuronas LSTM no tienen un método especial de entrenamiento, utilizan \textit{backpropagation} como el resto de neuronas. Por lo tanto, también pueden generar \textit{overfitting} si la capacidad de procesamiento de la red neuronal es superior a la complejidad de la serie temporal. En ese caso el vector de largo alcance incluiría las fluctuaciones aleatorias propias del ruido de los datos de entrada.
 
 \section{Estructuras avanzadas de \textit{Deep Learning} para la predicción de series temporales}
-
 \subsection{CNNs}
-\subsubsection{Filtros, convoluciones, neuronas, ecuaciones...}
+ Las redes neuronales convolucionales o CNNs (\textit{Convolutional Neural Networks}) están compuestas por neuronas parecidas a las TLUs. Sin embargo, las neuronas convolucionales no están conectadas a todas las entradas sino a un cierto conjunto próximo a ellas.
+ 
+ Las neuronas convolucionales fueron propuestas en 1980 imitando la estructura del córtex visual animal descrita en 1959. En dichos estudios base se descubrió la existencia de campos receptivos locales en las neuronas visuales animales que se activan selectivamente ante ciertos estímulos concretos. Por ejemplo, aunque dos neuronas compartan un mismo campo visual, una sólo reacciona a patrones verticales y la otra a patrones horizontales.
+ 
+ Estas neuronas resultan ideales para tareas de visión artificial o reconocimiento de imágenes puesto que los elementos espacialmente más próximos tienden a exhibir una correlación mayor que los elementos lejanos. Los campos receptivos de las neuronas visuales animales están adaptadas para procesar únicamente los elementos cercanos, consiguiendo una mayor eficiencia y precisión. Las neuronas artificiales convolucionales siguen la misma premisa, siendo especialmente útiles al procesar datos organizados en dos dimensiones espaciales.
+ 
+ Utilizando como ejemplo el caso de estudio de este TFG, la ciudad de Milán es un plano bidimensional dividido en múltiples celdas. Es plausible pensar que una determinada celda está más correlacionada con una celda adyacente que con una celda lejana. Las neuronas convolucionales atienden únicamente a las celdas próximas, ignorando las celdas lejanas. Utilizando varias neuronas es posible cubrir toda la ciudad.
+ 
+ Aunque las celdas lejanas estén menos correlacionadas, pueden presentar el mismo patrón subyacente. Por ello las neuronas convolucionales aplican un mismo filtro a todas las celdas ejecutando así una convolución a lo largo de todos los datos de entrada.
+ 
+ Entre las principales ventajas de las neuronas convolucionales se encuentra la reducción del número de parámetros de la red neuronal. Cada conexión de una neurona con una entrada necesita un peso $w$ entrenable. Las neuronas TLU están conectadas a todas las entradas, necesitando un gran volumen de pesos, lo que conlleva una gran inversión en capacidad de procesamiento.
+ 
+ Aun así, al entrar en el ámbito del \textit{deep learning}, las neuronas convolucionales presentan un problema: al tener campos receptivos locales, las capas de la red neuronal son cada vez más pequeñas. Además las neuronas situadas en los extremos de las capas tienen un campo visual más reducido. La solución es sencilla: un perímetro de ceros o \textit{zero padding} alrededor del plano de los datos permite que las capas mantengan su tamaño sin afectar a la salida. Tomando como referencia la ecuación \ref{eq3}:
+ 
+ \begin{equation}
+ 	\textbf{z} = \textbf{W}^\top \textbf{x} + \textbf{b} + 0 = \textbf{W}^\top \textbf{x} + \textbf{b} \label{eq31}
+ \end{equation}
+ 
+ 
+\subsubsection{Mapas de filtros}
+Como se ha mencionado anteriormente, las neuronas visuales animales reaccionan ante estímulos concretos. Las neuronas artificiales convolucionales se agrupan en mapas de filtros. Cada filtro o \textit{kernel} es un conjunto de pesos aplicado a las conexiones de las neuronas para que reaccionen a estímulos diferentes. El \textit{kernel} $\textbf{W}_f$ es compartido por todas las neuronas que forman el mapa del filtro $f$.
+
+Las neuronas convolucionales se organizan en cuadrículas bidimensionales o mapas, lo que permite definir sus campos visuales con dos variables espaciales que se denominarán $M$ para la altura y $N$ para la anchura en este TFG. Siendo $u$ y $v$ la posición espacial de una neurona convolucional en el mapa de filtros $f$ de la capa $l$, ésta está conectada a las neuronas en las filas $[u, u+M-1]$ y a las columnas $[v,v+N-1]$ de todos los mapas de filtros $f'$ de la capa inmediatamente anterior $l-1$.
+
+\begin{align}
+	z_{u,v,f,l} &= b_{f,l} + \sum_{f'=0}^{F'-1}\sum_{m=0}^{M-1} \sum_{n=0}^{N-1} w_{m,n,f,f',l} \cdot x_{u+m,v+n,f',l} \label{eq32}\\
+	x_{u+m,v+n,f',l} &= \hat{y}_{u+m,v+n,f',l-1}
+\end{align}
+
+Los \textit{kernels} son entrenables mediante \textit{backpropagation}. Aplicar filtros sobre regiones pequeñas resulta muy eficiente para la detección de bordes o cambios en el espacio. Al compartir un mismo \textit{kernel} entre todas las neuronas de un mapa, se consigue realizar la convolución entre el filtro y toda la superficie de los datos.
+
+Los campos visuales de dos neuronas adyacentes no tienen por qué estar desfasados en una celda exactamente, pueden estar desfasados tantas celdas como indique el \textit{stride}. En cada paso de la convolución, el filtro se desplaza un número de celdas determinado por el \textit{stride}, existiendo \textit{stride} horizontal y vertical que no tienen por qué ser idénticos. Esto provoca que, aun con la presencia del \textit{zero padding}, las capas superiores sean más pequeñas que las inferiores cuando el \textit{stride} es superior a uno.
+
+\subsubsection{Capas de agregación}
+Al mantener constante el tamaño de las capas, las redes CNN profundas, aun teniendo menos conexiones que los MLPs, acumulan un gran volumen de parámetros entrenables. Durante el proceso de retropropagación el modelo ha de guardar todas las salidas de todas los filtros de todas las capas para poder calcular el gradiente del error. Esto requiere una gran inversión en memoria y capacidad de cómputo.
+
+Para solucionar este problema se implementaron las capas de agregación o \textit{pooling}. Las neuronas de las capas de \textit{pooling} no contienen \textit{kernels} ni ningún parámetro entrenable. Simplemente realizan una operación matemática sobre las salidas de las neuronas contenidas en su campo visual. Dicha operación matemática está orientada a reducir la complejidad de la red, fusionando varias entradas en una sola con funciones como la media o el máximo del campo visual.
+
+Las neuronas de \textit{pooling} son especialmente útiles para introducir cierto grado invarianza traslacional en la red equivalente a realizar un submuestreo de los datos. Gracias a ello la red es capaz de identificar la presencia de un patrón subyacente independientemente de dónde esté situado espacialmente. Por ejemplo, un modelo de \textit{deep learning} basado en CNNs cuya misión es detectar la presencia de cierto objeto en una imagen no necesita ser capaz de delimitar a la perfección el contorno del objeto en la imagen sino de detectar su presencia y su posición de forma aproximada.
+
+Sin embargo, en el contexto de las series temporales, la introducción forzada de invarianza traslacional mediante capas de agregación no suele ser útil, cuando no contraproducente. Aunque en el reconocimiento de imágenes del ejemplo anterior sea muy útil, en la predicción de series temporales la posición temporal exacta es imprescindible. En el caso de este TFG el momento exacto en el que se produce un pico de tráfico de red es muy importante y las capas de agregación distorsionarían esa información. Además, las secuencias temporales de las celdas en las que se divide la ciudad se difuminarían entre sí, perdiendo la identidad de cada celda.
+
+En otros contextos de series temporales sí serían útiles, como por ejemplo la detección de anomalías sin necesidad de identificar el momento exacto del \textit{outlier}. Todas estas tareas están mucho más relacionadas con la clasificación que con la predicción.
+
 \subsection{CNN+LSTM}
 \subsubsection{Neuronas, conexiones, ecuaciones, flujo de datos...}
