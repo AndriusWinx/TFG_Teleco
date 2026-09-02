@@ -1,5 +1,5 @@
 \section{Fundamentos del \textit{Machine Learning} y \textit{Deep learning}}
-
+\label{cap3:ia}
 
 
 
@@ -77,6 +77,7 @@ Este trabajo se enmarca dentro del ámbito del \textit{Deep Learning}, más conc
 
 
 \section{Redes neuronales}
+\label{cap4:redes}
 Las redes neuronales son los modelos de aprendizaje profundo por excelencia. Están formadas por neuronas artificiales que utilizan una serie de pesos para procesar unos datos de entrada. Su primera aparición fue en 1943 como una simple descripción del funcionamiento de las neuronas presentes en el sistema nervioso animal: una neurona con salida binaria activará su salida cuando un cierto número de sus entradas, también binarias, estén activas.
 
 \subsection{El \textit{Perceptron}}
@@ -317,6 +318,7 @@ Los modelos de \textit{deep learning} se benefician enormemente de esta estrateg
 
 
 \section{Predicción de series temporales}
+\label{cap5:series}
 %%%DESPUÉS EXPLICAR LOS MÉTODOS AUTORREGRESIVOS, LAS REDES RECURRENTES Y CONVOLUCIONALES Y LOS MODELOS QUE SE USAN EN ESTE TRABAJO.
 
 Una serie temporal puede ser representada como un vector en cuyas posiciones se encuentran muestras secuenciales y equiespaciadas en el tiempo de una misma variable. Existen multitud de métodos de predicción de series de datos basados en la extrapolación. Sin embargo, no son específicos de series temporales sino que se aplican a conjuntos de datos genéricos.
@@ -465,6 +467,7 @@ Cada puerta tiene su set de pesos independiente del resto de puertas, lo que per
 Las neuronas LSTM no tienen un método especial de entrenamiento, utilizan \textit{backpropagation} como el resto de neuronas. Por lo tanto, también pueden generar \textit{overfitting} si la capacidad de procesamiento de la red neuronal es superior a la complejidad de la serie temporal. En ese caso el vector de largo alcance incluiría las fluctuaciones aleatorias propias del ruido de los datos de entrada.
 
 \section{Estructuras avanzadas de \textit{Deep Learning} para la predicción de series temporales}
+\label{cap6:deep}
 \subsection{CNNs}
  Las redes neuronales convolucionales o CNNs (\textit{Convolutional Neural Networks}) están compuestas por neuronas parecidas a las TLUs. Sin embargo, las neuronas convolucionales no están conectadas a todas las entradas sino a un cierto conjunto próximo a ellas.
  

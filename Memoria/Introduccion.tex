@@ -8,7 +8,7 @@ La predicción del tráfico de red tiene numerosísimas aplicaciones como, por e
 
 En la actualidad existen multitud de aplicaciones que generan flujos de datos a demanda. Algunos ejemplos son el \textit{media streaming} o los modelos de negocio \textit{as a Service} (XaaS) \cite{duan2015xaas}. Los modelos de predicción estáticos convencionales no son capaces de adaptarse al dinamismo y la falta de estacionariedad de dichos flujos de datos.
 
-Para solucionar dicho problema se han desarrollado modelos capaces de adaptarse a los cambios en las tendencias o patrones subyacentes en los flujos de tráfico. Estos modelos se basan en \textit{online active deep learning}. Esta técnica permite reentrenar los modelos a medida que se incorporan nuevas muestras para adaptarse a ellas en un proceso llamado \textit{concept drift} \cite{conceptdrift, conceptdrift1, conceptdrift2}.
+Para solucionar dicho problema se han desarrollado modelos capaces de adaptarse a los cambios en las tendencias o patrones subyacentes en los flujos de tráfico. Estos modelos se basan en \textit{online active deep learning}. Esta técnica permite reentrenar los modelos a medida que se incorporan nuevas muestras para adaptarse a ellas y evitar el \textit{concept drift} \cite{conceptdrift, conceptdrift1, conceptdrift2}.
 
 Este trabajo se basa en la investigación realizada en \cite{SKIMAcasaseca, tfgalicia} acerca de modelos LSTM que implementan actualizaciones incrementales donde las muestras sobre las que los modelos tuvieron un mayor error toman mayor importancia. En este trabajo se plantea la hipótesis de que un modelo que combine arquitecturas de redes neuronales convolucionales y de redes neuronales recurrentes tenga una precisión predictiva en \textit{online learning} superior a aquellos modelos basados únicamente en redes neuronales recurrentes.
 
@@ -18,22 +18,46 @@ El principal objetivo de este trabajo es analizar la capacidad de adaptación me
 
 Dentro del objetivo principal se establecen los siguientes objetivos secundarios:
 \begin{itemize}
-	\item La comprensión y dominio del marco teórico utilizado en este trabajo.
-	\item El manejo de herramientas de desarrollo como Python o Kaggle.
-	\item La mejora del modelo base proporcionado.
-	\item Evaluar el impacto producido por las redes neuronales convolucionales respecto al modelo base.
-	\item Evaluar el rendimiento de los modelos en diferentes cuadrículas de 49 y 225 celdas.
+	\item Analizar, diseñar, implementar y evaluar diferentes arquitecturas híbridas de redes neuronales recurrentes y convolucionales.
+	\item Definir una metodología de aprendizaje \textit{online} y evaluar las mejoras introducidas respecto a los modelos \textit{offline}.
+	\item Introducir restricciones en las arquitecturas para obtener modelos con resultados reproducibles.
+	\item Evaluar la precisión de las arquitecturas propuestas en diferentes secciones del dataset Milán.
 \end{itemize}
 
+
+\subsection{Metodología}
+Este TFG se ha desarrollado en varias etapas consecutivas para lograr los objetivos mencionados:
+
+\begin{itemize}
+	\item \textbf{Documentación:} incluye la recopilación de información bibliográfica acerca de los conceptos necesarios para llevar a cabo este TFG. En concreto, toda aquella información con propósito didáctico relacionada con el procesado de datos, la inteligencia artificial, \textit{deep learning}, las arquitecturas de redes neuronales artificiales convolucionales y recurrentes y los métodos de aprendizaje \textit{online}, siempre enfocado a la predicción de series temporales.
+	
+	\item  \textbf{Diseño:} engloba el análisis del dataset utilizado así como de varias arquitecturas híbridas de redes neuronales partiendo de las descritas en \cite{SKIMAcasaseca,tfgalicia} para escoger aquellas que se implementaron y evaluaron. También se estimó el impacto de diferentes hiperparámetros junto sus valores óptimos para incluir en el \textit{grid search} utilizado en la siguiente fase.
+	
+	\item \textbf{Entrenamiento y evaluación:} comprende el entrenamiento y validación de las arquitecturas escogidas en la fase anterior junto a la recopilación de métricas de rendimiento asociadas a su efectividad.
+	
+	\item \textbf{Análisis y comparación:} en esta fase se examinó el rendimiento medido en la fase anterior para discernir las principales causas y motores de la precisión predictiva obtenida en las diferentes arquitecturas.
+	
+	\item \textbf{Redacción:} incluye el diseño y escritura de esta memoria. Este TFG no incluye un producto final asociado a un modelo de \textit{deep learning} entrenado para la predicción de tráfico de red.
+\end{itemize}
+
+\subsection{Medios necesarios}
+Para el desarrollo de las redes neuronales utilizadas en este trabajo se ha utilizado una plataforma virtualizada llamada Kaggle. Ésta permite al usuario de forma gratuita el acceso a GPUs (\textit{Graphics Processing Units}) durante 30h por semana. Las GPUs en cuestión son del modelo NVIDIA TESLA P100, ideales para el entrenamiento de redes neuronales gracias a sus 4 cores y 29 GB de RAM \cite{gpup100}. Además, Kaggle ofrece un entorno de edición gráfico bastante intuitivo.
+
+El lenguaje de programación utilizado en este trabajo es Python. Es un lenguaje orientado a objetos, interpretado e interactivo. Su gran popularidad está basada en su versatilidad. La alta compatibilidad de sus módulos ha hecho que existan numerosas librerías y paquetes especializados y eficientes en multitud de tareas entre las cuales se encuentra el desarrollo de redes neuronales como Tensorflow o SKLearn.
+
+En \textit{frameworks} de computación en paralelo como CUDA (\textit{Compute Unified Device Architecture}), los cálculos realizados por las redes neuronales se reparten entre diferentes hilos. Cada hilo procesa los datos en momentos de tiempo diferentes según el estado del organizador de eventos del sistema operativo. Por lo tanto, en cada entrenamiento se consiguen resultados distintos puesto que el estado del sistema operativo cambia y las pequeñas diferencias en el tiempo de ejecución de los hilos se acumulan a lo largo de todo el entrenamiento y test. Además, el lenguaje de programación Python y las librerías Tensorflow y cuDNN inicializan sus algoritmos de forma aleatoria.
+
+Para conseguir la reproducibilidad de los resultados se ha de introducir varias restricciones para eliminar la aleatoriedad. Se han fijado todas las semillas de generación de números pseudoaleatorios de Python, Tensorflow y NumPy y se ha forzado a las librerías Tensorflow y cuDNN a acceder a los recursos hardware de forma determinista a través de las variables de entorno del sistema operativo \cite{tfdeterministic,nvidiacudnn}.
+
 \subsection{Estructura del documento}
-Esta memoria se divide en 5 capítulos: introducción, antecedentes y estado del arte, entorno experimental, exposición de resultado y discusión y conclusiones y líneas futuras.
+Esta memoria se divide en 9 capítulos comenzando por esta introducción. En este primer Capítulo se desarrolla la motivación, los objetivos y la metodología y medios empleados en este trabajo junto a una breve descripción de la estructura de la memoria.
 
-El Capítulo \ref{cap1:intro} se desarrolla la motivación y los objetivos de este trabajo. Además, se plantean la hipótesis y los objetivos y se añade una breve descripción de la estructura de la memoria.
+El Capítulo \ref{cap2:arte} encuadra este trabajo dentro de la investigación actual en torno a la predicción de tráfico de red.
 
-El Capítulo \ref{cap2:arte} ofrece una visión general del marco teórico relevante a la predicción de series temporales, el aprendizaje automático, \textit{deep learning}, \textit{online learning} y las diferentes arquitecturas de redes neuronales convolucionales y recurrentes.
+Los Capítulos \ref{cap3:ia}, \ref{cap4:redes}, \ref{cap5:series} y \ref{cap6:deep} ofrecen una visión detallada del marco teórico relevante a la inteligencia artificial, las redes neuronales artificiales, la predicción de series temporales y las diferentes arquitecturas de redes neuronales profundas convolucionales y recurrentes e híbridas.
 
-El Capítulo \ref{cap3:entorno} presenta la base de datos utilizada, las arquitecturas analizadas y los criterios de selección y evaluación de modelos de aprendizaje automático aplicados en este trabajo.
+El Capítulo \ref{cap7:entorno} presenta la base de datos utilizada, las arquitecturas analizadas y los criterios de selección y evaluación de modelos de aprendizaje automático aplicados en este trabajo.
 
-El Capítulo \ref{cap4:resultados} muestra y analiza el rendimiento de los distintos modelos propuestos. También interpreta los resultados obtenidos y comenta las relaciones presentes entre modelos y resultados.
+El Capítulo \ref{cap8:resultados} muestra y analiza el rendimiento de los distintos modelos propuestos. También interpreta los resultados obtenidos y comenta las relaciones presentes entre modelos y resultados.
 
-El Capítulo \ref{cap5:conclusiones} resume las aportaciones de este trabajo y presenta las conclusiones obtenidas. También propone líneas de actuación futuras.
+El Capítulo \ref{cap9:conclusiones} resume las aportaciones de este trabajo y presenta las conclusiones obtenidas. También propone líneas de actuación futuras.

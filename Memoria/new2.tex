@@ -1,0 +1,19 @@
+\section{Estado del arte}
+\label{cap2:arte}
+
+La gestión eficiente y el dimensionamiento preventivo de las infraestructuras de telecomunicaciones móviles dependen de la capacidad de anticipar la demanda de tráfico de red para garantizar los estándares de calidad de servicio. 
+
+Para alcanzar este objetivo se utiliza la predicción de tráfico de red modelado como serie temporal. Entre las primeras aproximaciones al problema destacan los métodos estadísticos clásicos basados en supuestos de estacionariedad como los modelos autorregresivos y de medias móviles. Son enfoques sencillos pero con grandes ineficiencias debido a la elevada cantidad de suposiciones de linealidad y estacionariedad.
+
+En un contexto de crecimiento exponencial de las fuentes de tráfico de red y gran facilidad de acceso a dispositivos de telecomunicaciones por parte del público general, el tráfico de red es cada vez más complejo. 
+La necesidad de realizar una ingeniería de características con intervención humana para ajustar los modelos a las series temporales analizadas suponía una inversión cada vez mayor. Por ello los modelos estadísticos clásicos han quedado obsoletos.
+
+La introducción y desarrollo de la inteligencia artificial y, en concreto, los modelos de aprendizaje profundo supuso una ampliación en las capacidades de predicción de las series temporales. El tráfico de red ha sido procesado por una gran variedad de modelos desde arquitecturas sencillas como los MLPs hasta estructuras más complejas como las neuronas recurrentes.
+
+Este TFG se centra en la predicción de tráfico de red utilizando los datos de tráfico de la ciudad de Milán. Sobre este dataset se han realizado varios estudios proponiendo formas más eficientes de retropropagación en régimen incremental \cite{SKIMAcasaseca} y diferentes variantes de arquitecturas de redes neuronales recurrentes entre otras \cite{tfgalicia}.
+
+El dataset empleado corresponde a los datos de tráfico de red de la ciudad de Milán organizados en celdas cuadradas sobre un plano. La existencia de grandes cantidades de dispositivos generadores de tráfico con capacidad de desplazarse entre celdas genera una correlación entre las mismas que puede ser analizada por arquitecturas convolucionales.
+
+Esta misma capacidad de movimiento añade cambios en el patrón subyacente del tráfico de red que degradan la capacidad predictiva de los modelos \textit{offline}. Para superar esta vulnerabilidad se han desarrollado los modelos \textit{online}, capaces de adaptarse dinámicamente a los datos procesados fuera del periodo de entrenamiento.
+
+Este TFG plantea la hipótesis de que la hibridación entre modelos neuronales convolucionales para extraer los patrones geográficos y recurrentes para realizar predicciones suponen una mejora respecto a las arquitecturas anteriormente empleadas utilizando una porción mayor del mismo dataset. También busca evaluar si estas mismas arquitecturas se benefician del entrenamiento en régimen \textit{online} frente al entrenamiento clásico \textit{offline}.

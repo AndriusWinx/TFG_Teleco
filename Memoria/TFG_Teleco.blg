@@ -3,7 +3,9 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: TFG_Teleco.aux
 A level-1 auxiliary file: Abstract.aux
 A level-1 auxiliary file: Introduccion.aux
+A level-1 auxiliary file: new2.aux
 A level-1 auxiliary file: new3.aux
+A level-1 auxiliary file: EntornoExperimental.aux
 A level-1 auxiliary file: Resultados.aux
 A level-1 auxiliary file: Conclusiones.aux
 The style file: IEEEtran.bst
@@ -20,52 +22,57 @@ I was expecting a `,' or a `}'---line 6 of file references.bib
 I'm skipping whatever remains of this entry
 Warning--entry type for "duan2015xaas" isn't style-file defined
 --line 75 of file references.bib
+Warning--entry type for "milandataset" isn't style-file defined
+--line 449 of file references.bib
+Warning--entry type for "milanogrid" isn't style-file defined
+--line 459 of file references.bib
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--empty booktitle in SKIMAcasaseca
 Warning--empty booktitle in arima1
+Warning--edition ordinal word "Third Edition" may be too high (or improper) for conversion in spearmansource
 
 Done.
-You've used 25 entries,
+You've used 32 entries,
             4087 wiz_defined-function locations,
-            1010 strings with 12513 characters,
-and the built_in function-call counts, 17948 in all, are:
-= -- 1454
-> -- 400
-< -- 140
-+ -- 220
-- -- 70
-* -- 879
-:= -- 2765
-add.period$ -- 50
-call.type$ -- 25
-change.case$ -- 23
-chr.to.int$ -- 315
-cite$ -- 27
-duplicate$ -- 1290
-empty$ -- 1474
-format.name$ -- 85
-if$ -- 4180
+            1049 strings with 13577 characters,
+and the built_in function-call counts, 21298 in all, are:
+= -- 1731
+> -- 455
+< -- 150
++ -- 247
+- -- 81
+* -- 1010
+:= -- 3351
+add.period$ -- 69
+call.type$ -- 32
+change.case$ -- 38
+chr.to.int$ -- 342
+cite$ -- 35
+duplicate$ -- 1543
+empty$ -- 1772
+format.name$ -- 98
+if$ -- 4930
 int.to.chr$ -- 0
-int.to.str$ -- 25
-missing$ -- 225
-newline$ -- 118
-num.names$ -- 25
-pop$ -- 515
+int.to.str$ -- 32
+missing$ -- 282
+newline$ -- 153
+num.names$ -- 34
+pop$ -- 680
 preamble$ -- 1
 purify$ -- 0
-quote$ -- 2
-skip$ -- 1391
+quote$ -- 4
+skip$ -- 1650
 stack$ -- 0
-substring$ -- 749
-swap$ -- 1050
-text.length$ -- 35
+substring$ -- 811
+swap$ -- 1215
+text.length$ -- 36
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 25
-warning$ -- 2
-while$ -- 73
-width$ -- 27
-write$ -- 283
+type$ -- 32
+warning$ -- 3
+while$ -- 84
+width$ -- 34
+write$ -- 358
 (There was 1 error message)

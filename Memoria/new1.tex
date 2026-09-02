@@ -1,0 +1,34 @@
+\section{Introducción}
+\label{cap:introduccion}
+
+Las redes de telecomunicaciones tienen como finalidad fundamental el intercambio de información entre nodos transmisores y receptores[cite: 5]. Siguiendo la ley de Bell, el crecimiento exponencial en el número de dispositivos ha incrementado drásticamente la necesidad de organizar y optimizar los recursos disponibles para garantizar un nivel estable de Calidad de Servicio (QoS)[cite: 5]. 
+
+El flujo de información intercambiada conforma el tráfico de red, el cual puede ser medido y modelado formalmente como una serie temporal[cite: 5]. En este contexto, la predicción del tráfico se erige como una herramienta crítica para planificar recursos, evitar congestiones, detectar anomalías y reducir el desperdicio de la inversión económica en infraestructura[cite: 5]. Ante volúmenes de información masivos, la inteligencia artificial y el \textit{Deep Learning} se utilizan para extraer los patrones subyacentes de estos datos sin requerir intervención humana directa[cite: 5].
+
+En la actualidad, la proliferación de servicios bajo demanda, como el \textit{media streaming} y los modelos de negocio \textit{as a Service} (XaaS), genera dinámicas de tráfico caracterizadas por una acusada falta de estacionariedad[cite: 5]. Los modelos de predicción estáticos convencionales adolecen de falta de flexibilidad, siendo incapaces de seguir el ritmo de estas alteraciones en la red[cite: 5]. Para solventar esta vulnerabilidad, se han desarrollado enfoques de \textit{online active deep learning}[cite: 5]. Esta técnica permite reentrenar los modelos de forma incremental a medida que se registran nuevas muestras, facilitando su adaptación continua frente a cambios de tendencia o \textit{concept drift}[cite: 5].
+
+Este trabajo toma como fundamento analítico la investigación desarrollada por el Dr. D. Juan Pablo Casaseca de la Higuera sobre modelos neuronales recurrentes LSTM que implementan actualizaciones incrementales ponderadas por el error de predicción[cite: 5]. A partir de este marco, se plantea la hipótesis central de que una arquitectura espaciotemporal híbrida, combinando redes neuronales convolucionales (CNN) y recurrentes (LSTM), presentará una precisión predictiva y una capacidad de adaptación en régimen de \textit{online learning} significativamente superior a la de los modelos basados de forma exclusiva en redes recurrentes[cite: 5].
+
+\subsection{Objetivos}
+\label{sec:objetivos}
+El objetivo principal de este trabajo es analizar la capacidad de adaptación dinámica, mediante entrenamiento incremental, de diferentes modelos híbridos de redes neuronales convolucionales y recurrentes ante alteraciones en el patrón subyacente de series temporales[cite: 5].
+
+Para la consecución de esta meta, se establecen los siguientes objetivos secundarios[cite: 5]:
+\begin{itemize}
+	\item Comprender y dominar el marco teórico subyacente al aprendizaje profundo y la predicción de series temporales[cite: 5].
+	\item Manejar con solvencia herramientas de desarrollo analítico como Python y el entorno de ejecución Kaggle[cite: 5].
+	\item Optimizar y mejorar el rendimiento computacional del modelo base proporcionado[cite: 5].
+	\item Evaluar empíricamente el impacto en la precisión predictiva introducido por las capas convolucionales respecto a la arquitectura estrictamente recurrente[cite: 5].
+	\item Cuantificar y contrastar el desempeño de los modelos espaciotemporales sobre distintas resoluciones topológicas, analizando cuadrículas de 49 y 225 celdas metropolitanas[cite: 5].
+\end{itemize}
+
+\subsection{Estructura del documento}
+\label{sec:estructura}
+Para abordar los objetivos descritos, esta memoria se estructura en cinco capítulos principales[cite: 5]:
+\begin{itemize}
+	\item El \textbf{Capítulo 1} expone la motivación del problema, formula la hipótesis de trabajo, delimita los objetivos y describe la organización del documento[cite: 5].
+	\item El \textbf{Capítulo 2} presenta los antecedentes y el marco teórico relativo a la predicción de series temporales, los fundamentos del \textit{Machine Learning} y \textit{Deep Learning}, el régimen de \textit{online learning} y las características de las arquitecturas convolucionales y recurrentes[cite: 5].
+	\item El \textbf{Capítulo 3} detalla el entorno experimental, describiendo la base de datos utilizada, las arquitecturas sometidas a estudio y los criterios metodológicos de selección y evaluación de modelos[cite: 5].
+	\item El \textbf{Capítulo 4} expone y analiza los resultados empíricos obtenidos, interpretando el desempeño comparativo de los modelos y evaluando el impacto estadístico de los hiperparámetros considerados[cite: 5].
+	\item Finalmente, el \textbf{Capítulo 5} condensa las aportaciones fundamentales del trabajo, enuncia las conclusiones extraídas y traza posibles líneas de investigación futura[cite: 5].
+\end{itemize}

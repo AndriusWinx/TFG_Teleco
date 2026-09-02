@@ -1,5 +1,5 @@
 \section{Entorno experimental}
-\label{cap3:entorno}
+\label{cap7:entorno}
 \subsection{Descripción de los datos}
 Los datos utilizados en este trabajo provienen del dataset Milán \cite{milandataset}. Este dataset fue creado con la intención original de descubrir la relación, si existiese, entre los eventos meteorológicos y el tráfico de red en la ciudad de Milán, Italia. El dataset contiene datos tanto climatológicos como de SMS, llamadas telefónicas y tráfico perteneciente a navegación web. Los datos están organizados en mediciones realizadas cada hora que corresponden a una celda cuadrada de $235 m$ de lado dentro de un área de $553.66km^2$ de la ciudad de Milán \cite{milanogrid}. El dataset contiene mediciones correspondientes a los meses de noviembre y diciembre de 2013. Para este trabajo se han aislado y agregado agregado los datos relativos a SMS, llamadas telefónicas y tráfico web en muestras equiespaciadas una hora en el tiempo, desechando la información relativa a los eventos meteorológicos.
 
@@ -110,14 +110,7 @@ siendo $d$ las diferencias entre niveles de las variables y $n$ el número de pu
 Debido a la disparidad en la distribución de las variables que se analizan en este trabajo, por ejemplo: el hiperparámetro \texttt{look\_back} toma valores entre 12 y 32 mientras la métrica NRMSE del modelo con \textit{online learning} toma valores entre 0 y 1; el análisis de Spearman es ideal al ser capaz de evitar que la diferencia entre los rangos de valores de las diferentes variables afecte al cálculo de la correlación entre ellas.
 
 
-\subsection{Entorno de ejecución}
-Para el desarrollo de las redes neuronales utilizadas en este trabajo se ha utilizado una plataforma virtualizada llamada Kaggle. Ésta permite al usuario de forma gratuita el acceso a GPUs (\textit{Graphics Processing Units}) durante 30h por semana. Las GPUs en cuestión son del modelo NVIDIA TESLA P100, ideales para el entrenamiento de redes neuronales gracias a sus 4 cores y 29 GB de RAM \cite{gpup100}. Además, Kaggle ofrece un entorno de edición gráfico bastante intuitivo.
 
-El lenguaje de programación utilizado en este trabajo es Python. Es un lenguaje orientado a objetos, interpretado e interactivo. Su gran popularidad está basada en su versatilidad. La alta compatibilidad de sus módulos ha hecho que existan numerosas librerías y paquetes especializados y eficientes en multitud de tareas entre las cuales se encuentra el desarrollo de redes neuronales como Tensorflow o SKLearn.
-
-En \textit{frameworks} de computación en paralelo como CUDA (\textit{Compute Unified Device Architecture}), los cálculos realizados por las redes neuronales se reparten entre diferentes hilos. Cada hilo procesa los datos en momentos de tiempo diferentes según el estado del organizador de eventos del sistema operativo. Por lo tanto, en cada entrenamiento se consiguen resultados distintos puesto que el estado del sistema operativo cambia y las pequeñas diferencias en el tiempo de ejecución de los hilos se acumulan a lo largo de todo el entrenamiento y test. Además, el lenguaje de programación Python y las librerías Tensorflow y cuDNN inicializan sus algoritmos de forma aleatoria.
-
-Para conseguir la reproducibilidad de los resultados se ha de introducir varias restricciones para eliminar la aleatoriedad. Se han fijado todas las semillas de generación de números pseudoaleatorios de Python, Tensorflow y NumPy y se ha forzado a las librerías Tensorflow y cuDNN a acceder a los recursos hardware de forma determinista a través de las variables de entorno del sistema operativo \cite{tfdeterministic,nvidiacudnn}.
 
 
 

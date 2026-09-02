@@ -172,6 +172,54 @@ G.~E.~P. Box and G.~M. Jenkins, \emph{Time Series Analysis: Forecasting and
   \url{https://onlinelibrary.wiley.com/doi/book/10.1002/9781118619193}
 \BIBentrySTDinterwordspacing
 
+\bibitem{milandataset}
+\BIBentryALTinterwordspacing
+{Telecom Italia}, ``{Telecommunications - SMS, Call, Internet - MI},'' 2015.
+  [Online]. Available: \url{https://doi.org/10.7910/DVN/EGZHFV}
+\BIBentrySTDinterwordspacing
+
+\bibitem{milanogrid}
+\BIBentryALTinterwordspacing
+Telecom\hspace{0.8em}Italia, ``Milano grid,'' 2015. [Online]. Available:
+  \url{https://doi.org/10.7910/DVN/QJWLFU}
+\BIBentrySTDinterwordspacing
+
+\bibitem{lstmactivation}
+\BIBentryALTinterwordspacing
+{Keras Team}. (2024) {LSTM} layer: Keras recurrent layers {API}. [Accedido:
+  Mar. 20, 2025]. [Online]. Available:
+  \url{https://keras.io/api/layers/recurrent_layers/lstm/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{spearmansource}
+\BIBentryALTinterwordspacing
+K.~Sijtsma and W.~Emons, ``Nonparametric statistical methods,'' in
+  \emph{International Encyclopedia of Education (Third Edition)}, third
+  edition~ed., P.~Peterson, E.~Baker, and B.~McGaw, Eds.\hskip 1em plus 0.5em
+  minus 0.4em\relax Oxford: Elsevier, 2010, pp. 347--353. [Online]. Available:
+  \url{https://www.sciencedirect.com/science/article/pii/B9780080448947013531}
+\BIBentrySTDinterwordspacing
+
+\bibitem{gpup100}
+\BIBentryALTinterwordspacing
+{Kaggle}. Kaggle notebooks documentation. [Accedido: Jun. 19, 2025]. [Online].
+  Available: \url{https://www.kaggle.com/docs/notebooks}
+\BIBentrySTDinterwordspacing
+
+\bibitem{tfdeterministic}
+\BIBentryALTinterwordspacing
+{TensorFlow Developers}. (2022, May) What's new in {TensorFlow} 2.9. [Accedido:
+  Abr. 19, 2025]. [Online]. Available:
+  \url{https://blog.tensorflow.org/2022/05/whats-new-in-tensorflow-29.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{nvidiacudnn}
+\BIBentryALTinterwordspacing
+{NVIDIA Corporation}. cudnn backend {API} developer guide: Miscellaneous.
+  [Accedido: Abr. 19, 2025]. [Online]. Available:
+  \url{https://docs.nvidia.com/deeplearning/cudnn/backend/latest/developer/misc.html}
+\BIBentrySTDinterwordspacing
+
 \bibitem{tffunction}
 \BIBentryALTinterwordspacing
 {TensorFlow Developers}, ``Better performance with tf.function,'' 8 2024,
