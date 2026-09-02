@@ -41,19 +41,20 @@
 \contentsline {section}{\numberline {7}Entorno experimental}{36}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Descripción de los datos}{36}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Arquitecturas empleadas}{37}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Procedimiento de entrenamiento}{37}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.3}Procedimiento de entrenamiento}{38}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Hiperparámetros considerados}{38}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}Métricas de rendimiento}{39}{subsection.7.5}%
 \contentsline {subsection}{\numberline {7.6}Análisis de Spearman}{40}{subsection.7.6}%
-\contentsline {section}{\numberline {8}Resultados y discusión}{41}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Desempeño general}{41}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Análisis de Spearman}{42}{subsection.8.2}%
-\contentsline {subsubsection}{\numberline {8.2.1}Número de celdas, capas CNN y tamaño del \textit {kernel}}{43}{subsubsection.8.2.1}%
-\contentsline {subsubsection}{\numberline {8.2.2}\texttt {look\_back} y \texttt {batch\_size}}{44}{subsubsection.8.2.2}%
-\contentsline {subsubsection}{\numberline {8.2.3}\texttt {updates} y \texttt {threshold}}{46}{subsubsection.8.2.3}%
-\contentsline {subsubsection}{\numberline {8.2.4}Número de filtros de las capas convolucionales}{47}{subsubsection.8.2.4}%
-\contentsline {subsection}{\numberline {8.3}Mejor modelo}{47}{subsection.8.3}%
-\contentsline {section}{\numberline {9}Conclusiones y líneas futuras}{51}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Conclusiones}{51}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Conclusiones}{51}{subsection.9.2}%
-\contentsline {section}{Referencias}{52}{subsection.9.2}%
+\contentsline {section}{\numberline {8}Resultados y discusión}{42}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Desempeño general}{42}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Análisis de Spearman}{43}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Número de celdas, capas CNN y tamaño del \textit {kernel}}{44}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}\texttt {look\_back} y \texttt {batch\_size}}{45}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.3}\texttt {updates} y \texttt {threshold}}{47}{subsubsection.8.2.3}%
+\contentsline {subsubsection}{\numberline {8.2.4}Número de filtros de las capas convolucionales}{48}{subsubsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.3}Mejor modelo}{48}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Discusión}{51}{subsection.8.4}%
+\contentsline {section}{\numberline {9}Conclusiones y líneas futuras}{53}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Conclusiones}{53}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Líneas futuras}{53}{subsection.9.2}%
+\contentsline {section}{Referencias}{54}{subsection.9.2}%

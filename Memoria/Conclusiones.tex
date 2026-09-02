@@ -3,7 +3,7 @@
 \subsection{Conclusiones}
 Este trabajo ha plasmado la investigación realizada en torno a las redes neuronales compuestas por capas convolucionales y recurrentes aplicadas a la predicción del tráfico en red con \textit{online learning}. Se han analizado varias arquitecturas de redes neuronales con una capa de neuronas LSTM precedida por una cantidad variable entre ninguna y tres capas CNN. Se ha realizado un extenso proceso de validación basado en la estrategia \textit{grid search} sobre el dataset Milán y se ha obtenido el modelo con mayor precisión utilizando el NRMSE como métrica de rendimiento.
 
-Como regla general, los modelos con \textit{online learning} son ampliamente superiores a aquellos sin \textit{online learning}. Los cambios en el patrón de los datos pasan completamente desapercibidos para los modelos sin \textit{online learning}. En cambio, los modelos con \textit{online learning} presentan una capacidad de adaptación extraordinaria.
+Como regla general, los modelos con \textit{online learning} son ampliamente superiores a aquellos sin \textit{online learning}. Los cambios en el patrón de los datos pasan desapercibidos para los modelos sin \textit{online learning}. En cambio, los modelos con \textit{online learning} presentan una capacidad de adaptación extraordinaria.
 
 La implementación de capas convolucionales al modelo de predicción de series temporales basado únicamente en capas de neuronas LSTM ha dado resultado, reduciendo los errores cometidos en las predicciones. Respecto al modelo original cedido por el Dr. D. Juan Pablo Casaseca de la Higuera, se ha conseguido reducir el error de predicción desde NRMSE=0,1778 hasta NRMSE=0,142.
 
@@ -11,9 +11,9 @@ Por último, se ha alcanzado la optimización del modelo original a través de f
 %%%%OBJETIVOS DEL TFG%%%%%%%%%%%%
 
 
-\subsection{Conclusiones}
+\subsection{Líneas futuras}
 Para próximos trabajos se plantea la posibilidad de implementar los modelos descritos en este trabajo en forma de redes de grafos orientadas a la predicción de series temporales, más concretamente a la predicción de tráfico de red.
 
-El Capítulo \ref{cap2:arte} refleja el trabajo realizado hasta ahora en el que es posible continuar la investigación introduciendo los modelos propuestos en \cite{tfgalicia} con régimen de entrenamiento \textit{online}.
+El Capítulo \ref{cap2:arte} refleja el trabajo realizado hasta ahora en el que es posible continuar la investigación introduciendo los modelos propuestos en \cite{tfgalicia} con \textit{online learning} sobre las celdas estudiadas en este TFG. Así sería posible evaluar su rendimiento sobre las mismas celdas eliminando las sospechas de sesgo planteadas anteriormente.
 
 Asímismo se propone el uso de una porción mayor de la base de datos Milán utilizada en este trabajo e incluso el uso de otras bases de datos de naturaleza similar.

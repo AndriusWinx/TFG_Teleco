@@ -5,7 +5,7 @@ El objetivo de este trabajo es la evaluación del rendimiento de los modelos con
 
 %%%%ARGUMENTAR CON EL SPEARMAN DE AVGTESTRNMSE VS AVGTESTINCNRMSE%%%%%%%%%%%%%%%%%%%
 
-El \textit{grid search} realizado en este trabajo no es uniforme. Para ahorrar tiempo se ha comenzado con un \textit{grid search} reducido que se ha ido expandiendo según la correlación entre los hiperparámetros y sus resultados. Por ello, es difícil aislar la influencia de cada hiperparámetro en los resultados aunque analizando todos en conjunto es posible obtener conclusiones coherentes.
+El \textit{grid search} realizado en este trabajo no es uniforme. Para ahorrar tiempo se ha comenzado con un \textit{grid search} reducido que se ha ido expandiendo según la correlación entre los hiperparámetros y sus resultados. Por ello, es difícil aislar la influencia de cada hiperparámetro en los resultados aunque aplicando el análisis de Spearman es posible obtener conclusiones coherentes.
 
 Como se ha mencionado anteriormente, la comparación entre los diferentes modelos en el proceso de validación se realiza con la media aritmética del NRMSE obtenido en cada celda. Como en toda media aritmética, la cantidad de valores de la variable a medir influye en gran medida en el resultado final. Como es de esperar, las medias del NRMSE de los modelos con una cuadrícula de 15x15 celdas tienen una desviación menor que las medias del NRMSE de los modelos con una cuadrícula de 7x7 celdas, como se observa en la Figura \ref{fig:dist_nrmse_metros2}. Esto es debido a que la variación en el NRMSE de una celda es amortiguada por las otras 224 celdas, mientras que 48 celdas tienen un poder amortiguador menor.
 
@@ -28,7 +28,7 @@ Según la arquitectura, es decir, el número de capas convolucionales utilizadas
 \end{figure}
 \FloatBarrier
 
-Aun así, aunque las arquitecturas con más capas y, por ende, más capacidad de procesamiento sean menos susceptibles a cambios en los hiperparámetros, la aquitectura con una única capa convolucional (CNN+LSTM) es la que ha conseguido el mejor modelo.
+Aun así, aunque las arquitecturas con más capas y, por ende, más capacidad de procesamiento sean menos susceptibles a cambios en los hiperparámetros, la arquitectura con una única capa convolucional (CNN+LSTM) es la que ha conseguido el mejor modelo.
 %%%%%%Cómo han sido los resultados según la arquitectura%%%%%%%%%
 
 \subsection{Análisis de Spearman}
@@ -221,4 +221,9 @@ Respecto a las peores celdas, las celdas 4959 y 5357 no son fáciles de predecir
 En general, la mayor contribución al NRMSE es provocado por anomalías en los patrones, como por ejemplo los máximos abruptos de la celda 5058. Sin embargo, es visible en todas las celdas cómo los modelos con \textit{online learning} son muy superiores a aquellos sin \textit{online learning}. Esto se observa muy bien en las celdas con menor precisión, por ejemplo, el modelo con \textit{online learning} ha podido adaptarse rápidamente los cambios radicales de las celdas 5357 y 5362 en cuestión de 2 o 3 días. Por otra parte, el modelo sin \textit{online learning} son completamente incapaces de adaptarse.
 
 
+\subsection{Discusión}
+Comparando los resultados obtenidos en este TFG con otras investigaciones realizadas en \cite{tfgalicia} se observa una discrepancia en las conclusiones. Ciertamente, tal y como se detalla en \cite{tfgalicia} y en el Capítulo \ref{cap8:resultados} de esta memoria, los modelos \textit{online} tienen un rendimiento generalmente bueno pero inestable. 
 
+En el dataset Milán existe una varianza notable en el rendimiento individual en cada celda. Las celdas con mayor ruido o patrones con cambios bruscos son procesadas en mejor medida por los modelos \textit{online}. Estos mismos modelos a su vez pueden generar \textit{overfitting} en las celdas con patrones estables. El sobreajuste indica un exceso de capacidad computacional de los modelos que reduce su habilidad para distinguir el patrón subyacente del ruido presente en el mismo.
+
+Estas diferencias en los resultados de ambas investigaciones puede ser justificado mediante el sesgo de las muestras. Mientras \cite{tfgalicia} utiliza 6 celdas para comprobar el rendimiento de los modelos esta memoria utiliza 49 y 225 celdas. Cabe la posibilidad de que las 6 celdas sean justamente aquellas en las que las arquitecturas TiDE y MLP \textit{offline} sean superiores a las arquitecturas LSTM. Esta misma hipótesis contiene la posibilidad de que, en base a la alta varianza en el rendimiento de los modelos \textit{online}, otras celdas arrojen el resultado contrario.

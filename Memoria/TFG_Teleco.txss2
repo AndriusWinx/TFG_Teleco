@@ -6,7 +6,7 @@
     "Session": {
         "Bookmarks": [
         ],
-        "CurrentFile": "EstadoDelArte.tex",
+        "CurrentFile": "TFG_Teleco.tex",
         "FileVersion": 1,
         "Files": [
             {
@@ -15,7 +15,7 @@
                 "FileName": "TFG_Teleco.tex",
                 "FirstLine": 92,
                 "FoldedLines": "",
-                "Line": 75
+                "Line": 109
             },
             {
                 "Col": 264,
@@ -26,12 +26,28 @@
                 "Line": 1
             },
             {
-                "Col": 47,
+                "Col": 0,
                 "EditorGroup": 0,
                 "FileName": "Introduccion.tex",
                 "FirstLine": 2,
                 "FoldedLines": "",
-                "Line": 22
+                "Line": 3
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "new2.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
+            },
+            {
+                "Col": 0,
+                "EditorGroup": 0,
+                "FileName": "new3.tex",
+                "FirstLine": 0,
+                "FoldedLines": "",
+                "Line": 0
             },
             {
                 "Col": 72,
@@ -45,12 +61,12 @@
                 "Col": 0,
                 "EditorGroup": 0,
                 "FileName": "Resultados.tex",
-                "FirstLine": 126,
+                "FirstLine": 91,
                 "FoldedLines": "",
-                "Line": 158
+                "Line": 94
             },
             {
-                "Col": 8,
+                "Col": 0,
                 "EditorGroup": 0,
                 "FileName": "Conclusiones.tex",
                 "FirstLine": 0,
@@ -60,42 +76,10 @@
             {
                 "Col": 0,
                 "EditorGroup": 0,
-                "FileName": "EstadoDelArte.tex",
-                "FirstLine": 115,
-                "FoldedLines": "",
-                "Line": 213
-            },
-            {
-                "Col": 0,
-                "EditorGroup": 0,
                 "FileName": "references.bib",
                 "FirstLine": 0,
                 "FoldedLines": "",
                 "Line": 9
-            },
-            {
-                "Col": 0,
-                "EditorGroup": 0,
-                "FileName": "AppendixA.tex",
-                "FirstLine": 0,
-                "FoldedLines": "",
-                "Line": 0
-            },
-            {
-                "Col": 0,
-                "EditorGroup": 0,
-                "FileName": "AppendixB.tex",
-                "FirstLine": 0,
-                "FoldedLines": "",
-                "Line": 0
-            },
-            {
-                "Col": 0,
-                "EditorGroup": 0,
-                "FileName": "new3.tex",
-                "FirstLine": 0,
-                "FoldedLines": "",
-                "Line": 0
             }
         ],
         "MasterFile": "",

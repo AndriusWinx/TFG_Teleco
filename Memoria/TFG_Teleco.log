@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.7.15)  2 SEP 2026 19:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.7.15)  3 SEP 2026 01:06
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -845,7 +845,7 @@ Package hyperref Info: Link coloring ON on input line 74.
 \@outlinefile=\write4
 \openout4 = `TFG_Teleco.out'.
 
-<Figuras/Universidad-de-Valladolid.png, id=235, 277.9986pt x 180.9159pt>
+<Figuras/Universidad-de-Valladolid.png, id=239, 277.9986pt x 180.9159pt>
 File: Figuras/Universidad-de-Valladolid.png Graphic file (type png)
 <use Figuras/Universidad-de-Valladolid.png>
 Package pdftex.def Info: Figuras/Universidad-de-Valladolid.png  used on input l
@@ -893,7 +893,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.52 ...tt {batch\_size}}{44}{subsubsection.8.2.2}
+l.52 ...tt {batch\_size}}{45}{subsubsection.8.2.2}
                                                   % [2])
 \tf@toc=\write5
 \openout5 = `TFG_Teleco.toc'.
@@ -1001,12 +1001,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-] [37]
-
-LaTeX Warning: Reference `eq:gradientdescent' on page 38 undefined on input lin
-e 52.
-
-[38]
+] [37] [38]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 72.
 
@@ -1015,38 +1010,38 @@ Overfull \hbox (1.03702pt too wide) in paragraph at lines 74--75
 /12 tam-bién lla-ma-do \T1/cmtt/m/n/12 threshold\T1/cmr/m/n/12 ,
  []
 
-[39]) [40]
+[39] [40]) [41]
 \openout2 = `Resultados.aux'.
 
  (./Resultados.tex
-<./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf, id=692, 425.71733pt x 505.7639
+<./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf, id=702, 425.71733pt x 505.7639
 2pt>
 File: ./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf>
 Package pdftex.def Info: ./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf  used o
 n input line 14.
 (pdftex.def)             Requested size: 212.85814pt x 252.88133pt.
- [41
+ [42
 
 
 
  <./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf>]
-<./svg-inkscape/distr_nrmse_layers_svg-raw.pdf, id=8314, 501.19559pt x 394.4699
+<./svg-inkscape/distr_nrmse_layers_svg-raw.pdf, id=8324, 501.19559pt x 394.4699
 9pt>
 File: ./svg-inkscape/distr_nrmse_layers_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/distr_nrmse_layers_svg-raw.pdf>
 Package pdftex.def Info: ./svg-inkscape/distr_nrmse_layers_svg-raw.pdf  used on
  input line 25.
 (pdftex.def)             Requested size: 300.71967pt x 236.6838pt.
- [42 <./svg-inkscape/distr_nrmse_layers_svg-raw.pdf>] [43]
-<./svg-inkscape/kernel_metros2_svg-raw.pdf, id=8400, 725.7074pt x 463.7024pt>
+ [43 <./svg-inkscape/distr_nrmse_layers_svg-raw.pdf>] [44]
+<./svg-inkscape/kernel_metros2_svg-raw.pdf, id=8410, 725.7074pt x 463.7024pt>
 File: ./svg-inkscape/kernel_metros2_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/kernel_metros2_svg-raw.pdf>
 Package pdftex.def Info: ./svg-inkscape/kernel_metros2_svg-raw.pdf  used on inp
 ut line 85.
 (pdftex.def)             Requested size: 362.85281pt x 231.85062pt.
- [44 <./svg-inkscape/kernel_metros2_svg-raw.pdf>]
-<./svg-inkscape/lookback_nrmse_time_svg-raw.pdf, id=8453, 661.2015pt x 394.8934
+ [45 <./svg-inkscape/kernel_metros2_svg-raw.pdf>]
+<./svg-inkscape/lookback_nrmse_time_svg-raw.pdf, id=8464, 661.2015pt x 394.8934
 3pt>
 File: ./svg-inkscape/lookback_nrmse_time_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/lookback_nrmse_time_svg-raw.pdf>
@@ -1055,15 +1050,15 @@ n input line 100.
 (pdftex.def)             Requested size: 396.72397pt x 236.93788pt.
 
 
-LaTeX Warning: Reference `cap3:entorno' on page 45 undefined on input line 114.
+LaTeX Warning: Reference `cap3:entorno' on page 46 undefined on input line 114.
 
 
-[45 <./svg-inkscape/lookback_nrmse_time_svg-raw.pdf>]
+[46 <./svg-inkscape/lookback_nrmse_time_svg-raw.pdf>]
 
-LaTeX Warning: Reference `cap3:entorno' on page 46 undefined on input line 125.
+LaTeX Warning: Reference `cap3:entorno' on page 47 undefined on input line 125.
 
 
-<./svg-inkscape/updates_nrmse_time_svg-raw.pdf, id=8514, 667.56592pt x 394.4919
+<./svg-inkscape/updates_nrmse_time_svg-raw.pdf, id=8524, 667.56592pt x 394.4919
 4pt>
 File: ./svg-inkscape/updates_nrmse_time_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/updates_nrmse_time_svg-raw.pdf>
@@ -1073,8 +1068,8 @@ Package pdftex.def Info: ./svg-inkscape/updates_nrmse_time_svg-raw.pdf  used on
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[46] [47 <./svg-inkscape/updates_nrmse_time_svg-raw.pdf>]
-<./svg-inkscape/heatmap_bestmodel_svg-raw.pdf, id=8593, 663.08543pt x 598.19487
+[47] [48 <./svg-inkscape/updates_nrmse_time_svg-raw.pdf>]
+<./svg-inkscape/heatmap_bestmodel_svg-raw.pdf, id=8603, 663.08543pt x 598.19487
 pt>
 File: ./svg-inkscape/heatmap_bestmodel_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/heatmap_bestmodel_svg-raw.pdf>
@@ -1085,27 +1080,27 @@ input line 193.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[48]
-<./svg-inkscape/heatmap_combined_svg-raw.pdf, id=8600, 1703.40173pt x 592.50945
+[49]
+<./svg-inkscape/heatmap_combined_svg-raw.pdf, id=8610, 1703.40173pt x 592.50945
 pt>
 File: ./svg-inkscape/heatmap_combined_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/heatmap_combined_svg-raw.pdf>
 Package pdftex.def Info: ./svg-inkscape/heatmap_combined_svg-raw.pdf  used on i
 nput line 205.
 (pdftex.def)             Requested size: 425.8494pt x 148.127pt.
- [49 <./svg-inkscape/heatmap_bestmodel_svg-raw.pdf> <./svg-inkscape/heatmap_com
+ [50 <./svg-inkscape/heatmap_bestmodel_svg-raw.pdf> <./svg-inkscape/heatmap_com
 bined_svg-raw.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/heatmap_combined_svg-raw
 .pdf): PDF inclusion: multiple pdfs with page group included in a single page
->]) [50]
+>]) [51] [52]
 \openout2 = `Conclusiones.aux'.
 
- (./Conclusiones.tex) [51
+ (./Conclusiones.tex) [53
 
 
 
-] (./TFG_Teleco.bbl [52
+] (./TFG_Teleco.bbl [54
 
 
 ]
@@ -1118,12 +1113,12 @@ pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/heatmap_combined_svg-raw
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `spa'. Using the pattern for
 ** the default language instead.
-[53])
+[55])
 
 Package caption Warning: Unused \captionsetup[sub] on input line 15.
 See the caption package documentation for explanation.
 
-[54] (./TFG_Teleco.aux
+[56] (./TFG_Teleco.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 LaTeX Info: Redefining \. on input line 14.
@@ -1140,11 +1135,11 @@ L3 programming layer <2026-01-19>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `TFG_Teleco.out' has not changed.
-(rerunfilecheck)             Checksum: 9605D4B028A538F60D96EED9AE4B21B7;10408.
+(rerunfilecheck)             Checksum: 69273330C4E7900A15DE7C1AAC6F55F2;10530.
  ) 
 Here is how much of TeX's memory you used:
- 24008 strings out of 467533
- 455388 string characters out of 5422138
+ 24011 strings out of 467533
+ 455412 string characters out of 5422138
  1043373 words of memory out of 5000000
  52281 multiletter control sequences out of 15000+600000
  651004 words of font info for 93 fonts, out of 8000000 for 9000
@@ -1173,10 +1168,10 @@ per/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></u
 sr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts
 /type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-sup
 er/sftt1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc1728.pfb>
-Output written on TFG_Teleco.pdf (58 pages, 2822227 bytes).
+Output written on TFG_Teleco.pdf (60 pages, 2826707 bytes).
 PDF statistics:
- 9422 PDF objects out of 10688 (max. 8388607)
- 6435 compressed objects within 65 object streams
- 205 named destinations out of 1000 (max. 500000)
- 509 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 9440 PDF objects out of 10688 (max. 8388607)
+ 6451 compressed objects within 65 object streams
+ 208 named destinations out of 1000 (max. 500000)
+ 517 words of extra memory for PDF output out of 10000 (max. 10000000)
 

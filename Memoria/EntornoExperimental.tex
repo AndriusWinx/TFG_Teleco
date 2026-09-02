@@ -18,13 +18,13 @@ A la vista de estos cambios en los patrones del dataset Milán, se ha decidido e
 
 
 \subsection{Arquitecturas empleadas}
-Para este trabajo se han utilizado 5 arquitecturas de redes neuronales. En primer lugar se ha utilizado una arquitectura formada por una única capa de 24 neuronas LSTM en medio de una capa de entrada y una capa completamente conectada de 3 salidas. Con esta arquitectura se ha obtenido el rendimiento base de la propuesta realizada por el Dr. Juan Pablo Casaseca de la Higuera \cite{SKIMAcasaseca},a mejorar en este trabajo. Los datos procesados por esta arquitectura pertenecen a las celdas 4259, 4456 y 5060 del dataset Milán.
+Definiendo el término arquitectura como la combinación de capas de neuronas que describe a una red neuronal y modelo como el conjunto de valores concretos de los hiperparámetros de una red neuronal, para este trabajo se han utilizado 4 arquitecturas de redes neuronales. En primer lugar se ha utilizado una arquitectura formada por una única capa de 24 neuronas LSTM en medio de una capa de entrada y una capa completamente conectada de 3 salidas. Con esta arquitectura se ha obtenido el rendimiento base de la propuesta realizada por el Dr. Juan Pablo Casaseca de la Higuera \cite{SKIMAcasaseca},a mejorar en este trabajo. Los datos procesados por esta arquitectura pertenecen a las celdas 4259, 4456 y 5060 del dataset Milán.
 
-Para alcanzar el objetivo de evaluar el rendimiento en dos conjuntos de 49 y 225 celdas contiguas se han utilizado también dos arquitecturas formadas por una capa de entrada, una capa de neuronas LSTM y una capa completamente conectada de 49 y 225 salidas respectivamente. De esta forma se ha obtenido el rendimiento de la arquitectura exclusivamente LSTM\footnote{A lo largo de este trabajo se hará referencia a esta arquitectura como LSTM.} con las celdas contiguas.
+Se ha utilizado también una arquitectura formadas por una capa de entrada, una capa de neuronas LSTM y una capa completamente conectada. De esta forma se ha obtenido el rendimiento de la arquitectura exclusivamente LSTM\footnote{A lo largo de este trabajo se hará referencia a esta arquitectura como LSTM.} con las celdas contiguas de la ciudad de Milán.
 
-Para intentar extraer la correlación espacial entre las celdas, se han propuesto otras 3 arquitecturas compuestas por una capa de entrada, 1, 2 y 3 capas de neuronas CNN\footnote{A lo largo de este trabajo se hará referencia a estas arquitecturas como CNN+LSTM, 2CNN+LSTM y 3CNN+LSTM respectivamente.} respectivamente, una capa \texttt{Flatten}, una capa de neuronas LSTM y una capa completamente conectada de 49 y 225 salidas respectivamente.
+Para intentar extraer la correlación espacial entre las celdas, se han propuesto otras 3 arquitecturas compuestas por una capa de entrada, 1, 2 y 3 capas de neuronas CNN\footnote{A lo largo de este trabajo se hará referencia a estas arquitecturas como CNN+LSTM, 2CNN+LSTM y 3CNN+LSTM respectivamente.} respectivamente, una capa \texttt{Flatten}, una capa de neuronas LSTM y una capa completamente conectada para dar formato a las salidas.
 
-El hecho de utilizar dos conjuntos, de 49 y 225 celdas, no implica utilizar una arquitectura distinta para cada conjunto. La arquitectura refiere a la disposición de las diferentes capas de neuronas en el modelo, no del tamaño ni la cantidad de neuronas presentes en ellas.
+Para poder evaluar el rendimiento de las arquitecturas mencionadas en las dos cuadrículas se modifica simplemente el tamaño de las capas convolucionales para que se ajusten a las dimensiones de los conjuntos de celdas. El hecho de utilizar dos conjuntos, de 49 y 225 celdas, no implica utilizar una arquitectura distinta para cada conjunto. La arquitectura refiere a la disposición de las diferentes capas de neuronas en el modelo, no del tamaño ni la cantidad de neuronas presentes en ellas.
 
 Para aprovechar al máximo las librerías cuDNN se ha utilizado la función de activación \texttt{sigmoide} para las puertas de entrada, salida y olvido y la función \texttt{tanh} para la combinación de entradas y estado de las neuronas LSTM \cite{lstmactivation}. Otras funciones de activación no son compatibles con los \textit{kernels} optimizados cuDNN por lo que el tiempo de ejecución aumenta exponencialmente. Aunque cabe la posibilidad de que otras funciones de activación consigan mejores resultados, un tiempo de ejecución excesivamente alto inutiliza la red neuronal.
 
@@ -36,23 +36,23 @@ Para aprovechar al máximo las librerías cuDNN se ha utilizado la función de a
 
 
 \subsection{Procedimiento de entrenamiento}
-Para la evaluación y comparación de los modelos, se ha ideado un procedimiento similar a la validación de modelos de aprendizaje automático descrita en el Capítulo \ref{cap2:arte}. Se ha entrenado los modelos con las 400 primeras muestras del dataset y se han realizado dos validaciones distintas en cada modelo. Una de las validaciones se ha realizado con las otras 1000 muestras del dataset sin utilizar entrenamiento incremental. La otra validación se ha realizado con las mismas 1000 muestras pero implementando entrenamiento incremental con ajuste de gradientes por norma euclídea del error normalizado \cite{SKIMAcasaseca} definida por la ecuación:
+Para la evaluación y comparación de los modelos, se ha ideado un procedimiento similar a la validación de modelos de aprendizaje automático descrita en el Capítulo \ref{cap4:redes}. Se ha entrenado los modelos con las 400 primeras muestras del dataset y se han realizado dos validaciones distintas en cada modelo. Una de las validaciones se ha realizado con las otras 1000 muestras del dataset sin utilizar entrenamiento incremental. La otra validación se ha realizado con las mismas 1000 muestras pero implementando entrenamiento incremental con ajuste de gradientes por norma euclídea del error normalizado \cite{SKIMAcasaseca} definida por la ecuación:
 
 \begin{equation}
-	\norm{\frac{y_t-\hat{y}_t}{y_t}}^2
+	\norm{\frac{\textbf{y}_t-\hat{\textbf{y}}_t}{\textbf{y}_t}}^2
 	\label{eq:euclideannorm}
 \end{equation}
 
 Y el error cuadrático como función de coste:
 
 \begin{equation}
-	E_t(W_{t-1})=(y_t-\hat{y}_t)^2
+	E_t(\textbf{W}_{t-1})=(\textbf{y}_t-\hat{\textbf{y}}_t)^2
 \end{equation}
 
-De esta forma, las ecuaciones \ref{eq:gradientdescent} y \ref{eq:euclideannorm} se combinan en:
+De esta forma, las ecuaciones \ref{eq7} y \ref{eq:euclideannorm} se combinan en:
 
 \begin{equation}
-	W_t=W_{t-1}-\beta*\norm{\frac{y_{t-1}-\hat{y}_{t-1}}{y_{t-1}}}^2*\nabla(y_{t-1}-\hat{y}_{t-1})^2
+	\textbf{W}_t=\textbf{W}_{t-1}-\eta\cdot\norm{\frac{\textbf{y}_{t-1}-\hat{\textbf{y}}_{t-1}}{\textbf{y}_{t-1}}}^2 \cdot \nabla_\textbf{W}(\textbf{y}_{t-1}-\hat{\textbf{y}}_{t-1})^2
 \end{equation}
 
 De esta forma se da una mayor importancia a las predicciones que han generado errores mayores. Estos errores dan más información y permiten realizar una actualización de pesos más agresiva para aumentar la velocidad de convergencia hacia el mínimo de la función de coste.
@@ -94,22 +94,32 @@ El NRMSE es una métrica adimensional independiente de la magnitud de los datos 
 
 
 \subsection{Análisis de Spearman}
-Para estimar el impacto de cada hiperparámetro en el desempeño de la red neuronal, se ha decidido optar por el análisis de Spearman. Es un método no paramétrico para la estimación de la dependencia estadística entre dos variables. A diferencia del análisis de Pearson, que busca relaciones estrictamente lineales, Spearman busca cualquier tipo de relación.
+Para estimar el impacto de cada hiperparámetro en el desempeño de cada arquitectura, se ha decidido optar por el análisis de Spearman. Es un método no paramétrico para la estimación de la dependencia estadística entre dos variables. A diferencia del análisis de Pearson, que busca relaciones estrictamente lineales, Spearman busca cualquier tipo de relación.
 
-Al ser un algoritmo no paramétrico, no es necesario conocer la distribución de los datos analizados y es posible comparar variables con rangos de valores muy dispares y con muchas anomalías sin distorsionar el resultado. Esto es posible debido al uso de niveles ordenados que reemplazan los posibles valores de las variables. Por ejemplo, si la variable X toma los valores 3, 25 y 67.42 son sustituidos por los niveles $X_1$, $X_2$ y $X_3$ respectivamente y los valores de la variable Y: 1580, 40721 y 31.67 son sustituidos por los niveles $Y_2$, $Y_3$ e $Y_1$.
+Como todo algoritmo estadístico, el análisis de Spearman comienza por la obtención de una muestra de una población de dos variables. En el caso de este TFG una de las variables siempre es la métrica de rendimiento y la otra es cada uno de los hiperparámetros considerados.
 
-El análisis de Spearman calcula la diferencia al cuadrado entre los niveles de ambas variables en cada uno de los puntos conocidos. Finalmente realiza una sencilla operación matemática para obtener el valor final de la correlación entre ambas variables:
+La muestra obtenida ha de ser representativa de la población. En este TFG se ha realizado un \textit{grid search} con más de 2500 combinaciones, lo que arroja el mismo número de valores de la métrica de rendimiento NRMSE. Es un volumen suficientemente grande como para considerarla altamente representativa de la población.
+
+Ciertamente las combinaciones de hiperparámetros incluidas en el \textit{grid search} de este TFG no son aleatorias, lo que reduciría la representatividad de la muestra. Sin embargo, se toma como población todas aquellas combinaciones de hiperparámetros que puedan, bajo un punto de vista lógico, arrojar un rendimiento aceptable en cuanto a recursos de computación y precisión de las predicciones. El resto de combinaciones son absolutamente inservibles por lo que no tenerlas en cuenta no produce un desequilibrio en la representatividad. Por ejemplo, cualquier combinación de hiperparámetros basada en \texttt{num\_filter1}=1 nunca conseguirá una predicción cercana al valor real.
+
+Una vez obtenidas las muestras, el análisis de Spearman busca patrones comunes en ambas, es decir, estima la correlación existente entre ellas. La correlación implica un movimiento en la misma dirección en los valores de ambas variables a lo largo de toda la muestra. Dicho movimiento puede realizarse en el mismo sentido o en sentidos opuestos. Existe una correlación si al modificar el valor de un hiperparámetro se produce una modificación equivalente en el valor del NRMSE.
+
+Al ser un algoritmo no paramétrico, no es necesario conocer la distribución de las poblaciones analizadas y es posible comparar variables con rangos de valores muy dispares y con muchas anomalías sin distorsionar el resultado. Esto es posible debido al uso de niveles ordenados que reemplazan los posibles valores de las variables. Por ejemplo, si la métrica de rendimiento NRMSE toma los valores 0.3, 0.25 y 0.6742 son sustituidos por los niveles $NRMSE_1$, $NRMSE_2$ y $NRMSE_3$ respectivamente y los valores de un hiperparámetro: 1580, 40721 y 31.67 son sustituidos por los niveles $H_2$, $H_3$ e $H_1$.
+
+El análisis de Spearman calcula la diferencia al cuadrado entre los niveles de la métrica de rendimiento y el hiperparámetro contra el que se compara en cada uno de los puntos conocidos. Finalmente realiza una sencilla operación matemática para obtener el valor final de la correlación entre ambas variables:
 
 \begin{equation*}
 	r_s=1-\frac{6*\sum d^2}{n(n^2-1)}
 \end{equation*}
 
 
-siendo $d$ las diferencias entre niveles de las variables y $n$ el número de puntos existentes. El valor del coeficiente de Spearman $r_s$ varía entre -1 para variables completamente correlacionadas de forma inversa y 1 para una correlación total directa, siendo 0 el valor que indica la ausencia de correlación \cite{spearmansource}.
+siendo $d$ las diferencias entre niveles y $n$ el número de puntos existentes. El valor del coeficiente de Spearman $r_s$ varía entre -1 para variables completamente correlacionadas de forma inversa y 1 para una correlación total directa, siendo 0 el valor que indica la ausencia de correlación \cite{spearmansource}. Si un hiperparámetro está correlacionado con la métrica de rendimiento significa que un cambio en el primero empuja la métrica hacia un cambio en el mismo sentido. 
+
+Al realizar múltiples veces el análisis de Spearman cambiando el hperparámetro considerado es posible conocer qué hiperparámetros y en qué medida influyen en la precisión de las predicciones.
 
 Debido a la disparidad en la distribución de las variables que se analizan en este trabajo, por ejemplo: el hiperparámetro \texttt{look\_back} toma valores entre 12 y 32 mientras la métrica NRMSE del modelo con \textit{online learning} toma valores entre 0 y 1; el análisis de Spearman es ideal al ser capaz de evitar que la diferencia entre los rangos de valores de las diferentes variables afecte al cálculo de la correlación entre ellas.
 
-
+Finalmente, aunque la correlación no implique causalidad, es un buen método para estimar el impacto de los hiperparámetros en la precisión de las arquitecturas estudiadas.
 
 
 
