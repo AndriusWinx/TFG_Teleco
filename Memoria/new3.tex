@@ -300,7 +300,7 @@ Uno de los grandes problemas de los modelos de aprendizaje profundo es la necesi
 
 Este TFG tiene como objetivo procesar los datos relativos al tráfico de red presente en la ciudad de Milán. Dichos datos forman una serie temporal continua cuya longitud es excesivamente grande. Procesar toda la serie cada vez que se realiza \textit{backpropagation} requeriría una elevada inversión en tiempo de procesamiento y en \textit{hardware} capaz de procesar tantos datos al mismo tiempo. Además, en la fase de \textit{online learning} se debe alimentar a los modelos neuronales con distintas secuencias de datos para obtener una cantidad suficiente de predicciones que permitan evaluar los modelos. Por ello es imperativo segmentar la serie temporal en secuencias más cortas.
 
-Para la segmentación de series temporales se implementa una técnica de ventana deslizante que crea múltiples secuencias más cortas a partir de la serie original. Aunque este TFG trabaje con múltiples series temporales al mismo tiempo, una por cada celda geográfica de la ciudad, se puede modelar como una única serie temporal multivariable. Dadas $D$ series que representan el tráfico de red a lo largo de $T$ instantes cronológicos $\textbf{X} \in \real ^{T\times D}$, se crean $T-LB$ secuencias de $LB$ muestras formuladas como:
+Para la segmentación de series temporales se implementa una técnica de ventana deslizante que crea múltiples secuencias más cortas a partir de la serie original. Aunque este TFG trabaje con múltiples series temporales al mismo tiempo, una por cada celda geográfica de la ciudad, se puede modelar como una única serie temporal multivariable. Dadas $D$ series que representan el tráfico de red a lo largo de $T$ instantes cronológicos $\textbf{X} \in \real ^{T\times D}$, se crean $T-LB$ secuencias de $LB$ (\textit{lookback}) muestras formuladas como:
 
 \begin{align}
 	\textbf{X}_k &= [\textbf{x}_k,\textbf{x}_{k+1},\textbf{x}_{k+2},\dots, \textbf{x}_{k+LB-1}]^\top \label{eq16}\\
@@ -499,6 +499,8 @@ Los \textit{kernels} son entrenables mediante \textit{backpropagation}. Aplicar 
 
 Los campos visuales de dos neuronas adyacentes no tienen por qué estar desfasados en una celda exactamente, pueden estar desfasados tantas celdas como indique el \textit{stride}. En cada paso de la convolución, el filtro se desplaza un número de celdas determinado por el \textit{stride}, existiendo \textit{stride} horizontal y vertical que no tienen por qué ser idénticos. Esto provoca que, aun con la presencia del \textit{zero padding}, las capas superiores sean más pequeñas que las inferiores cuando el \textit{stride} es superior a uno.
 
+Encadenar múltiples capas de neuronas convolucionales permite que las capas iniciales detecten patrones sencillos mientras las capas superiores evalúan la presencia de patrones más complejos a partir de los detectados en las capas inferiores.
+
 \subsubsection{Capas de agregación}
 Al mantener constante el tamaño de las capas, las redes CNN profundas, aun teniendo menos conexiones que los MLPs, acumulan un gran volumen de parámetros entrenables. Durante el proceso de retropropagación el modelo ha de guardar todas las salidas de todas los filtros de todas las capas para poder calcular el gradiente del error. Esto requiere una gran inversión en memoria y capacidad de cómputo.
 
@@ -506,9 +508,48 @@ Para solucionar este problema se implementaron las capas de agregación o \texti
 
 Las neuronas de \textit{pooling} son especialmente útiles para introducir cierto grado invarianza traslacional en la red equivalente a realizar un submuestreo de los datos. Gracias a ello la red es capaz de identificar la presencia de un patrón subyacente independientemente de dónde esté situado espacialmente. Por ejemplo, un modelo de \textit{deep learning} basado en CNNs cuya misión es detectar la presencia de cierto objeto en una imagen no necesita ser capaz de delimitar a la perfección el contorno del objeto en la imagen sino de detectar su presencia y su posición de forma aproximada.
 
-Sin embargo, en el contexto de las series temporales, la introducción forzada de invarianza traslacional mediante capas de agregación no suele ser útil, cuando no contraproducente. Aunque en el reconocimiento de imágenes del ejemplo anterior sea muy útil, en la predicción de series temporales la posición temporal exacta es imprescindible. En el caso de este TFG el momento exacto en el que se produce un pico de tráfico de red es muy importante y las capas de agregación distorsionarían esa información. Además, las secuencias temporales de las celdas en las que se divide la ciudad se difuminarían entre sí, perdiendo la identidad de cada celda.
+En la práctica es común intercalar capas de \textit{pooling} con capas de neuronas convolucionales estándar. Sin embargo, en el contexto de las series temporales, la introducción forzada de invarianza traslacional mediante capas de agregación no suele ser útil, cuando no contraproducente. Aunque en el reconocimiento de imágenes del ejemplo anterior sea muy útil, en la predicción de series temporales la posición temporal exacta es imprescindible. En el caso de este TFG el momento exacto en el que se produce un pico de tráfico de red es muy importante y las capas de agregación distorsionarían esa información. Además, las secuencias temporales de las celdas en las que se divide la ciudad se difuminarían entre sí, perdiendo la identidad de cada celda.
 
 En otros contextos de series temporales sí serían útiles, como por ejemplo la detección de anomalías sin necesidad de identificar el momento exacto del \textit{outlier}. Todas estas tareas están mucho más relacionadas con la clasificación que con la predicción.
 
 \subsection{CNN+LSTM}
-\subsubsection{Neuronas, conexiones, ecuaciones, flujo de datos...}
+En este TFG se proponen varias arquitecturas basadas en la combinación de capas convolucionales y recurrentes. La idea parte de la naturaleza espaciotemporal de los datos de tráfico de red de la ciudad de Milán. La ciudad está formulada como un plano dividido en celdas. Cada celda contiene en un instante dado la cantidad de tráfico de red cursada. Se propone entonces utilizar las capacidades de análisis espacial de las neuronas convolucionales para estimar patrones geográficos en cada instante y las capacidades de análisis temporal para analizar la evolución de los patrones geográficos en el tiempo. Esta arquitectura se denomina comúnmente como \textit{ConvLSTM} o \textit{Time Distributed CNN}.
+
+El plano de la ciudad estudiado en este TFG puede modelarse como una matriz cuadrada de tamaño $M_{total} \times N_{total}$ de entradas a la red neuronal $\textbf{X}_t$ en cada instante de tiempo. Esta matriz es entregada a las capas convolucionales para la extracción de los patrones geográficos $\textbf{G}_t$ presentes en cada instante. Cada patrón contiene $F$ mapas de filtros.
+
+\begin{equation}
+	\textbf{G}_t = ReLU(\textbf{W}_{cnn}^\top \textbf{X}_t + b_{cnn}) \in \real^{M_{total}\times N_{total}\times F}
+\end{equation}
+
+Las capas convolucionales están seguidas de capas recurrentes LSTM por lo que para realizar una tarea de predicción se deben agrupar varios patrones $G_t$ en secuencias de longitud LB aptas para su procesado por las neuronas LSTM. 
+
+Los modelos neuronales propuestos, tanto en la modalidad \textit{offline} como \textit{online}, utilizan entrenamiento por \textit{mini-batches}. Cada \textit{mini-batch} agrupa una cantidad $BS$ (\textit{batch-size}) de secuencias de patrones $\textbf{G}_t$.
+
+\begin{equation}
+	\mathbf{B}_k = 
+	\begin{bmatrix}
+		\mathbf{G}_k     & \mathbf{G}_{k+1}   & \dots  & \mathbf{G}_{k+LB-1} \\
+		\mathbf{G}_{k+1} & \mathbf{G}_{k+2}   & \dots  & \mathbf{G}_{k+LB}   \\
+		\vdots           & \vdots             & \ddots & \vdots               \\
+		\mathbf{G}_{k+BS-1} & \mathbf{G}_{k+BS} & \dots  & \mathbf{G}_{k+BS+LB-2}
+	\end{bmatrix} 
+	\in \real^{BS\times LB\times M_{total}\times N_{total}\times F}
+	\label{eq35}
+\end{equation}
+
+
+Los \textit{mini-batches} $\textbf{B}_k$\footnote{Se utiliza la numeración $k$ en vez de $t$ puesto que los \textit{mini-batches} no representan una secuencia temporal sino un conjunto de datos de entrenamiento para una red neuronal.} se relacionan entre sí por contener $BS$ secuencias temporales de longitud $LB$ en forma de ventana deslizante hasta completar todo el set de datos disponible. Las secuencias están formadas a su vez por los patrones geográficos extraídos en cada instante.
+
+Las series temporales resultan sencillas de manipular en contextos de \textit{mini-batches} puesto que la salida esperada $\textbf{Y}_k$ para cada uno es la siguiente muestra a la última del \textit{mini-batch}, facilitando la medición del error en la función de coste. Continuando con la ecuación \ref{eq35}:
+
+\begin{equation}
+	\textbf{Y}_k = \textbf{X}_{k+BS+LB-1}
+\end{equation}
+
+Sin embargo, los \textit{batches} $B_k$ son improcesables por las neuronas LSTM sin proyectarlos en una matriz tridimensional. El proceso es sencillo y simplemente fusiona las tres últimas dimensiones de $B_k$ en una sola para obtener $B_k \in \real^{BS\times LB\times (M_{total}\cdot N_{total}\cdot F)}$. No se produce ningún cambio en los datos ni pérdidas de información. Es una simple reorganización de los elementos de una matriz.
+
+Por último, los \textit{batches} tridimensionales son procesados por las capas recurrentes para extraer el patrón temporal que define la evolución de los patrones geográficos y generar una predicción $\hat{\textbf{Y}_k}$. En este TFG se utilizan exclusivamente neuronas LSTM en las capas recurrentes por su superioridad respecto a las neuronas recurrentes simples.
+
+\begin{equation}
+	\hat{\textbf{Y}}_k = LSTM(\textbf{B}_k)
+\end{equation}
