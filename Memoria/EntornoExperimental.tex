@@ -7,7 +7,22 @@ Las celdas utilizadas en este trabajo corresponden a una cuadrícula de 7x7 celd
 
 Aproximadamente, todas las series temporales de las celdas son bastante similares entre sí. Todas presentan un patrón subyacente claro y periódico con un periodo de más o menos 24 horas. Además, todas ellas también presentan un patrón periódico con un periodo de una semana, en el que los primeros 5 ciclos de 24 horas tienen bastante más amplitud que los últimos 2. Esto coincide con los 5 días laborables de la semana y los 2 días del fin de semana.
 
-Respecto a las similitudes entre celdas, es difícil afirmar que una celda tenga una serie similar a otra celda contigua a lo largo de toda la cuadrícula. Por ejemplo, la celda 5357 es contigua a las celdas 5257, 5258 y 5358 pero su serie temporal, aunque presenta las dos componentes periódicas comunes a toda la cuadrícula, no es similar. Por otro lado, la celda 4962 es bastante similar a todas sus celdas contiguas (4861, 4862, 4863, 4961, 4963, 5061, 5062, 5063) presentando todas ellas las dos componentes cíclicas comunes de forma muy marcada.
+Respecto a las similitudes entre celdas, es difícil afirmar que una celda tenga una serie similar a otra celda contigua a lo largo de toda la cuadrícula. Por ejemplo, la celda 5357 es contigua a las celdas 5257, 5258 y 5358 pero su serie temporal, aunque presenta las dos componentes periódicas comunes a toda la cuadrícula, no es similar como se aprecia en la Figura  \ref{5357_5358_raw}. Por otro lado, la celda 4962 es bastante similar a todas sus celdas contiguas (4861, 4862, 4863, 4961, 4963, 5061, 5062, 5063) presentando todas ellas las dos componentes cíclicas comunes de forma muy marcada.
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{\linewidth}
+		\includesvg[inkscapelatex=false,scale=0.6]{Celdas/trafico_celda_5357.svg}
+	\end{subfigure}
+	\begin{subfigure}{\linewidth}
+		\includesvg[inkscapelatex=false,scale=0.6]{Celdas/trafico_celda_5358.svg}
+	\end{subfigure}
+	\caption{Datos contenidos en el \textit{dataset} Milán para las celdas 5357 (arriba) y 5358 (abajo) \cite{milandataset}.}
+	\label{5357_5358_raw}
+\end{figure}
+\FloatBarrier
+
+
 
 La mayoría de las celdas extienden el patrón semanal hasta el día 22 de diciembre de 2013, a partir del cual el tráfico de red disminuye considerablemente. Esto coincide con las vacaciones de Navidad cuando los nodos que generan mayor tráfico como negocios, oficinas, universidades... están. Al gunas celdas, como las celdas 5357 y 5362 presentan dicha disminución del tráfico mucho antes, alrededor del día 1 de diciembre de 2013.
 %%%%%%%%%%%BREVE REPRESENTACIÓN DE LOS DATOS
@@ -39,20 +54,20 @@ Para aprovechar al máximo las librerías cuDNN se ha utilizado la función de a
 Para la evaluación y comparación de los modelos, se ha ideado un procedimiento similar a la validación de modelos de aprendizaje automático descrita en el Capítulo \ref{cap4:redes}. Se ha entrenado los modelos con las 400 primeras muestras del dataset y se han realizado dos validaciones distintas en cada modelo. Una de las validaciones se ha realizado con las otras 1000 muestras del dataset sin utilizar entrenamiento incremental. La otra validación se ha realizado con las mismas 1000 muestras pero implementando entrenamiento incremental con ajuste de gradientes por norma euclídea del error normalizado \cite{SKIMAcasaseca} definida por la ecuación:
 
 \begin{equation}
-	\norm{\frac{\textbf{y}_t-\hat{\textbf{y}}_t}{\textbf{y}_t}}^2
+	\norm{\frac{\textbf{Y}_t-\hat{\textbf{Y}}_t}{\textbf{Y}_t}}^2
 	\label{eq:euclideannorm}
 \end{equation}
 
 Y el error cuadrático como función de coste:
 
 \begin{equation}
-	E_t(\textbf{W}_{t-1})=(\textbf{y}_t-\hat{\textbf{y}}_t)^2
+	E_t(\textbf{W}_{t-1})=(\textbf{Y}_t-\hat{\textbf{Y}}_t)^2
 \end{equation}
 
 De esta forma, las ecuaciones \ref{eq7} y \ref{eq:euclideannorm} se combinan en:
 
 \begin{equation}
-	\textbf{W}_t=\textbf{W}_{t-1}-\eta\cdot\norm{\frac{\textbf{y}_{t-1}-\hat{\textbf{y}}_{t-1}}{\textbf{y}_{t-1}}}^2 \cdot \nabla_\textbf{W}(\textbf{y}_{t-1}-\hat{\textbf{y}}_{t-1})^2
+	\textbf{W}_t=\textbf{W}_{t-1}-\eta\cdot\norm{\frac{\textbf{Y}_{t-1}-\hat{\textbf{Y}}_{t-1}}{\textbf{Y}_{t-1}}}^2 \cdot \nabla_\textbf{W}(\textbf{Y}_{t-1}-\hat{\textbf{Y}}_{t-1})^2
 \end{equation}
 
 De esta forma se da una mayor importancia a las predicciones que han generado errores mayores. Estos errores dan más información y permiten realizar una actualización de pesos más agresiva para aumentar la velocidad de convergencia hacia el mínimo de la función de coste.
@@ -82,10 +97,10 @@ Para la búsqueda de los parámetros óptimos se ha preferido la estrategia \tex
 \subsection{Métricas de rendimiento}
 Como métrica de rendimiento se ha utilizado la raíz normalizada del error cuadrático medio o NRMSE (\textit{Root Normalized Mean Squared Error}). Sin embargo, como cada celda tiene su propio patrón temporal subyacente, cada celda tiene un NRMSE distinto. Teniendo 49 o 225 celdas es imposible comparar todos sus NRMSE con los NRMSE de otras celdas con otra combinación de hiperparámetros. Para dicha comparación, como todas las celdas son consideradas igual de importantes, se ha usado la media aritmética del NRMSE de todas las celdas.
 
-El NRMSE eleva al cuadrado las diferencias entre el valor real $y_i$ y el valor predicho por la red neuronal $\hat{y}_i$ y las promedia. Finalmente calcula la raíz cuadrada del promedio y normaliza, en este trabajo, por la desviación típica de los valores reales. El NRMSE queda por tanto definido como:
+El NRMSE eleva al cuadrado las diferencias entre el valor real $\textbf{Y}_i$ y el valor predicho por la red neuronal $\hat{\textbf{y}}_i$ y las promedia. Finalmente calcula la raíz cuadrada del promedio y normaliza, en este trabajo, por la desviación típica de los valores reales. El NRMSE queda por tanto definido como:
 
 \begin{equation*}
-	NRMSE=\frac{\sqrt{\frac{1}{n}*\sum_{i=1}^{n}(y_i-\hat{y}_i)^2}}{\sigma(y)}
+	NRMSE=\frac{\sqrt{\frac{1}{n}*\sum_{i=1}^{n}(\textbf{Y}_i-\hat{\textbf{Y}}_i)^2}}{\sigma(\textbf{Y})}
 \end{equation*}
 
 donde $n$ es el número de muestras del conjunto medido.

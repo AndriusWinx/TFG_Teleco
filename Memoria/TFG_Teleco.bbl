@@ -197,6 +197,15 @@ F.~Rosenblatt, ``The perceptron: A perceiving and recognizing automaton
   \url{https://bpb-us-e2.wpmucdn.com/websites.umass.edu/dist/a/27637/files/2016/03/rosenblatt-1957.pdf}
 \BIBentrySTDinterwordspacing
 
+\bibitem{dropout}
+\BIBentryALTinterwordspacing
+N.~Srivastava, G.~E. Hinton, A.~Krizhevsky, I.~Sutskever, and R.~R.
+  Salakhutdinov, ``Dropout: A simple way to prevent neural networks from
+  overfitting,'' \emph{J. Mach. Learn. Res.}, vol.~15, pp. 1929--1958, Jun
+  2014. [Online]. Available:
+  \url{http://jmlr.org/papers/v15/srivastava14a.html}
+\BIBentrySTDinterwordspacing
+
 \bibitem{rnn1}
 \BIBentryALTinterwordspacing
 Q.~V. Le, N.~Jaitly, and G.~E. Hinton, ``A simple way to initialize recurrent
@@ -252,15 +261,6 @@ L.~N. Smith, ``A disciplined approach to neural network hyper-parameters: Part
 I.~Loshchilov and F.~Hutter, ``Decoupled weight decay regularization,'' in
   \emph{Proc. 7th Int. Conf. Learn. Represent. (ICLR)}, New Orleans, LA, USA,
   May 2019. [Online]. Available: \url{https://arxiv.org/abs/1711.05101}
-\BIBentrySTDinterwordspacing
-
-\bibitem{dropout}
-\BIBentryALTinterwordspacing
-N.~Srivastava, G.~E. Hinton, A.~Krizhevsky, I.~Sutskever, and R.~R.
-  Salakhutdinov, ``Dropout: A simple way to prevent neural networks from
-  overfitting,'' \emph{J. Mach. Learn. Res.}, vol.~15, pp. 1929--1958, Jun
-  2014. [Online]. Available:
-  \url{http://jmlr.org/papers/v15/srivastava14a.html}
 \BIBentrySTDinterwordspacing
 
 \bibitem{rnn}
@@ -348,18 +348,18 @@ R.~Pascanu, T.~Mikolov, and Y.~Bengio, ``On the difficulty of training
   \url{http://proceedings.mlr.press/v28/pascanu13.html}
 \BIBentrySTDinterwordspacing
 
-\bibitem{lstm}
-\BIBentryALTinterwordspacing
-S.~Hochreiter and J.~Schmidhuber, ``Long short-term memory,'' \emph{Neural
-  Computation}, vol.~9, no.~8, pp. 1735--1780, 11 1997. [Online]. Available:
-  \url{https://doi.org/10.1162/neco.1997.9.8.1735}
-\BIBentrySTDinterwordspacing
-
 \bibitem{lstm2}
 \BIBentryALTinterwordspacing
 C.~B. Vennerød, A.~Kjærran, and E.~S. Bugge, ``Long short-term memory
   {RNN},'' \emph{arXiv preprint arXiv:2105.06756}, May 2021. [Online].
   Available: \url{https://arxiv.org/abs/2105.06756}
+\BIBentrySTDinterwordspacing
+
+\bibitem{lstm}
+\BIBentryALTinterwordspacing
+S.~Hochreiter and J.~Schmidhuber, ``Long short-term memory,'' \emph{Neural
+  Computation}, vol.~9, no.~8, pp. 1735--1780, 11 1997. [Online]. Available:
+  \url{https://doi.org/10.1162/neco.1997.9.8.1735}
 \BIBentrySTDinterwordspacing
 
 \bibitem{cnn1}
@@ -396,14 +396,18 @@ Y.~Lecun, L.~Bottou, Y.~Bengio, and P.~Haffner, ``Gradient-based learning
   applied to document recognition,'' \emph{Proceedings of the IEEE}, vol.~86,
   no.~11, pp. 2278--2324, 1998.
 
-\bibitem{cnnlstm}
+\bibitem{cnn3}
 \BIBentryALTinterwordspacing
+H.~Gholamalinezhad and H.~Khosravi, ``Pooling methods in deep neural networks,
+  a review,'' \emph{arXiv preprint arXiv:2009.07485}, Sep 2020. [Online].
+  Available: \url{https://arxiv.org/abs/2009.07485}
+\BIBentrySTDinterwordspacing
+
+\bibitem{cnnlstm}
 V.-D. Le, T.-C. Bui, and S.-K. Cha, ``Spatiotemporal deep learning model for
   citywide air pollution interpolation and prediction,'' in \emph{2020 IEEE
-  International Conference on Big Data and Smart Computing (BigComp)}.\hskip
-  1em plus 0.5em minus 0.4em\relax Busan, Korea: IEEE, Feb 2020, pp. 55--62.
-  [Online]. Available: \url{https://doi.org/10.1109/BigComp48618.2020.00021}
-\BIBentrySTDinterwordspacing
+  International Conference on Big Data and Smart Computing (BigComp)}, 2020,
+  pp. 55--62.
 
 \bibitem{timedistributed}
 \BIBentryALTinterwordspacing

@@ -210,15 +210,50 @@ Al comparar el diagrama de calor de la Figura \ref{fig:heatmap_bestmodel} con lo
 
 Para obtener más detalles es necesario observar las predicciones realizadas en cada celda. No es necesario ni eficiente analizar todas las celdas por lo que sólo se escrutarán las 3 mejores y las 3 peores. Como el modelo tiene una arquitectura con una capa convolucional con un kernel 3x3 y una capa recurrente LSTM, es interesant comparar las celdas analizadas con las celdas contiguas para intentar estimar qué datos han tenido en cuenta las neuronas convolucionales.
 
+
+
 %%%%%%%%%%%%%%%PLOTS DE LAS CELDAS INDIVIDUALES%%%%%%%%%%%%%%%%%%%%%
 
 Respecto a las mejores celdas, las celdas 5263 y 5163 se influyen mutuamente al ser contiguas. Observando los datos de test, ambas tienen un marcado patrón periódico diario y semanal, en el que los primeros cinco días tienen más tráfico que los dos días siguientes. Mirando las celdas contiguas a las mismas, las celdas 5063, 5062 y 5363 presentan el mismo patrón. Las celdas 5162 y 5262 presentan un patrón en el que los siete días de la semana son prácticamente idénticos con mínimos más bajos que las otras celdas. Observando las predicciones sin \textit{online learning}, parece que éstas últimas han influido en las predicciones de las celdas 5263 y 5163 y la red neuronal ha infravalorado el tráfico de red futuro.
+
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{\linewidth}
+		\includesvg[inkscapelatex=false,scale=0.5]{Celdas/cell_plot_5162.svg}
+	\end{subfigure}
+	\begin{subfigure}{\linewidth}
+		\includesvg[inkscapelatex=false,scale=0.5]{Celdas/cell_plot_5163.svg}
+	\end{subfigure}
+	\caption{Tráfico real y predicciones con \textit{online y \textit{offline learning}} del mejor modelo en las celdas 5162 (arriba) y 5163 (abajo). Elaboración propia.}
+	\label{fig:bestcells}
+\end{figure}
+\FloatBarrier
+
+
 
 %%%%%%%%%%%%%%DESEMPEÑO CON ONLINE LEARNING&%%%%%%%%%%
 
 Respecto a las peores celdas, las celdas 4959 y 5357 no son fáciles de predecir por ninguna red neuronal. Los datos de test de la celda 4959 contiene mucho ruido y cambios bruscos y rápidos alrededor de los mínimos de tráfico y la celda 5057 presenta un cambio radical en el patrón subyacente de los datos. Los modelos sin \textit{online learning} no son capaces de soportar un cambio tan grande. Aun así, parece que aunque la celda 5357 tiene un patrón más o menos uniforme antes del cambio, la influencia del patrón en forma de 5 y 2 días de las celdas adyacentes se puede ver en las predicciones sin \textit{online learning}.
 
-En general, la mayor contribución al NRMSE es provocado por anomalías en los patrones, como por ejemplo los máximos abruptos de la celda 5058. Sin embargo, es visible en todas las celdas cómo los modelos con \textit{online learning} son muy superiores a aquellos sin \textit{online learning}. Esto se observa muy bien en las celdas con menor precisión, por ejemplo, el modelo con \textit{online learning} ha podido adaptarse rápidamente los cambios radicales de las celdas 5357 y 5362 en cuestión de 2 o 3 días. Por otra parte, el modelo sin \textit{online learning} son completamente incapaces de adaptarse.
+
+\begin{figure}[h!]
+	\centering
+	\begin{subfigure}{\linewidth}
+		\includesvg[inkscapelatex=false,scale=0.5]{Celdas/cell_plot_4959.svg}
+	\end{subfigure}
+	\begin{subfigure}{\linewidth}
+		\includesvg[inkscapelatex=false,scale=0.5]{Celdas/cell_plot_5357.svg}
+	\end{subfigure}
+	\caption{Tráfico real y predicciones con \textit{online y \textit{offline learning}} del mejor modelo en las celdas 4959 (arriba) y 5357 (abajo). Elaboración propia.}
+	\label{fig:worstcells}
+\end{figure}
+\FloatBarrier
+
+
+
+
+En general, la mayor contribución al NRMSE es provocado por anomalías en los patrones, como por ejemplo los máximos abruptos de la celda 5058. Sin embargo, es visible en todas las celdas cómo los modelos con \textit{online learning} son muy superiores a aquellos sin \textit{online learning}. Esto se observa muy bien en las celdas con menor precisión, por ejemplo, el modelo con \textit{online learning} ha podido adaptarse rápidamente los cambios radicales de las celdas 5357 y 5362 en cuestión de 2 o 3 días. Por otra parte, el modelo sin \textit{online learning} es completamente incapaz de adaptarse.
 
 
 \subsection{Discusión}
