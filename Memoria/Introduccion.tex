@@ -21,7 +21,7 @@ Dentro del objetivo principal se establecen los siguientes objetivos secundarios
 	\item Analizar, diseñar, implementar y evaluar diferentes arquitecturas híbridas de redes neuronales recurrentes y convolucionales.
 	\item Definir una metodología de aprendizaje \textit{online} y evaluar las mejoras introducidas respecto a los modelos \textit{offline}.
 	\item Introducir restricciones en las arquitecturas para obtener modelos con resultados reproducibles.
-	\item Evaluar la precisión de las arquitecturas propuestas en dos  secciones diferentes del dataset Milán.
+	\item Evaluar la precisión de las arquitecturas propuestas en dos secciones diferentes del dataset Milán \cite{milandataset}.
 \end{itemize}
 
 
@@ -45,7 +45,7 @@ Para el desarrollo de las redes neuronales utilizadas en este trabajo se ha util
 
 El lenguaje de programación utilizado en este trabajo es Python. Es un lenguaje orientado a objetos, interpretado e interactivo. Su gran popularidad está basada en su versatilidad. La alta compatibilidad de sus módulos ha hecho que existan numerosas librerías y paquetes especializados y eficientes en multitud de tareas entre las cuales se encuentra el desarrollo de redes neuronales como Tensorflow o SKLearn.
 
-En \textit{frameworks} de computación en paralelo como CUDA (\textit{Compute Unified Device Architecture}), los cálculos realizados por las redes neuronales se reparten entre diferentes hilos. Cada hilo procesa los datos en momentos de tiempo diferentes según el estado del organizador de eventos del sistema operativo. Por lo tanto, en cada entrenamiento se consiguen resultados distintos puesto que el estado del sistema operativo cambia y las pequeñas diferencias en el tiempo de ejecución de los hilos se acumulan a lo largo de todo el entrenamiento y test. Además, el lenguaje de programación Python y las librerías Tensorflow y cuDNN inicializan sus algoritmos de forma aleatoria.
+En \textit{frameworks} de computación en paralelo como CUDA (\textit{Compute Unified Device Architecture}), los cálculos realizados por las redes neuronales se reparten entre diferentes hilos. Cada hilo procesa los datos en momentos de tiempo diferentes según el estado del organizador de eventos del sistema operativo. Por lo tanto, en cada entrenamiento se consiguen resultados distintos puesto que el estado del sistema operativo cambia y las pequeñas diferencias en el tiempo de ejecución de los hilos se acumulan a lo largo de todo el entrenamiento y test. Además, el lenguaje de programación Python y las librerías Tensorflow y cuDNN inicializan sus algoritmos de forma aleatoria \cite{tffunction}.
 
 Para conseguir la reproducibilidad de los resultados se ha de introducir varias restricciones para eliminar la aleatoriedad. Se han fijado todas las semillas de generación de números pseudoaleatorios de Python, Tensorflow y NumPy y se ha forzado a las librerías Tensorflow y cuDNN a acceder a los recursos hardware de forma determinista a través de las variables de entorno del sistema operativo \cite{tfdeterministic,nvidiacudnn}.
 

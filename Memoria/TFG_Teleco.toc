@@ -36,7 +36,7 @@
 \contentsline {section}{\numberline {6}Estructuras avanzadas de \textit {Deep Learning} para la predicción de series temporales}{31}{section.6}%
 \contentsline {subsection}{\numberline {6.1}CNNs}{31}{subsection.6.1}%
 \contentsline {subsubsection}{\numberline {6.1.1}Mapas de filtros}{32}{subsubsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.2}Capas de agregación}{32}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.2}Capas de agregación}{33}{subsubsection.6.1.2}%
 \contentsline {subsection}{\numberline {6.2}CNN+LSTM}{33}{subsection.6.2}%
 \contentsline {section}{\numberline {7}Entorno experimental}{36}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Descripción de los datos}{36}{subsection.7.1}%

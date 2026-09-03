@@ -93,6 +93,138 @@ A.~Román~Antolín, ``Predicción de tráfico de red usando arquitecturas
   neuronales avanzadas,'' Trabajo Fin de Grado, Universidad de Valladolid,
   Valladolid, España, Sep 2025.
 
+\bibitem{milandataset}
+\BIBentryALTinterwordspacing
+{Telecom Italia}, ``{Telecommunications - SMS, Call, Internet - MI},'' 2015.
+  [Online]. Available: \url{https://doi.org/10.7910/DVN/EGZHFV}
+\BIBentrySTDinterwordspacing
+
+\bibitem{gpup100}
+\BIBentryALTinterwordspacing
+{Kaggle}. Kaggle notebooks documentation. [Accedido: Jun. 19, 2025]. [Online].
+  Available: \url{https://www.kaggle.com/docs/notebooks}
+\BIBentrySTDinterwordspacing
+
+\bibitem{tffunction}
+\BIBentryALTinterwordspacing
+{TensorFlow Developers}, ``Better performance with tf.function,'' 8 2024,
+  [Accedido: May. 20, 2025]. [Online]. Available:
+  \url{https://www.tensorflow.org/guide/function}
+\BIBentrySTDinterwordspacing
+
+\bibitem{tfdeterministic}
+\BIBentryALTinterwordspacing
+------. (2022, May) What's new in {TensorFlow} 2.9. [Accedido: Abr. 19, 2025].
+  [Online]. Available:
+  \url{https://blog.tensorflow.org/2022/05/whats-new-in-tensorflow-29.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{nvidiacudnn}
+\BIBentryALTinterwordspacing
+{NVIDIA Corporation}. cudnn backend {API} developer guide: Miscellaneous.
+  [Accedido: Abr. 19, 2025]. [Online]. Available:
+  \url{https://docs.nvidia.com/deeplearning/cudnn/backend/latest/developer/misc.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{lovelace1843}
+\BIBentryALTinterwordspacing
+A.~A. Lovelace, ``Sketch of the analytical engine invented by {Charles
+  Babbage}, by {L. F. Menabrea}, with notes upon the memoir by the
+  translator,'' \emph{Scientific Memoirs}, vol.~3, pp. 666--731, 1843.
+  [Online]. Available: \url{https://www.fourmilab.ch/babbage/sketch.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{mccarthy1955}
+\BIBentryALTinterwordspacing
+J.~McCarthy, M.~L. Minsky, N.~Rochester, and C.~E. Shannon, ``A proposal for
+  the {Dartmouth} summer research project on artificial intelligence,'' Aug
+  1955, unpublished project proposal. [Online]. Available:
+  \url{http://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{deepblue}
+M.~Campbell, A.~J. Hoane, and F.-h. Hsu, ``Deep blue,'' \emph{Artif. Intell.},
+  vol. 134, no. 1--2, pp. 57--83, 2002.
+
+\bibitem{machinelearningbook}
+A.~Géron, \emph{\BIBforeignlanguage{eng}{Hands-on machine learning with
+  Scikit-Learn, Keras, and TensorFlow : concepts, tools, and techniques to
+  build intelligent systems}}, 3rd~ed.\hskip 1em plus 0.5em minus 0.4em\relax
+  Beijing: O'Reilly, 2022.
+
+\bibitem{machinelearningbook1}
+F.~Chollet, \emph{\BIBforeignlanguage{eng}{Deep learning with Python}},
+  2nd~ed.\hskip 1em plus 0.5em minus 0.4em\relax Madrid: Anaya Multimedia,
+  2020.
+
+\bibitem{deeplearning}
+\BIBentryALTinterwordspacing
+I.~Goodfellow, Y.~Bengio, and A.~Courville, \emph{Deep Learning}.\hskip 1em
+  plus 0.5em minus 0.4em\relax Cambridge, MA, USA: MIT Press, 2016. [Online].
+  Available: \url{https://www.deeplearningbook.org/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{rumelhart1985}
+D.~E. Rumelhart and J.~L. McClelland, \emph{Learning Internal Representations
+  by Error Propagation}.\hskip 1em plus 0.5em minus 0.4em\relax MIT Press,
+  1987, pp. 318--362.
+
+\bibitem{samuel1959}
+A.~L. Samuel, ``Some studies in machine learning using the game of checkers,''
+  \emph{IBM Journal of Research and Development}, vol.~3, no.~3, pp. 210--229,
+  1959.
+
+\bibitem{mitchell1997}
+\BIBentryALTinterwordspacing
+T.~M. Mitchell, \emph{Machine Learning}.\hskip 1em plus 0.5em minus 0.4em\relax
+  New York: McGraw-Hill, 1997. [Online]. Available:
+  \url{http://www.cs.cmu.edu/~tom/mlbook.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{mcculloch1943}
+\BIBentryALTinterwordspacing
+W.~S. McCulloch and W.~Pitts, ``A logical calculus of the ideas immanent in
+  nervous activity,'' \emph{Bulletin of Mathematical Biophysics}, vol.~5,
+  no.~4, pp. 115--133, Dec 1943. [Online]. Available:
+  \url{https://doi.org/10.1007/BF02478259}
+\BIBentrySTDinterwordspacing
+
+\bibitem{rosenblatt1957}
+\BIBentryALTinterwordspacing
+F.~Rosenblatt, ``The perceptron: A perceiving and recognizing automaton
+  (project {PARA}),'' Cornell Aeronautical Laboratory, Buffalo, NY, Report
+  85-460-1, Jan 1957. [Online]. Available:
+  \url{https://bpb-us-e2.wpmucdn.com/websites.umass.edu/dist/a/27637/files/2016/03/rosenblatt-1957.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{rnn1}
+\BIBentryALTinterwordspacing
+Q.~V. Le, N.~Jaitly, and G.~E. Hinton, ``A simple way to initialize recurrent
+  networks of rectified linear units,'' 2015. [Online]. Available:
+  \url{https://arxiv.org/abs/1504.00941}
+\BIBentrySTDinterwordspacing
+
+\bibitem{bottou2018}
+\BIBentryALTinterwordspacing
+L.~Bottou, F.~E. Curtis, and J.~Nocedal, ``Optimization methods for large-scale
+  machine learning,'' \emph{SIAM Rev.}, vol.~60, no.~2, pp. 223--311, May 2018.
+  [Online]. Available: \url{https://doi.org/10.1137/16M1080173}
+\BIBentrySTDinterwordspacing
+
+\bibitem{sgd}
+\BIBentryALTinterwordspacing
+D.~P. Kingma and J.~Ba, ``Adam: A method for stochastic optimization,'' in
+  \emph{Proc. Int. Conf. Learn. Represent. (ICLR)}, San Diego, CA, USA, May
+  2015. [Online]. Available: \url{https://arxiv.org/abs/1412.6980}
+\BIBentrySTDinterwordspacing
+
+\bibitem{seppo}
+\BIBentryALTinterwordspacing
+S.~Linnainmaa, ``Taylor expansion of the accumulated rounding error,''
+  \emph{BIT Numer. Math.}, vol.~16, no.~2, pp. 146--160, Jun 1976. [Online].
+  Available: \url{https://doi.org/10.1007/BF01931367}
+\BIBentrySTDinterwordspacing
+
 \bibitem{randomsearch}
 \BIBentryALTinterwordspacing
 J.~Bergstra and Y.~Bengio, ``Random search for hyper-parameter optimization,''
@@ -107,17 +239,6 @@ D.~H. Wolpert, ``The lack of a priori distinctions between learning
   1996. [Online]. Available: \url{https://doi.org/10.1162/neco.1996.8.7.1341}
 \BIBentrySTDinterwordspacing
 
-\bibitem{machinelearningbook1}
-F.~Chollet, \emph{\BIBforeignlanguage{eng}{Deep learning with Python}},
-  2nd~ed.\hskip 1em plus 0.5em minus 0.4em\relax Madrid: Anaya Multimedia,
-  2020.
-
-\bibitem{machinelearningbook}
-A.~Géron, \emph{\BIBforeignlanguage{eng}{Hands-on machine learning with
-  Scikit-Learn, Keras, and TensorFlow : concepts, tools, and techniques to
-  build intelligent systems}}, 3rd~ed.\hskip 1em plus 0.5em minus 0.4em\relax
-  Beijing: O'Reilly, 2022.
-
 \bibitem{paramtuning}
 \BIBentryALTinterwordspacing
 L.~N. Smith, ``A disciplined approach to neural network hyper-parameters: Part
@@ -126,16 +247,47 @@ L.~N. Smith, ``A disciplined approach to neural network hyper-parameters: Part
   \url{http://arxiv.org/abs/1803.09820}
 \BIBentrySTDinterwordspacing
 
-\bibitem{seriestemporales2}
-M.~González and I.~M. del Puerto, \emph{Series Temporales}, ser. Colección
-  manuales uex.\hskip 1em plus 0.5em minus 0.4em\relax Cáceres, España:
-  Universidad de Extremadura, Servicio de Publicaciones, 2009, vol.~60.
+\bibitem{weightdecay}
+\BIBentryALTinterwordspacing
+I.~Loshchilov and F.~Hutter, ``Decoupled weight decay regularization,'' in
+  \emph{Proc. 7th Int. Conf. Learn. Represent. (ICLR)}, New Orleans, LA, USA,
+  May 2019. [Online]. Available: \url{https://arxiv.org/abs/1711.05101}
+\BIBentrySTDinterwordspacing
+
+\bibitem{dropout}
+\BIBentryALTinterwordspacing
+N.~Srivastava, G.~E. Hinton, A.~Krizhevsky, I.~Sutskever, and R.~R.
+  Salakhutdinov, ``Dropout: A simple way to prevent neural networks from
+  overfitting,'' \emph{J. Mach. Learn. Res.}, vol.~15, pp. 1929--1958, Jun
+  2014. [Online]. Available:
+  \url{http://jmlr.org/papers/v15/srivastava14a.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{rnn}
+V.~Pham, T.~Bluche, C.~Kermorvant, and J.~Louradour, ``Dropout improves
+  recurrent neural networks for handwriting recognition,'' in \emph{2014 14th
+  International Conference on Frontiers in Handwriting Recognition}, 2014, pp.
+  285--290.
+
+\bibitem{earlystopping}
+\BIBentryALTinterwordspacing
+L.~Prechelt, ``Early stopping---but when?'' in \emph{Neural Networks: Tricks of
+  the Trade}, ser. Lecture Notes in Computer Science ({LNCS}), G.~B. Orr and
+  K.-R. M{\"u}ller, Eds.\hskip 1em plus 0.5em minus 0.4em\relax Berlin,
+  Germany: Springer, 1998, vol. 1524, pp. 55--69. [Online]. Available:
+  \url{https://doi.org/10.1007/3-540-49430-8_3}
+\BIBentrySTDinterwordspacing
 
 \bibitem{seriestemporales}
 J.~C. García~Díaz, \emph{\BIBforeignlanguage{spa}{Predicción en el dominio
   del tiempo: análisis de series temporales para ingenieros}}, ser. Manual de
   referencia.\hskip 1em plus 0.5em minus 0.4em\relax Valencia: Editorial de la
   Universidad Politécnica de Valencia, 2016.
+
+\bibitem{seriestemporales2}
+M.~González and I.~M. del Puerto, \emph{Series Temporales}, ser. Colección
+  manuales uex.\hskip 1em plus 0.5em minus 0.4em\relax Cáceres, España:
+  Universidad de Extremadura, Servicio de Publicaciones, 2009, vol.~60.
 
 \bibitem{arma}
 P.~Hoong, ``Bittorrent network traffic forecasting with arma,''
@@ -172,16 +324,92 @@ G.~E.~P. Box and G.~M. Jenkins, \emph{Time Series Analysis: Forecasting and
   \url{https://onlinelibrary.wiley.com/doi/book/10.1002/9781118619193}
 \BIBentrySTDinterwordspacing
 
-\bibitem{milandataset}
+\bibitem{sarima1}
+Y.~Yu, J.~Wang, M.~Song, and J.~Song, ``Network traffic prediction and result
+  analysis based on seasonal arima and correlation coefficient,'' in \emph{2010
+  International Conference on Intelligent System Design and Engineering
+  Application}, vol.~1, 2010, pp. 980--983.
+
+\bibitem{rnn2}
 \BIBentryALTinterwordspacing
-{Telecom Italia}, ``{Telecommunications - SMS, Call, Internet - MI},'' 2015.
-  [Online]. Available: \url{https://doi.org/10.7910/DVN/EGZHFV}
+N.~Ramakrishnan and T.~Soni, ``Network traffic prediction using recurrent
+  neural networks,'' in \emph{2018 17th IEEE International Conference on
+  Machine Learning and Applications (ICMLA)}.\hskip 1em plus 0.5em minus
+  0.4em\relax Orlando, FL, USA: IEEE, Dec 2018, pp. 187--193. [Online].
+  Available: \url{https://ieeexplore.ieee.org/document/8614060/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{rnn3}
+\BIBentryALTinterwordspacing
+R.~Pascanu, T.~Mikolov, and Y.~Bengio, ``On the difficulty of training
+  recurrent neural networks,'' in \emph{Proc. 30th Int. Conf. Mach. Learn.
+  (ICML)}, vol.~28.\hskip 1em plus 0.5em minus 0.4em\relax Atlanta, GA, USA:
+  PMLR, Jun 2013, pp. 1310--1318. [Online]. Available:
+  \url{http://proceedings.mlr.press/v28/pascanu13.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{lstm}
+\BIBentryALTinterwordspacing
+S.~Hochreiter and J.~Schmidhuber, ``Long short-term memory,'' \emph{Neural
+  Computation}, vol.~9, no.~8, pp. 1735--1780, 11 1997. [Online]. Available:
+  \url{https://doi.org/10.1162/neco.1997.9.8.1735}
+\BIBentrySTDinterwordspacing
+
+\bibitem{lstm2}
+\BIBentryALTinterwordspacing
+C.~B. Vennerød, A.~Kjærran, and E.~S. Bugge, ``Long short-term memory
+  {RNN},'' \emph{arXiv preprint arXiv:2105.06756}, May 2021. [Online].
+  Available: \url{https://arxiv.org/abs/2105.06756}
+\BIBentrySTDinterwordspacing
+
+\bibitem{cnn1}
+\BIBentryALTinterwordspacing
+K.~Fukushima, ``Neocognitron: A self-organizing neural network model for a
+  mechanism of pattern recognition unaffected by shift in position,''
+  \emph{Biological Cybernetics}, vol.~36, no.~4, pp. 193--202, Apr 1980.
+  [Online]. Available: \url{https://doi.org/10.1007/BF00344251}
+\BIBentrySTDinterwordspacing
+
+\bibitem{hubel1959}
+\BIBentryALTinterwordspacing
+D.~H. Hubel and T.~N. Wiesel, ``Receptive fields of single neurones in the
+  cat's striate cortex,'' \emph{J. Physiol.}, vol. 148, no.~3, pp. 574--591,
+  Oct 1959. [Online]. Available:
+  \url{https://doi.org/10.1113/jphysiol.1959.sp006308}
 \BIBentrySTDinterwordspacing
 
 \bibitem{milanogrid}
 \BIBentryALTinterwordspacing
 Telecom\hspace{0.8em}Italia, ``Milano grid,'' 2015. [Online]. Available:
   \url{https://doi.org/10.7910/DVN/QJWLFU}
+\BIBentrySTDinterwordspacing
+
+\bibitem{cnn2}
+\BIBentryALTinterwordspacing
+V.~Dumoulin and F.~Visin, ``A guide to convolution arithmetic for deep
+  learning,'' \emph{arXiv preprint arXiv:1603.07285}, Mar 2016. [Online].
+  Available: \url{https://arxiv.org/abs/1603.07285}
+\BIBentrySTDinterwordspacing
+
+\bibitem{cnn}
+Y.~Lecun, L.~Bottou, Y.~Bengio, and P.~Haffner, ``Gradient-based learning
+  applied to document recognition,'' \emph{Proceedings of the IEEE}, vol.~86,
+  no.~11, pp. 2278--2324, 1998.
+
+\bibitem{cnnlstm}
+\BIBentryALTinterwordspacing
+V.-D. Le, T.-C. Bui, and S.-K. Cha, ``Spatiotemporal deep learning model for
+  citywide air pollution interpolation and prediction,'' in \emph{2020 IEEE
+  International Conference on Big Data and Smart Computing (BigComp)}.\hskip
+  1em plus 0.5em minus 0.4em\relax Busan, Korea: IEEE, Feb 2020, pp. 55--62.
+  [Online]. Available: \url{https://doi.org/10.1109/BigComp48618.2020.00021}
+\BIBentrySTDinterwordspacing
+
+\bibitem{timedistributed}
+\BIBentryALTinterwordspacing
+{TensorFlow Developers}, ``tf.keras.layers.timedistributed,'' Jul 2024,
+  [Accedido: Abr. 10, 2025]. [Online]. Available:
+  \url{https://www.tensorflow.org/api_docs/python/tf/keras/layers/TimeDistributed}
 \BIBentrySTDinterwordspacing
 
 \bibitem{lstmactivation}
@@ -198,33 +426,6 @@ K.~Sijtsma and W.~Emons, ``Nonparametric statistical methods,'' in
   edition~ed., P.~Peterson, E.~Baker, and B.~McGaw, Eds.\hskip 1em plus 0.5em
   minus 0.4em\relax Oxford: Elsevier, 2010, pp. 347--353. [Online]. Available:
   \url{https://www.sciencedirect.com/science/article/pii/B9780080448947013531}
-\BIBentrySTDinterwordspacing
-
-\bibitem{gpup100}
-\BIBentryALTinterwordspacing
-{Kaggle}. Kaggle notebooks documentation. [Accedido: Jun. 19, 2025]. [Online].
-  Available: \url{https://www.kaggle.com/docs/notebooks}
-\BIBentrySTDinterwordspacing
-
-\bibitem{tfdeterministic}
-\BIBentryALTinterwordspacing
-{TensorFlow Developers}. (2022, May) What's new in {TensorFlow} 2.9. [Accedido:
-  Abr. 19, 2025]. [Online]. Available:
-  \url{https://blog.tensorflow.org/2022/05/whats-new-in-tensorflow-29.html}
-\BIBentrySTDinterwordspacing
-
-\bibitem{nvidiacudnn}
-\BIBentryALTinterwordspacing
-{NVIDIA Corporation}. cudnn backend {API} developer guide: Miscellaneous.
-  [Accedido: Abr. 19, 2025]. [Online]. Available:
-  \url{https://docs.nvidia.com/deeplearning/cudnn/backend/latest/developer/misc.html}
-\BIBentrySTDinterwordspacing
-
-\bibitem{tffunction}
-\BIBentryALTinterwordspacing
-{TensorFlow Developers}, ``Better performance with tf.function,'' 8 2024,
-  [Accedido: May. 20, 2025]. [Online]. Available:
-  \url{https://www.tensorflow.org/guide/function}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}

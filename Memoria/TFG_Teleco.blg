@@ -22,57 +22,60 @@ I was expecting a `,' or a `}'---line 6 of file references.bib
 I'm skipping whatever remains of this entry
 Warning--entry type for "duan2015xaas" isn't style-file defined
 --line 75 of file references.bib
+Warning--I'm ignoring lstm's extra "pages" field
+--line 499 of file references.bib
 Warning--entry type for "milandataset" isn't style-file defined
---line 449 of file references.bib
+--line 619 of file references.bib
 Warning--entry type for "milanogrid" isn't style-file defined
---line 459 of file references.bib
+--line 629 of file references.bib
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 Warning--empty booktitle in SKIMAcasaseca
+Warning--empty journal in rnn1
 Warning--empty booktitle in arima1
 Warning--edition ordinal word "Third Edition" may be too high (or improper) for conversion in spearmansource
 
 Done.
-You've used 32 entries,
+You've used 60 entries,
             4087 wiz_defined-function locations,
-            1049 strings with 13577 characters,
-and the built_in function-call counts, 21298 in all, are:
-= -- 1731
-> -- 455
-< -- 150
-+ -- 247
-- -- 81
-* -- 1010
-:= -- 3351
-add.period$ -- 69
-call.type$ -- 32
-change.case$ -- 38
-chr.to.int$ -- 342
-cite$ -- 35
-duplicate$ -- 1543
-empty$ -- 1772
-format.name$ -- 98
-if$ -- 4930
+            1242 strings with 19054 characters,
+and the built_in function-call counts, 42744 in all, are:
+= -- 3542
+> -- 888
+< -- 332
++ -- 492
+- -- 149
+* -- 2089
+:= -- 6720
+add.period$ -- 129
+call.type$ -- 60
+change.case$ -- 67
+chr.to.int$ -- 762
+cite$ -- 64
+duplicate$ -- 3044
+empty$ -- 3475
+format.name$ -- 187
+if$ -- 9902
 int.to.chr$ -- 0
-int.to.str$ -- 32
-missing$ -- 282
-newline$ -- 153
-num.names$ -- 34
-pop$ -- 680
+int.to.str$ -- 60
+missing$ -- 534
+newline$ -- 281
+num.names$ -- 64
+pop$ -- 1214
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 4
-skip$ -- 1650
+skip$ -- 3298
 stack$ -- 0
-substring$ -- 811
-swap$ -- 1215
-text.length$ -- 36
+substring$ -- 1820
+swap$ -- 2489
+text.length$ -- 78
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 32
-warning$ -- 3
-while$ -- 84
-width$ -- 34
-write$ -- 358
+type$ -- 60
+warning$ -- 4
+while$ -- 179
+width$ -- 62
+write$ -- 689
 (There was 1 error message)

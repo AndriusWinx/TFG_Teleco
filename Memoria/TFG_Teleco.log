@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.7.15)  3 SEP 2026 01:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.7.15)  3 SEP 2026 13:26
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -858,6 +858,23 @@ dvips/cm-super/cm-super-t1.enc} <./Figuras/Universidad-de-Valladolid.png>]
 \openout2 = `Abstract.aux'.
 
  (./Abstract.tex
+LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+Overfull \hbox (7.42862pt too wide) in paragraph at lines 7--8
+[]\T1/cmr/m/it/12 Deep lear-ning\T1/cmr/m/n/12 , \T1/cmr/m/it/12 on-li-ne lear-
+ning\T1/cmr/m/n/12 , pre-dic-ción de se-ries tem-po-ra-les, , re-des convolucio
+nales-
+ []
+
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
@@ -870,16 +887,7 @@ LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
@@ -948,21 +956,15 @@ Overfull \hbox (13.62576pt too wide) in paragraph at lines 1--1
 
 
 
-]
-Overfull \hbox (6.79166pt too wide) in paragraph at lines 37--38
-[]\T1/cmr/m/n/12 Algunos ejem-plos de al-go-rit-mos de apren-di-za-je por re-fu
-er-zo son SAR-SA, Q-Learning... 
- []
+] [12] [13] [14] [15]
 
-[12] [13] [14] [15]
-
-LaTeX Warning: Reference `label' on page 16 undefined on input line 99.
+LaTeX Warning: Reference `label' on page 16 undefined on input line 97.
 
 
-LaTeX Warning: Reference `label' on page 16 undefined on input line 107.
+LaTeX Warning: Reference `label' on page 16 undefined on input line 105.
 
 [16] [17] [18] [19] [20]
-Overfull \hbox (4.87668pt too wide) in paragraph at lines 209--210
+Overfull \hbox (4.87668pt too wide) in paragraph at lines 207--208
 []\T1/cmr/m/n/12 Aunque exis-ten múl-ti-ples es-tra-te-gias de va-li-da-ción co
 -mo \T1/cmr/m/it/12 Grid Search\T1/cmr/m/n/12 , \T1/cmr/m/it/12 Ran-dom Search\
 T1/cmr/m/n/12 ,
@@ -971,27 +973,27 @@ T1/cmr/m/n/12 ,
 [21]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 225.
+(hyperref)                removing `math shift' on input line 223.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 225.
+(hyperref)                removing `subscript' on input line 223.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 225.
+(hyperref)                removing `math shift' on input line 223.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 250.
+(hyperref)                removing `math shift' on input line 248.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 250.
+(hyperref)                removing `subscript' on input line 248.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 250.
+(hyperref)                removing `math shift' on input line 248.
 
 [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34]) [35]
 \openout2 = `EntornoExperimental.aux'.
@@ -1014,7 +1016,7 @@ Overfull \hbox (1.03702pt too wide) in paragraph at lines 74--75
 \openout2 = `Resultados.aux'.
 
  (./Resultados.tex
-<./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf, id=702, 425.71733pt x 505.7639
+<./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf, id=831, 425.71733pt x 505.7639
 2pt>
 File: ./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf>
@@ -1026,7 +1028,7 @@ n input line 14.
 
 
  <./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf>]
-<./svg-inkscape/distr_nrmse_layers_svg-raw.pdf, id=8324, 501.19559pt x 394.4699
+<./svg-inkscape/distr_nrmse_layers_svg-raw.pdf, id=8453, 501.19559pt x 394.4699
 9pt>
 File: ./svg-inkscape/distr_nrmse_layers_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/distr_nrmse_layers_svg-raw.pdf>
@@ -1034,14 +1036,14 @@ Package pdftex.def Info: ./svg-inkscape/distr_nrmse_layers_svg-raw.pdf  used on
  input line 25.
 (pdftex.def)             Requested size: 300.71967pt x 236.6838pt.
  [43 <./svg-inkscape/distr_nrmse_layers_svg-raw.pdf>] [44]
-<./svg-inkscape/kernel_metros2_svg-raw.pdf, id=8410, 725.7074pt x 463.7024pt>
+<./svg-inkscape/kernel_metros2_svg-raw.pdf, id=8539, 725.7074pt x 463.7024pt>
 File: ./svg-inkscape/kernel_metros2_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/kernel_metros2_svg-raw.pdf>
 Package pdftex.def Info: ./svg-inkscape/kernel_metros2_svg-raw.pdf  used on inp
 ut line 85.
 (pdftex.def)             Requested size: 362.85281pt x 231.85062pt.
  [45 <./svg-inkscape/kernel_metros2_svg-raw.pdf>]
-<./svg-inkscape/lookback_nrmse_time_svg-raw.pdf, id=8464, 661.2015pt x 394.8934
+<./svg-inkscape/lookback_nrmse_time_svg-raw.pdf, id=8593, 661.2015pt x 394.8934
 3pt>
 File: ./svg-inkscape/lookback_nrmse_time_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/lookback_nrmse_time_svg-raw.pdf>
@@ -1058,7 +1060,7 @@ LaTeX Warning: Reference `cap3:entorno' on page 46 undefined on input line 114.
 LaTeX Warning: Reference `cap3:entorno' on page 47 undefined on input line 125.
 
 
-<./svg-inkscape/updates_nrmse_time_svg-raw.pdf, id=8524, 667.56592pt x 394.4919
+<./svg-inkscape/updates_nrmse_time_svg-raw.pdf, id=8653, 667.56592pt x 394.4919
 4pt>
 File: ./svg-inkscape/updates_nrmse_time_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/updates_nrmse_time_svg-raw.pdf>
@@ -1069,7 +1071,7 @@ Package pdftex.def Info: ./svg-inkscape/updates_nrmse_time_svg-raw.pdf  used on
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [47] [48 <./svg-inkscape/updates_nrmse_time_svg-raw.pdf>]
-<./svg-inkscape/heatmap_bestmodel_svg-raw.pdf, id=8603, 663.08543pt x 598.19487
+<./svg-inkscape/heatmap_bestmodel_svg-raw.pdf, id=8731, 663.08543pt x 598.19487
 pt>
 File: ./svg-inkscape/heatmap_bestmodel_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/heatmap_bestmodel_svg-raw.pdf>
@@ -1081,7 +1083,7 @@ input line 193.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [49]
-<./svg-inkscape/heatmap_combined_svg-raw.pdf, id=8610, 1703.40173pt x 592.50945
+<./svg-inkscape/heatmap_combined_svg-raw.pdf, id=8738, 1703.40173pt x 592.50945
 pt>
 File: ./svg-inkscape/heatmap_combined_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/heatmap_combined_svg-raw.pdf>
@@ -1110,15 +1112,16 @@ pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/heatmap_combined_svg-raw
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
+[55]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `spa'. Using the pattern for
 ** the default language instead.
-[55])
+[56] [57])
 
 Package caption Warning: Unused \captionsetup[sub] on input line 15.
 See the caption package documentation for explanation.
 
-[56] (./TFG_Teleco.aux
+[58] (./TFG_Teleco.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 LaTeX Info: Redefining \. on input line 14.
@@ -1138,10 +1141,10 @@ Package rerunfilecheck Info: File `TFG_Teleco.out' has not changed.
 (rerunfilecheck)             Checksum: 69273330C4E7900A15DE7C1AAC6F55F2;10530.
  ) 
 Here is how much of TeX's memory you used:
- 24011 strings out of 467533
- 455412 string characters out of 5422138
- 1043373 words of memory out of 5000000
- 52281 multiletter control sequences out of 15000+600000
+ 24071 strings out of 467533
+ 456108 string characters out of 5422138
+ 1045373 words of memory out of 5000000
+ 52311 multiletter control sequences out of 15000+600000
  651004 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,12n,93p,1126b,1389s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1168,10 +1171,10 @@ per/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></u
 sr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts
 /type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-sup
 er/sftt1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc1728.pfb>
-Output written on TFG_Teleco.pdf (60 pages, 2826707 bytes).
+Output written on TFG_Teleco.pdf (62 pages, 2841388 bytes).
 PDF statistics:
- 9440 PDF objects out of 10688 (max. 8388607)
- 6451 compressed objects within 65 object streams
- 208 named destinations out of 1000 (max. 500000)
+ 9611 PDF objects out of 10688 (max. 8388607)
+ 6618 compressed objects within 67 object streams
+ 238 named destinations out of 1000 (max. 500000)
  517 words of extra memory for PDF output out of 10000 (max. 10000000)
 
