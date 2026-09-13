@@ -76,9 +76,93 @@ Para mitigar este problema, los modelos estáticos deben ser reentrenados de cer
 
 
 
-Por otra parte, los modelos de aprendizaje incremental, también llamados modelos \textit{online}, son entrenados en numerosas iteraciones sucesivas utilizando un conjunto reducido de datos en cada iteración. De esta forma cada iteración de entrenamiento es rápida y ligera. El modelo se adapta a los nuevos datos introducidos para evitar quedar obsoleto ante el \textit{concept drift}. Esto implica que el proceso de aprendizaje no termina nunca, ni siquiera cuando el modelo es lanzado a producción.
+Por otra parte, los modelos de aprendizaje incremental, también llamados modelos \textit{online}, son entrenados en numerosas iteraciones sucesivas utilizando un conjunto reducido de datos en cada iteración como en la Figura \ref{fig:onlineflow}. De esta forma cada iteración de entrenamiento es rápida y ligera. El modelo se adapta a los nuevos datos introducidos para evitar quedar obsoleto ante el \textit{concept drift}. Esto implica que el proceso de aprendizaje no termina nunca, ni siquiera cuando el modelo es lanzado a producción.
 
-Un aspecto importante del \textit{online learning} es la tasa de aprendizaje. Dependiendo de la frecuencia con la que el patrón subyacente de los datos cambia, los modelos \textit{online} deberán adaptarse en mayor o menor medida a los nuevos datos. Como los recursos \textit{hardware} son limitados, también lo es la capacidad de los modelos. A medida que se adaptan a los nuevos patrones, pierden eficacia con los antiguos en un proceso llamado \textit{catastrophic forgetting} \cite{machinelearningbook, machinelearningbook1,SKIMAcasaseca}.
+\newpage
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}[
+		>=Stealth,
+		font=\small\sffamily,
+		node distance=1.1cm,
+		startstop/.style={
+			draw=gray!80, fill=gray!15, rounded corners=12pt,
+			minimum width=3.4cm, minimum height=0.85cm, align=center, font=\footnotesize\bfseries
+		},
+		process/.style={
+			draw=blue!70!black, fill=blue!10, rounded corners=3pt,
+			minimum width=4.0cm, minimum height=0.85cm, align=center, font=\footnotesize
+		},
+		decision/.style={
+			diamond, draw=orange!80!black, fill=orange!15, aspect=2.0,
+			inner sep=3pt, align=center, font=\scriptsize\bfseries
+		},
+		substep/.style={
+			draw=teal!80!black, fill=teal!10, rounded corners=3pt,
+			minimum width=4.2cm, minimum height=0.9cm, align=center, font=\scriptsize
+		},
+		arrow/.style={->, thick, draw=black!75}
+		]
+		
+		% Nodos del flujo principal
+		\node[startstop] (start) {Nueva Muestra\\$(X_t, Y_t)$};
+		\node[process, below=0.8cm of start] (predict) {Predicción del Modelo\\$\hat{Y}_t = \text{Forward}(X_t)$};
+		\node[process, below=0.8cm of predict] (error) {Cálculo de Error\\$E_t = (Y_t - \hat{Y}_t)^2$};
+		\node[decision, below=1.0cm of error] (thresh) {$E_t > \text{threshold}$?};
+		
+		% Bloques dentro del bucle de updates
+		\node[substep, below=1.2cm of thresh] (grad) {Gradiente con Ponderación Euclídea\\$\Delta W = \eta \cdot \left\|\frac{Y_t - \hat{Y}_t}{Y_t}\right\|^2 \cdot \nabla_W \epsilon_t$};
+		\node[substep, below=0.8cm of grad] (update) {Actualización de Pesos\\$W \leftarrow W - \Delta W$};
+		\node[decision, below=1.0cm of update] (epochcheck) {¿Iteraciones $\ge$ updates?};
+		
+		% Paso al siguiente instante
+		\node[startstop] (next) at (6.0, -3.2) {Avanzar a la Siguiente\\Muestra ($t+1$)};
+		
+		% Conexiones verticales
+		\draw[arrow] (start) -- (predict);
+		\draw[arrow] (predict) -- (error);
+		\draw[arrow] (error) -- (thresh);
+		\draw[arrow] (thresh) -- node[right=3pt, font=\scriptsize\bfseries] {Sí (Error relevante)} (grad);
+		\draw[arrow] (grad) -- (update);
+		\draw[arrow] (update) -- (epochcheck);
+		
+		% --- FUSIÓN DE RAMAS HACIA 'next.south' ---
+		% Punto de unión vertical alineado bajo 'next'
+		\coordinate (merge_point) at ([yshift=-1.915cm]next.south);
+		
+		% 1. Rama NO de threshold (línea sin punta hasta el tronco común)
+		\draw[thick, draw=black!75] (thresh.east) -- node[above, font=\scriptsize\bfseries] {No (Ruido)} ++(4.28,0) |- (merge_point);
+		
+		% 2. Rama SÍ de epochcheck (línea sin punta hacia el tronco común)
+		\draw[thick, draw=black!75] (epochcheck.east) -| node[pos=0.2, above, font=\scriptsize\bfseries] {Sí} (merge_point);
+		
+		% 3. Flecha única resultante que entra al nodo
+		\draw[arrow] (merge_point) -- (next.south);
+		
+		% Rama NO del bucle: SALE EXCLUSIVAMENTE POR LA ESQUINA INFERIOR (SOUTH)
+		\draw[arrow] (epochcheck.south) -- ++(0, -0.6) 
+		node[pos=0.4, right=3pt, font=\scriptsize\bfseries] {No} 
+		-| ++(-3.6, 0) |- (grad.west);
+		
+		% Vuelta al inicio desde 'next'
+		\draw[arrow] (next.north) |- (start.east);
+		% Marco del bucle de actualización incremental
+		\begin{scope}[on background layer]
+			\node[draw=orange!60!black, dashed, rounded corners=6pt, fill=orange!5,
+			fit=(grad) (update) (epochcheck), inner sep=12pt,
+			label={[font=\footnotesize\bfseries, text=orange!80!black]left:\rotatebox{90}{Bucle Incremental (Updates)}}] (loop_box) {};
+		\end{scope}
+		
+	\end{tikzpicture}
+	\caption{Diagrama de flujo del algoritmo de reentreno online incremental con filtrado por umbral (threshold) y bucle de iteraciones (updates).}
+	\label{fig:onlineflow}
+\end{figure}
+
+
+Un aspecto importante del \textit{online learning} es la tasa de aprendizaje $\eta$. Dependiendo de la frecuencia con la que el patrón subyacente de los datos cambia, los modelos \textit{online} deberán adaptarse en mayor o menor medida a los nuevos datos evitando adaptarse al ruido presente en los datos. Para distinguir entre ruido y patrón legítimo los modelos sólo se adaptan cuando el error cometido supera un determinado umbral o \textit{threshold}.
+
+
+Como los recursos \textit{hardware} son limitados, también lo es la capacidad de los modelos. A medida que se adaptan a los nuevos patrones, pierden eficacia con los antiguos en un proceso llamado \textit{catastrophic forgetting} \cite{machinelearningbook, machinelearningbook1,SKIMAcasaseca}.
 
 
 
@@ -216,7 +300,139 @@ El algoritmo \textit{gradient descent} es la base del entrenamiento de redes neu
 
 El algoritmo \textit{backpropagation}, también llamado retropropagación, es la combinación del algoritmo de Linnainmaa con \textit{gradient descent} \cite{rumelhart1985}. En primera instancia, la red neuronal procesa los datos de entrada para calcular una salida. Este es el pase hacia delante o \textit{forward pass}. Es el funcionamiento normal de una red neuronal salvo que se guardan todas las salidas de todas las neuronas de todas las celdas en vez de desecharlas y dar únicamente la salida final. Con todas esas salidas se ejecuta \textit{reverse-mode automatic differentiation} desde la útima capa hasta la primera para calcular la contribución al error perteneciente a cada capa. Este es el pase hacia atrás o \textit{backward pass} Por último, todos los parámetros son modificados con \textit{gradient descent}.
 
-%%%%%%%%%%%IMAGEN DE BACKPROPAGATION%%%%%%%%%%%%%%%%%
+\newpage
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}[
+		>=Stealth,
+		font=\sffamily,
+		% Estilo de neuronas circulares consistente con Figuras 3, 4 y 8
+		neuron/.style={
+			circle,
+			draw=black!85,
+			line width=0.8pt,
+			minimum size=0.85cm,
+			inner sep=0pt
+		},
+		in neuron/.style={neuron, fill=gray!20},
+		hid neuron/.style={neuron, fill=red!35},
+		out neuron/.style={neuron, fill=green!40!black!20},
+		% Flechas de pase hacia adelante y hacia atrás
+		fwd line/.style={->, thick, draw=blue!70!black},
+		bwd line/.style={->, thick, draw=red!75!black, dashed, line width=1.3pt},
+		label block/.style={
+			draw=gray!50,
+			fill=gray!10,
+			rounded corners=3pt,
+			font=\scriptsize\bfseries,
+			minimum height=0.6cm,
+			minimum width=2.0cm,
+			align=center
+		}
+		]
+		
+		% ==========================================================
+		% 1. CAPAS DE NEURONAS (DISPOSICIÓN VERTICAL)
+		% ==========================================================
+		% Capa de entrada (3 neuronas, rango y: 2.25 a -0.25)
+		\foreach \i [count=\idx] in {1, 2, 3} {
+			\node[in neuron] (in\idx) at (0, 3.5 - 1.25*\idx) {$x_{\idx}$};
+		}
+		
+		% Capa oculta 1 (4 neuronas, rango y: 2.85 a -0.9)
+		\foreach \i [count=\idx] in {1, 2, 3, 4} {
+			\node[hid neuron] (h1_\idx) at (2.8, 4.1 - 1.25*\idx) {};
+		}
+		
+		% Capa oculta 2 (4 neuronas, rango y: 2.85 a -0.9)
+		\foreach \i [count=\idx] in {1, 2, 3, 4} {
+			\node[hid neuron] (h2_\idx) at (5.6, 4.1 - 1.25*\idx) {};
+		}
+		
+		% Capa de salida (2 neuronas, rango y: 1.65 a 0.4)
+		\foreach \i [count=\idx] in {1, 2} {
+			\node[out neuron] (out\idx) at (8.4, 2.9 - 1.25*\idx) {$\hat{y}_{\idx}$};
+		}
+		
+		% ==========================================================
+		% 2. TÍTULOS DE CAPAS (DESPLAZADOS A y = 4.2)
+		% ==========================================================
+		\node[label block] at (0, 4.2) {Capa de\\Entrada};
+		\node[label block] at (2.8, 4.2) {Capa\\Oculta 1};
+		\node[label block] at (5.6, 4.2) {Capa\\Oculta 2};
+		\node[label block] at (8.4, 4.2) {Capa de\\Salida};
+		
+		% ==========================================================
+		% 3. CONEXIONES INTERNAS (PASE FORWARD Y BACKWARD)
+		% ==========================================================
+		% Entrada -> Oculta 1 (Pase hacia adelante)
+		\foreach \i in {1,2,3} {
+			\foreach \j in {1,2,3,4} {
+				\draw[fwd line, opacity=0.4] (in\i.east) -- (h1_\j.west);
+			}
+		}
+		
+		% Oculta 1 -> Oculta 2 (Pase hacia adelante)
+		\foreach \i in {1,2,3,4} {
+			\foreach \j in {1,2,3,4} {
+				\draw[fwd line, opacity=0.4] (h1_\i.east) -- (h2_\j.west);
+			}
+		}
+		
+		% Oculta 2 -> Salida (Pase hacia adelante)
+		\foreach \i in {1,2,3,4} {
+			\foreach \j in {1,2} {
+				\draw[fwd line, opacity=0.4] (h2_\i.east) -- (out\j.west);
+			}
+		}
+		
+		% Conexiones de retropropagación del gradiente (Pase hacia atrás: derecha a izquierda)
+		\draw[bwd line] (out1.west) -- (h2_2.east);
+		\draw[bwd line] (out2.west) -- (h2_3.east);
+		\draw[bwd line] (h2_2.west) -- (h1_2.east);
+		\draw[bwd line] (h2_3.west) -- (h1_3.east);
+		\draw[bwd line] (h1_2.west) -- (in2.east);
+		
+		% ==========================================================
+		% 4. BLOQUE DE FUNCIÓN DE COSTE Y COMPARACIÓN
+		% ==========================================================
+		\node[draw=red!70!black, fill=red!10, rounded corners=3pt, align=center, font=\scriptsize\bfseries, minimum height=1.3cm, minimum width=2.1cm] (loss) at (11.4, 1.0) {
+			Función de Coste\\$LF(W)=MSE$\\
+			\vspace{2pt}
+			\textnormal{\tiny $MSE = \frac{1}{2}\sum (y_i - \hat{y}_i)^2$}
+		};
+		
+		% Conexión de salidas a la función de coste (Pase hacia adelante)
+		\draw[fwd line] (out1.east) -- ++(0.7,0) |- ([yshift=0.3cm]loss.west);
+		\draw[fwd line] (out2.east) -- ++(0.7,0) |- ([yshift=-0.3cm]loss.west);
+		
+		% Entrada del valor real objetivo y
+		\node[font=\scriptsize\bfseries, text=black!80] (target) at (11.4, 2.7) {Valor Real ($y$)};
+		\draw[->, thick, draw=black!70] (target) -- (loss);
+		
+		% Retorno del gradiente del error desde la loss hacia la salida (Pase hacia atrás)
+		\draw[bwd line] ([yshift=0.15cm]loss.west) -| ++(-0.6,0) |- ([yshift=-0.15cm]out1.east);
+		%\node[above, font=\tiny\bfseries, text=red!75!black] at (10.0, 1.85) {$\nabla_{\hat{y}} LF$};
+		
+		% ==========================================================
+		% 5. FLECHAS GLOBALES DE FLUJO Y CUADRO DE ACTUALIZACIÓN
+		% ==========================================================
+		% Pase hacia adelante (reubicado a y = 4.9, por encima de los títulos)
+		\draw[->, line width=1.4pt, draw=blue!70!black] (0.5, 4.9) -- node[above=2pt, font=\small\bfseries] {Pase hacia adelante (\textit{Forward pass})} (7.9, 4.9);
+		
+		% Pase hacia atrás (reubicado a y = -1.6, despejado de las neuronas)
+		\draw[->, line width=1.4pt, draw=red!75!black, dashed] (7.9, -1.6) -- node[below=3pt, font=\small\bfseries] {Pase hacia atrás (\textit{Backward pass} / Propagación de gradientes)} (0.5, -1.6);
+		
+		% Cuadro explicativo de actualización por Gradient Descent (reubicado a y = -2.7)
+		\node[draw=black!70, fill=white, rounded corners=3pt, font=\scriptsize, align=center, inner sep=5pt] at (4.2, -2.7) {
+			Actualización de parámetros: $W^{t} = W^{t-1} - \eta \, \nabla_W LF(W^{t-1})$
+		};
+		
+	\end{tikzpicture}
+	\caption{Ilustración del mecanismo de retropropagación. Elaboración propia}
+	\label{fig:backpropagation}
+\end{figure}
+\FloatBarrier
 
 Es muy importante que los parámetros estén inicializados de forma aleatoria para que se puedan distinguir los unos de los otros. Si no fuera así, el algoritmo \textit{reverse-mode automatic differentiation} sería incapaz de saber qué neurona ha contribuido más o menos al error y \textit{gradient descent} las actualizaría en la misma cuantía. Al ser todas las neuronas iguales, actuarían como una sola con la consecuente reducción de la capacidad de cómputo de la red neuronal.
 
@@ -650,10 +866,10 @@ Los modelos neuronales propuestos, tanto en la modalidad \textit{offline} como \
 \begin{equation}
 	\mathbf{B}_k = 
 	\begin{bmatrix}
-		\mathbf{G}_k     & \mathbf{G}_{k+1}   & \dots  & \mathbf{G}_{k+LB-1} \\
-		\mathbf{G}_{k+1} & \mathbf{G}_{k+2}   & \dots  & \mathbf{G}_{k+LB}   \\
+		\mathbf{G}_t     & \mathbf{G}_{t+1}   & \dots  & \mathbf{G}_{t+LB-1} \\
+		\mathbf{G}_{t+1} & \mathbf{G}_{t+2}   & \dots  & \mathbf{G}_{t+LB}   \\
 		\vdots           & \vdots             & \ddots & \vdots               \\
-		\mathbf{G}_{k+BS-1} & \mathbf{G}_{k+BS} & \dots  & \mathbf{G}_{k+BS+LB-2}
+		\mathbf{G}_{t+BS-1} & \mathbf{G}_{t+BS} & \dots  & \mathbf{G}_{t+BS+LB-2}
 	\end{bmatrix} 
 	\in \real^{BS\times LB\times M_{total}\times N_{total}\times F}
 	\label{eq35}
@@ -665,13 +881,132 @@ Los \textit{mini-batches} $\textbf{B}_k$\footnote{Se utiliza la numeración $k$ 
 Las series temporales resultan sencillas de manipular en contextos de \textit{mini-batches} puesto que la salida esperada $\textbf{Y}_k$ para cada uno es la siguiente muestra a la última del \textit{mini-batch}, facilitando la medición del error en la función de coste. Continuando con la ecuación \ref{eq35}:
 
 \begin{equation}
-	\textbf{Y}_k = \textbf{X}_{k+BS+LB-1}
+	\textbf{Y}_k = \textbf{X}_{t+BS+LB-1}
 \end{equation}
 
-Sin embargo, los \textit{batches} $B_k$ son improcesables por las neuronas LSTM sin proyectarlos en una matriz tridimensional \cite{machinelearningbook,lstm2}. El proceso es sencillo y simplemente fusiona las tres últimas dimensiones de $B_k$ en una sola para obtener $B_k \in \real^{BS\times LB\times (M_{total}\cdot N_{total}\cdot F)}$. No se produce ningún cambio en los datos ni pérdidas de información. Es una simple reorganización de los elementos de una matriz.
+Sin embargo, los \textit{batches} $B_k$ son improcesables por las neuronas LSTM sin proyectarlos en una matriz tridimensional \cite{machinelearningbook,lstm2}. El proceso es sencillo y simplemente fusiona las tres últimas dimensiones de $B_k$ en una sola para obtener $B_k \in \real^{BS\times LB\times (M_{total}\cdot N_{total}\cdot F)}$. No se produce ningún cambio en los datos ni pérdidas de información. Es una simple reorganización de los elementos de una matriz como se ilustra en la Figura \ref{fig:tensor_pipeline_vertical}.
 
 Por último, los \textit{batches} tridimensionales son procesados por las capas recurrentes para extraer el patrón temporal que define la evolución de los patrones geográficos y generar una predicción $\hat{\textbf{Y}_k}$. En este TFG se utilizan exclusivamente neuronas LSTM en las capas recurrentes por su superioridad respecto a las neuronas recurrentes simples.
 
 \begin{equation}
 	\hat{\textbf{Y}}_k = LSTM(\textbf{B}_k)
 \end{equation}
+
+\newpage
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}[
+		>=Stealth,
+		font=\sffamily,
+		tensor2d/.style={
+			draw=blue!70!black, fill=blue!15,
+			rounded corners=2pt, minimum width=1.9cm, minimum height=0.75cm,
+			align=center, font=\scriptsize
+		},
+		flat block/.style={
+			draw=cyan!70!black, fill=cyan!20,
+			rounded corners=2pt, minimum width=2.1cm, minimum height=0.65cm,
+			align=center, font=\scriptsize
+		},
+		lstm cell/.style={
+			draw=orange!85!black, fill=orange!25,
+			rounded corners=3pt, minimum width=1.5cm, minimum height=0.85cm,
+			align=center, font=\small\bfseries
+		},
+		dense block/.style={
+			draw=green!60!black, fill=green!20,
+			rounded corners=2pt, minimum width=2.3cm, minimum height=0.85cm,
+			align=center, font=\scriptsize\bfseries
+		},
+		out block/.style={
+			draw=red!70!black, fill=red!15,
+			rounded corners=2pt, minimum width=2.3cm, minimum height=0.85cm,
+			align=center, font=\scriptsize\bfseries
+		},
+		arrow/.style={->, thick, draw=black!75}
+		]
+		
+		% --- Macro para dibujar un tensor 3D (Prisma) ---
+		% #1: nombre nodo, #2: x, #3: y, #4: texto principal
+		\newcommand{\drawtensor}[4]{
+			\begin{scope}[shift={(#2,#3)}]
+				% Cara frontal
+				\filldraw[fill=teal!25, draw=teal!80!black, line width=0.6pt] (0,0) rectangle (2.0,0.7);
+				% Cara superior
+				\filldraw[fill=teal!15, draw=teal!80!black, line width=0.6pt] (0,0.7) -- (0.35,1.0) -- (2.35,1.0) -- (2.0,0.7) -- cycle;
+				% Cara lateral derecha
+				\filldraw[fill=teal!35, draw=teal!80!black, line width=0.6pt] (2.0,0) -- (2.35,0.3) -- (2.35,1.0) -- (2.0,0.7) -- cycle;
+				% Nodo ancla central para conexiones
+				\node (#1) at (1.0, 0.35) [font=\scriptsize, align=center] {#4};
+				\coordinate (#1_in) at (0, 0.35);
+				\coordinate (#1_out) at (2.35, 0.35);
+				\coordinate (#1_top) at (1.17, 1.0);
+			\end{scope}
+		}
+		
+		% --- 1. Entrada Lookback Window ---
+		\node[tensor2d] (x1) at (0, 3.8) {$X_{t}$};
+		\node[tensor2d] (x2) at (0, 2.3) {$X_{t+1}$};
+		\node[font=\bfseries] at (0, 1.3) {$\vdots$};
+		\node[tensor2d] (xlb) at (0, 0.3) {$X_{t+LB-1}$};
+		
+		\begin{scope}[on background layer]
+			\node[draw=blue!60!black, dashed, rounded corners=4pt, fit=(x1) (xlb), inner sep=7pt,
+			label={[font=\footnotesize\bfseries, text=blue!80!black]above:Secuencia Entrada ($LB$)}] (in_box) {};
+		\end{scope}
+		
+		% --- 2. Tensores 3D G_k desplazados hacia la izquierda (x = 2.6) ---
+		\drawtensor{g1}{2.6}{3.45}{$G_{t} \in \mathbb{R}^{M \times N \times F}$};
+		\drawtensor{g2}{2.6}{1.95}{$G_{t+1}$};
+		\node[font=\bfseries] at (3.77, 1.3) {$\vdots$};
+		\drawtensor{glb}{2.6}{-0.05}{$G_{t+LB-1}$};
+		
+		% Conexiones Conv2D con etiqueta centrada entre el marco discontinuo y el prisma G_k
+		\draw[arrow] (x1.east) -- (g1_in);
+		\path (in_box.east |- x1.east) -- (g1_in) node[midway, above=2pt, font=\tiny\bfseries] {Conv2D};
+		
+		\draw[arrow] (x2.east) -- (g2_in);
+		\path (in_box.east |- x2.east) -- (g2_in) node[midway, above=2pt, font=\tiny\bfseries] {Conv2D};
+		
+		\draw[arrow] (xlb.east) -- (glb_in);
+		\path (in_box.east |- xlb.east) -- (glb_in) node[midway, above=2pt, font=\tiny\bfseries] {Conv2D};
+		
+		% --- 3. Vectores Aplanados (Flatten) ---
+		\node[flat block] (v1) at (7.3, 3.8) {$v_{1} \in \mathbb{R}^{M \cdot N \cdot F}$};
+		\node[flat block] (v2) at (7.3, 2.3) {$v_{2} \in \mathbb{R}^{M \cdot N \cdot F}$};
+		\node[font=\bfseries] at (7.3, 1.3) {$\vdots$};
+		\node[flat block] (vlb) at (7.3, 0.3) {$v_{LB} \in \mathbb{R}^{M \cdot N \cdot F}$};
+		
+		% Conexiones Flatten con espacio ampliado sin solapamiento
+		\draw[arrow] (g1_out) -- node[above=2pt, font=\tiny\bfseries] {Flatten} (v1.west);
+		\draw[arrow] (g2_out) -- node[above=2pt, font=\tiny\bfseries] {Flatten} (v2.west);
+		\draw[arrow] (glb_out) -- node[above=2pt, font=\tiny\bfseries] {Flatten} (vlb.west);
+		
+		% --- 4. Columna Vertical LSTM (a la derecha de Flatten) ---
+		\node[lstm cell] (lstm1) at (10.6, 3.8) {$\text{LSTM}_1$};
+		\node[lstm cell] (lstm2) at (10.6, 2.3) {$\text{LSTM}_2$};
+		\node[font=\large\bfseries] (lstmdots) at (10.6, 1.3) {$\vdots$};
+		\node[lstm cell] (lstmlb) at (10.6, 0.3) {$\text{LSTM}_{LB}$};
+		
+		% Conexiones de Flatten a LSTM horizontales
+		\draw[arrow] (v1.east) -- (lstm1.west);
+		\draw[arrow] (v2.east) -- (lstm2.west);
+		\draw[arrow] (vlb.east) -- (lstmlb.west);
+		
+		% Flujo de estados recurrentes verticales hacia abajo
+		\draw[arrow] (lstm1.south) -- node[right=2pt, font=\tiny] {$h_1, c_1$} (lstm2.north);
+		\draw[arrow] (lstm2.south) -- (lstmdots.north);
+		\draw[arrow] (lstmdots.south) -- node[right=2pt, font=\tiny] {$h_{LB-1}, c_{LB-1}$} (lstmlb.north);
+		
+		% --- 5. Capa Densa (debajo de la columna LSTM) y Salida (a su izquierda) ---
+		\node[dense block] (dense) at (10.6, -1.3) {Dense Layer\\(MLP)};
+		\node[out block] (out) at (7.3, -1.3) {Predicción Futura\\$\hat{Y}_{k} \equiv X_{t+LB}$};
+		
+		\draw[arrow] (lstmlb.south) -- node[right=2pt, font=\tiny] {$h_{LB}$} (dense.north);
+		\draw[arrow] (dense.west) -- (out.east);
+		
+	\end{tikzpicture}
+	\caption{Ilustración del procesado de un \textit{mini-batch} de una secuencia espaciotemporal de longitud LB (BS=1) por una red neuronal convolucional recurrente. Elaboración propia.}
+	\label{fig:tensor_pipeline_vertical}
+\end{figure}
+\FloatBarrier

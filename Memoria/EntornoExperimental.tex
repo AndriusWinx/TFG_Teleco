@@ -43,25 +43,210 @@ Para poder evaluar el rendimiento de las arquitecturas mencionadas en las dos cu
 
 Para aprovechar al máximo las librerías cuDNN se ha utilizado la función de activación \texttt{sigmoide} para las puertas de entrada, salida y olvido y la función \texttt{tanh} para la combinación de entradas y estado de las neuronas LSTM \cite{lstmactivation,nvidiacudnn}. Otras funciones de activación no son compatibles con los \textit{kernels} optimizados cuDNN por lo que el tiempo de ejecución aumenta exponencialmente. Aunque cabe la posibilidad de que otras funciones de activación consigan mejores resultados, un tiempo de ejecución excesivamente alto inutiliza la red neuronal.
 
-
-\begin{figure}
+\newpage
+\begin{figure}[htbp]
 	\centering
-%	\includegraphics[width=0.4\linewidth]{Figuras/7x7CNNLSTM_sketch.svg}
+	\begin{tikzpicture}[
+		>=Stealth,
+		font=\sffamily,
+		% Estilos de bloques reutilizables
+		base block/.style={
+			minimum width=2.4cm, 
+			minimum height=0.72cm, 
+			rounded corners=3pt, 
+			align=center, 
+			line width=0.7pt
+		},
+		title block/.style={
+			base block,
+			font=\small\bfseries,
+			minimum height=0.62cm,
+			draw=gray!50,
+			fill=gray!10
+		},
+		input block/.style={
+			base block,
+			draw=teal!80!black, 
+			fill=teal!20, 
+			font=\scriptsize
+		},
+		conv block/.style={
+			base block,
+			draw=teal!70!black, 
+			fill=teal!15, 
+			font=\scriptsize
+		},
+		conv small/.style={
+			base block,
+			draw=teal!70!black, 
+			fill=teal!15, 
+			minimum height=0.52cm,
+			font=\scriptsize
+		},
+		flatten block/.style={
+			base block,
+			draw=cyan!70!black, 
+			fill=cyan!20, 
+			font=\scriptsize
+		},
+		lstm block/.style={
+			base block,
+			draw=orange!85!black, 
+			fill=orange!25, 
+			minimum height=1.1cm, 
+			font=\scriptsize\bfseries
+		},
+		dense block/.style={
+			base block,
+			draw=green!60!black, 
+			fill=green!20, 
+			minimum height=0.72cm, 
+			font=\scriptsize
+		},
+		output block/.style={
+			base block,
+			draw=gray!60, 
+			fill=white, 
+			font=\scriptsize
+		},
+		arrow line/.style={->, thick, draw=black!75},
+		column box/.style={
+			draw=black!70, 
+			rounded corners=6pt, 
+			line width=0.8pt
+		},
+		td box/.style={
+			draw=teal!70!black, 
+			dashed, 
+			rounded corners=4pt, 
+			line width=0.7pt, 
+			inner sep=3.5pt
+		}
+		]
+		
+		% =========================================================================
+		% DEFINICIÓN DE ALTURAS HORIZONTALES FIJAS (Y) RECALIBRADAS Y ESPACIADAS
+		% =========================================================================
+		% Y_title   =  0.00
+		% Y_input   = -1.15
+		% Y_conv1   = -2.45
+		% Y_flatten = -5.00  <-- Margen limpio garantizado bajo TimeDistributed
+		% Y_lstm    = -6.40
+		% Y_dense   = -7.75
+		% Y_output  = -8.85
+		% =========================================================================
+		
+		% -------------------------------------------------------------------------
+		% COLUMNA 1: LSTM
+		% -------------------------------------------------------------------------
+		\node[title block]  (c1_title) at (0.0,  0.00)  {LSTM};
+		\node[input block]  (c1_in)    at (0.0, -1.15)  {Input\\$(X_t, \text{LB} \times 49)$};
+		\node[lstm block]   (c1_lstm)  at (0.0, -6.40)  {LSTM Layer};
+		\node[dense block]  (c1_dense) at (0.0, -7.75)  {Dense Layer};
+		\node[output block] (c1_out)   at (0.0, -8.85)  {Output\\$(\hat{Y}_t)$};
+		
+		\draw[arrow line] (c1_in) -- (c1_lstm);
+		\draw[arrow line] (c1_lstm) -- (c1_dense);
+		\draw[arrow line] (c1_dense) -- (c1_out);
+		
+		% -------------------------------------------------------------------------
+		% COLUMNA 2: CNN + LSTM
+		% -------------------------------------------------------------------------
+		\node[title block]   (c2_title) at (3.5,  0.00)  {CNN+LSTM};
+		\node[input block]   (c2_in)    at (3.5, -1.15)  {Input\\$(X_t, \text{LB} \times 7 \times 7)$};
+		\node[conv block]    (c2_conv1) at (3.5, -2.45)  {Conv2D Layer 1};
+		\node[flatten block] (c2_flat)  at (3.5, -5.00)  {Flatten};
+		\node[lstm block]    (c2_lstm)  at (3.5, -6.40)  {LSTM Layer};
+		\node[dense block]   (c2_dense) at (3.5, -7.75)  {Dense Layer};
+		\node[output block]  (c2_out)   at (3.5, -8.85)  {Output\\$(\hat{Y}_t)$};
+		
+		\draw[arrow line] (c2_in) -- (c2_conv1);
+		\draw[arrow line] (c2_conv1) -- (c2_flat);
+		\draw[arrow line] (c2_flat) -- (c2_lstm);
+		\draw[arrow line] (c2_lstm) -- (c2_dense);
+		\draw[arrow line] (c2_dense) -- (c2_out);
+		
+		\begin{scope}[on background layer]
+			\node[td box, fit=(c2_conv1)] (c2_td) {};
+		\end{scope}
+		
+		% -------------------------------------------------------------------------
+		% COLUMNA 3: 2CNN + LSTM
+		% -------------------------------------------------------------------------
+		\node[title block]   (c3_title) at (7.0,  0.00)  {2CNN+LSTM};
+		\node[input block]   (c3_in)    at (7.0, -1.15)  {Input\\$(X_t, \text{LB} \times 7 \times 7)$};
+		\node[conv block]    (c3_conv1) at (7.0, -2.45)  {Conv2D Layer 1};
+		\node[conv block]    (c3_conv2) at (7.0, -3.55)  {Conv2D Layer 2};
+		\node[flatten block] (c3_flat)  at (7.0, -5.00)  {Flatten};
+		\node[lstm block]    (c3_lstm)  at (7.0, -6.40)  {LSTM Layer};
+		\node[dense block]   (c3_dense) at (7.0, -7.75)  {Dense Layer};
+		\node[output block]  (c3_out)   at (7.0, -8.85)  {Output\\$(\hat{Y}_t)$};
+		
+		\draw[arrow line] (c3_in) -- (c3_conv1);
+		\draw[arrow line] (c3_conv1) -- (c3_conv2);
+		\draw[arrow line] (c3_conv2) -- (c3_flat);
+		\draw[arrow line] (c3_flat) -- (c3_lstm);
+		\draw[arrow line] (c3_lstm) -- (c3_dense);
+		\draw[arrow line] (c3_dense) -- (c3_out);
+		
+		\begin{scope}[on background layer]
+			\node[td box, fit=(c3_conv1) (c3_conv2)] (c3_td) {};
+		\end{scope}
+		
+		% -------------------------------------------------------------------------
+		% COLUMNA 4: 3CNN + LSTM
+		% -------------------------------------------------------------------------
+		\node[title block]   (c4_title) at (10.5,  0.00) {3CNN+LSTM};
+		\node[input block]   (c4_in)    at (10.5, -1.15) {Input\\$(X_t, \text{LB} \times 7 \times 7)$};
+		\node[conv block]    (c4_conv1) at (10.5, -2.45) {Conv2D Layer 1};
+		\node[conv small]    (c4_conv2) at (10.5, -3.30) {Conv2D Layer 2};
+		\node[conv small]    (c4_conv3) at (10.5, -4.00) {Conv2D Layer 3};
+		\node[flatten block] (c4_flat)  at (10.5, -5.00) {Flatten};
+		\node[lstm block]    (c4_lstm)  at (10.5, -6.40) {LSTM Layer};
+		\node[dense block]   (c4_dense) at (10.5, -7.75) {Dense Layer};
+		\node[output block]  (c4_out)   at (10.5, -8.85) {Output\\$(\hat{Y}_t)$};
+		
+		\draw[arrow line] (c4_in) -- (c4_conv1);
+		\draw[arrow line] (c4_conv1) -- (c4_conv2);
+		\draw[arrow line] (c4_conv2) -- (c4_conv3);
+		\draw[arrow line] (c4_conv3) -- (c4_flat);
+		\draw[arrow line] (c4_flat) -- (c4_lstm);
+		\draw[arrow line] (c4_lstm) -- (c4_dense);
+		\draw[arrow line] (c4_dense) -- (c4_out);
+		
+		\begin{scope}[on background layer]
+			\node[td box, fit=(c4_conv1) (c4_conv3)] (c4_td) {};
+		\end{scope}
+		
+		% =========================================================================
+		% CAJAS EXTERIORES AMPLIADAS HORIZONTAL Y VERTICALMENTE
+		% Ancho aumentado a 3.10 cm (centrado ±1.55 cm)
+		% Alto extendido de y = +0.65 cm (arriba) a y = -9.55 cm (abajo)
+		% =========================================================================
+		\draw[column box] (-1.55,  0.65) rectangle (1.55, -9.55);
+		\draw[column box] ( 1.95,  0.65) rectangle (5.05, -9.55);
+		\draw[column box] ( 5.45,  0.65) rectangle (8.55, -9.55);
+		\draw[column box] ( 8.95,  0.65) rectangle (12.05, -9.55);
+		
+	\end{tikzpicture}
+	\caption{Comparación de las arquitecturas evaluadas: LSTM base, CNN+LSTM, 2CNN+LSTM y 3CNN+LSTM para una cuadrícula de 49 celdas. Elaboración propia.}
+	\label{fig:arquitecturas}
 \end{figure}
+\FloatBarrier
 
 
 \subsection{Procedimiento de entrenamiento}
 Para la evaluación y comparación de los modelos, se ha ideado un procedimiento similar a la validación de modelos de aprendizaje automático descrita en el Capítulo \ref{cap4:redes}. Se ha entrenado los modelos con las 400 primeras muestras del dataset y se han realizado dos validaciones distintas en cada modelo. Una de las validaciones se ha realizado con las otras 1000 muestras del dataset sin utilizar entrenamiento incremental. La otra validación se ha realizado con las mismas 1000 muestras pero implementando entrenamiento incremental con ajuste de gradientes por norma euclídea del error normalizado \cite{SKIMAcasaseca} definida por la ecuación:
 
 \begin{equation}
-	\norm{\frac{\textbf{Y}_t-\hat{\textbf{Y}}_t}{\textbf{Y}_t}}^2
+	\norm{\frac{\textbf{Y}_{t-1}-\hat{\textbf{Y}}_{t-1}}{\textbf{Y}_{t-1}}}^2
 	\label{eq:euclideannorm}
 \end{equation}
 
 Y el error cuadrático como función de coste:
 
 \begin{equation}
-	E_t(\textbf{W}_{t-1})=(\textbf{Y}_t-\hat{\textbf{Y}}_t)^2
+	E_{t-1}(\textbf{W}_{t-1})=(\textbf{Y}_{t-1}-\hat{\textbf{Y}}_{t-1})^2
 \end{equation}
 
 De esta forma, las ecuaciones \ref{eq7} y \ref{eq:euclideannorm} se combinan en:
@@ -134,7 +319,7 @@ Al realizar múltiples veces el análisis de Spearman cambiando el hperparámetr
 
 Debido a la disparidad en la distribución de las variables que se analizan en este trabajo, por ejemplo: el hiperparámetro \texttt{look\_back} toma valores entre 12 y 32 mientras la métrica NRMSE del modelo con \textit{online learning} toma valores entre 0 y 1; el análisis de Spearman es ideal al ser capaz de evitar que la diferencia entre los rangos de valores de las diferentes variables afecte al cálculo de la correlación entre ellas.
 
-Finalmente, aunque la correlación no implique causalidad, es un buen método para estimar el impacto de los hiperparámetros en la precisión de las arquitecturas estudiadas.
+Finalmente, aunque la correlación no necesariamente implica causalidad, es un buen método para estimar el impacto de los hiperparámetros en la precisión de las arquitecturas estudiadas.
 
 
 
