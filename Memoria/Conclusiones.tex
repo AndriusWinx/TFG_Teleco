@@ -1,6 +1,6 @@
-\section{Conclusiones y líneas futuras}
+\chapter{Conclusiones y líneas futuras}
 \label{cap9:conclusiones}
-\subsection{Conclusiones}
+\section{Conclusiones}
 Este trabajo ha plasmado la investigación realizada en torno a las redes neuronales compuestas por capas convolucionales y recurrentes aplicadas a la predicción del tráfico en red con \textit{online learning}. Se han analizado varias arquitecturas de redes neuronales con una capa de neuronas LSTM precedida por una cantidad variable entre ninguna y tres capas CNN. Se ha realizado un extenso proceso de validación basado en la estrategia \textit{grid search} sobre el dataset Milán y se ha obtenido el modelo con mayor precisión utilizando el NRMSE como métrica de rendimiento.
 
 Como regla general, los modelos con \textit{online learning} son ampliamente superiores a aquellos sin \textit{online learning}. Los cambios en el patrón de los datos pasan desapercibidos para los modelos sin \textit{online learning}. En cambio, los modelos con \textit{online learning} presentan una capacidad de adaptación extraordinaria.
@@ -11,7 +11,7 @@ Por último, se ha alcanzado la optimización del modelo original a través de f
 %%%%OBJETIVOS DEL TFG%%%%%%%%%%%%
 
 
-\subsection{Líneas futuras}
+\section{Líneas futuras}
 Para próximos trabajos se plantea la posibilidad de implementar los modelos descritos en este trabajo en forma de redes de grafos orientadas a la predicción de series temporales, más concretamente a la predicción de tráfico de red.
 
 El Capítulo \ref{cap2:arte} refleja el trabajo realizado hasta ahora en el que es posible continuar la investigación introduciendo los modelos propuestos en \cite{tfgalicia} con \textit{online learning} sobre las celdas estudiadas en este TFG. Así sería posible evaluar su rendimiento sobre las mismas celdas eliminando las sospechas de sesgo planteadas anteriormente.

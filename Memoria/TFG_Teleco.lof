@@ -1,30 +1,39 @@
 \babel@toc {spanish}{}\relax 
 \babel@toc {spanish}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Tipos de \textit {concept drift} \cite {conceptdrift}.}}{15}{figure.caption.9}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Plan de acción frente al \textit {concept drift} \cite {conceptdrift}.}}{15}{figure.caption.10}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Diagrama de flujo del algoritmo de reentreno online incremental con filtrado por umbral (threshold) y bucle de iteraciones (updates).}}{16}{figure.caption.11}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Representación de una red neuronal profunda perteneciente a un modelo de \textit {deep learning} \cite {azzouni2017}.}}{17}{figure.caption.12}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Estructura de un MLP \cite {dropout}.}}{19}{figure.caption.13}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Función linear rectificada $ReLU(z)$ \cite {deeplearning}.}}{20}{figure.caption.14}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Ilustración del mecanismo de retropropagación. Elaboración propia}}{23}{figure.caption.15}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Comparación entre \textit {grid search} y \textit {random search} \cite {deeplearning}.}}{24}{figure.caption.16}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Gráfico explicativo de la relación entre el error de entrenamiento ($E_in$) y el error de test $E_out$ \cite {paramtuning}}}{26}{figure.caption.17}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Ejemplo de un MLP con \textit {dropout} durante el entrenamiento \cite {dropout}.}}{28}{figure.caption.18}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Representación del efecto de una ventana deslizante con LB=10 \cite {azzouni2017}.}}{30}{figure.caption.19}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Representación de una neurona recurrente y su desglose en el tiempo \cite {lstm2}}}{33}{figure.caption.20}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Representación de una neurona LSTM con todas sus elementos, puertas y operaciones \cite {lstm2}.}}{36}{figure.caption.21}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Ejemplo de capa convolucional 5x5 con entradas 5x5 con un perímetro de \textit {zero padding} \cite {cnn2}.}}{38}{figure.caption.22}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Ejemplo de capa \textit {pooling} basada en la media aritmética de las celdas del campo visual con \textit {kernel} 2x2 y \textit {stride} 2 \cite {cnn3}.}}{39}{figure.caption.23}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Ejemplo de una arquitectura CNN con capas convolucionales y de agregación intercaladas \cite {cnn}}}{40}{figure.caption.24}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Ilustración del procesado de un \textit {mini-batch} de una secuencia espaciotemporal de longitud LB (BS=1) por una red neuronal convolucional recurrente. Elaboración propia.}}{42}{figure.caption.25}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para las celdas 5357 (arriba) y 5358 (abajo) \cite {milandataset}.}}{44}{figure.caption.26}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Comparación de las arquitecturas evaluadas: LSTM base, CNN+LSTM, 2CNN+LSTM y 3CNN+LSTM para una cuadrícula de 49 celdas. Elaboración propia.}}{46}{figure.caption.27}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Distribución de las medias de NRMSE de los modelos con \textit {online learning} según el tamaño de la cuadrícula. Elaboración propia.}}{51}{figure.caption.28}%
-\contentsline {figure}{\numberline {21}{\ignorespaces Distribución de las medias de NRMSE de los modelos con \textit {online learning} según la arquitectura del modelo. Elaboración propia.}}{52}{figure.caption.29}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Densidad de las medias de NRMSE en entrenamiento estático (línea discontinua) y \textit {online learning} (línea continua) según el tamaño de la cuadrícula y del kernel. Elaboración propia.}}{54}{figure.caption.31}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Influencia del hiperparámetro \texttt {look\_back} en la media del NRMSE y en el tiempo de ejecución medio en modelos con \textit {online learning}. Elaboración propia.}}{55}{figure.caption.32}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Influencia del hiperparámetro \texttt {updates} en la media del NRMSE y en el tiempo de ejecución medio en modelos con \textit {online learning}. Elaboración propia.}}{57}{figure.caption.33}%
-\contentsline {figure}{\numberline {25}{\ignorespaces NRMSE por celda del mejor modelo con \textit {online learning}. Elaboración propia.}}{59}{figure.caption.35}%
-\contentsline {figure}{\numberline {26}{\ignorespaces NRMSE por celda de los mejores modelos con \textit {online learning} de cada arquitectura (LSTM, 2CNN+LSTM y 3CNN+LSTM). Elaboración propia.}}{59}{figure.caption.36}%
-\contentsline {figure}{\numberline {27}{\ignorespaces Tráfico real y predicciones con \textit {online y \textit {offline learning}} del mejor modelo en las celdas 5162 (arriba) y 5163 (abajo). Elaboración propia.}}{60}{figure.caption.37}%
-\contentsline {figure}{\numberline {28}{\ignorespaces Tráfico real y predicciones con \textit {online y \textit {offline learning}} del mejor modelo en las celdas 4959 (arriba) y 5357 (abajo). Elaboración propia.}}{61}{figure.caption.38}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Tipos de \textit {concept drift} \cite {conceptdrift}.}}{18}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Plan de acción frente al \textit {concept drift} \cite {conceptdrift}.}}{18}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagrama de flujo del algoritmo de reentreno online incremental con filtrado por umbral (threshold) y bucle de iteraciones (updates).}}{20}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Representación de una red neuronal profunda perteneciente a un modelo de \textit {deep learning} \cite {azzouni2017}.}}{21}{figure.caption.12}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Estructura de un MLP \cite {dropout}.}}{24}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Función linear rectificada $ReLU(z)$ \cite {deeplearning}.}}{25}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Ilustración del mecanismo de retropropagación. Elaboración propia}}{28}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Comparación entre \textit {grid search} y \textit {random search} \cite {deeplearning}.}}{29}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Gráfico explicativo de la relación entre el error de entrenamiento ($E_in$) y el error de test $E_out$ \cite {paramtuning}.}}{31}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Ejemplo de un MLP con \textit {dropout} durante el entrenamiento \cite {dropout}.}}{33}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Representación del efecto de una ventana deslizante con LB=10 \cite {azzouni2017}.}}{35}{figure.caption.20}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Representación de una neurona recurrente y su desglose en el tiempo \cite {lstm2}}}{40}{figure.caption.21}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Representación de una neurona LSTM con todas sus elementos, puertas y operaciones \cite {lstm2}.}}{43}{figure.caption.22}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Ejemplo de capa convolucional 5x5 con entradas 5x5 con un perímetro de \textit {zero padding} \cite {cnn2}.}}{46}{figure.caption.23}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Ejemplo de capa \textit {pooling} basada en la media aritmética de las celdas del campo visual con \textit {kernel} 2x2 y \textit {stride} 2 \cite {cnn3}.}}{48}{figure.caption.24}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Ejemplo de una arquitectura CNN con capas convolucionales y de agregación intercaladas \cite {cnn}}}{48}{figure.caption.25}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Ilustración del procesado de un \textit {mini-batch} de una secuencia espaciotemporal de longitud LB (BS=1) por una red neuronal convolucional recurrente. Elaboración propia.}}{51}{figure.caption.26}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Datos contenidos en el \textit {dataset} Milán para las celdas 5357 (arriba) y 5358 (abajo) \cite {milandataset}.}}{54}{figure.caption.27}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Comparación de las arquitecturas evaluadas: LSTM base, CNN+LSTM, 2CNN+LSTM y 3CNN+LSTM para una cuadrícula de 49 celdas. Elaboración propia.}}{56}{figure.caption.28}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Distribución de las medias de NRMSE de los modelos con \textit {online learning} según el tamaño de la cuadrícula. Elaboración propia.}}{62}{figure.caption.29}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Distribución de las medias de NRMSE de los modelos con \textit {online learning} según la arquitectura del modelo. Elaboración propia.}}{62}{figure.caption.30}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Densidad de las medias de NRMSE en entrenamiento estático (línea discontinua) y \textit {online learning} (línea continua) según el tamaño de la cuadrícula y del kernel. Elaboración propia.}}{64}{figure.caption.32}%
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Influencia del hiperparámetro \texttt {look\_back} en la media del NRMSE y en el tiempo de ejecución medio en modelos con \textit {online learning}. Elaboración propia.}}{65}{figure.caption.33}%
+\contentsline {figure}{\numberline {8.5}{\ignorespaces Influencia del hiperparámetro \texttt {updates} en la media del NRMSE y en el tiempo de ejecución medio en modelos con \textit {online learning}. Elaboración propia.}}{67}{figure.caption.34}%
+\contentsline {figure}{\numberline {8.6}{\ignorespaces NRMSE por celda del mejor modelo con \textit {online learning}. Elaboración propia.}}{69}{figure.caption.36}%
+\contentsline {figure}{\numberline {8.7}{\ignorespaces NRMSE por celda de los mejores modelos con \textit {online learning} de cada arquitectura (LSTM, 2CNN+LSTM y 3CNN+LSTM). Elaboración propia.}}{69}{figure.caption.37}%
+\contentsline {figure}{\numberline {8.8}{\ignorespaces Tráfico real y predicciones con \textit {online y \textit {offline learning}} del mejor modelo en las celdas 5162 (arriba) y 5163 (abajo). Elaboración propia.}}{70}{figure.caption.38}%
+\contentsline {figure}{\numberline {8.9}{\ignorespaces Tráfico real y predicciones con \textit {online y \textit {offline learning}} del mejor modelo en las celdas 4959 (arriba) y 5357 (abajo). Elaboración propia.}}{71}{figure.caption.39}%
+\addvspace {10\p@ }

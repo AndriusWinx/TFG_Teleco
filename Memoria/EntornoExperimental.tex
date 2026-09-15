@@ -1,6 +1,6 @@
-\section{Entorno experimental}
+\chapter{Entorno experimental}
 \label{cap7:entorno}
-\subsection{Descripción de los datos}
+\section{Descripción de los datos}
 Los datos utilizados en este trabajo provienen del dataset Milán \cite{milandataset}. Este dataset fue creado con la intención original de descubrir la relación, si existiese, entre los eventos meteorológicos y el tráfico de red en la ciudad de Milán, Italia. El dataset contiene datos tanto climatológicos como de SMS, llamadas telefónicas y tráfico perteneciente a navegación web. Los datos están organizados en mediciones realizadas cada hora que corresponden a una celda cuadrada de $235 m$ de lado dentro de un área de $553.66km^2$ de la ciudad de Milán \cite{milanogrid}. El dataset contiene mediciones correspondientes a los meses de noviembre y diciembre de 2013. Para este trabajo se han aislado y agregado agregado los datos relativos a SMS, llamadas telefónicas y tráfico web en muestras equiespaciadas una hora en el tiempo, desechando la información relativa a los eventos meteorológicos.
 
 Las celdas utilizadas en este trabajo corresponden a una cuadrícula de 7x7 celdas centrada en la celda 5060. Para averiguar el alcance de las redes neuronales convolucionales, también se han realizado pruebas con una cuadrícula de 15x15 celdas centradas en la celda 5464. Esta última cuadrícula engloba completamente a la cuadrícula 7x7.
@@ -32,16 +32,14 @@ A la vista de estos cambios en los patrones del dataset Milán, se ha decidido e
 
 
 
-\subsection{Arquitecturas empleadas}
-Definiendo el término arquitectura como la combinación de capas de neuronas que describe a una red neuronal y modelo como el conjunto de valores concretos de los hiperparámetros de una red neuronal, para este trabajo se han utilizado 4 arquitecturas de redes neuronales. En primer lugar se ha utilizado una arquitectura formada por una única capa de 24 neuronas LSTM en medio de una capa de entrada y una capa completamente conectada de 3 salidas. Con esta arquitectura se ha obtenido el rendimiento base de la propuesta realizada por el Dr. Juan Pablo Casaseca de la Higuera \cite{SKIMAcasaseca},a mejorar en este trabajo. Los datos procesados por esta arquitectura pertenecen a las celdas 4259, 4456 y 5060 del dataset Milán.
+\section{Arquitecturas empleadas}
+Definiendo el término arquitectura como la combinación de capas de neuronas que describe a una red neuronal y modelo como el conjunto de valores concretos de los hiperparámetros de una red neuronal, para este trabajo se han utilizado 4 arquitecturas de redes neuronales. En primer lugar se ha utilizado una arquitectura formada por una única capa de 24 neuronas LSTM en medio de una capa de entrada y una capa completamente conectada de 3 salidas. Con esta arquitectura se ha obtenido el rendimiento base propuesto en \cite{SKIMAcasaseca},a mejorar en este trabajo. Los datos procesados por esta arquitectura pertenecen a las celdas 4259, 4456 y 5060 del dataset Milán.
 
 Se ha utilizado también una arquitectura formadas por una capa de entrada, una capa de neuronas LSTM y una capa completamente conectada. De esta forma se ha obtenido el rendimiento de la arquitectura exclusivamente LSTM\footnote{A lo largo de este trabajo se hará referencia a esta arquitectura como LSTM.} con las celdas contiguas de la ciudad de Milán.
 
-Para intentar extraer la correlación espacial entre las celdas, se han propuesto otras 3 arquitecturas compuestas por una capa de entrada, 1, 2 y 3 capas de neuronas CNN\footnote{A lo largo de este trabajo se hará referencia a estas arquitecturas como CNN+LSTM, 2CNN+LSTM y 3CNN+LSTM respectivamente.} respectivamente, una capa \texttt{Flatten}, una capa de neuronas LSTM y una capa completamente conectada para dar formato a las salidas \cite{timedistributed}.
+Para intentar extraer la correlación espacial entre las celdas, se han propuesto otras 3 arquitecturas, resumidas en la Figura \ref{fig:arquitecturas}, compuestas por una capa de entrada, 1, 2 y 3 capas de neuronas CNN\footnote{A lo largo de este trabajo se hará referencia a estas arquitecturas como CNN+LSTM, 2CNN+LSTM y 3CNN+LSTM respectivamente.} respectivamente, una capa \texttt{Flatten}, una capa de neuronas LSTM y una capa completamente conectada para dar formato a las salidas \cite{timedistributed}.
 
-Para poder evaluar el rendimiento de las arquitecturas mencionadas en las dos cuadrículas se modifica simplemente el tamaño de las capas convolucionales para que se ajusten a las dimensiones de los conjuntos de celdas. El hecho de utilizar dos conjuntos, de 49 y 225 celdas, no implica utilizar una arquitectura distinta para cada conjunto. La arquitectura refiere a la disposición de las diferentes capas de neuronas en el modelo, no del tamaño ni la cantidad de neuronas presentes en ellas.
 
-Para aprovechar al máximo las librerías cuDNN se ha utilizado la función de activación \texttt{sigmoide} para las puertas de entrada, salida y olvido y la función \texttt{tanh} para la combinación de entradas y estado de las neuronas LSTM \cite{lstmactivation,nvidiacudnn}. Otras funciones de activación no son compatibles con los \textit{kernels} optimizados cuDNN por lo que el tiempo de ejecución aumenta exponencialmente. Aunque cabe la posibilidad de que otras funciones de activación consigan mejores resultados, un tiempo de ejecución excesivamente alto inutiliza la red neuronal.
 
 \newpage
 \begin{figure}[htbp]
@@ -234,8 +232,11 @@ Para aprovechar al máximo las librerías cuDNN se ha utilizado la función de a
 \end{figure}
 \FloatBarrier
 
+Para poder evaluar el rendimiento de las arquitecturas mencionadas en las dos cuadrículas se modifica simplemente el tamaño de las capas convolucionales para que se ajusten a las dimensiones de los conjuntos de celdas. El hecho de utilizar dos conjuntos, de 49 y 225 celdas, no implica utilizar una arquitectura distinta para cada conjunto. La arquitectura refiere a la disposición de las diferentes capas de neuronas en el modelo, no del tamaño ni la cantidad de neuronas presentes en ellas.
 
-\subsection{Procedimiento de entrenamiento}
+Para aprovechar al máximo las librerías cuDNN se ha utilizado la función de activación \texttt{sigmoide} para las puertas de entrada, salida y olvido y la función \texttt{tanh} para la combinación de entradas y estado de las neuronas LSTM \cite{lstmactivation,nvidiacudnn}. Otras funciones de activación no son compatibles con los \textit{kernels} optimizados cuDNN por lo que el tiempo de ejecución aumenta exponencialmente. Aunque cabe la posibilidad de que otras funciones de activación consigan mejores resultados, un tiempo de ejecución excesivamente alto inutiliza la red neuronal.
+
+\section{Procedimiento de entrenamiento}
 Para la evaluación y comparación de los modelos, se ha ideado un procedimiento similar a la validación de modelos de aprendizaje automático descrita en el Capítulo \ref{cap4:redes}. Se ha entrenado los modelos con las 400 primeras muestras del dataset y se han realizado dos validaciones distintas en cada modelo. Una de las validaciones se ha realizado con las otras 1000 muestras del dataset sin utilizar entrenamiento incremental. La otra validación se ha realizado con las mismas 1000 muestras pero implementando entrenamiento incremental con ajuste de gradientes por norma euclídea del error normalizado \cite{SKIMAcasaseca} definida por la ecuación:
 
 \begin{equation}
@@ -257,7 +258,7 @@ De esta forma, las ecuaciones \ref{eq7} y \ref{eq:euclideannorm} se combinan en:
 
 De esta forma se da una mayor importancia a las predicciones que han generado errores mayores. Estos errores dan más información y permiten realizar una actualización de pesos más agresiva para aumentar la velocidad de convergencia hacia el mínimo de la función de coste.
 
-\subsection{Hiperparámetros considerados}
+\section{Hiperparámetros considerados}
 Hay una selección variada de parámetros configurables a la hora de entrenar las redes neuronales propuestas. No todos los parámetros han sido considerados como configurables como, por ejemplo, el tamaño de los sets de entrenamiento, test estático y test incremental. El criterio de selección se basa en el impacto de los hiperparámetros en el rendimiento de las redes neuronales en el apartado de \textit{online learning}. Por esta razón se ha seleccionado los siguientes parámetros:
 
 \begin{itemize}
@@ -279,7 +280,7 @@ Hay una selección variada de parámetros configurables a la hora de entrenar la
 Para la búsqueda de los parámetros óptimos se ha preferido la estrategia \textit{grid search} frente a \textit{random search}. Los hiperparámetros considerados tienen un gran impacto en el tiempo de procesado de las redes neuronales, que se intenta reducir en la medida de lo posible. Esto establece un límite en el número de filtros, \texttt{updates} y el tamaño de la ventana deslizante y los \textit{batchs}. Además, un umbral \texttt{threshold} demasiado alto inutiliza el entrenamiento incremental. De esta forma, aunque \textit{random search} tenga posibilidades de probar combinaciones con valores fuera de lo normal, es casi seguro que éstos desemboquen en combinaciones que impongan una carga computacional excesiva.
 
 
-\subsection{Métricas de rendimiento}
+\section{Métricas de rendimiento}
 Como métrica de rendimiento se ha utilizado la raíz normalizada del error cuadrático medio o NRMSE (\textit{Root Normalized Mean Squared Error}). Sin embargo, como cada celda tiene su propio patrón temporal subyacente, cada celda tiene un NRMSE distinto. Teniendo 49 o 225 celdas es imposible comparar todos sus NRMSE con los NRMSE de otras celdas con otra combinación de hiperparámetros. Para dicha comparación, como todas las celdas son consideradas igual de importantes, se ha usado la media aritmética del NRMSE de todas las celdas.
 
 El NRMSE eleva al cuadrado las diferencias entre el valor real $\textbf{Y}_i$ y el valor predicho por la red neuronal $\hat{\textbf{y}}_i$ y las promedia. Finalmente calcula la raíz cuadrada del promedio y normaliza, en este trabajo, por la desviación típica de los valores reales. El NRMSE queda por tanto definido como:
@@ -290,10 +291,10 @@ El NRMSE eleva al cuadrado las diferencias entre el valor real $\textbf{Y}_i$ y 
 
 donde $n$ es el número de muestras del conjunto medido.
 
-El NRMSE es una métrica adimensional independiente de la magnitud de los datos que representa la distancia entre dos puntos. Es ideal para este trabajo puesto que los datos utilizados presentan grandes fluctuaciones que distorsionarían el error cuadrático medio y su raíz. Un valor de 0 de NRMSE sería perfecto, sin errores cometidos en todo el set. Sin embargo, es irracional buscar un NRMSE=0. Teniendo en cuenta los resultados obtenidos por el Dr. Juan Pablo Casaseca de la Higuera \cite{SKIMAcasaseca}, el NRMSE buscado es aquel NRMSE<0,1778 en el set de entrenamiento incremental.
+El NRMSE es una métrica adimensional independiente de la magnitud de los datos que representa la distancia entre dos puntos. Es ideal para este trabajo puesto que los datos utilizados presentan grandes fluctuaciones que distorsionarían el error cuadrático medio y su raíz. Un valor de 0 de NRMSE sería perfecto, sin errores cometidos en todo el set. Sin embargo, es irracional buscar un NRMSE=0. Teniendo en cuenta los resultados obtenidos en \cite{SKIMAcasaseca}, el NRMSE buscado es aquel NRMSE<0,1778 en el set de entrenamiento incremental.
 
 
-\subsection{Análisis de Spearman}
+\section{Análisis de Spearman}
 Para estimar el impacto de cada hiperparámetro en el desempeño de cada arquitectura, se ha decidido optar por el análisis de Spearman. Es un método no paramétrico para la estimación de la dependencia estadística entre dos variables. A diferencia del análisis de Pearson, que busca relaciones estrictamente lineales, Spearman busca cualquier tipo de relación.
 
 Como todo algoritmo estadístico, el análisis de Spearman comienza por la obtención de una muestra de una población de dos variables. En el caso de este TFG una de las variables siempre es la métrica de rendimiento y la otra es cada uno de los hiperparámetros considerados.

@@ -1,4 +1,4 @@
-\section{Introducción}
+\chapter{Introducción}
 \label{cap1:intro}
 Las redes de telecomunicaciones tienen como finalidad el intercambio de información entre un nodo transmisor y un nodo receptor. Es un concepto sencillo afectado por un problema de números. Siguendo la ley de Bell, el número de dispositivos ha aumentado exponencialmente desde 1 ordenador básico en un departamento de una empresa a múltiples dispositivos por persona (teléfonos móviles, relojes inteligentes...)\cite{bell2008}. Casi con la misma tendencia ha evolucionado la tecnología de las telecomunicaciones, impidiendo que el crecimiento de los dispositivos saturase las capacidades de la red. De esta forma, en la actualidad existe una infinidad de nodos transmisores y receptores.
 
@@ -13,7 +13,7 @@ Para solucionar dicho problema se han desarrollado modelos capaces de adaptarse 
 Este trabajo se basa en la investigación realizada en \cite{SKIMAcasaseca, tfgalicia} acerca de modelos LSTM que implementan actualizaciones incrementales donde las muestras sobre las que los modelos tuvieron un mayor error toman mayor importancia. En este trabajo se plantea la hipótesis de que un modelo que combine arquitecturas de redes neuronales convolucionales y de redes neuronales recurrentes tenga una precisión predictiva en \textit{online learning} superior a aquellos modelos basados únicamente en redes neuronales recurrentes.
 
 
-\subsection{Objetivos}
+\section{Objetivos}
 El principal objetivo de este trabajo es analizar la capacidad de adaptación mediante entrenamiento incremental de diferentes modelos de redes neuronales convolucionales recurrentes ante cambios en el patrón subyacente de series temporales.
 
 Dentro del objetivo principal se establecen los siguientes objetivos secundarios:
@@ -25,7 +25,7 @@ Dentro del objetivo principal se establecen los siguientes objetivos secundarios
 \end{itemize}
 
 
-\subsection{Metodología}
+\section{Metodología}
 Este TFG se ha desarrollado en varias etapas consecutivas para lograr los objetivos mencionados:
 
 \begin{itemize}
@@ -40,7 +40,7 @@ Este TFG se ha desarrollado en varias etapas consecutivas para lograr los objeti
 	\item \textbf{Redacción:} incluye el diseño y escritura de esta memoria. Este TFG no incluye un producto final asociado a un modelo de \textit{deep learning} entrenado para la predicción de tráfico de red.
 \end{itemize}
 
-\subsection{Medios necesarios}
+\section{Medios necesarios}
 Para el desarrollo de las redes neuronales utilizadas en este trabajo se ha utilizado una plataforma virtualizada llamada Kaggle. Ésta permite al usuario de forma gratuita el acceso a GPUs (\textit{Graphics Processing Units}) durante 30h por semana. Las GPUs en cuestión son del modelo NVIDIA TESLA P100, ideales para el entrenamiento de redes neuronales gracias a sus 4 cores y 29 GB de RAM \cite{gpup100}. Además, Kaggle ofrece un entorno de edición gráfico bastante intuitivo.
 
 El lenguaje de programación utilizado en este trabajo es Python. Es un lenguaje orientado a objetos, interpretado e interactivo. Su gran popularidad está basada en su versatilidad. La alta compatibilidad de sus módulos ha hecho que existan numerosas librerías y paquetes especializados y eficientes en multitud de tareas entre las cuales se encuentra el desarrollo de redes neuronales como Tensorflow o SKLearn.
@@ -49,7 +49,7 @@ En \textit{frameworks} de computación en paralelo como CUDA (\textit{Compute Un
 
 Para conseguir la reproducibilidad de los resultados se ha de introducir varias restricciones para eliminar la aleatoriedad. Se han fijado todas las semillas de generación de números pseudoaleatorios de Python, Tensorflow y NumPy y se ha forzado a las librerías Tensorflow y cuDNN a acceder a los recursos hardware de forma determinista a través de las variables de entorno del sistema operativo \cite{tfdeterministic,nvidiacudnn}.
 
-\subsection{Estructura del documento}
+\section{Estructura del documento}
 Esta memoria se divide en 9 capítulos comenzando por esta introducción. En este primer Capítulo se desarrolla la motivación, los objetivos y la metodología y medios empleados en este trabajo junto a una breve descripción de la estructura de la memoria.
 
 El Capítulo \ref{cap2:arte} encuadra este trabajo dentro de la investigación actual en torno a la predicción de tráfico de red.

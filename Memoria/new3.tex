@@ -1,9 +1,9 @@
-\section{Fundamentos del \textit{Machine Learning} y \textit{Deep learning}}
+\chapter{Fundamentos del \textit{Machine Learning} y \textit{Deep learning}}
 \label{cap3:ia}
 
 
 
-\subsection{Inteligencia Artificial}
+\section{Inteligencia Artificial}
 A lo largo de la historia el ser humano ha tratado de automatizar diversas tareas para obtener una mayor eficiencia en su ejecución, reducir su complejidad o liberar al ser humano de las mismas. La programación tal y como la conocemos ahora tiene el mismo objetivo y tuvo su inicio con Ada Lovelace y su \textit{Analytical Engine} en 1843 \cite{lovelace1843}.
 
 El \textit{Analytical Engine} fue el primer ordenador de uso general conocido aunque se limitaba a repetir un mismo conjunto de órdenes perfectamente definidas. En 1950, un grupo de programadores dio forma a lo que hoy conocemos como Inteligencia Artificial: la automatización de tareas que requieren del intelecto humano para ser realizadas y completadas \cite{mccarthy1955}.
@@ -15,7 +15,7 @@ Aquellas inteligencias artificiales incapaces de aprender como DeepBlue son clas
 
 
 
-\subsection{\textit{Machine Learning}}
+\section{\textit{Machine Learning}}
 Deep Blue fue posible gracias a que sus programadores conocían a la perfección el patrón que relacionaba las entradas, en este caso la posición actual de las figuras de ajedrez en el tablero, y las salidas, siendo éstas últimas los movimientos que DeepBlue debía realizar sobre sus figuras en su turno de juego. Este patrón estaba extremadamente bien definido en las reglas del ajedrez y DeepBlue fue programado manualmente con un conjunto muy extenso de jugadas y decisiones que cubrían todas las posibilidades de juego.
 
 Aun con la eficiencia mostrada por DeepBlue en el ajedrez, estos ejemplos de Inteligencia Artificial resultaron ser pésimos en la ejecución de tareas más complejas y poco definidas como la clasificación de imágenes o el procesado de texto.
@@ -26,7 +26,7 @@ Para estimar si los patrones calculados son correctos, es necesario evaluarlos m
 
 Si definimos los datos de entrada y sus salidas esperadas como E y a la función de coste como R, es posible definir el \textit{Machine Learning} o aprendizaje automático: Un programa aprende de la experiencia E con respecto a una tarea T y una métrica de rendimiento R si su rendimiento en la tarea, medido por R, mejora con más experiencia E \cite{samuel1959, deeplearning}.
 
-\subsubsection{Técnicas de entrenamiento}
+\subsection{Técnicas de entrenamiento}
 Existen multitud de algoritmos de \textit{machine learning} que pueden ser clasificados según su método de entrenamiento en: aprendizaje por refuerzo, aprendizaje no supervisado y aprendizaje supervisado.
 
 %%%%%APRENDIZAJE POR REFUERZO
@@ -45,7 +45,7 @@ Finalmente, el aprendizaje supervisado, en donde se enclaustra este trabajo, uti
 
 Es especialmente útil en la clasificación como, por ejemplo, la identificación de correos electrónicos de SPAM y la predicción de datos como la predicción de eventos meteorológicos. Algunos ejemplos de algoritmos de aprendizaje supervisado son los árboles de decisión, \textit{Support Vector Machines}, la regresión lineal y no lineal y las neuronas artificiales \cite{machinelearningbook, machinelearningbook1}.
 
-\subsubsection{\textit{Online learning}}
+\subsection{\textit{Online learning}}
 Otra forma de clasificar los algoritmos de aprendizaje automático recae en su capacidad para aprender de forma incremental a medida que el modelo procesa nuevos datos. Los modelos estáticos u \textit{offline} son entrenados con todos los datos disponibles y pierden la capacidad de modificarse a sí mismos una vez puestos en producción. Se convierten en algoritmos que aplican las mismas reglas a todos los nuevos datos que procesen sin excepción.
 
 A medida que el tiempo avanza los datos disponibles cambian debido a la constante evolución de todo lo que nos rodea, y con ellos el patrón subyacente que se desea estimar a través de la inteligencia artificial. Este fenómeno, llamado \textit{data drift} o \textit{concept drift}, no afecta a los modelos estáticos por lo que se tornan cada vez más imprecisos e incapaces de proporcionar un resultado correcto. Por ejemplo, en el hipotético caso de la implementación de una nueva regla en la normativa del ajedrez, la soberanía de DeepBlue desaparecería. El mismo concepto es aplicable a los modelos de aprendizaje automático: un modelo estático de \textit{clustering} entrenado sobre un mercado determinado perdería su eficacia ante un cambio en los patrones de compra o en las necesidades de los consumidores \cite{conceptdrift,conceptdrift1,conceptdrift2}.
@@ -62,7 +62,7 @@ A medida que el tiempo avanza los datos disponibles cambian debido a la constant
 
 
 
-Para mitigar este problema, los modelos estáticos deben ser reentrenados de cero con todos los datos disponibles, incluidos los datos afectados por el \textit{data drift} y volver a ser lanzados a producción. Esto requiere una gran cantidad de capacidad de cómputo y en tiempos de espera elevados mientras se reentrena el modelo, lo que se traduce en grandes inversiones económicas en recursos como CPUs, GPUs... y la pérdida de beneficios al no tener un buen modelo en producción durante el reentreno.
+Para mitigar este problema, los modelos estáticos deben ser reentrenados de cero con todos los datos disponibles, incluidos los datos afectados por el \textit{data drift} y volver a ser lanzados a producción. Esto requiere una gran cantidad de capacidad de cómputo y en tiempos de espera elevados mientras se reentrena el modelo, lo que se traduce en grandes inversiones económicas en recursos como CPUs, GPUs,... y la pérdida de beneficios al no tener un buen modelo en producción durante el reentreno.
 
 
 \begin{figure}[h]
@@ -166,7 +166,7 @@ Como los recursos \textit{hardware} son limitados, también lo es la capacidad d
 
 
 
-\subsection{\textit{Deep learning}}
+\section{\textit{Deep learning}}
 Con todo esto, los algoritmos de \textit{Machine Learning} son capaces de resolver problemas más complejos que la Inteligencia Artificial simbólica pero es posible ir un paso más allá. Aunque el \textit{Machine Learning} pueda aprender los patrones que relacionan unas entradas con unas salidas, el \textit{Deep learning}, también llamado aprendizaje profundo, utiliza varias capas jerárquicas de aprendizaje para combinar las estructuras más simples obtenidas en las primeras capas en patrones más complejos que representen los datos procesados de forma mucho más precisa.
 
 En \textit{Deep Learning}, los algoritmos utilizan capas de neuronas artificiales organizadas de forma sucesiva como en la Figura \ref{fig:deepnet}. Existe una gran variedad de neuronas artificiales, cada una de ellas especializada en una tarea concreta como aplicar un mismo filtro a un conjunto de datos de entrada, almacenar información relevante sobre los datos o reestructurar y redimensionar los datos procesados \cite{deeplearning}.
@@ -190,11 +190,11 @@ Este trabajo se enmarca dentro del ámbito del \textit{Deep Learning}, más conc
 
 
 
-\section{Redes neuronales}
+\chapter{Redes neuronales}
 \label{cap4:redes}
 Las redes neuronales son los modelos de aprendizaje profundo por excelencia. Están formadas por neuronas artificiales que utilizan una serie de pesos para procesar unos datos de entrada. Su primera aparición fue en 1943 como una simple descripción del funcionamiento de las neuronas presentes en el sistema nervioso animal: una neurona con salida binaria activará su salida cuando un cierto número de sus entradas, también binarias, estén activas \cite{mcculloch1943}.
 
-\subsection{El \textit{Perceptron}}
+\section{El \textit{Perceptron}}
 
 Aunque las neuronas binarias pueden combinarse para formar redes capaces de procesar expresiones lógicas complejas, no son más que una combinación de puertas lógicas como las presentes en cualquier circuito electrónico. En 1957 Rosenblatt redefinió las neuronas artificiales para eliminar sus restricciones binarias, permitiendo un diseño basado en entradas y salidas continuas. Estas neuronas son llamadas TLU (\textit{Threshold Linear Unit}) \cite{rosenblatt1957, machinelearningbook}.
 
@@ -205,12 +205,9 @@ Las TLUs reciben como entradas una serie de valores $x_j$ donde $J$ es la cantid
 	\label{eq2} y=\phi&(z)
 \end{align}
 
-Una neurona TLU con una función de activación binaria como la Heaviside puede ser utilizada en tareas como la clasificación binaria. Sin embargo, su verdadero poder reside en la agrupación de varias TLUs en una misma capa. Esta es la arquitectura de redes neuronales más básica: el \textit{Perceptron}, capaz de, por ejemplo, clasificar los datos en J+1 categorías siendo J el número de neuronas TLU presentes en la arquitectura.
+Una neurona TLU con una función de activación binaria como la Heaviside puede ser utilizada en tareas como la clasificación binaria. Sin embargo, su verdadero poder reside en la agrupación de varias TLUs en una misma capa. Esta es la arquitectura de redes neuronales más básica: el \textit{Perceptron} o Perceptrón, capaz de, por ejemplo, clasificar los datos en J+1 categorías siendo J el número de neuronas TLU presentes en la arquitectura.
 
-%%%%%%%%%IMAGEN DEL PERCEPTRON UNICAPA
-
-
-Cada TLU está conectada a todas las entradas en una disposición llamada capa completamente conectada o \textit{dense layer}. Esta disposición no está presente en todas las arquitecturas como, por ejemplo, en las neuronas convolucionales. La Figura \ref{label} describe un \textit{Perceptron} de dos entradas y tres TLUs con tres salidas. En este caso, en forma matricial con tantas filas $i$ como TLUs y tantas columnas $j$ como entradas, los pesos $w_{i,j}$ se agrupan en la matriz $\textbf{W}$ y las entradas y los términos independientes en los vectores $\textbf{x}$ y $\textbf{b}$ respectivamente, modificando las expresiones \ref{eq1} y \ref{eq2}:
+Cada TLU está conectada a todas las entradas en una disposición llamada capa completamente conectada o \textit{dense layer}. En este caso, en forma matricial con tantas filas $i$ como TLUs y tantas columnas $j$ como entradas, los pesos $w_{i,j}$ se agrupan en la matriz $\textbf{W}$ y las entradas y los términos independientes en los vectores $\textbf{x}$ y $\textbf{b}$ respectivamente, modificando las expresiones \ref{eq1} y \ref{eq2}:
 
 \begin{align}
 	\label{eq3}
@@ -218,7 +215,7 @@ Cada TLU está conectada a todas las entradas en una disposición llamada capa c
 	\label{eq4}    &\textbf{y}=\phi(\textbf{z})
 \end{align}
 
-Los \textit{Perceptrons} son en sí arquitecturas muy simples con capacidades limitadas pero pueden encadenarse para aumentar su capacidad de cómputo. Esta arquitectura se llama \textit{Perceptron} multicapa o MLP (\textit{Multilayer Perceptron}) \cite{rosenblatt1957}. Así, las salidas de la primera capa de neuronas TLU es utilizada como entrada para la segunda capa de TLUs de forma sucesiva, como se observa en la Figura \ref{fig:mlp}.
+Los Perceptrones son en sí arquitecturas muy simples con capacidades limitadas pero pueden encadenarse para aumentar su capacidad de cómputo. Esta arquitectura se llama Perceptrón multicapa o MLP (\textit{Multilayer Perceptron}) \cite{rosenblatt1957}. Así, las salidas de la primera capa de neuronas TLU es utilizada como entrada para la segunda capa de TLUs de forma sucesiva, como se observa en la Figura \ref{fig:mlp}.
 
 \begin{figure}[h]
 	\centering
@@ -238,7 +235,7 @@ Denotando como $\textbf{h}_l$ la salida de la capa $l$ en un MLP con $L$ capas y
 
 Los MLPs pueden ser utilizados en diversas tareas como la clasificación o la regresión. Son capaces incluso de predecir varios valores al mismo tiempo dependiendo del número de TLUs presentes en la última capa de neuronas \cite{machinelearningbook, machinelearningbook1}.
 
-\subsection{Funciones de activación}
+\section{Funciones de activación}
 Existe una gran multitud de funciones de activación, todas ellas no lineales, para cada tarea en la que se apliquen las neuronas artificiales. Su implementación permite que las neuronas realicen transformaciones no lineales de los datos, siendo así capaces de ajustarse a una mayor variedad de patrones. Sin embargo, las funciones más básicas como la Heaviside no son compatibles con los métodos actuales de entrenamiento de modelos de aprendizaje profundo. Por ello, se propusieron otras funciones más complejas como la función sigmoide $\sigma(z)$, la función linear rectificada $ReLU(z)$ (\textit{Rectified Linear Unit}) y la tangente hiperbólica $tanh(z)$ \cite{machinelearningbook,rnn1}.
 
 \begin{figure}[h]
@@ -255,10 +252,10 @@ Las funciones de activación han sufrido un empujón en los últimos años para 
 
 
 
-\subsection{Entrenamiento de redes neuronales y \textit{backpropagation}}
+\section{Entrenamiento de redes neuronales y \textit{backpropagation}}
 Como se ha mencionado anteriormente, además de neuronas y funciones de activación, es necesario dotar al modelo de aprendizaje profundo de una métrica que evalúe la precisión de sus resultados y un método matemático capaz de modificar la red neuronal basándose en dicha métrica. Para obtener salidas distintas, la forma más sencilla es modificar ligeramente los valores contenidos en la matriz de pesos $\textbf{W}$ de forma aleatoria. Sin embargo, existen protocolos más eficaces como \textit{gradient descent} \cite{machinelearningbook}.
 
-\subsubsection{Gradient descent}
+\subsection{Gradient descent}
 
 \textit{Gradient descent} es un algoritmo de entrenamiento que modifica los parámetros que influyen en la salida de un modelo con el objetivo de minimizar una función de coste. Los parámetros de una red neuronal son los pesos $\textbf{W}$ incluyendo los términos independientes $\textbf{B}$. La variación introducida en los parámetros está controlada por la tasa de aprendizaje o \textit{learning rate} $\eta$ \cite{bottou2018}.
 
@@ -286,7 +283,7 @@ En este trabajo se utiliza un optimizador para aumentar la eficiencia de \textit
 
 donde $y$ es la salida real esperada e $\hat{y}_{t-1}$ es la salida arrojada por la red neuronal en la iteración $t-1$ de \textit{gradient descent}.
 
-\subsubsection{Funciones de coste}
+\subsection{Funciones de coste}
 Las funciones de coste son una parte esencial del algoritmo \textit{gradient descent} y no están relacionadas con las funciones de activación. Son el objetivo a minimizar a través de la modificación de los parámetros de la red neuronal. El cambio en los parámetros modifica el procesamiento que realiza la red sobre los datos de entrada y, consecuentemente, en la salida obtenida. La función de coste debe ajustarse al objetivo de la red neuronal para que los resultados sean válidos \cite{machinelearningbook}.
 
 El algoritmo \textit{gradient descent} permite a la red neuronal tomar cualquier atajo para minimizar su función de coste como ignorar ciertos datos clave o inventar nuevos datos. Por ello, ante la gran diversidad de funciones de coste existente a día de hoy, no todas las funciones son implementables para todas las redes neuronales ni para todos los propósitos \cite{machinelearningbook1}.
@@ -295,7 +292,7 @@ Entre las funciones de coste más populares se encuentran: la entropía cruzada 
 
 
 
-\subsubsection{\textit{Backpropagation}}
+\subsection{\textit{Backpropagation}}
 El algoritmo \textit{gradient descent} es la base del entrenamiento de redes neuronales pero no es aplicable directamente a redes con múltiples capas de neuronas. En 1970 Seppo Linnainmaa introdujo el algoritmo de diferenciación automática invertida (\textit{reverse-mode automatic differentiation}) \cite{seppo} que calcula en dos pasadas a toda la red todos los gradientes del error cometido en la salida, medido por la función de coste, respecto a todos y cada uno de los parámetros de la red neuronal. De esta forma se obtiene la contribución al error de cada término independiente $b_{i,l}$ y cada peso $w_{i,j,l}$ de cada entrada $j$ de cada neurona $i$ de cada capa $l$. El algoritmo \textit{gradient descent} puede utilizar estas aportaciones al error para calcular la magnitud en la que cada parámetro debe ser modificado.
 
 El algoritmo \textit{backpropagation}, también llamado retropropagación, es la combinación del algoritmo de Linnainmaa con \textit{gradient descent} \cite{rumelhart1985}. En primera instancia, la red neuronal procesa los datos de entrada para calcular una salida. Este es el pase hacia delante o \textit{forward pass}. Es el funcionamiento normal de una red neuronal salvo que se guardan todas las salidas de todas las neuronas de todas las celdas en vez de desecharlas y dar únicamente la salida final. Con todas esas salidas se ejecuta \textit{reverse-mode automatic differentiation} desde la útima capa hasta la primera para calcular la contribución al error perteneciente a cada capa. Este es el pase hacia atrás o \textit{backward pass} Por último, todos los parámetros son modificados con \textit{gradient descent}.
@@ -450,7 +447,7 @@ Las redes neuronales basadas en \textit{online learning} ejecutan el algoritmo \
 
 
 
-\subsection{Selección de modelos} %%%TRAIN+VAL+TEST
+\section{Selección de modelos} %%%TRAIN+VAL+TEST
 Los modelos de redes neuronales son entrenados aplicando \textit{backpropagation} hasta que los pesos de la red son los idóneos para minimizar la función de coste. Sin embargo, los pesos no son los únicos parámetros que caracterizan a la red neuronal evaluada. Hay una gran multitud de variables, llamadas hiperparámetros, que influyen en los resultados obtenidos. Un conjunto de hiperparámetros con unos valores concretos identifica a un modelo.
 
 Existen diferentes estrategias en la búsqueda de los mejores hiperparámetros. Entre las estrategias más comunes se encuentran el \textit{grid search} y el \textit{random search}. La primera itera sobre una matriz de valores concretos establecidos mientras la segunda utiliza conjuntos de valores obtenidos de forma aleatoria dentro de un rango delimitado. \textit{Grid search} ofrece un gran control sobre los valores utilizados en la búsqueda mientras \textit{random search} ofrece la posibilidad de encontrar buenos conjuntos de valores en un rango de búsqueda más amplio. Ninguna estrategia es infalible, siempre cabe la posibilidad de que el modelo para el que se realiza la búsqueda no sea un buen modelo \cite{randomsearch}.
@@ -479,16 +476,16 @@ Es importante recalcar que los datos de test sólo deben ser utilizados en la fa
 
 
 
-\subsection{Técnicas de regularización} %(dropout, gradient clipping, l1, l2, overfitting, vanishing gradients...)}
+\section{Técnicas de regularización} %(dropout, gradient clipping, l1, l2, overfitting, vanishing gradients...)}
 %%REGULARIZACIÓN, DATA LEAKAGE....
 Los problemas derivados del \textit{overfitting} tienen un gran impacto en el modelo escogido puesto que éste debe tener un buen rendimiento al procesar datos ajenos a los datos de entrenamiento, validación y test. Un modelo con \textit{overfitting} sólo es capaz de estimar el patrón subyacente en los datos de entrenamiento. Por ello, además de la estrategia de validación en la selección de modelos, existe la regularización.
 
-Un modelo con una gran cantidad de parámetros o de neuronas con respecto a la complejidad de los datos procesados es capaz de aprender de las muestras de entrenamiento pero también del ruido presente en los mismos. Esto implica que el modelo estima un patrón subyacente que presenta fluctuaciones aleatorias propias del ruido, siendo mucho menos eficaz. La regularización es un conjunto de técnicas cuyo objetivo es aplicar una penalización a la complejidad del modelo para evitar el \textit{overfitting} \cite{deeplearning, machinelearningbook1}.
+Un modelo con una gran cantidad de parámetros o de neuronas con respecto a la complejidad de los datos procesados es capaz de aprender de las muestras de entrenamiento pero también del ruido presente en los mismos. La figura \ref{fig:eineout} muestra la relación entre la complejidad de un modelo y su desempeño. Esto implica que el modelo estima un patrón subyacente que presenta fluctuaciones aleatorias propias del ruido, siendo mucho menos eficaz. La regularización es un conjunto de técnicas cuyo objetivo es aplicar una penalización a la complejidad del modelo para evitar el \textit{overfitting} \cite{deeplearning, machinelearningbook1}.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\linewidth]{Figuras/eineout.png}
-	\caption{Gráfico explicativo de la relación entre el error de entrenamiento ($E_in$) y el error de test $E_out$ \cite{paramtuning}}
+	\caption{Gráfico explicativo de la relación entre el error de entrenamiento ($E_in$) y el error de test $E_out$ \cite{paramtuning}.}
 	\label{fig:eineout}
 \end{figure}
 \FloatBarrier
@@ -520,7 +517,7 @@ El término $(1-\eta\lambda) \textbf{W}^{t-1}$ contrae continuamente los pesos e
 
 
 
-\subsubsection{$L_1$ o \textit{Lasso}}
+\subsection{$L_1$ o \textit{Lasso}}
 Es otra técnica de regularización que actúa sobre la función de coste $LF(\textbf{W}^{t-1})$  de una forma muy parecida a $L_2$. Sin embargo, su objetivo es la eliminación de las conexiones o neuronas redundantes o con poco impacto en la salida \cite{deeplearning}.
 
 Utilizando el valor absoluto de los pesos como mecanismo de penalización se consigue reducir la magnitud de los mismos en una cantidad constante. También se añade un término $\lambda$ para controlar el impacto de la regularización.
@@ -538,7 +535,7 @@ El operador $\nabla$ transforma la norma de los pesos en la función signo, modi
 El operador $- \eta\lambda sgn( \textbf{W}^{t-1})$ empuja los pesos hacia cero, anulando aquellos demasiado pequeños como para ser considerados útiles.
 
 
-\subsubsection{\textit{Dropout}}
+\subsection{\textit{Dropout}}
 Propuesta por Geoffrey Hinton en 2012 \cite{dropout}, es una de las técnicas más populares de regularización. El objetivo reside en forzar a las neuronas a tener en cuenta todas las conexiones, no sólo una porción de ellas. Como se ha comentado anteriormente, la red neuronal puede tomar cualquier atajo para minimizar la función de coste, incluyendo la coadaptación de neuronas. 
 
 La coadaptación de neuronas es un fenómeno en el que ciertas neuronas se ajustan para corregir los errores que otras generaron en el set de entrenamiento. Esto genera dependencias entre neuronas que sólo son útiles durante el entrenamiento, reduciendo $E_{in}$ y aumentando $E_{out}$.
@@ -554,7 +551,7 @@ La coadaptación de neuronas es un fenómeno en el que ciertas neuronas se ajust
 \end{figure}
 \FloatBarrier
 
-\subsubsection{\textit{Early stopping}}
+\subsection{\textit{Early stopping}}
 Durante el proceso de entrenamiento los modelos aprenden gradualmente a estimar el patrón subyacente presente en los datos de entrenamiento guiándose por la función de coste. Sin embargo, anular completamente la función de coste reduciría tanto $E_{in}$ que el error de generalización sería demasiado alto.
 
 Por ello, un mecanismo muy simple de regularización consiste en detener el proceso de entrenamiento cuando nuevos datos de entrenamiento reduzcan $E_{in}$ pero no reduzcan $E_{val}$ en una cuantía predeterminada. Esta técnica se denomina \textit{early stopping} \cite{earlystopping}.
@@ -562,7 +559,7 @@ Por ello, un mecanismo muy simple de regularización consiste en detener el proc
 
 
 
-\subsection{Preprocesado de los datos de entrada}
+\section{Preprocesado de los datos de entrada}
 Aunque la elección de un buen modelo con los hiperparámetros correctos es muy importante, también lo es la disponibilidad de datos veraces. Los datos utilizados tanto para el entrenamiento como la validación o el test han de ser: suficientemente numerosos como para permitir al algoritmo \textit{backpropagation} llegar al mínimo de la función de coste y representativos del patrón subyacente que se desea estimar.
 
 Las características de los datos de entrada son altamente influyentes en el rendimiento de los modelos de aprendizaje automático. Por ello se ha de actuar sobre los datos para evitar errores en su procesado. Las acciones más comunes son: imputación y normalización. La imputación se encarga de los posibles huecos en los datos, rellenándolos con ceros u otro valor significativo para no interrumpir el patrón subyacente a estimar. La normalización aplica una transformación a los datos para desplazarlos y escalarlos en el rango $[0,1]$. 
@@ -577,7 +574,7 @@ De cualquier otra forma, el modelo tendría acceso a los datos del conjunto de v
 
 
 
-\subsubsection{Entrenamiento en \textit{mini-batch}}
+\subsection{Entrenamiento en \textit{mini-batch}}
 Uno de los grandes problemas de los modelos de aprendizaje profundo es la necesidad de grandes volúmenes de datos para formar sets de entrenamiento, validación y test. Por ello, la práctica estándar implementa entrenamiento por \textit{mini-batch}. En vez de procesar todos los datos del conjunto de entrenamiento para realizar \textit{backpropagation}, se procesa un conjunto reducido distinto de dichas muestras cada vez. Por ejemplo, un modelo de \textit{deep learning} enfocado a la identificación de ciertos objetos en una imagen procesaría una cantidad reducida de imágenes de entrenamiento, estimaría las salidas correspondientes, las compararía con la realidad y ajustaría sus pesos con \textit{backpropagation}. Este proceso se repetiría con distintos sets de imágenes de entrenamiento hasta procesar el set entero \cite{machinelearningbook}.
 
 
@@ -607,7 +604,7 @@ Los modelos de \textit{deep learning} se benefician enormemente de esta estrateg
 %%SELECCIÓN DE MODELOS (TRAIN+VAL+TEST), ACTIVE LEARNING, ONLINE LEARNING VS BATCH LEARNING, CONCEPT DRIFT, CATASTROPHIC FORGETTING...
 
 
-\section{Predicción de series temporales}
+\chapter{Predicción de series temporales}
 \label{cap5:series}
 %%%DESPUÉS EXPLICAR LOS MÉTODOS AUTORREGRESIVOS, LAS REDES RECURRENTES Y CONVOLUCIONALES Y LOS MODELOS QUE SE USAN EN ESTE TRABAJO.
 
@@ -620,7 +617,7 @@ En la actualidad es mucho más común recurrir a modelos de aprendizaje automát
 
 
 
-\subsection{Modelos autorregresivos de medias móviles}
+\section{Modelos autorregresivos de medias móviles}
 Como su propio nombre indica, los modelos autorregresivos de medias móviles para la predicción de series temporales están basados en los modelos de medias móviles y autorregresivos. Las medias móviles son una manera simple de obtener una predicción cuando no hay una tendencia marcada ni tampoco estacionalidad. Se utiliza el término medias móviles puesto que conforme se va disponiendo de nuevas observaciones se pueden calcular nuevas medias mediante la inclusión de las nuevas muestras y el desprendimiento de las más antiguas \cite{seriestemporales}. De esta forma se eliminan las oscilaciones de mayor frecuencia, actuando como un filtro paso bajo.
 
 Las medias móviles unilaterales permiten estimar el valor futuro de la serie temporal $\hat{y}_t$ como la media de las $m$ muestras inmediatamente anteriores:
@@ -653,7 +650,7 @@ El modelo ARIMA (\textit{AutoRegressive Integrated Moving Average}) \cite{arima2
 
 A su vez, el modelo ARIMA falla en analizar las oscilaciones periódicas que puedan estar presentes en los datos. El modelo SARIMA (\textit{seasonal ARIMA}) mejora el modelo ARIMA añadiendo un procesado en paralelo de la componente periódica para una frecuencia determinada. Este procesado adicional también es realizado a partir de un modelo ARIMA con sus propios parámetros $P, D, Q$ imitando los parámetros $p,d,q$. Así, la notación de este último modelo es SARIMA(p,d,q)(P,D,Q,s) siendo s el periodo de la componente frecuencial analizada \cite{sarima1,machinelearningbook}.
 
-\subsection{Modelos de aprendizaje profundo aplicados a la predicción de series temporales}
+\section{Modelos de aprendizaje profundo aplicados a la predicción de series temporales}
 En los últimos años, los modelos autorregresivos descritos anteriormente han sido relevados por modelos de aprendizaje automático y, más concretamente, aprendizaje profundo. Éstos últimos son especialmente populares gracias a su capacidad de extraer el patrón subyacente de los datos sin necesidad de intervención humana para adaptar los algoritmos a las series temporales. \textit{Deep learning} elimina la necesidad de analizar los datos en busca de características estacionarias, tendencias, componentes periódicas, anomalías... Un mismo modelo de aprendizaje profundo es capaz de adaptarse por sí mismo a cualquier serie temporal, lo que no disminuye la importancia de las estrategias de entrenamiento y selección de modelos como la normalización de los datos o la validación \cite{deeplearning}.
 
 Las redes neuronales han evolucionado desde su creación para mejorar su rendimiento en los diferentes escenarios en los que se aplican, aunque no son exclusivas de ellos. Por ejemplo, el \textit{Perceptron} \cite{rosenblatt1957} dio lugar a las neuronas convolucionales para tareas de reconocimiento visual. En el caso de las series temporales, las redes neuronales evolucionaron hacia las neuronas recurrentes que forman las redes neuronales recurrentes o RNNs (\textit{Recurrent Neural Networks}) \cite{machinelearningbook, rnn2}.
@@ -661,7 +658,7 @@ Las redes neuronales han evolucionado desde su creación para mejorar su rendimi
 Las RNNs son utilizadas en todo tipo de secuencias temporales de cualquier naturaleza como muestras de audio, registros históricos numéricos e incluso documentos escritos. Para realizar sus predicciones, al igual que los modelos clásicos autorregresivos, las RNNs y todos los modelos de aprendizaje automático asumen en sus predicciones que el patrón subyacente presente en los datos de entrenamiento se perpetúa en los datos futuros.
 
 
-\subsubsection{Redes neuronales recurrentes}
+\subsection{Redes neuronales recurrentes}
 Las redes neuronales recurrentes o RNNs (\textit{Recurrent Neural Networks}), a diferencia de las TLUs, no están basadas en ninguna estructura biológica en concreto. Son capas de neuronas capaces de retener información de muestras procesadas con anterioridad. En cada momento $t$, las neuronas recurrentes más simples, además de procesar las entradas $\textbf{x}_t$ actuales, procesan su propia salida anterior $\hat{y}_{t-1}$ con su propio peso $w_{\hat{y}}$ para generar la salida actual $\hat{y}_t$ \cite{machinelearningbook,rnn3}. Esto hace a las RNN ideales para el procesado de secuencias de datos como, por ejemplo, el histórico de tráfico de telecomunicaciones de una ciudad concreta.
 
 \begin{equation}
@@ -695,7 +692,7 @@ La retroalimentación de la salida $\hat{y}$ en una neurona recurrente es el mec
 
 
 
-\subsubsection{Inconvenientes de las neuronas recurrentes}
+\subsection{Inconvenientes de las neuronas recurrentes}
 Al igual que las TLUs, las neuronas recurrentes son estructuras muy simples por lo que su rendimiento está acotado por el ámbito en el que se utilizan. Concretamente, las RNNs sufren varios problemas al enfrentar secuencias de larga duración.
 
 El primer problema recae en la inestabilidad de la retroalimentación. Como los pesos $\textbf{W}_x$, $\textbf{W}_{\hat{y}}$ y $\textbf{b}$ son constantes a lo largo de toda la serie temporal, se aplican tantas veces como instantes temporales tenga la secuencia procesada. La retroalimentación puede provocar que las salidas disminuyan hasta anularse o, con una función de activación no saturante como ReLU, aumenten sin control hasta inutilizar toda la red.
@@ -707,7 +704,7 @@ El segundo problema reside en, debido a la simpleza de las neuronas recurrentes,
 Esto supone un gran problema puesto que la información más reciente no siempre es útil para estimar el patrón subyacente de la serie temporal. Sin un mecanismo de decisión, el estado oculto $h_t$ es extremadamente vulnerable a cualquier anomalía o dato irrelevante presente en la secuencia procesada \cite{rnn3}.
 
 
-\subsubsection{LSTM}
+\subsection{LSTM}
 Para resolver las limitaciones descritas anteriormente se propuso la neurona LSTM (\textit{Long-Short Term Memory}) en 1997 \cite{lstm}. La primera diferencia radica en la duplicación del estado $\textbf{h}_t$ en dos vectores de estado $\textbf{c}_t$ y $\textbf{h}_t$. Uno de los vectores, $\textbf{c}_t$, contiene la información que la neurona LSTM considera digna de ser recordada a largo plazo y el otro, $\textbf{h}_t$ es el encargado de la salida de la neurona.
 
 Las neuronas LSTM no son una neurona simple sino una estructura modular que contiene varias puertas y operaciones lógicas para controlar el flujo interno de información. Cada puerta es en realidad un \textit{Perceptron} con pesos entrenables cuya función de activación es la sigmoide $\sigma(\textbf{z})$. Todas las puertas combinan las entradas $\textbf{x}_t$ con el vector de corto alcance $\textbf{h}_ {t-1}$ para orquestar el circuito de información.
@@ -773,9 +770,9 @@ Cada puerta tiene su set de pesos independiente del resto de puertas, lo que per
 
 Las neuronas LSTM no tienen un método especial de entrenamiento, utilizan \textit{backpropagation} como el resto de neuronas. Por lo tanto, también pueden generar \textit{overfitting} si la capacidad de procesamiento de la red neuronal es superior a la complejidad de la serie temporal. En ese caso el vector de largo alcance incluiría las fluctuaciones aleatorias propias del ruido de los datos de entrada \cite{machinelearningbook,machinelearningbook1}.
 
-\section{Estructuras avanzadas de \textit{Deep Learning} para la predicción de series temporales}
+\chapter{Estructuras avanzadas de \textit{Deep Learning} para la predicción de series temporales}
 \label{cap6:deep}
-\subsection{CNNs}
+\section{CNNs}
 Las redes neuronales convolucionales o CNNs (\textit{Convolutional Neural Networks}) están compuestas por neuronas parecidas a las TLUs. Sin embargo, las neuronas convolucionales no están conectadas a todas las entradas sino a un cierto conjunto próximo a ellas.
 
 Las neuronas convolucionales fueron propuestas en 1980 \cite{cnn1} imitando la estructura del córtex visual animal descrita en 1959 \cite{hubel1959}. En dichos estudios base se descubrió la existencia de campos receptivos locales en las neuronas visuales animales que se activan selectivamente ante ciertos estímulos concretos. Por ejemplo, aunque dos neuronas compartan un mismo campo visual, una sólo reacciona a patrones verticales y la otra a patrones horizontales.
@@ -804,7 +801,7 @@ La Figura \ref{fig:cnn} muestra un ejemplo de capa de neuronas convolucionales c
 \end{figure}
 \FloatBarrier
 
-\subsubsection{Mapas de filtros}
+\subsection{Mapas de filtros}
 Como se ha mencionado anteriormente, las neuronas visuales animales reaccionan ante estímulos concretos. Las neuronas artificiales convolucionales se agrupan en mapas de filtros. Cada filtro o \textit{kernel} es un conjunto de pesos aplicado a las conexiones de las neuronas para que reaccionen a estímulos diferentes. El \textit{kernel} $\textbf{W}_f$ es compartido por todas las neuronas que forman el mapa del filtro $f$.
 
 Las neuronas convolucionales se organizan en cuadrículas bidimensionales o mapas, lo que permite definir sus campos visuales con dos variables espaciales que se denominarán $M$ para la altura y $N$ para la anchura en este TFG. Siendo $u$ y $v$ la posición espacial de una neurona convolucional en el mapa de filtros $f$ de la capa $l$, ésta está conectada a las neuronas en las filas $[u, u+M-1]$ y a las columnas $[v,v+N-1]$ de todos los mapas de filtros $f'$ de la capa inmediatamente anterior $l-1$ \cite{cnn, machinelearningbook}.
@@ -820,7 +817,7 @@ Los campos visuales de dos neuronas adyacentes no tienen por qué estar desfasad
 
 Encadenar múltiples capas de neuronas convolucionales permite que las capas iniciales detecten patrones sencillos mientras las capas superiores evalúan la presencia de patrones más complejos a partir de los detectados en las capas inferiores.
 
-\subsubsection{Capas de agregación}
+\subsection{Capas de agregación}
 Al mantener constante el tamaño de las capas, las redes CNN profundas, aun teniendo menos conexiones que los MLPs, acumulan un gran volumen de parámetros entrenables. Durante el proceso de retropropagación el modelo ha de guardar todas las salidas de todas los filtros de todas las capas para poder calcular el gradiente del error. Esto requiere una gran inversión en memoria y capacidad de cómputo.
 
 Para solucionar este problema se implementaron las capas de agregación o \textit{pooling}. Las neuronas de las capas de \textit{pooling} no contienen \textit{kernels} ni ningún parámetro entrenable. Simplemente realizan una operación matemática sobre las salidas de las neuronas contenidas en su campo visual. Dicha operación matemática está orientada a reducir la complejidad de la red, fusionando varias entradas en una sola con funciones como la media o el máximo del campo visual \cite{cnn1,cnn2}.
@@ -850,7 +847,7 @@ En la práctica es común intercalar capas de \textit{pooling} con capas de neur
 
 En otros contextos de series temporales sí serían útiles, como por ejemplo la detección de anomalías sin necesidad de identificar el momento exacto del \textit{outlier}. Todas estas tareas están mucho más relacionadas con la clasificación que con la predicción.
 
-\subsection{CNN+LSTM}
+\section{CNN+LSTM}
 En este TFG se proponen varias arquitecturas basadas en la combinación de capas convolucionales y recurrentes. La idea parte de la naturaleza espaciotemporal de los datos de tráfico de red de la ciudad de Milán \cite{milandataset}. La ciudad está formulada como un plano dividido en celdas. Cada celda contiene en un instante dado la cantidad de tráfico de red cursada. Se propone entonces utilizar las capacidades de análisis espacial de las neuronas convolucionales para estimar patrones geográficos en cada instante y las capacidades de análisis temporal para analizar la evolución de los patrones geográficos en el tiempo. Esta arquitectura se denomina comúnmente como \textit{ConvLSTM} o \textit{Time Distributed CNN} \cite{cnnlstm,timedistributed}.
 
 El plano de la ciudad estudiado en este TFG \cite{milanogrid} puede modelarse como una matriz cuadrada de tamaño $M_{total} \times N_{total}$ de entradas a la red neuronal $\textbf{X}_t$ en cada instante de tiempo. Esta matriz es entregada a las capas convolucionales para la extracción de los patrones geográficos $\textbf{G}_t$ presentes en cada instante. Cada patrón contiene $F$ mapas de filtros.

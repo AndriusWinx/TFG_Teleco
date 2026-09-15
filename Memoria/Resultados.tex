@@ -1,6 +1,6 @@
-\section{Resultados y discusión}
+\chapter{Resultados y discusión}
 \label{cap8:resultados}
-\subsection{Desempeño general}
+\section{Desempeño general}
 El objetivo de este trabajo es la evaluación del rendimiento de los modelos con \textit{online learning} respecto a los mismos modelos con entrenamiento estático u \textit{offline learning}. En todas las combinaciones de hiperparámetros y en todas las arquitecturas los modelos con \textit{online learning} han mostrado un rendimiento superior. Por lo tanto, en este capítulo se analizarán principalmente los resultados obtenidos en los modelos con \textit{online learning}.
 
 %%%%ARGUMENTAR CON EL SPEARMAN DE AVGTESTRNMSE VS AVGTESTINCNRMSE%%%%%%%%%%%%%%%%%%%
@@ -31,7 +31,7 @@ Según la arquitectura, es decir, el número de capas convolucionales utilizadas
 Aun así, aunque las arquitecturas con más capas y, por ende, más capacidad de procesamiento sean menos susceptibles a cambios en los hiperparámetros, la arquitectura con una única capa convolucional (CNN+LSTM) es la que ha conseguido el mejor modelo.
 %%%%%%Cómo han sido los resultados según la arquitectura%%%%%%%%%
 
-\subsection{Análisis de Spearman}
+\section{Análisis de Spearman}
 Tras un vistazo rápido a los resultados según el tamaño del dataset y de la arquitectura utilizada, el análisis de Spearman puede arrojar más luz acerca de la contribución de los hiperparámetros a los resultados obtenidos por los modelos con \textit{online learning}. La Tabla \ref{tab:Spearmancorrels} muestra el coeficiente de Spearman ($r_s$) para todos los hiperparámetros y métricas de rendimiento.
 
 %%%%%%%%%%%%%%%%TABLA SPEARMAN%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -65,7 +65,7 @@ Tras un vistazo rápido a los resultados según el tamaño del dataset y de la a
 \end{table}
 \FloatBarrier
 
-\subsubsection{Número de celdas, capas CNN y tamaño del \textit{kernel}}
+\subsection{Número de celdas, capas CNN y tamaño del \textit{kernel}}
 El primer hiperparámetro es el tamaño de la cuadrícula, que está muy relacionado de forma directa con el error cometido en el entrenamiento estático ($r_s=0.6598$). A medida que se procesan más celdas al mismo tiempo, la red tiene mayores dificultades para generalizar. Sin embargo, el tamaño de la cuadrícula afecta mucho menos al rendimiento de la red cuando se implementa \textit{online learning} ($r_s=0.1613$). Es un gran indicador de la capacidad de los modelos de adaptarse de forma dinámica a los cambios en los patrones de los datos independientemente de la cantidad de datos procesados.
 
 Algo similar ocurre con el número de capas convolucionales de la red neuronal. A medida que se añaden más capas los modelos \textit{online} mejoran, aunque no demasiado ($r_s=-0.098$). Al contrario de lo que pudiera pensarse, aumentar la capacidad de procesamiento de la red mediante la adición de capas CNN no es beneficioso. Una mayor capacidad de la red provoca \textit{overfitting}, tal y como indica el coeficiente de Spearman entre el número de capas convolucionales y el error cometido por los modelos estáticos ($r_s=0.2384$).
@@ -88,7 +88,7 @@ En la Figura \ref{fig:kernel_metros2} se puede observar la influencia tanto del 
 \end{figure}
 \FloatBarrier
 
-\subsubsection{\texttt{look\_back} y \texttt{batch\_size}}
+\subsection{\texttt{look\_back} y \texttt{batch\_size}}
 Los hiperparámetros \texttt{look\_back} y \texttt{batch\_size} son los que mayor correlación tienen con la media de NRMSE de los modelos con \textit{online learning} junto al hiperparámetro \texttt{updates}. Ambos hiperparámetros afecta a los modelos en todas sus fases de entrenamiento y validación. El parámetro \texttt{look\_back} indica la longitud en horas de las secuencias temporales que la red neuronal procesa y \texttt{batch\_size} indica la cantidad de esas secuencias que se procesan al mismo tiempo.
 
 Los datos utilizados presentan una componente periódica marcada de forma diaria y semanal. Por lo tanto, es razonable ajustar el parámetro \texttt{look\_back} a dicha frecuencia. En el presente trabajo se ha probado con valores entre 12 y 32 horas con la intención de permitir que la red aprenda la componente diaria. La componente semanal queda fuera de consideración puesto que un valor grande del hiperparámetro \texttt{look\_back} impondría una carga computacional excesiva, pudiendo aumentar demasiado el tiempo de procesado de los datos.
@@ -107,15 +107,15 @@ Si nos fijamos en el impacto de \texttt{look\_back} en la media del NRMSE en mod
 %%%%%%%%%%BATCH SIZE
 
 
-Encontrar valores para incluir en el \textit{grid search} del hiperparámetro \texttt{batch\_size} no es tarea sencilla. Continuando con el trabajo del Dr. D. Juan Pablo Casaseca de la Higuera \cite{SKIMAcasaseca}, en este trabajo se han probado valores en torno a \textit{batches} de 25 secuencias temporales. Al igual que con el hiperparámetro \texttt{look\_back}, su coeficiente de Spearman respecto al tiempo de ejecución es positivo ($r_s=0.1711$) por lo que \textit{batches} de muchas secuencias temporales no son viables.
+Encontrar valores para incluir en el \textit{grid search} del hiperparámetro \texttt{batch\_size} no es tarea sencilla. Continuando con \cite{SKIMAcasaseca}, en este trabajo se han probado valores en torno a \textit{batches} de 25 secuencias temporales. Al igual que con el hiperparámetro \texttt{look\_back}, su coeficiente de Spearman respecto al tiempo de ejecución es positivo ($r_s=0.1711$) por lo que \textit{batches} de muchas secuencias temporales no son viables.
 
 %%%%%%%% Train es con shuffle=True per test y test inc es con shuffle=False %%%%%%%%%%%
 
-Cada \textit{batch} contiene una cantidad limitada de secuencias temporales dispuestas de una forma peculiar. Cada secuencia está ordenada de tal forma que crean una ventana deslizante en los datos, por ello en el Capítulo \ref{cap3:entorno} se ha denominado al hiperparámetro \texttt{look\_back} como tal. De esta forma, al escoger valores en torno a 25 para \texttt{batch\_size}, la red neuronal procesa en cada \textit{batch} varias series temporales parcialmente superpuestas que abarcan aproximadamente 48 horas desde la primera muestra de la primera secuencia hasta la última muestra de la última secuencia. Esto permite a la red neuronal analizar el patrón subyacente de dos días naturales.
+Cada \textit{batch} contiene una cantidad limitada de secuencias temporales dispuestas de una forma peculiar. Cada secuencia está ordenada de tal forma que crean una ventana deslizante en los datos. De esta forma, al escoger valores en torno a 25 para \texttt{batch\_size}, la red neuronal procesa en cada \textit{batch} varias series temporales parcialmente superpuestas que abarcan aproximadamente 48 horas desde la primera muestra de la primera secuencia hasta la última muestra de la última secuencia. Esto permite a la red neuronal analizar el patrón subyacente de dos días naturales.
 
 Esto es especialmente importante en los modelos con \textit{online learning} puesto que, tras el entrenamiento, \texttt{batch\_size} dicta la cantidad de información a la que la red neuronal tiene acceso para ajustar sus pesos. Cuanta más información tiene la red, más precisos son sus ajustes ($r_s=-0.1993$). Sin embargo, en el entrenamiento ($r_s=-0.0055$) y test sin \textit{online learning} ($r_s=-0.0087$) el impacto es despreciable puesto que la red neuronal tiene acceso a todo el dataset de entrenamiento.
 
-\subsubsection{\texttt{updates} y \texttt{threshold}}
+\subsection{\texttt{updates} y \texttt{threshold}}
 Los hiperparámetros \texttt{updates} y \texttt{threshold} sólo tienen efecto en los modelos con \textit{online learning}. Por ello, aunque algunos de sus coeficientes de Spearman con las métricas de modelos \textit{offline} sean altos, es una coincidencia llamada relación espuria.
 
 \texttt{Updates} indica cuántas veces se procesa el mismo \textit{batch} en \textit{online learning}. Cada vez que se procesa un \textit{batch} se realiza el proceso de \textit{backpropagation} una vez. Por lo tanto, cuantas más veces se realice, mayor precisión tendrá el ajuste de pesos y mayor será la carga computacional y el tiempo de ejecución.
@@ -132,10 +132,10 @@ Como se observa en la Figura \ref{fig:updates_nrmse_time}, los mejores resultado
 \end{figure}
 
 
-En cuanto al hiperparámetro \texttt{threshold}, indica si el \textit{batch} actual ha de seguir siendo procesado. No es un hiperparámetro que haya generado un gran impacto puesto que su coeficiente de Spearman es despreciable ($r_s=0.0362$). Como las actualizaciones de los pesos se han realizado siguiendo el modelo propuesto por el Dr. D. Juan Pablo Casaseca de la Higuera \cite{SKIMAcasaseca}, las actualizaciones de pesos provocadas por errores pequeños son menos potentes que las realizadas por los errores mayores. Por lo tanto, aunque el hiperparámetro \texttt{threshold} elimine las actualizaciones provocadas por errores pequeños, no son actualizaciones influyentes. Sin embargo, al eliminarlas se libera una gran cantidad de carga computacional, como se puede comprobar a través de su coeficiente de Spearman correspondiente ($r_s=-0.2177$).
+En cuanto al hiperparámetro \texttt{threshold}, indica si el \textit{batch} actual ha de seguir siendo procesado. No es un hiperparámetro que haya generado un gran impacto puesto que su coeficiente de Spearman es despreciable ($r_s=0.0362$). Como las actualizaciones de los pesos se han realizado siguiendo el modelo propuesto en \cite{SKIMAcasaseca}, las actualizaciones de pesos provocadas por errores pequeños son menos potentes que las realizadas por los errores mayores. Por lo tanto, aunque el hiperparámetro \texttt{threshold} elimine las actualizaciones provocadas por errores pequeños, no son actualizaciones influyentes. Sin embargo, al eliminarlas se libera una gran cantidad de carga computacional, como se puede comprobar a través de su coeficiente de Spearman correspondiente ($r_s=-0.2177$).
 
 
-\subsubsection{Número de filtros de las capas convolucionales}
+\subsection{Número de filtros de las capas convolucionales}
 El número de filtros indica la capacidad de las capas convolucionales para analizar patrones geográficos en la cuadrícula analizada. Sin embargo, un gran número de filtros puede provocar \textit{overfitting}. Cuando hay demasiados filtros la red comienza a identificar el ruido presente en los datos como un patrón legítimo.
 
 En cuanto al tiempo de ejecución, el resultado es contraintuitivo ($r_s<0$). La respuesta está en la librería \texttt{Tensorflow} y la forma en que realiza los ajustes en los modelos con \textit{online learning}. En cada modelo, la primera iteración de \textit{online learning} es extremadamente lenta puesto que \texttt{Tensorflow} realiza un mapa de la red neuronal y lo convierte en una serie de funciones altamente optimizadas con el algoritmo \textit{Tracing Graph}. En las siguientes iteraciones ya tiene el mapa hecho y lo ejecuta velozmente. Como se ha argumentado antes, las redes con más filtros son más propensas al \textit{overfitting}, lo que aumenta el error NRMSE en las predicciones. Errores mayores tienen más probabilidad de superar el valor del hiperparámetro \texttt{threshold}, lo que genera más iteraciones de \textit{online learning}. Todas esas iteraciones adicionales son extremadamente rápidas en comparación con la primera iteración, lo que reduce la media del tiempo de ejecución \cite{machinelearningbook1,tffunction}.
@@ -146,7 +146,7 @@ En cuanto al tiempo de ejecución, el resultado es contraintuitivo ($r_s<0$). La
 
 
 
-\subsection{Mejor modelo}
+\section{Mejor modelo}
 \label{cap4.3:bestmodel}
 El grueso de las medias de NRMSE se encuentra entre 0.20 y 0.50. En sí no son valores satisfactorios puesto que el objetivo se encuentra en un NRMSE<0.1778. Sin embargo, aunque en media no se alcance el objetivo, es probable que, escogiendo los modelos con mejor media de NRMSE, algunas celdas superen el objetivo.
 
@@ -256,7 +256,7 @@ Respecto a las peores celdas, las celdas 4959 y 5357 no son fáciles de predecir
 En general, la mayor contribución al NRMSE es provocado por anomalías en los patrones, como por ejemplo los máximos abruptos de la celda 5058. Sin embargo, es visible en todas las celdas cómo los modelos con \textit{online learning} son muy superiores a aquellos sin \textit{online learning}. Esto se observa muy bien en las celdas con menor precisión, por ejemplo, el modelo con \textit{online learning} ha podido adaptarse rápidamente los cambios radicales de las celdas 5357 y 5362 en cuestión de 2 o 3 días. Por otra parte, el modelo sin \textit{online learning} es completamente incapaz de adaptarse.
 
 
-\subsection{Discusión}
+\section{Discusión}
 Comparando los resultados obtenidos en este TFG con otras investigaciones realizadas en \cite{tfgalicia} se observa una discrepancia en las conclusiones. Ciertamente, tal y como se detalla en \cite{tfgalicia} y en el Capítulo \ref{cap8:resultados} de esta memoria, los modelos \textit{online} tienen un rendimiento generalmente bueno pero inestable. 
 
 En el dataset Milán existe una varianza notable en el rendimiento individual en cada celda. Las celdas con mayor ruido o patrones con cambios bruscos son procesadas en mejor medida por los modelos \textit{online}. Estos mismos modelos a su vez pueden generar \textit{overfitting} en las celdas con patrones estables. El sobreajuste indica un exceso de capacidad computacional de los modelos que reduce su habilidad para distinguir el patrón subyacente del ruido presente en el mismo.
