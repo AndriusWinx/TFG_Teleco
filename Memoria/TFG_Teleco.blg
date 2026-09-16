@@ -15,67 +15,61 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references.bib
-I was expecting a `,' or a `}'---line 6 of file references.bib
- :  
- :  doi  ={10.1109/ICDM.2016.156}
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Warning--entry type for "duan2015xaas" isn't style-file defined
---line 75 of file references.bib
+--line 144 of file references.bib
 Warning--I'm ignoring lstm's extra "pages" field
---line 499 of file references.bib
+--line 568 of file references.bib
 Warning--entry type for "milandataset" isn't style-file defined
---line 616 of file references.bib
+--line 685 of file references.bib
 Warning--entry type for "milanogrid" isn't style-file defined
---line 626 of file references.bib
+--line 695 of file references.bib
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
-Warning--empty booktitle in SKIMAcasaseca
-Warning--empty journal in rnn1
 Warning--empty booktitle in arima1
+Warning--empty journal in rnn1
 Warning--edition ordinal word "Third Edition" may be too high (or improper) for conversion in spearmansource
 
 Done.
-You've used 61 entries,
+You've used 66 entries,
             4087 wiz_defined-function locations,
-            1245 strings with 19156 characters,
-and the built_in function-call counts, 43072 in all, are:
-= -- 3570
-> -- 896
-< -- 331
-+ -- 496
-- -- 151
-* -- 2100
-:= -- 6786
-add.period$ -- 130
-call.type$ -- 61
-change.case$ -- 68
-chr.to.int$ -- 759
-cite$ -- 65
-duplicate$ -- 3073
-empty$ -- 3506
-format.name$ -- 190
-if$ -- 9977
+            1286 strings with 20507 characters,
+and the built_in function-call counts, 48354 in all, are:
+= -- 4024
+> -- 1015
+< -- 383
++ -- 562
+- -- 170
+* -- 2389
+:= -- 7576
+add.period$ -- 142
+call.type$ -- 66
+change.case$ -- 72
+chr.to.int$ -- 873
+cite$ -- 69
+duplicate$ -- 3433
+empty$ -- 3892
+format.name$ -- 214
+if$ -- 11208
 int.to.chr$ -- 0
-int.to.str$ -- 61
-missing$ -- 538
-newline$ -- 284
-num.names$ -- 65
-pop$ -- 1224
+int.to.str$ -- 66
+missing$ -- 601
+newline$ -- 311
+num.names$ -- 70
+pop$ -- 1345
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 4
-skip$ -- 3331
+skip$ -- 3725
 stack$ -- 0
-substring$ -- 1814
-swap$ -- 2504
-text.length$ -- 78
+substring$ -- 2091
+swap$ -- 2843
+text.length$ -- 92
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 61
-warning$ -- 4
-while$ -- 179
-width$ -- 63
-write$ -- 697
-(There was 1 error message)
+type$ -- 66
+warning$ -- 3
+while$ -- 205
+width$ -- 68
+write$ -- 770
+(There were 7 warnings)

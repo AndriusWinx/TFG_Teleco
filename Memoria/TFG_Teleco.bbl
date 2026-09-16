@@ -83,10 +83,14 @@ J.~Gama, I.~{\v{Z}}liobait{\.e}, A.~Bifet, M.~Pechenizkiy, and A.~Bouchachia,
 \BIBentrySTDinterwordspacing
 
 \bibitem{SKIMAcasaseca}
+\BIBentryALTinterwordspacing
 P.~Casaseca-de-la Higuera, J.~M. Aguiar, P.~Amado-Caballero, A.~J. Morgado,
   J.~d.~S. Moreira, C.~Luo, and X.~Wang, ``Online active learning for
-  {LSTM}-based network traffic prediction,'' 2023, iEEE (Unpublished Draft /
-  Preprint).
+  {LSTM}-based network traffic prediction,'' in \emph{Proc. 16th Int. Conf.
+  Softw. Knowl. Inf. Manag. Appl. (SKIMA)}.\hskip 1em plus 0.5em minus
+  0.4em\relax Paisley, U.K.: IEEE, Jun 2025, pp. 1--5. [Online]. Available:
+  \url{https://doi.org/10.1109/SKIMA66621.2025.11181234}
+\BIBentrySTDinterwordspacing
 
 \bibitem{tfgalicia}
 A.~Román~Antolín, ``Predicción de tráfico de red usando arquitecturas
@@ -126,6 +130,111 @@ A.~Román~Antolín, ``Predicción de tráfico de red usando arquitecturas
   \url{https://docs.nvidia.com/deeplearning/cudnn/backend/latest/developer/misc.html}
 \BIBentrySTDinterwordspacing
 
+\bibitem{arma}
+P.~Hoong, ``Bittorrent network traffic forecasting with arma,''
+  \emph{International Journal of Computer Networks and Communications}, vol.~4,
+  pp. 143--156, 07 2012.
+
+\bibitem{arma1}
+K.~H. Poo, I.~K.~T. Tan, and K.~H. Ng, ``Computing autoregressive moving
+  average ({ARMA}) with {CRONOS}: A case study of {Bursa Malaysia},'' in
+  \emph{Proc. 2nd Int. Conf. Eng. ICT (ICEI)}, Melaka, Malaysia, Feb 2010, pp.
+  516--520.
+
+\bibitem{arma2}
+M.~Papadopouli, H.~Shen, E.~Raftopoulos, M.~Ploumidis, and F.~Hernandez-Campos,
+  ``Short-term traffic forecasting in a campus-wide wireless network,'' in
+  \emph{2005 IEEE 16th International Symposium on Personal, Indoor and Mobile
+  Radio Communications}, vol.~3, 2005, pp. 1446--1452.
+
+\bibitem{arma3}
+H.~L. S., ``A study in the analysis of stationary time series. by herman wold.
+  [pp. 214 + viii. almqvist and wiksells boktryckeri-a.-b., uppsala. 1938.
+  price kr. 6.],'' \emph{Journal of the Institute of Actuaries}, vol.~70,
+  no.~1, p. 113–115, 1939.
+
+\bibitem{arima1}
+S.~Jung, C.~Kim, and Y.~Chung, ``A prediction method of network traffic using
+  time series models,'' vol. 3982, 11 2006, pp. 234--243.
+
+\bibitem{arima2}
+\BIBentryALTinterwordspacing
+G.~E.~P. Box and G.~M. Jenkins, \emph{Time Series Analysis: Forecasting and
+  Control}.\hskip 1em plus 0.5em minus 0.4em\relax Hoboken, NJ, USA: Wiley,
+  1970. [Online]. Available:
+  \url{https://onlinelibrary.wiley.com/doi/book/10.1002/9781118619193}
+\BIBentrySTDinterwordspacing
+
+\bibitem{sarima1}
+Y.~Yu, J.~Wang, M.~Song, and J.~Song, ``Network traffic prediction and result
+  analysis based on seasonal arima and correlation coefficient,'' in \emph{2010
+  International Conference on Intelligent System Design and Engineering
+  Application}, vol.~1, 2010, pp. 980--983.
+
+\bibitem{deeplearning}
+\BIBentryALTinterwordspacing
+I.~Goodfellow, Y.~Bengio, and A.~Courville, \emph{Deep Learning}.\hskip 1em
+  plus 0.5em minus 0.4em\relax Cambridge, MA, USA: MIT Press, 2016. [Online].
+  Available: \url{https://www.deeplearningbook.org/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{lstm}
+\BIBentryALTinterwordspacing
+S.~Hochreiter and J.~Schmidhuber, ``Long short-term memory,'' \emph{Neural
+  Computation}, vol.~9, no.~8, pp. 1735--1780, 11 1997. [Online]. Available:
+  \url{https://doi.org/10.1162/neco.1997.9.8.1735}
+\BIBentrySTDinterwordspacing
+
+\bibitem{lstm2}
+\BIBentryALTinterwordspacing
+C.~B. Vennerød, A.~Kjærran, and E.~S. Bugge, ``Long short-term memory
+  {RNN},'' \emph{arXiv preprint arXiv:2105.06756}, May 2021. [Online].
+  Available: \url{https://arxiv.org/abs/2105.06756}
+\BIBentrySTDinterwordspacing
+
+\bibitem{shi2015}
+\BIBentryALTinterwordspacing
+X.~Shi, Z.~Chen, H.~Wang, D.-Y. Yeung, W.-K. Wong, and W.-C. Woo,
+  ``Convolutional {LSTM} network: A machine learning approach for precipitation
+  nowcasting,'' in \emph{Proc. Adv. Neural Inf. Process. Syst. (NeurIPS)},
+  vol.~28.\hskip 1em plus 0.5em minus 0.4em\relax Montreal, QC, Canada: Curran
+  Associates, Inc., Dec 2015, pp. 802--810. [Online]. Available:
+  \url{https://arxiv.org/abs/1506.04214}
+\BIBentrySTDinterwordspacing
+
+\bibitem{zhang2018}
+\BIBentryALTinterwordspacing
+C.~Zhang, H.~Zhang, D.~Yuan, and M.~Zhang, ``Citywide cellular traffic
+  prediction based on densely connected convolutional neural networks,''
+  \emph{IEEE Commun. Lett.}, vol.~22, no.~8, pp. 1656--1659, Aug 2018.
+  [Online]. Available: \url{https://doi.org/10.1109/LCOMM.2018.2841832}
+\BIBentrySTDinterwordspacing
+
+\bibitem{zhou2022}
+\BIBentryALTinterwordspacing
+C.~Zhou, C.~Wang, and M.~Guan, ``A mobile traffic prediction model based on
+  area spatio-temporal feature,'' in \emph{Proc. 3rd Int. Conf. Comput. Eng.
+  Intell. Control (ICCEIC)}, ser. CEUR Workshop Proceedings, vol. 3344,
+  Chongqing, China, Nov 2022, pp. 46--50. [Online]. Available:
+  \url{https://ceur-ws.org/Vol-3344/paper8.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{shen2023}
+\BIBentryALTinterwordspacing
+S.~Shen, Y.~Zhang, and X.~Liu, ``A hybrid spatial-temporal deep learning
+  framework for cellular traffic prediction based on the {Milan} dataset,''
+  \emph{Sensors}, vol.~23, no.~4, p. 2056, Feb 2023. [Online]. Available:
+  \url{https://doi.org/10.3390/s23042056}
+\BIBentrySTDinterwordspacing
+
+\bibitem{he2024}
+\BIBentryALTinterwordspacing
+Y.~He, G.~Sun, and M.~Guizani, ``Spatio-temporal traffic prediction using
+  crossover attention for cellular networks,'' \emph{IEEE Trans. Mobile
+  Comput.}, vol.~23, no.~5, pp. 4125--4139, May 2024. [Online]. Available:
+  \url{https://doi.org/10.1109/TMC.2023.3289145}
+\BIBentrySTDinterwordspacing
+
 \bibitem{lovelace1843}
 \BIBentryALTinterwordspacing
 A.~A. Lovelace, ``Sketch of the analytical engine invented by {Charles
@@ -156,13 +265,6 @@ A.~Géron, \emph{\BIBforeignlanguage{eng}{Hands-on machine learning with
 F.~Chollet, \emph{\BIBforeignlanguage{eng}{Deep learning with Python}},
   2nd~ed.\hskip 1em plus 0.5em minus 0.4em\relax Madrid: Anaya Multimedia,
   2020.
-
-\bibitem{deeplearning}
-\BIBentryALTinterwordspacing
-I.~Goodfellow, Y.~Bengio, and A.~Courville, \emph{Deep Learning}.\hskip 1em
-  plus 0.5em minus 0.4em\relax Cambridge, MA, USA: MIT Press, 2016. [Online].
-  Available: \url{https://www.deeplearningbook.org/}
-\BIBentrySTDinterwordspacing
 
 \bibitem{rumelhart1985}
 D.~E. Rumelhart and J.~L. McClelland, \emph{Learning Internal Representations
@@ -289,47 +391,6 @@ M.~González and I.~M. del Puerto, \emph{Series Temporales}, ser. Colección
   manuales uex.\hskip 1em plus 0.5em minus 0.4em\relax Cáceres, España:
   Universidad de Extremadura, Servicio de Publicaciones, 2009, vol.~60.
 
-\bibitem{arma}
-P.~Hoong, ``Bittorrent network traffic forecasting with arma,''
-  \emph{International Journal of Computer Networks and Communications}, vol.~4,
-  pp. 143--156, 07 2012.
-
-\bibitem{arma3}
-H.~L. S., ``A study in the analysis of stationary time series. by herman wold.
-  [pp. 214 + viii. almqvist and wiksells boktryckeri-a.-b., uppsala. 1938.
-  price kr. 6.],'' \emph{Journal of the Institute of Actuaries}, vol.~70,
-  no.~1, p. 113–115, 1939.
-
-\bibitem{arma1}
-K.~H. Poo, I.~K.~T. Tan, and K.~H. Ng, ``Computing autoregressive moving
-  average ({ARMA}) with {CRONOS}: A case study of {Bursa Malaysia},'' in
-  \emph{Proc. 2nd Int. Conf. Eng. ICT (ICEI)}, Melaka, Malaysia, Feb 2010, pp.
-  516--520.
-
-\bibitem{arma2}
-M.~Papadopouli, H.~Shen, E.~Raftopoulos, M.~Ploumidis, and F.~Hernandez-Campos,
-  ``Short-term traffic forecasting in a campus-wide wireless network,'' in
-  \emph{2005 IEEE 16th International Symposium on Personal, Indoor and Mobile
-  Radio Communications}, vol.~3, 2005, pp. 1446--1452.
-
-\bibitem{arima1}
-S.~Jung, C.~Kim, and Y.~Chung, ``A prediction method of network traffic using
-  time series models,'' vol. 3982, 11 2006, pp. 234--243.
-
-\bibitem{arima2}
-\BIBentryALTinterwordspacing
-G.~E.~P. Box and G.~M. Jenkins, \emph{Time Series Analysis: Forecasting and
-  Control}.\hskip 1em plus 0.5em minus 0.4em\relax Hoboken, NJ, USA: Wiley,
-  1970. [Online]. Available:
-  \url{https://onlinelibrary.wiley.com/doi/book/10.1002/9781118619193}
-\BIBentrySTDinterwordspacing
-
-\bibitem{sarima1}
-Y.~Yu, J.~Wang, M.~Song, and J.~Song, ``Network traffic prediction and result
-  analysis based on seasonal arima and correlation coefficient,'' in \emph{2010
-  International Conference on Intelligent System Design and Engineering
-  Application}, vol.~1, 2010, pp. 980--983.
-
 \bibitem{rnn2}
 \BIBentryALTinterwordspacing
 N.~Ramakrishnan and T.~Soni, ``Network traffic prediction using recurrent
@@ -346,20 +407,6 @@ R.~Pascanu, T.~Mikolov, and Y.~Bengio, ``On the difficulty of training
   (ICML)}, vol.~28.\hskip 1em plus 0.5em minus 0.4em\relax Atlanta, GA, USA:
   PMLR, Jun 2013, pp. 1310--1318. [Online]. Available:
   \url{http://proceedings.mlr.press/v28/pascanu13.html}
-\BIBentrySTDinterwordspacing
-
-\bibitem{lstm2}
-\BIBentryALTinterwordspacing
-C.~B. Vennerød, A.~Kjærran, and E.~S. Bugge, ``Long short-term memory
-  {RNN},'' \emph{arXiv preprint arXiv:2105.06756}, May 2021. [Online].
-  Available: \url{https://arxiv.org/abs/2105.06756}
-\BIBentrySTDinterwordspacing
-
-\bibitem{lstm}
-\BIBentryALTinterwordspacing
-S.~Hochreiter and J.~Schmidhuber, ``Long short-term memory,'' \emph{Neural
-  Computation}, vol.~9, no.~8, pp. 1735--1780, 11 1997. [Online]. Available:
-  \url{https://doi.org/10.1162/neco.1997.9.8.1735}
 \BIBentrySTDinterwordspacing
 
 \bibitem{cnn1}

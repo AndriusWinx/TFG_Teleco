@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.7.15)  15 SEP 2026 20:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.7.15)  16 SEP 2026 13:13
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1261,12 +1261,12 @@ MACHINE LEARNING \T1/cmr/m/sl/12 Y \T1/cmr/m/it/12 DEEP LEARNING
 LaTeX Info: Redefining \. on input line 52.
 LaTeX Info: Redefining \% on input line 52.
  [17]
-<Figuras/conceptdrift.png, id=585, 863.225pt x 541.02126pt>
+<Figuras/conceptdrift.png, id=612, 863.225pt x 541.02126pt>
 File: Figuras/conceptdrift.png Graphic file (type png)
 <use Figuras/conceptdrift.png>
 Package pdftex.def Info: Figuras/conceptdrift.png  used on input line 56.
 (pdftex.def)             Requested size: 341.43437pt x 213.98586pt.
-<Figuras/driftmethod.png, id=588, 907.39pt x 197.73875pt>
+<Figuras/driftmethod.png, id=615, 907.39pt x 197.73875pt>
 File: Figuras/driftmethod.png Graphic file (type png)
 <use Figuras/driftmethod.png>
 Package pdftex.def Info: Figuras/driftmethod.png  used on input line 70.
@@ -1294,7 +1294,7 @@ MACHINE LEARNING \T1/cmr/m/sl/12 Y \T1/cmr/m/it/12 DEEP LEARNING
  []
 
 [20]
-<Figuras/deepnet.png, id=626, 475.7775pt x 302.12875pt>
+<Figuras/deepnet.png, id=654, 475.7775pt x 302.12875pt>
 File: Figuras/deepnet.png Graphic file (type png)
 <use Figuras/deepnet.png>
 Package pdftex.def Info: Figuras/deepnet.png  used on input line 176.
@@ -1315,7 +1315,7 @@ Cap\'{\i }tulo 4.
 [23
 
 ]
-<Figuras/mlp.png, id=658, 359.3425pt x 364.36125pt>
+<Figuras/mlp.png, id=685, 359.3425pt x 364.36125pt>
 File: Figuras/mlp.png Graphic file (type png)
 <use Figuras/mlp.png>
 Package pdftex.def Info: Figuras/mlp.png  used on input line 222.
@@ -1323,7 +1323,7 @@ Package pdftex.def Info: Figuras/mlp.png  used on input line 222.
 LaTeX Info: Redefining \. on input line 240.
 LaTeX Info: Redefining \% on input line 240.
  [24 <./Figuras/MLP.png>]
-<Figuras/relu.png, id=676, 742.775pt x 440.64626pt>
+<Figuras/relu.png, id=703, 742.775pt x 440.64626pt>
 File: Figuras/relu.png Graphic file (type png)
 <use Figuras/relu.png>
 Package pdftex.def Info: Figuras/relu.png  used on input line 243.
@@ -1348,7 +1348,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 443.
 LaTeX Info: Redefining \% on input line 443.
  [28]
-<Figuras/gridsearch.png, id=723, 735.74875pt x 385.44pt>
+<Figuras/gridsearch.png, id=750, 735.74875pt x 385.44pt>
 File: Figuras/gridsearch.png Graphic file (type png)
 <use Figuras/gridsearch.png>
 Package pdftex.def Info: Figuras/gridsearch.png  used on input line 457.
@@ -1369,7 +1369,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 482.
 LaTeX Info: Redefining \% on input line 482.
  [30]
-<Figuras/eineout.png, id=746, 951.555pt x 605.26125pt>
+<Figuras/eineout.png, id=774, 951.555pt x 605.26125pt>
 File: Figuras/eineout.png Graphic file (type png)
 <use Figuras/eineout.png>
 Package pdftex.def Info: Figuras/eineout.png  used on input line 487.
@@ -1393,7 +1393,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 LaTeX Info: Redefining \. on input line 542.
 LaTeX Info: Redefining \% on input line 542.
 [32]
-<Figuras/dropout.png, id=774, 359.3425pt x 364.36125pt>
+<Figuras/dropout.png, id=801, 359.3425pt x 364.36125pt>
 File: Figuras/dropout.png Graphic file (type png)
 <use Figuras/dropout.png>
 Package pdftex.def Info: Figuras/dropout.png  used on input line 548.
@@ -1407,7 +1407,7 @@ LaTeX Info: Redefining \% on input line 564.
 LaTeX Info: Redefining \. on input line 582.
 LaTeX Info: Redefining \% on input line 582.
  [34]
-<Figuras/slidingwindow.png, id=798, 493.845pt x 251.94125pt>
+<Figuras/slidingwindow.png, id=825, 493.845pt x 251.94125pt>
 File: Figuras/slidingwindow.png Graphic file (type png)
 <use Figuras/slidingwindow.png>
 Package pdftex.def Info: Figuras/slidingwindow.png  used on input line 594.
@@ -1436,7 +1436,7 @@ Overfull \hbox (180.4842pt too wide) has occurred while \output is active
  []
 
 [39]
-<Figuras/rnn.png, id=862, 1177.39874pt x 406.51875pt>
+<Figuras/rnn.png, id=887, 1177.39874pt x 406.51875pt>
 File: Figuras/rnn.png Graphic file (type png)
 <use Figuras/rnn.png>
 Package pdftex.def Info: Figuras/rnn.png  used on input line 671.
@@ -1458,7 +1458,7 @@ Overfull \hbox (180.4842pt too wide) has occurred while \output is active
  []
 
 [41]
-<Figuras/lstm.png, id=885, 966.61125pt x 508.90125pt>
+<Figuras/lstm.png, id=910, 966.61125pt x 508.90125pt>
 File: Figuras/lstm.png Graphic file (type png)
 <use Figuras/lstm.png>
 Package pdftex.def Info: Figuras/lstm.png  used on input line 764.
@@ -1489,7 +1489,7 @@ Cap\'{\i }tulo 6.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [45]
-<Figuras/cnnpadding.png, id=929, 1060.96375pt x 296.10625pt>
+<Figuras/cnnpadding.png, id=953, 1060.96375pt x 296.10625pt>
 File: Figuras/cnnpadding.png Graphic file (type png)
 <use Figuras/cnnpadding.png>
 Package pdftex.def Info: Figuras/cnnpadding.png  used on input line 798.
@@ -1503,7 +1503,7 @@ Overfull \hbox (236.46233pt too wide) has occurred while \output is active
  []
 
 [46 <./Figuras/cnnpadding.png>]
-<Figuras/pooling.png, id=944, 897.3525pt x 377.41pt>
+<Figuras/pooling.png, id=968, 897.3525pt x 377.41pt>
 File: Figuras/pooling.png Graphic file (type png)
 <use Figuras/pooling.png>
 Package pdftex.def Info: Figuras/pooling.png  used on input line 827.
@@ -1515,7 +1515,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Info: Redefining \. on input line 831.
 LaTeX Info: Redefining \% on input line 831.
 [47]
-<Figuras/cnnarquitecture.png, id=956, 1296.845pt x 355.3275pt>
+<Figuras/cnnarquitecture.png, id=980, 1296.845pt x 355.3275pt>
 File: Figuras/cnnarquitecture.png Graphic file (type png)
 <use Figuras/cnnarquitecture.png>
 Package pdftex.def Info: Figuras/cnnarquitecture.png  used on input line 841.
@@ -1567,7 +1567,7 @@ Overfull \hbox (236.46233pt too wide) has occurred while \output is active
 ]
 Cap\'{\i }tulo 7.
 [53]
-<./svg-inkscape/trafico_celda_5357_svg-raw.pdf, id=1011, 712.71335pt x 425.3330
+<./svg-inkscape/trafico_celda_5357_svg-raw.pdf, id=1036, 712.71335pt x 425.3330
 8pt>
 File: ./svg-inkscape/trafico_celda_5357_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5357_svg-raw.pdf>
@@ -1579,7 +1579,7 @@ Overfull \hbox (0.83995pt too wide) in paragraph at lines 15--16
 [][] 
  []
 
-<./svg-inkscape/trafico_celda_5358_svg-raw.pdf, id=1012, 712.71335pt x 425.3330
+<./svg-inkscape/trafico_celda_5358_svg-raw.pdf, id=1037, 712.71335pt x 425.3330
 8pt>
 File: ./svg-inkscape/trafico_celda_5358_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/trafico_celda_5358_svg-raw.pdf>
@@ -1630,7 +1630,7 @@ LaTeX Info: Redefining \% on input line 116.
 
  (./Resultados.tex
 Cap\'{\i }tulo 8.
-<./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf, id=1163, 425.71733pt x 505.763
+<./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf, id=1187, 425.71733pt x 505.763
 92pt>
 File: ./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/distr_nrmse_metros2_svg-raw.pdf>
@@ -1646,7 +1646,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 ]
-<./svg-inkscape/distr_nrmse_layers_svg-raw.pdf, id=1169, 501.19559pt x 394.4699
+<./svg-inkscape/distr_nrmse_layers_svg-raw.pdf, id=1193, 501.19559pt x 394.4699
 9pt>
 File: ./svg-inkscape/distr_nrmse_layers_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/distr_nrmse_layers_svg-raw.pdf>
@@ -1665,7 +1665,7 @@ aw.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 LaTeX Info: Redefining \. on input line 78.
 LaTeX Info: Redefining \% on input line 78.
  [63]
-<./svg-inkscape/kernel_metros2_svg-raw.pdf, id=8870, 725.7074pt x 463.7024pt>
+<./svg-inkscape/kernel_metros2_svg-raw.pdf, id=8894, 725.7074pt x 463.7024pt>
 File: ./svg-inkscape/kernel_metros2_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/kernel_metros2_svg-raw.pdf>
 Package pdftex.def Info: ./svg-inkscape/kernel_metros2_svg-raw.pdf  used on inp
@@ -1676,7 +1676,7 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
 LaTeX Info: Redefining \. on input line 93.
 LaTeX Info: Redefining \% on input line 93.
  [64 <./svg-inkscape/kernel_metros2_svg-raw.pdf>]
-<./svg-inkscape/lookback_nrmse_time_svg-raw.pdf, id=8924, 661.2015pt x 394.8934
+<./svg-inkscape/lookback_nrmse_time_svg-raw.pdf, id=8948, 661.2015pt x 394.8934
 3pt>
 File: ./svg-inkscape/lookback_nrmse_time_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/lookback_nrmse_time_svg-raw.pdf>
@@ -1690,7 +1690,7 @@ LaTeX Info: Redefining \% on input line 111.
 LaTeX Warning: Reference `cap3:entorno' on page 66 undefined on input line 125.
 
 
-<./svg-inkscape/updates_nrmse_time_svg-raw.pdf, id=8985, 667.56592pt x 394.4919
+<./svg-inkscape/updates_nrmse_time_svg-raw.pdf, id=9009, 667.56592pt x 394.4919
 4pt>
 File: ./svg-inkscape/updates_nrmse_time_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/updates_nrmse_time_svg-raw.pdf>
@@ -1710,7 +1710,7 @@ LaTeX Info: Redefining \. on input line 142.
 LaTeX Info: Redefining \% on input line 142.
 
 [67 <./svg-inkscape/updates_nrmse_time_svg-raw.pdf>]
-<./svg-inkscape/heatmap_bestmodel_svg-raw.pdf, id=9062, 663.08543pt x 598.19487
+<./svg-inkscape/heatmap_bestmodel_svg-raw.pdf, id=9086, 663.08543pt x 598.19487
 pt>
 File: ./svg-inkscape/heatmap_bestmodel_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/heatmap_bestmodel_svg-raw.pdf>
@@ -1724,7 +1724,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Info: Redefining \. on input line 197.
 LaTeX Info: Redefining \% on input line 197.
 [68]
-<./svg-inkscape/heatmap_combined_svg-raw.pdf, id=9069, 1703.40173pt x 592.50945
+<./svg-inkscape/heatmap_combined_svg-raw.pdf, id=9093, 1703.40173pt x 592.50945
 pt>
 File: ./svg-inkscape/heatmap_combined_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/heatmap_combined_svg-raw.pdf>
@@ -1742,7 +1742,7 @@ bined_svg-raw.pdf
 pdfTeX warning: /usr/bin/pdflatex (file ./svg-inkscape/heatmap_combined_svg-raw
 .pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<./svg-inkscape/cell_plot_5162_svg-raw.pdf, id=9678, 859.74263pt x 280.20122pt>
+<./svg-inkscape/cell_plot_5162_svg-raw.pdf, id=9702, 859.74263pt x 280.20122pt>
 
 File: ./svg-inkscape/cell_plot_5162_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cell_plot_5162_svg-raw.pdf>
@@ -1754,7 +1754,7 @@ Overfull \hbox (3.07892pt too wide) in paragraph at lines 223--224
 [][] 
  []
 
-<./svg-inkscape/cell_plot_5163_svg-raw.pdf, id=9679, 859.83293pt x 280.20122pt>
+<./svg-inkscape/cell_plot_5163_svg-raw.pdf, id=9703, 859.83293pt x 280.20122pt>
 
 File: ./svg-inkscape/cell_plot_5163_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cell_plot_5163_svg-raw.pdf>
@@ -1766,7 +1766,7 @@ Overfull \hbox (3.12405pt too wide) in paragraph at lines 226--227
 [][] 
  []
 
-<./svg-inkscape/cell_plot_4959_svg-raw.pdf, id=9680, 859.83293pt x 280.20122pt>
+<./svg-inkscape/cell_plot_4959_svg-raw.pdf, id=9704, 859.83293pt x 280.20122pt>
 
 File: ./svg-inkscape/cell_plot_4959_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cell_plot_4959_svg-raw.pdf>
@@ -1778,7 +1778,7 @@ Overfull \hbox (3.12405pt too wide) in paragraph at lines 243--244
 [][] 
  []
 
-<./svg-inkscape/cell_plot_5357_svg-raw.pdf, id=9681, 859.7702pt x 280.20122pt>
+<./svg-inkscape/cell_plot_5357_svg-raw.pdf, id=9705, 859.7702pt x 280.20122pt>
 File: ./svg-inkscape/cell_plot_5357_svg-raw.pdf Graphic file (type pdf)
 <use ./svg-inkscape/cell_plot_5357_svg-raw.pdf>
 Package pdftex.def Info: ./svg-inkscape/cell_plot_5357_svg-raw.pdf  used on inp
@@ -1828,27 +1828,30 @@ LaTeX Info: Redefining \% on input line 118.
 
 
 ]
+LaTeX Info: Redefining \. on input line 180.
+LaTeX Info: Redefining \% on input line 180.
+ [76]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
+LaTeX Info: Redefining \. on input line 264.
+LaTeX Info: Redefining \% on input line 264.
+[77]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `eng'. Using the pattern for
 ** the default language instead.
-LaTeX Info: Redefining \. on input line 183.
-LaTeX Info: Redefining \% on input line 183.
-[76]
-LaTeX Info: Redefining \. on input line 280.
-LaTeX Info: Redefining \% on input line 280.
- [77]
+LaTeX Info: Redefining \. on input line 360.
+LaTeX Info: Redefining \% on input line 360.
+[78]
 ** WARNING: IEEEtran.bst: No hyphenation pattern has been
 ** loaded for the language `spa'. Using the pattern for
 ** the default language instead.
-LaTeX Info: Redefining \. on input line 358.
-LaTeX Info: Redefining \% on input line 358.
-[78])
+LaTeX Info: Redefining \. on input line 452.
+LaTeX Info: Redefining \% on input line 452.
+[79])
 LaTeX Info: Redefining \. on input line 123.
 LaTeX Info: Redefining \% on input line 123.
- [79] (./TFG_Teleco.aux
+ [80] (./TFG_Teleco.aux
 LaTeX Info: Redefining \. on input line 12.
 LaTeX Info: Redefining \% on input line 12.
 LaTeX Info: Redefining \. on input line 14.
@@ -1868,10 +1871,10 @@ Package rerunfilecheck Info: File `TFG_Teleco.out' has not changed.
 (rerunfilecheck)             Checksum: 8D8E97BAED81CD562FDAE69C917EC969;10179.
  ) 
 Here is how much of TeX's memory you used:
- 35108 strings out of 467533
- 697638 string characters out of 5422138
+ 35119 strings out of 467533
+ 697756 string characters out of 5422138
  1259053 words of memory out of 5000000
- 63114 multiletter control sequences out of 15000+600000
+ 63119 multiletter control sequences out of 15000+600000
  664210 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,12n,94p,1126b,1389s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1913,10 +1916,10 @@ ic/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200
 .pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/tex
 mf/fonts/type1/public/cm-super/sftt1440.pfb></usr/share/texmf/fonts/type1/publi
 c/cm-super/sfxc1728.pfb>
-Output written on TFG_Teleco.pdf (83 pages, 4194801 bytes).
+Output written on TFG_Teleco.pdf (84 pages, 4199530 bytes).
 PDF statistics:
- 10086 PDF objects out of 10688 (max. 8388607)
- 6939 compressed objects within 70 object streams
- 280 named destinations out of 1000 (max. 500000)
+ 10122 PDF objects out of 10688 (max. 8388607)
+ 6974 compressed objects within 70 object streams
+ 286 named destinations out of 1000 (max. 500000)
  609 words of extra memory for PDF output out of 10000 (max. 10000000)
 
