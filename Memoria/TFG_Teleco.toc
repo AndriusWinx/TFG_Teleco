@@ -21,7 +21,7 @@
 \contentsline {subsection}{\numberline {4.3.3}\textit {Backpropagation}}{27}{subsection.4.3.3}%
 \contentsline {section}{\numberline {4.4}Selección de modelos}{29}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Técnicas de regularización}{31}{section.4.5}%
-\contentsline {subsubsection}{$L_2$ o \textit {Weight Decay}}{31}{section*.18}%
+\contentsline {subsubsection}{$L_2$ o \textit {Weight Decay}}{31}{section*.19}%
 \contentsline {subsection}{\numberline {4.5.1}$L_1$ o \textit {Lasso}}{32}{subsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.5.2}\textit {Dropout}}{32}{subsection.4.5.2}%
 \contentsline {subsection}{\numberline {4.5.3}\textit {Early stopping}}{33}{subsection.4.5.3}%
@@ -58,3 +58,4 @@
 \contentsline {section}{\numberline {9.1}Conclusiones}{73}{section.9.1}%
 \contentsline {section}{\numberline {9.2}Líneas futuras}{73}{section.9.2}%
 \contentsline {section}{Referencias}{75}{section.9.2}%
+\contentsline {chapter}{\numberline {A}Repositorio}{81}{appendix.Alph1}%
